@@ -419,34 +419,37 @@ def scrape_property(name: str, slug: str) -> dict:
     return {"name": name, "slug": slug, "rooms": rooms}
 
 
-def avail_pill(status: str, count) -> str:
-    """Generate availability pill HTML."""
+def avail_info(status: str, count) -> tuple:
+    """Return (row_class, status_html) for availability display."""
     if status == 'available':
         label = f"{count}间" if count else "有房"
-        return f'<span class="pill pill-available">{label}</span>'
+        return ('row-ok', f'<span class="status status-ok"><span class="status-dot"></span>{label}</span>')
     elif status == 'limited':
         label = f"仅剩{count}间" if count else "紧张"
-        return f'<span class="pill pill-limited">{label}</span>'
+        return ('row-warn', f'<span class="status status-warn"><span class="status-dot"></span>{label}</span>')
     elif status == 'waitlist':
-        return '<span class="pill pill-waitlist">等位</span>'
+        return ('row-bad', '<span class="status status-bad"><span class="status-dot"></span>等位</span>')
     elif status == 'soldout':
-        return '<span class="pill pill-soldout">售罄</span>'
+        return ('row-off', '<span class="status status-off"><span class="status-dot"></span>售罄</span>')
     else:
-        return '<span class="pill pill-soldout">未知</span>'
+        return ('row-off', '<span class="status status-off"><span class="status-dot"></span>未知</span>')
 
 
 def build_studio_row(room: dict) -> str:
     """Build a single studio table row."""
     p = room['prices']
+    row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
+    note = room.get("note", "")
+    note_html = f'<span class="room-note">{note}</span>' if note else ''
     return (
-        f'<tr>'
-        f'<td><strong>{room["name"]}</strong></td>'
+        f'<tr class="{row_cls}">'
+        f'<td><span class="room-name">{room["name"]}</span>{note_html}</td>'
         f'<td>{room["area"]}</td>'
         f'<td>{room["bed"]}</td>'
         f'<td><span class="price">{format_price(p, "12月")}</span></td>'
         f'<td><span class="price">{format_price(p, "22周")}</span></td>'
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
-        f'<td>{avail_pill(room["avail_status"], room["avail_count"])}</td>'
+        f'<td>{status_html}</td>'
         f'<td>{room["date_str"]}</td>'
         f'</tr>'
     )
@@ -455,15 +458,16 @@ def build_studio_row(room: dict) -> str:
 def build_share_row(room: dict) -> str:
     """Build a single share table row."""
     p = room['prices']
+    row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     return (
-        f'<tr>'
-        f'<td><strong>{room["name"]}</strong></td>'
+        f'<tr class="{row_cls}">'
+        f'<td><span class="room-name">{room["name"]}</span></td>'
         f'<td>{room["area"]}</td>'
         f'<td>{room["bed"]}</td>'
         f'<td><span class="price">{format_price(p, "22周")}</span></td>'
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
         f'<td>{room["note"]}</td>'
-        f'<td>{avail_pill(room["avail_status"], room["avail_count"])}</td>'
+        f'<td>{status_html}</td>'
         f'<td>{room["date_str"]}</td>'
         f'</tr>'
     )
