@@ -423,16 +423,16 @@ def avail_info(status: str, count) -> tuple:
     """Return (row_class, status_html) for availability display."""
     if status == 'available':
         label = f"{count}间" if count else "有房"
-        return ('row-ok', f'<span class="status status-ok"><span class="status-dot"></span>{label}</span>')
+        return ('row-ok', f'<span class="tag tag-ok">{label}</span>')
     elif status == 'limited':
         label = f"仅剩{count}间" if count else "紧张"
-        return ('row-warn', f'<span class="status status-warn"><span class="status-dot"></span>{label}</span>')
+        return ('row-warn', f'<span class="tag tag-warn">{label}</span>')
     elif status == 'waitlist':
-        return ('row-bad', '<span class="status status-bad"><span class="status-dot"></span>等位</span>')
+        return ('row-bad', '<span class="tag tag-bad">等位</span>')
     elif status == 'soldout':
-        return ('row-off', '<span class="status status-off"><span class="status-dot"></span>售罄</span>')
+        return ('row-off', '<span class="tag tag-off">售罄</span>')
     else:
-        return ('row-off', '<span class="status status-off"><span class="status-dot"></span>未知</span>')
+        return ('row-off', '<span class="tag tag-off">未知</span>')
 
 
 def build_studio_row(room: dict) -> str:
@@ -503,7 +503,7 @@ def build_property_section(prop: dict) -> str:
 
 
 def build_prop_panel(prop: dict, is_first: bool) -> str:
-    """Build a single property panel with Studio/Share sub-tabs."""
+    """Build a single property panel with Studio/Share sub-btns."""
     studio_rows = []
     share_rows = []
     for room in prop['rooms']:
@@ -518,14 +518,14 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
     active_class = " active" if is_first else ""
 
     if studio_rows:
-        sub_tabs_html += f'<button class="sub-tab active" data-type="studio" onclick="switchSub(\'{prop["slug"]}\',\'studio\')">🏠 Studio</button>'
+        sub_tabs_html += f'<button class="sub-btn active" data-type="studio" onclick="switchSub(\'{prop["slug"]}\',\'studio\')">🏠 Studio</button>'
         studio_html = f'''<div class="sub-panel active" data-type="studio">
 <div class="table-wrap"><table>
 <thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
 <tbody>{"".join(studio_rows)}</tbody>
 </table></div></div>'''
     if share_rows:
-        sub_tabs_html += f'<button class="sub-tab{" active" if not studio_rows else ""}" data-type="share" onclick="switchSub(\'{prop["slug"]}\',\'share\')">👥 合租</button>'
+        sub_tabs_html += f'<button class="sub-btn{" active" if not studio_rows else ""}" data-type="share" onclick="switchSub(\'{prop["slug"]}\',\'share\')">👥 合租</button>'
         share_html = f'''<div class="sub-panel{" active" if not studio_rows else ""}" data-type="share">
 <div class="table-wrap"><table>
 <thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
@@ -533,7 +533,7 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
 </table></div></div>'''
 
     return f'''<div class="prop-panel{active_class}" id="prop-{prop['slug']}">
-<div class="sub-tabs">{sub_tabs_html}</div>
+<div class="sub-btns">{sub_tabs_html}</div>
 {studio_html}{share_html}
 </div>'''
 
@@ -553,7 +553,7 @@ def build_html(all_properties: list) -> str:
         room_count = len(prop['rooms'])
         active = ' active' if i == 0 else ''
         nav_buttons.append(
-            f'<button class="prop-nav-btn{active}" id="prop-btn-{prop["slug"]}" '
+            f'<button class="prop-btn{active}" id="prop-btn-{prop["slug"]}" '
             f'onclick="switchProp(\'{prop["slug"]}\')">{prop["name"]}<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">{room_count}</span></button>'
         )
 

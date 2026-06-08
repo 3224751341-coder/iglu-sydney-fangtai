@@ -4,159 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Iglu Sydney 房态 — 异乡好居悉尼</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fafaf9;
+    --bg: #f7f6f4;
     --card: #fff;
-    --text: #1a1a1a;
-    --muted: #78716c;
-    --border: #e7e5e4;
+    --text: #1c1c1c;
+    --muted: #8c8a84;
+    --border: #e8e6e1;
     --green: #059669;
     --green-bg: #ecfdf5;
-    --green-border: #a7f3d0;
+    --green-dot: #10b981;
     --amber: #d97706;
     --amber-bg: #fffbeb;
-    --amber-border: #fcd34d;
+    --amber-dot: #f59e0b;
     --red: #dc2626;
     --red-bg: #fef2f2;
-    --red-border: #fecaca;
+    --red-dot: #ef4444;
     --gray-bg: #f5f5f4;
-    --radius: 12px;
+    --radius: 16px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.04);
     --font: 'Satoshi', system-ui, -apple-system, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0c0c0c;
+      --bg: #0d0d0d;
       --card: #171717;
       --text: #e7e5e4;
       --muted: #78716c;
       --border: #292524;
-      --green: #34d399;
-      --green-bg: #022c22;
-      --green-border: #065f46;
-      --amber: #fbbf24;
-      --amber-bg: #2d1a0e;
-      --amber-border: #92400e;
-      --red: #f87171;
-      --red-bg: #2d0e0e;
-      --red-border: #991b1b;
+      --green: #34d399; --green-bg: #022c22; --green-dot: #34d399;
+      --amber: #fbbf24; --amber-bg: #2d1a0e; --amber-dot: #fbbf24;
+      --red: #f87171; --red-bg: #2d0e0e; --red-dot: #f87171;
       --gray-bg: #1c1c1c;
+      --shadow: none;
     }
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-family: var(--font); -webkit-font-smoothing: antialiased; background: var(--bg); color: var(--text); }
-  body { max-width: 1200px; margin: 0 auto; padding: 44px 28px 100px; line-height: 1.6; }
+  body { max-width: 1280px; margin: 0 auto; padding: 56px 32px 120px; }
 
   /* ── Header ── */
-  .header { margin-bottom: 32px; }
-  .header-row { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 4px; }
-  .header h1 { font-size: clamp(1.4rem, 3.5vw, 1.8rem); font-weight: 700; letter-spacing: -0.025em; }
-  .meta { color: var(--muted); font-size: 0.82rem; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .meta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .site-header { margin-bottom: 48px; }
+  .site-header h1 { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .site-header .sub { font-size: 0.88rem; color: var(--muted); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--green-dot); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
   /* ── Property Nav ── */
-  .prop-nav-wrap { margin-bottom: 32px; }
-  .prop-nav { display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+  .prop-nav-wrap { margin-bottom: 40px; }
+  .prop-nav { display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .prop-nav::-webkit-scrollbar { display: none; }
-  .prop-nav-btn { flex-shrink: 0; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.84rem; font-weight: 600; color: var(--muted); border: 1px solid var(--border); background: var(--card); font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; letter-spacing: -0.01em; position: relative; }
-  .prop-nav-btn:hover { color: var(--text); border-color: var(--muted); transform: translateY(-1px); }
-  .prop-nav-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-  .prop-nav-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
-  .prop-nav-btn .count { font-size: 0.68rem; opacity: 0.5; margin-left: 3px; font-weight: 400; }
+  .prop-btn { flex-shrink: 0; padding: 12px 20px; border-radius: 12px; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--muted); border: 1px solid var(--border); background: var(--card); font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; letter-spacing: -0.01em; }
+  .prop-btn:hover { color: var(--text); background: var(--bg); transform: translateY(-1px); box-shadow: var(--shadow); }
+  .prop-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  .prop-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); box-shadow: var(--shadow); }
+  .prop-btn .count { font-size: 0.72rem; opacity: 0.5; margin-left: 4px; font-weight: 400; }
 
-  /* ── Sub Tabs ── */
-  .sub-tabs { display: flex; gap: 2px; margin-bottom: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 3px; width: fit-content; }
-  .sub-tab { padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: var(--muted); border: none; background: none; font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; }
-  .sub-tab:hover { color: var(--text); }
-  .sub-tab:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
-  .sub-tab.active { background: var(--bg); color: var(--text); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-
-  /* ── Table ── */
-  .table-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
-  .table-card table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-  .table-card th { text-align: left; padding: 12px 16px; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); background: var(--bg); border-bottom: 1px solid var(--border); }
-  .table-card td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-  .table-card tbody tr { transition: background 180ms cubic-bezier(0.32,0.72,0,1); position: relative; }
-  .table-card tbody tr:hover { background: var(--bg); }
-
-  /* Row status bar */
-  .table-card tbody tr { box-shadow: inset 3px 0 0 transparent; }
-  .table-card tbody tr.row-ok { box-shadow: inset 3px 0 0 var(--green); }
-  .table-card tbody tr.row-warn { box-shadow: inset 3px 0 0 var(--amber); }
-  .table-card tbody tr.row-bad { box-shadow: inset 3px 0 0 var(--red); }
-  .table-card tbody tr.row-off { box-shadow: inset 3px 0 0 var(--border); }
-
-  /* Room name */
-  .room-name { font-weight: 600; }
-  .room-note { font-size: 0.75rem; color: var(--muted); font-weight: 400; }
-
-  /* Price */
-  .price { font-weight: 650; letter-spacing: -0.01em; }
-
-  /* Status pill */
-  .status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
-  .status-ok { background: var(--green-bg); color: var(--green); }
-  .status-warn { background: var(--amber-bg); color: var(--amber); }
-  .status-bad { background: var(--red-bg); color: var(--red); }
-  .status-off { background: var(--gray-bg); color: var(--muted); }
-  .status-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .status-ok .status-dot { background: var(--green); }
-  .status-warn .status-dot { background: var(--amber); }
-  .status-bad .status-dot { background: var(--red); }
-  .status-off .status-dot { background: var(--muted); }
-
-  /* Property panel */
+  /* ── Panel ── */
   .prop-panel { display: none; }
   .prop-panel.active { display: block; }
+
+  /* ── Sub nav ── */
+  .sub-nav { display: flex; gap: 4px; margin-bottom: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 4px; width: fit-content; }
+  .sub-btn { padding: 8px 20px; border-radius: 7px; cursor: pointer; font-size: 0.84rem; font-weight: 500; color: var(--muted); border: none; background: none; font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); }
+  .sub-btn:hover { color: var(--text); }
+  .sub-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
+  .sub-btn.active { background: var(--bg); color: var(--text); font-weight: 600; }
   .sub-panel { display: none; }
   .sub-panel.active { display: block; }
 
+  /* ── Table Card ── */
+  .table-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .table-card table { width: 100%; border-collapse: collapse; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+  .table-card thead { border-bottom: 1px solid var(--border); }
+  .table-card th { text-align: left; padding: 16px 20px; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .table-card td { padding: 16px 20px; vertical-align: middle; }
+  .table-card tbody tr { transition: background 180ms cubic-bezier(0.32,0.72,0,1); }
+  .table-card tbody tr + tr { border-top: 1px solid var(--border); }
+  .table-card tbody tr:hover { background: var(--bg); }
+
+  /* Row status stripe */
+  .table-card tbody tr { box-shadow: inset 4px 0 0 transparent; }
+  .table-card tbody tr.row-ok  { box-shadow: inset 4px 0 0 var(--green); }
+  .table-card tbody tr.row-warn { box-shadow: inset 4px 0 0 var(--amber); }
+  .table-card tbody tr.row-bad  { box-shadow: inset 4px 0 0 var(--red); }
+  .table-card tbody tr.row-off  { box-shadow: inset 4px 0 0 var(--border); }
+
+  /* Cell styles */
+  .room-name { font-weight: 650; }
+  .room-note { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .price { font-weight: 650; letter-spacing: -0.01em; }
+  .price-na { color: var(--muted); }
+
+  /* Status */
+  .tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 600; letter-spacing: -0.01em; }
+  .tag-ok   { background: var(--green-bg); color: var(--green); }
+  .tag-warn { background: var(--amber-bg); color: var(--amber); }
+  .tag-bad  { background: var(--red-bg);   color: var(--red); }
+  .tag-off  { background: var(--gray-bg);  color: var(--muted); }
+  .tag::before { content:''; width:6px; height:6px; border-radius:50%; }
+  .tag-ok::before   { background: var(--green-dot); }
+  .tag-warn::before { background: var(--amber-dot); }
+  .tag-bad::before  { background: var(--red-dot); }
+  .tag-off::before  { background: var(--muted); }
+
+  .date-cell { font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
+
   /* ── Footer ── */
-  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
-  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
-  .foot-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
-  .foot-card h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
-  .foot-card p, .foot-card li { font-size: 0.82rem; line-height: 1.7; color: var(--text); }
+  .site-footer { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px; }
+  .foot-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+  .foot-card h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+  .foot-card p, .foot-card li { font-size: 0.84rem; line-height: 1.8; }
   .foot-card ul { list-style: none; padding: 0; }
   .foot-card li::before { content: "— "; color: var(--muted); }
+  .foot-credit { color: var(--muted); font-size: 0.76rem; margin-top: 28px; text-align: center; letter-spacing: -0.01em; }
 
   /* ── Animations ── */
-  .fade-in { opacity: 0; transform: translateY(8px); animation: fadeIn 550ms cubic-bezier(0.32,0.72,0,1) forwards; }
+  .fade-in { opacity: 0; transform: translateY(10px); animation: fadeIn 500ms cubic-bezier(0.32,0.72,0,1) forwards; }
   @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 
   /* ── Mobile ── */
   @media (max-width:768px) {
-    body { padding: 24px 14px 60px; }
+    body { padding: 28px 16px 80px; }
     .table-card { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .table-card table { min-width: 680px; }
-    .prop-nav-btn { padding: 7px 12px; font-size: 0.78rem; }
-    .meta { gap: 8px; font-size: 0.75rem; }
+    .table-card table { min-width: 700px; }
+    .prop-btn { padding: 10px 14px; font-size: 0.8rem; }
+    .site-header { margin-bottom: 32px; }
+    .site-header h1 { font-size: 1.5rem; }
   }
 </style>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="header fade-in" style="animation-delay:0ms">
-  <div class="header-row">
-    <h1>Iglu Sydney 房态</h1>
-  </div>
-  <div class="meta">
-    <span class="meta-dot"></span> 更新于 {{UPDATE_TIME}}
+<header class="site-header fade-in" style="animation-delay:0ms">
+  <h1>Iglu Sydney 房态</h1>
+  <p class="sub">
+    <span class="live-dot"></span> 更新于 {{UPDATE_TIME}}
     <span>·</span> Agent A1336
     <span>·</span> 每日 10:00 / 19:00 自动刷新
-  </div>
+  </p>
 </header>
 
-<nav class="prop-nav-wrap fade-in" style="animation-delay:80ms">
+<nav class="prop-nav-wrap fade-in" style="animation-delay:60ms">
   <div class="prop-nav" id="prop-nav">{{PROP_NAV}}</div>
 </nav>
 
 {{PROP_PANELS}}
 
-<footer class="footer fade-in" style="animation-delay:400ms">
-  <div class="footer-grid">
+<footer class="site-footer fade-in" style="animation-delay:400ms">
+  <div class="foot-grid">
     <div class="foot-card">
       <h3>租金全包</h3>
       <p>无限WiFi、水电燃气、公共空间、24/7驻场支持、Sonder APP、住户活动、工作日免费早餐</p>
@@ -179,26 +177,28 @@
       </ul>
     </div>
   </div>
-  <p style="color:var(--muted);font-size:0.78rem;margin-top:24px;text-align:center">异乡好居悉尼 · 梁赛威 (VX) · 仅供内部参考</p>
+  <p class="foot-credit">异乡好居悉尼 · 梁赛威 (VX) · 仅供内部参考</p>
 </footer>
 
 <script>
 function switchProp(slug){
-  document.querySelectorAll('.prop-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.prop-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.prop-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('prop-btn-'+slug).classList.add('active');
+  var btn=document.getElementById('prop-btn-'+slug);
   var panel=document.getElementById('prop-'+slug);
+  if(btn)btn.classList.add('active');
+  if(!panel)return;
   panel.classList.add('active');
-  panel.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
+  panel.querySelectorAll('.sub-btn').forEach(t=>t.classList.remove('active'));
   panel.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('active'));
-  var first=panel.querySelector('.sub-tab');
+  var first=panel.querySelector('.sub-btn');
   if(first){first.classList.add('active');panel.querySelector('.sub-panel[data-type="'+first.dataset.type+'"]').classList.add('active');}
 }
 function switchSub(slug,type){
   var panel=document.getElementById('prop-'+slug);
-  panel.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
+  panel.querySelectorAll('.sub-btn').forEach(t=>t.classList.remove('active'));
   panel.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('active'));
-  panel.querySelector('.sub-tab[data-type="'+type+'"]').classList.add('active');
+  panel.querySelector('.sub-btn[data-type="'+type+'"]').classList.add('active');
   panel.querySelector('.sub-panel[data-type="'+type+'"]').classList.add('active');
 }
 </script>
