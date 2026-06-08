@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # ── Config ──
 AGENT_CODE = "A1336"
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+COOKIE_FILE = os.path.join(PROJECT_DIR, ".agent_cookies.txt")
 TEMPLATE_PATH = os.path.join(PROJECT_DIR, "template.html")
 OUTPUT_PATH = os.path.join(PROJECT_DIR, "index.html")
 CLOUDFLARE_PROJECT = "iglu-centralpark"
@@ -107,8 +108,34 @@ U18_ROOMS = {
 }
 
 
-def fetch_page(url: str) -> str:
-    """Fetch a page using curl (better TLS fingerprint)."""
+def login_agent_portal() -> bool:
+    """Log into Iglu Agent Portal, save cookies. Returns True if successful."""
+    print("  🔑 Logging into Agent Portal...")
+    cmd = [
+        "curl", "-sL", "-c", COOKIE_FILE,
+        "-H", "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "-H", "Content-Type: application/x-www-form-urlencoded",
+        "-d", f"agent_code={AGENT_CODE}",
+        "--connect-timeout", "15", "--max-time", "30",
+        "-w", "%{http_code}",
+        "https://iglu.com.au/iglu-agent-portal-login/"
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=35)
+    if result.returncode != 0:
+        print(f"  ⚠️ Agent login failed: curl error")
+        return False
+    # Check if redirected to portal (success) or stayed on login (fail)
+    output = result.stdout
+    http_code = output[-3:] if len(output) > 3 else output
+    if http_code in ('302', '301', '200') and 'agent_code' not in output[:500].lower():
+        print(f"  ✅ Agent Portal logged in")
+        return True
+    print(f"  ⚠️ Agent login may have failed (HTTP {http_code})")
+    return False
+
+
+def fetch_page(url: str, use_agent: bool = False) -> str:
+    """Fetch a page using curl. If use_agent=True, use agent cookies."""
     cmd = [
         "curl", "-sL",
         "--compressed",
@@ -117,8 +144,10 @@ def fetch_page(url: str) -> str:
         "-H", "Accept-Language: en-AU,en;q=0.9",
         "--connect-timeout", "15",
         "--max-time", str(REQUEST_TIMEOUT),
-        url
     ]
+    if use_agent and os.path.exists(COOKIE_FILE):
+        cmd += ["-b", COOKIE_FILE]
+    cmd.append(url)
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=REQUEST_TIMEOUT + 5)
     if result.returncode != 0:
         raise Exception(f"curl failed: {result.stderr[:200]}")
@@ -341,9 +370,13 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
     """Scrape a single room page and return structured data."""
     url = f"https://iglu.com.au/rooms/sydney/{property_slug}/{room_slug}/"
     try:
-        html = fetch_page(url)
+        # Try agent view first for better availability data
+        html = fetch_page(url, use_agent=True)
     except Exception as e:
-        return {"error": str(e), "url": url, "slug": room_slug}
+        try:
+            html = fetch_page(url, use_agent=False)
+        except Exception as e2:
+            return {"error": str(e2), "url": url, "slug": room_slug}
 
     prices = extract_prices(html)
     avail_status, avail_count, avail_text = extract_availability(html)
@@ -618,6 +651,11 @@ def main():
     print("=" * 50)
     print(f"🔄 Iglu Sydney 房态更新 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
+
+    # Try Agent Portal login for more accurate inventory
+    agent_ok = login_agent_portal()
+    if not agent_ok:
+        print("  ℹ️  Will use public page data only")
 
     all_properties = []
     total_rooms = 0
