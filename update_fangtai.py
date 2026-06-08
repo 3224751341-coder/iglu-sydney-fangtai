@@ -170,26 +170,38 @@ def extract_prices(html: str) -> dict:
 
 
 def extract_availability(html: str) -> tuple:
-    """Extract availability status and count. Returns (status, count, text)."""
-    # Check for specific patterns
-    patterns = [
-        (r'(\d+)\s*LEFT\s*AT\s*THIS\s*PRICE', 'available'),
-        (r'(\d+)\s*left\s*at\s*this\s*price', 'available'),
-        (r'Hurry!?\s*Only\s*(\d+)\s*spots?\s*left', 'limited'),
-        (r'Only\s*(\d+)\s*spots?\s*left', 'limited'),
-        (r'(\d+)\s*spots?\s*left', 'limited'),
-        (r'sold\s*out', 'soldout'),
-        (r'currently\s*sold\s*out', 'soldout'),
-        (r'wait\s*list', 'waitlist'),
-        (r'waitlist', 'waitlist'),
-        (r'join\s*the\s*wait\s*list', 'waitlist'),
-    ]
+    """Extract availability status and count. Returns (status, count, text).
+    Prefers visible patterns over hidden ones."""
+    # Priority 1: "X LEFT AT THIS PRICE" — visible on page, more reliable
+    m = re.search(r'(\d+)\s*LEFT\s*AT\s*THIS\s*PRICE', html, re.IGNORECASE)
+    if m:
+        count = int(m.group(1))
+        return ('available' if count >= 3 else 'limited', count, m.group(0))
 
-    for pattern, status in patterns:
-        m = re.search(pattern, html, re.IGNORECASE)
-        if m:
-            count = int(m.group(1)) if m.lastindex and m.group(1).isdigit() else None
-            return (status, count, m.group(0))
+    m = re.search(r'(\d+)\s*left\s*at\s*this\s*price', html, re.IGNORECASE)
+    if m:
+        count = int(m.group(1))
+        return ('available' if count >= 3 else 'limited', count, m.group(0))
+
+    # Priority 2: "Hurry! Only X spots" — often display:none, marketing copy
+    m = re.search(r'Hurry!?\s*Only\s*(\d+)\s*spots?\s*left', html, re.IGNORECASE)
+    if m:
+        count = int(m.group(1))
+        return ('limited', count, m.group(0))
+
+    m = re.search(r'Only\s*(\d+)\s*spots?\s*left', html, re.IGNORECASE)
+    if m:
+        count = int(m.group(1))
+        return ('limited', count, m.group(0))
+
+    # Priority 3: Sold out / Wait list
+    for pattern in [r'sold\s*out', r'currently\s*sold\s*out']:
+        if re.search(pattern, html, re.IGNORECASE):
+            return ('soldout', None, '')
+
+    for pattern in [r'wait\s*list', r'waitlist', r'join\s*the\s*wait\s*list']:
+        if re.search(pattern, html, re.IGNORECASE):
+            return ('waitlist', None, '')
 
     return ('unknown', None, '')
 
