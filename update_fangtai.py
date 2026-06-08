@@ -170,40 +170,24 @@ def extract_prices(html: str) -> dict:
 
 
 def extract_availability(html: str) -> tuple:
-    """Extract availability status and count. Returns (status, count, text).
-    Prefers visible patterns over hidden ones."""
-    # Priority 1: "X LEFT AT THIS PRICE" — visible on page, more reliable
+    """Extract availability status and count.
+    Only uses visible indicators. No count = defaults to available."""
+    # "X LEFT AT THIS PRICE" — visible, most reliable
     m = re.search(r'(\d+)\s*LEFT\s*AT\s*THIS\s*PRICE', html, re.IGNORECASE)
     if m:
         count = int(m.group(1))
         return ('available' if count >= 3 else 'limited', count, m.group(0))
 
-    m = re.search(r'(\d+)\s*left\s*at\s*this\s*price', html, re.IGNORECASE)
-    if m:
-        count = int(m.group(1))
-        return ('available' if count >= 3 else 'limited', count, m.group(0))
+    # Sold out — explicit
+    if re.search(r'sold\s*out', html, re.IGNORECASE):
+        return ('soldout', None, '')
 
-    # Priority 2: "Hurry! Only X spots" — often display:none, marketing copy
-    m = re.search(r'Hurry!?\s*Only\s*(\d+)\s*spots?\s*left', html, re.IGNORECASE)
-    if m:
-        count = int(m.group(1))
-        return ('limited', count, m.group(0))
+    # Wait list — explicit
+    if re.search(r'wait\s*list', html, re.IGNORECASE):
+        return ('waitlist', None, '')
 
-    m = re.search(r'Only\s*(\d+)\s*spots?\s*left', html, re.IGNORECASE)
-    if m:
-        count = int(m.group(1))
-        return ('limited', count, m.group(0))
-
-    # Priority 3: Sold out / Wait list
-    for pattern in [r'sold\s*out', r'currently\s*sold\s*out']:
-        if re.search(pattern, html, re.IGNORECASE):
-            return ('soldout', None, '')
-
-    for pattern in [r'wait\s*list', r'waitlist', r'join\s*the\s*wait\s*list']:
-        if re.search(pattern, html, re.IGNORECASE):
-            return ('waitlist', None, '')
-
-    return ('unknown', None, '')
+    # No visible inventory number → assume available
+    return ('available', None, '')
 
 
 def extract_dates(html: str) -> dict:
