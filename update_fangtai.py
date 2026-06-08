@@ -195,29 +195,64 @@ def extract_availability(html: str) -> tuple:
 
 
 def extract_dates(html: str) -> list:
-    """Extract available start dates from a room page."""
+    """Extract available start dates from a room page.
+    Only extracts dates that appear as clickable buttons/links (not example text)."""
+    from html.parser import HTMLParser
+
     dates = []
-    # Match specific date buttons: "12 June 2026", "7 July 2026", etc.
-    date_pattern = re.findall(
-        r'(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})',
-        html
-    )
     month_map = {m: i for i, m in enumerate([
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ], 1)}
 
-    seen = set()
-    for day, month_name, year in date_pattern:
-        m = month_map.get(month_name)
-        if m:
-            key = f"{int(day):02d}-{m:02d}"
-            if key not in seen:
-                seen.add(key)
-                dates.append((int(year), m, int(day)))
+    # Strategy 1: Find dates inside <a> or <button> tags (real clickable options)
+    # Look for patterns like: <a ...>12 June 2026</a> or <button ...>Flexible Start</button>
+    clickable_pattern = re.finditer(
+        r'<(?:a|button|option|label)[^>]*?>\s*(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\s*</(?:a|button|option|label)>',
+        html, re.IGNORECASE
+    )
+    for m in clickable_pattern:
+        day, month_name, year = int(m.group(1)), m.group(2), int(m.group(3))
+        month = month_map.get(month_name)
+        if month:
+            dates.append((year, month, day))
 
-    dates.sort()
-    return dates
+    # Strategy 2: Look for dates near "date" class containers (booking form)
+    if not dates:
+        # Find the booking section and extract dates only from that area
+        booking_section = re.search(
+            r'(?:start-date|move-in|contract-start|date-select|when would you like)',
+            html, re.IGNORECASE
+        )
+        if booking_section:
+            # Search only within 2000 chars after the booking section marker
+            section_start = max(0, booking_section.start() - 500)
+            section_end = min(len(html), booking_section.end() + 3000)
+            section_html = html[section_start:section_end]
+
+            # Exclude example text ("e.g.", "for example")
+            section_no_examples = re.sub(r'e\.g\..*?(?=<)', '', section_html, flags=re.IGNORECASE)
+
+            date_matches = re.finditer(
+                r'(?:>|\s)(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})',
+                section_no_examples
+            )
+            for m in date_matches:
+                day, month_name, year = int(m.group(1)), m.group(2), int(m.group(3))
+                month = month_map.get(month_name)
+                if month:
+                    dates.append((year, month, day))
+
+    # Deduplicate and sort
+    seen = set()
+    unique = []
+    for d in dates:
+        key = f"{d[2]:02d}-{d[1]:02d}"
+        if key not in seen:
+            seen.add(key)
+            unique.append(d)
+    unique.sort()
+    return unique
 
 
 def extract_features(html: str) -> dict:
