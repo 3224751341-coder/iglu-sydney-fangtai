@@ -259,20 +259,30 @@ def extract_dates(html: str) -> dict:
 
 
 def extract_features(html: str) -> dict:
-    """Extract room features from the page."""
+    """Extract room features from the page HTML."""
     features = {}
-    # Area
-    area_m = re.search(r'(\d+)\s*m²', html)
-    if area_m:
-        features['area'] = f"{area_m.group(1)}m²"
 
-    # Bed type
-    if re.search(r'queen\s*bed', html, re.IGNORECASE):
-        features['bed'] = 'Queen'
-    elif re.search(r'king\s*single', html, re.IGNORECASE):
+    # Clean HTML tags for text matching
+    text = re.sub(r'<[^>]+>', ' ', html)
+
+    # Area: look for patterns like "Approx. 17m²", "19.5m²", "Approx. 13.4m²"
+    area_m = re.search(r'(?:Approx\.?\s*)?(\d+\.?\d*)\s*m²', text, re.IGNORECASE)
+    if area_m:
+        area_val = float(area_m.group(1))
+        if area_val == int(area_val):
+            features['area'] = f"{int(area_val)}m²"
+        else:
+            features['area'] = f"{area_val}m²"
+
+    # Bed type - check in order of specificity
+    if re.search(r'king\s*single', text, re.IGNORECASE):
         features['bed'] = 'King Single'
-    elif re.search(r'double\s*bed', html, re.IGNORECASE):
+    elif re.search(r'queen\s*bed', text, re.IGNORECASE):
+        features['bed'] = 'Queen'
+    elif re.search(r'double\s*bed', text, re.IGNORECASE):
         features['bed'] = 'Double'
+    elif re.search(r'king\s*bed', text, re.IGNORECASE):
+        features['bed'] = 'King'
 
     return features
 
@@ -342,16 +352,20 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
     prices = extract_prices(html)
     avail_status, avail_count, avail_text = extract_availability(html)
     date_data = extract_dates(html)
+    features = extract_features(html)
 
+    # Use ROOM_META as fallback for name/type/note, but prefer scraped area/bed
     meta = ROOM_META.get(room_slug, (room_slug.replace('-', ' ').title(), "Unknown", "?", "?", ""))
+    area = features.get('area') or meta[2]
+    bed = features.get('bed') or meta[3]
 
     return {
         "slug": room_slug,
         "url": url,
         "name": meta[0],
         "type": meta[1],
-        "area": meta[2],
-        "bed": meta[3],
+        "area": area,
+        "bed": bed,
         "note": meta[4] if len(meta) > 4 else "",
         "prices": prices,
         "avail_status": avail_status,
