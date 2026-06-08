@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglu Sydney 房态 — 异乡好居悉尼</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card-bg: #fff;
+    --text: #1a1a1a;
+    --text-muted: #6b7280;
+    --border: #e5e4e1;
+    --accent: #059669;
+    --accent-light: #d1fae5;
+    --warn: #d97706;
+    --warn-light: #fef3c7;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --radius: 10px;
+    --font: 'Satoshi', system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0c0c;
+      --card-bg: #161616;
+      --text: #e5e5e5;
+      --text-muted: #8b8b8b;
+      --border: #262626;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-family: var(--font); -webkit-font-smoothing: antialiased; background: var(--bg); color: var(--text); }
+  body { max-width: 1160px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.6; }
+
+  /* Header */
+  .header { margin-bottom: 28px; }
+  .header-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 6px; }
+  .header h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; letter-spacing: -0.02em; }
+  .header .badge { font-size: 0.8rem; padding: 4px 12px; border-radius: 99px; background: var(--accent-light); color: var(--accent); font-weight: 600; white-space: nowrap; }
+  .header .meta { color: var(--text-muted); font-size: 0.875rem; }
+
+  /* Property nav — horizontal scroll */
+  .prop-nav-wrap { margin-bottom: 28px; }
+  .prop-nav { display: flex; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+  .prop-nav::-webkit-scrollbar { display: none; }
+  .prop-nav-btn { flex-shrink: 0; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); background: var(--card-bg); font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; letter-spacing: -0.01em; }
+  .prop-nav-btn:hover { color: var(--text); border-color: var(--text-muted); }
+  .prop-nav-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  /* Sub tabs (Studio / Share) */
+  .sub-tabs { display: flex; gap: 4px; margin-bottom: 20px; }
+  .sub-tab { padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: var(--text-muted); border: 1px solid var(--border); background: var(--card-bg); font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); }
+  .sub-tab:hover { color: var(--text); }
+  .sub-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Table */
+  .table-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .table-wrap th { text-align: left; padding: 12px 14px; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); background: var(--bg); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .table-wrap td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  .table-wrap tr:last-child td { border-bottom: none; }
+  .table-wrap tbody tr { transition: background 200ms cubic-bezier(0.32,0.72,0,1); }
+  .table-wrap tbody tr:hover { background: var(--bg); }
+
+  /* Pills */
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 0.78rem; font-weight: 600; }
+  .pill-ok { background: var(--accent-light); color: var(--accent); }
+  .pill-warn { background: var(--warn-light); color: var(--warn); }
+  .pill-bad { background: var(--danger-light); color: var(--danger); }
+  .pill-off { background: #f3f4f6; color: #9ca3af; }
+
+  .price { font-weight: 600; }
+
+  /* Panel visibility */
+  .prop-panel { display: none; }
+  .prop-panel.active { display: block; }
+  .sub-panel { display: none; }
+  .sub-panel.active { display: block; }
+
+  /* Footer */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px; }
+  .footer-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .footer-card h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+  .footer-card p,.footer-card li { font-size: 0.85rem; line-height: 1.7; }
+  .footer-card ul { list-style: none; padding: 0; }
+  .footer-card li::before { content: "— "; color: var(--text-muted); }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(8px); animation: fadeIn 600ms cubic-bezier(0.32,0.72,0,1) forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    body { padding: 20px 14px 60px; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-wrap table { min-width: 680px; }
+    .header-top { flex-direction: column; align-items: flex-start; }
+    .prop-nav-btn { padding: 7px 14px; font-size: 0.8rem; }
+  }
+</style>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="header fade-in" style="animation-delay:0ms">
+  <div class="header-top">
+    <h1>Iglu Sydney 房态</h1>
+    <span class="badge">{{UPDATE_BADGE}}</span>
+  </div>
+  <p class="meta">📍 悉尼 8 所 Iglu 公寓 &ensp;|&ensp; 更新于 {{UPDATE_TIME}} &ensp;|&ensp; Agent: A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
+</div>
+
+<!-- Property nav -->
+<nav class="prop-nav-wrap fade-in" style="animation-delay:100ms">
+  <div class="prop-nav" id="prop-nav">
+    {{PROP_NAV}}
+  </div>
+</nav>
+
+<!-- Property panels -->
+{{PROP_PANELS}}
+
+<div class="footer fade-in" style="animation-delay:400ms">
+  <div class="footer-grid">
+    <div class="footer-card">
+      <h3>租金全包</h3>
+      <p>无限WiFi、水电燃气、公共空间、24/7驻场支持、Sonder APP、住户活动、工作日免费早餐</p>
+    </div>
+    <div class="footer-card">
+      <h3>注意事项</h3>
+      <ul>
+        <li>Agent 可通过 Portal (A1336) 查看实时房态</li>
+        <li>公开页面库存数为营销文案，Agent后台数据更可靠</li>
+        <li>所有房型支持 Flexible Start + Wait List</li>
+        <li>2027 S1 预租已开放（10月出合同）</li>
+      </ul>
+    </div>
+    <div class="footer-card">
+      <h3>数据来源</h3>
+      <ul>
+        <li>iglu.com.au 房型页面</li>
+        <li>Iglu Agent Portal (A1336)</li>
+        <li>每日 10:03 / 19:07 自动更新</li>
+      </ul>
+    </div>
+  </div>
+  <p style="color:var(--text-muted);font-size:0.8rem;margin-top:24px;text-align:center">异乡好居悉尼 · 梁赛威 (VX) · 仅供内部参考</p>
+</div>
+
+<script>
+// Property switching
+function switchProp(slug) {
+  document.querySelectorAll('.prop-nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.prop-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('prop-btn-' + slug).classList.add('active');
+  document.getElementById('prop-' + slug).classList.add('active');
+  // Reset sub-tabs to Studio
+  var panel = document.getElementById('prop-' + slug);
+  if (panel) {
+    panel.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+    panel.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+    var firstTab = panel.querySelector('.sub-tab');
+    var firstPanel = panel.querySelector('.sub-panel');
+    if (firstTab) firstTab.classList.add('active');
+    if (firstPanel) firstPanel.classList.add('active');
+  }
+}
+
+// Studio/Share sub-tab switching
+function switchSub(propSlug, type) {
+  var panel = document.getElementById('prop-' + propSlug);
+  if (!panel) return;
+  panel.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+  panel.querySelector('.sub-tab[data-type="' + type + '"]').classList.add('active');
+  panel.querySelector('.sub-panel[data-type="' + type + '"]').classList.add('active');
+}
+</script>
+</body>
+</html>
