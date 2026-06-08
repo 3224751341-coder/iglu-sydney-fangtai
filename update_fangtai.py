@@ -198,9 +198,9 @@ def extract_prices(html: str) -> dict:
     return prices
 
 
-def extract_availability(html: str) -> tuple:
+def extract_availability(html: str, date_data: dict = None) -> tuple:
     """Extract availability status and count.
-    Only uses visible indicators. No count = defaults to available."""
+    Uses visible indicators + context from dates to avoid false waitlist."""
     # "X LEFT AT THIS PRICE" — visible, most reliable
     m = re.search(r'(\d+)\s*LEFT\s*AT\s*THIS\s*PRICE', html, re.IGNORECASE)
     if m:
@@ -211,9 +211,22 @@ def extract_availability(html: str) -> tuple:
     if re.search(r'sold\s*out', html, re.IGNORECASE):
         return ('soldout', None, '')
 
-    # Wait list — explicit
-    if re.search(r'wait\s*list', html, re.IGNORECASE):
-        return ('waitlist', None, '')
+    # Wait list? Only if NO dates and NO flexible start (i.e. waitlist is the ONLY option)
+    has_waitlist = bool(re.search(r'wait\s*list', html, re.IGNORECASE))
+    if has_waitlist:
+        if date_data:
+            has_dates = len(date_data.get('dates', [])) > 0
+            has_flexible = date_data.get('flexible', False)
+            if not has_dates and not has_flexible:
+                return ('waitlist', None, '')
+        else:
+            # Without date context, check if page has dates/flexible elsewhere
+            has_any_dates = bool(re.search(
+                r'(?:Flexible\s+Start|(\d{1,2})\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4}))',
+                html, re.IGNORECASE
+            ))
+            if not has_any_dates:
+                return ('waitlist', None, '')
 
     # No visible inventory number → assume available
     return ('available', None, '')
@@ -379,8 +392,8 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
             return {"error": str(e2), "url": url, "slug": room_slug}
 
     prices = extract_prices(html)
-    avail_status, avail_count, avail_text = extract_availability(html)
     date_data = extract_dates(html)
+    avail_status, avail_count, avail_text = extract_availability(html, date_data)
     features = extract_features(html)
 
     # Use ROOM_META as fallback for name/type/note, but prefer scraped area/bed
