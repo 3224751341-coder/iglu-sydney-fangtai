@@ -194,9 +194,9 @@ def extract_availability(html: str) -> tuple:
     return ('unknown', None, '')
 
 
-def extract_dates(html: str) -> list:
-    """Extract available start dates from a room page.
-    Only extracts dates that appear as clickable buttons/links (not example text)."""
+def extract_dates(html: str) -> dict:
+    """Extract available start dates and Flexible Start indicator.
+    Returns {'dates': [...], 'flexible': bool}"""
     from html.parser import HTMLParser
 
     dates = []
@@ -205,8 +205,16 @@ def extract_dates(html: str) -> list:
         'July', 'August', 'September', 'October', 'November', 'December'
     ], 1)}
 
-    # Strategy 1: Find dates inside <a> or <button> tags (real clickable options)
-    # Look for patterns like: <a ...>12 June 2026</a> or <button ...>Flexible Start</button>
+    # Check for Flexible Start option (clickable element, not just example text)
+    flexible = bool(re.search(
+        r'<(?:a|button|option|label|span)[^>]*?>\s*Flexible\s*Start\s*</(?:a|button|option|label|span)>',
+        html, re.IGNORECASE
+    ))
+    # Also check for "Flexible Start" near booking UI
+    if not flexible:
+        flexible = bool(re.search(r'Flexible\s+Start', html, re.IGNORECASE))
+
+    # Strategy 1: Find dates inside clickable tags
     clickable_pattern = re.finditer(
         r'<(?:a|button|option|label)[^>]*?>\s*(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\s*</(?:a|button|option|label)>',
         html, re.IGNORECASE
@@ -217,22 +225,17 @@ def extract_dates(html: str) -> list:
         if month:
             dates.append((year, month, day))
 
-    # Strategy 2: Look for dates near "date" class containers (booking form)
+    # Strategy 2: Dates in booking section (fallback)
     if not dates:
-        # Find the booking section and extract dates only from that area
         booking_section = re.search(
             r'(?:start-date|move-in|contract-start|date-select|when would you like)',
             html, re.IGNORECASE
         )
         if booking_section:
-            # Search only within 2000 chars after the booking section marker
             section_start = max(0, booking_section.start() - 500)
             section_end = min(len(html), booking_section.end() + 3000)
             section_html = html[section_start:section_end]
-
-            # Exclude example text ("e.g.", "for example")
             section_no_examples = re.sub(r'e\.g\..*?(?=<)', '', section_html, flags=re.IGNORECASE)
-
             date_matches = re.finditer(
                 r'(?:>|\s)(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})',
                 section_no_examples
@@ -252,7 +255,7 @@ def extract_dates(html: str) -> list:
             seen.add(key)
             unique.append(d)
     unique.sort()
-    return unique
+    return {'dates': unique, 'flexible': flexible}
 
 
 def extract_features(html: str) -> dict:
@@ -282,12 +285,15 @@ def format_price(prices: dict, key: str) -> str:
     return f"${val:,}"
 
 
-def format_dates(dates: list) -> str:
-    """Format dates for display. Return compact string."""
-    if not dates:
-        return "灵活自选"
+def format_dates(date_data: dict) -> str:
+    """Format dates for display. Includes Flexible Start indicator."""
+    dates = date_data.get('dates', []) if isinstance(date_data, dict) else date_data
+    flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
 
-    # Group by month
+    # Build the date portion
+    if not dates:
+        return "灵活自选" if flexible else "灵活自选"
+
     from collections import defaultdict
     by_month = defaultdict(list)
     for y, m, d in dates:
@@ -316,7 +322,13 @@ def format_dates(dates: list) -> str:
                 day_strs.append(f"{s}-{e}")
         parts.append(f"{month}{'.'.join(day_strs)}")
 
-    return ', '.join(parts)
+    date_str = ', '.join(parts)
+
+    # Prepend Flexible indicator if page has both specific dates and flexible option
+    if flexible and dates:
+        return f"灵活自选 + {date_str}"
+    else:
+        return date_str
 
 
 def scrape_room(property_slug: str, room_slug: str) -> dict:
@@ -329,7 +341,7 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
 
     prices = extract_prices(html)
     avail_status, avail_count, avail_text = extract_availability(html)
-    dates = extract_dates(html)
+    date_data = extract_dates(html)
 
     meta = ROOM_META.get(room_slug, (room_slug.replace('-', ' ').title(), "Unknown", "?", "?", ""))
 
@@ -337,7 +349,7 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
         "slug": room_slug,
         "url": url,
         "name": meta[0],
-        "type": meta[1],  # Studio or Share
+        "type": meta[1],
         "area": meta[2],
         "bed": meta[3],
         "note": meta[4] if len(meta) > 4 else "",
@@ -345,8 +357,8 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
         "avail_status": avail_status,
         "avail_count": avail_count,
         "avail_text": avail_text,
-        "dates": dates,
-        "date_str": format_dates(dates),
+        "date_data": date_data,
+        "date_str": format_dates(date_data),
     }
 
 
