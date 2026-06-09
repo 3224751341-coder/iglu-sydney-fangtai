@@ -2,7 +2,8 @@ name: Update Iglu Fangtai
 
 on:
   schedule:
-    - cron: '*/5 * * * *'    # 临时：每5分钟一次，测试用
+    - cron: '30 0 * * *'    # 08:30 北京 (00:30 UTC)
+    - cron: '30 9 * * *'    # 17:30 北京 (09:30 UTC)
   push:
     branches: [main]
     paths:
