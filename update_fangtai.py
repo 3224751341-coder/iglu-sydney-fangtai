@@ -6,7 +6,7 @@ Iglu Sydney 全公寓房态抓取 + 网页更新脚本
 """
 
 import json, re, sys, os, subprocess
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ── Config ──
@@ -592,7 +592,9 @@ def build_html(all_properties: list) -> str:
     with open(TEMPLATE_PATH, 'r') as f:
         template = f.read()
 
-    now = datetime.now()
+    # Sydney time (UTC+10, no DST in June)
+    sydney_tz = timezone(timedelta(hours=10))
+    now = datetime.now(sydney_tz)
     update_time = now.strftime("%Y年%m月%d日 %H:%M")
     update_badge = now.strftime("%m/%d %H:%M 更新")
 
