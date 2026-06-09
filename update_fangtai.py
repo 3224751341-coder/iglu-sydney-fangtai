@@ -109,28 +109,9 @@ U18_ROOMS = {
 
 
 def login_agent_portal() -> bool:
-    """Log into Iglu Agent Portal, save cookies. Returns True if successful."""
-    print("  🔑 Logging into Agent Portal...")
-    cmd = [
-        "curl", "-sL", "-c", COOKIE_FILE,
-        "-H", "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        "-H", "Content-Type: application/x-www-form-urlencoded",
-        "-d", f"agent_code={AGENT_CODE}",
-        "--connect-timeout", "15", "--max-time", "30",
-        "-w", "%{http_code}",
-        "https://iglu.com.au/iglu-agent-portal-login/"
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=35)
-    if result.returncode != 0:
-        print(f"  ⚠️ Agent login failed: curl error")
-        return False
-    # Check if redirected to portal (success) or stayed on login (fail)
-    output = result.stdout
-    http_code = output[-3:] if len(output) > 3 else output
-    if http_code in ('302', '301', '200') and 'agent_code' not in output[:500].lower():
-        print(f"  ✅ Agent Portal logged in")
-        return True
-    print(f"  ⚠️ Agent login may have failed (HTTP {http_code})")
+    """Log into Iglu Agent Portal. Currently disabled - Iglu site uses AJAX login
+    which doesn't work with simple POST. Falls back to public scraping."""
+    print("  ℹ️  Agent Portal login not available, using public page data")
     return False
 
 
