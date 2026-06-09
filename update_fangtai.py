@@ -592,9 +592,9 @@ def build_html(all_properties: list) -> str:
     with open(TEMPLATE_PATH, 'r') as f:
         template = f.read()
 
-    # Sydney time (UTC+10, no DST in June)
-    sydney_tz = timezone(timedelta(hours=10))
-    now = datetime.now(sydney_tz)
+    # Beijing time (UTC+8)
+    beijing_tz = timezone(timedelta(hours=8))
+    now = datetime.now(beijing_tz)
     update_time = now.strftime("%Y年%m月%d日 %H:%M")
     update_badge = now.strftime("%m/%d %H:%M 更新")
 
