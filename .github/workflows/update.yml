@@ -2,9 +2,14 @@ name: Update Iglu Fangtai
 
 on:
   schedule:
-    - cron: '3 0 * * *'   # 10:03 Sydney (UTC+10)
-    - cron: '7 9 * * *'    # 19:07 Sydney (UTC+10)
-  workflow_dispatch:       # 手动触发
+    - cron: '30 0 * * *'    # 10:30 Sydney (00:30 UTC, UTC+10)
+    - cron: '30 9 * * *'    # 19:30 Sydney (09:30 UTC)
+  push:
+    branches: [main]
+    paths:
+      - 'update_fangtai.py'
+      - 'template.html'
+  workflow_dispatch:
 
 jobs:
   update:
