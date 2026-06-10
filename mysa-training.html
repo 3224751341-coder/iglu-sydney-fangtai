@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mysa House 供应商培训手册</title>
+<style>
+  :root {
+    --navy: #1a3a5c;
+    --gold: #d4953a;
+    --green: #1a6e5c;
+    --red: #c0392b;
+    --bg: #f8f9fa;
+    --card: #fff;
+    --text: #1a1a1a;
+    --muted: #666;
+    --border: #e0e0e0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Heiti SC", "STHeiti", "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 32px 24px 28px;
+    text-align: center;
+  }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .header .sub { font-size: 14px; opacity: 0.75; }
+  .header .meta { font-size: 12px; opacity: 0.55; margin-top: 8px; }
+
+  /* ── Nav ── */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff; border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: 0;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .nav a {
+    flex: 0 0 auto; padding: 12px 20px; font-size: 13px; font-weight: 600;
+    color: var(--navy); text-decoration: none; white-space: nowrap;
+    border-bottom: 3px solid transparent; transition: .15s;
+  }
+  .nav a:hover, .nav a.active { border-bottom-color: var(--gold); color: var(--gold); }
+
+  /* ── Main ── */
+  .main { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  section { margin-bottom: 48px; }
+  section h2 {
+    font-size: 20px; color: var(--navy); margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--navy);
+    display: flex; align-items: center; gap: 10px;
+  }
+  section h2 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: #fff; font-size: 15px; flex-shrink: 0;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+  .card p, .card li { font-size: 14px; color: var(--text); }
+
+  /* ── Tags ── */
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 12px; font-weight: 600;
+  }
+  .tag-green { background: #d4edda; color: #155724; }
+  .tag-red { background: #f8d7da; color: #721c24; }
+  .tag-blue { background: #d1ecf1; color: #0c5460; }
+  .tag-gold { background: #fff3cd; color: #856404; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: var(--navy); color: #fff; font-weight: 600; font-size: 13px; }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  .price { font-weight: 700; color: var(--navy); }
+
+  /* ── Alert ── */
+  .alert {
+    padding: 14px 18px; border-radius: 6px; font-size: 14px; margin-bottom: 16px;
+    border-left: 4px solid;
+  }
+  .alert-info { background: #e8f4fd; border-color: #2196F3; color: #0d47a1; }
+  .alert-warn { background: #fff8e1; border-color: #ff9800; color: #e65100; }
+
+  /* ── Area badges ── */
+  .area-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+  .area-item {
+    flex: 1 1 200px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px; min-width: 180px;
+  }
+  .area-item h4 { font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+  .area-item .range { font-size: 18px; font-weight: 700; color: var(--gold); }
+  .area-item .note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ── Process steps ── */
+  .steps { counter-reset: step; }
+  .step {
+    counter-increment: step; padding: 16px 20px 16px 60px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 10px; position: relative;
+  }
+  .step::before {
+    content: counter(step); position: absolute; left: 16px; top: 14px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: #fff; font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h4 { font-size: 15px; color: var(--navy); margin-bottom: 2px; }
+  .step p { font-size: 13px; color: var(--muted); }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center; padding: 24px; font-size: 12px; color: #aaa;
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+
+  @media print {
+    .nav { display: none; }
+    .header { padding: 16px; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <h1>Mysa House 供应商培训手册</h1>
+  <div class="sub">Sydney Sales Team Training · Co-living Supplier Onboarding</div>
+  <div class="meta">Prepared for Uhomes Sydney · 2026.06.09</div>
+</div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <a href="#s1">一、产品概述</a>
+  <a href="#s2">二、房型与区域</a>
+  <a href="#s3">三、申请流程</a>
+  <a href="#s4">四、佣金</a>
+  <a href="#s5">五、租赁政策</a>
+  <a href="#s6">六、联系方式</a>
+</nav>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
+
+<!-- ── 一、产品概述 ── -->
+<section id="s1">
+  <h2><span class="num">1</span> 产品概述</h2>
+
+  <div class="card">
+    <h3>Mysa House 是谁？</h3>
+    <p>Mysa House 是一家 <strong>Co-living 运营商</strong>，同时提供部分整租产品。服务模式更接近 UKO 和 Day1，而非传统的 Scape、Iglu 等学生公寓。主打灵活、便捷的合租体验，目标客群包括国际学生和年轻上班族。</p>
+  </div>
+
+  <table>
+    <tr><th style="width:30%">项目</th><th>说明</th></tr>
+    <tr><td>是否接受国际学生</td><td>✅ 接受</td></tr>
+    <tr><td>是否需要担保人</td><td>❌ 不需要</td></tr>
+    <tr><td>家具</td><td>✅ Fully Furnished（全配家具）</td></tr>
+    <tr><td>宠物</td><td>❌ 不允许</td></tr>
+    <tr><td>押金 (Bond)</td><td>通常 4 周房租</td></tr>
+    <tr><td>转租</td><td>✅ 支持官方转租流程（需审核）</td></tr>
+    <tr><td>付款方式</td><td>信用卡 + 银行转账</td></tr>
+    <tr><td>合同类型</td><td>Individual Lease / Joint Lease 均有</td></tr>
+    <tr><td>Bill 规则</td><td>Co-living 多含 Bill + WiFi；部分整租不含</td></tr>
+  </table>
+</section>
+
+<!-- ── 二、房型与区域 ── -->
+<section id="s2">
+  <h2><span class="num">2</span> 房型与区域</h2>
+
+  <div class="alert alert-info">
+    <strong>当前库存</strong>：悉尼共 9 套可租房源（数据来源：Google Sheet 实时库存表，每周更新）。以下为截至 2026.06 的可租房源。
+  </div>
+
+  <h3 style="margin-bottom:12px;">📍 区域分布 &amp; 价格区间</h3>
+  <div class="area-list">
+    <div class="area-item">
+      <h4>🎓 UNSW 周边</h4>
+      <div style="font-size:13px;color:var(--muted)">Zetland · Waterloo</div>
+      <div class="range">$570 – $590<span style="font-size:12px;color:var(--muted)">/周</span></div>
+      <div class="note">合租单间 · 含 Bill · 有泳池/健身房</div>
+    </div>
+    <div class="area-item">
+      <h4>🏙️ Sydney City</h4>
+      <div style="font-size:13px;color:var(--muted)">Elizabeth St</div>
+      <div class="range">$1,450<span style="font-size:12px;color:var(--muted)">/周</span></div>
+      <div class="note">整租 2B2B · 不含 Bill · 泳池桑拿健身房</div>
+    </div>
+    <div class="area-item">
+      <h4>🏡 Inner West</h4>
+      <div style="font-size:13px;color:var(--muted)">Alexandria · Camperdown</div>
+      <div class="range">$490 – $850<span style="font-size:12px;color:var(--muted)">/周</span></div>
+      <div class="note">合租 + Studio · 含 Bill</div>
+    </div>
+  </div>
+
+  <h3 style="margin: 20px 0 12px;">🏠 完整房源清单</h3>
+  <table>
+    <thead>
+      <tr><th>编号</th><th>地址</th><th>房型</th><th>周租</th><th>Bill</th><th>区域</th><th>设施</th><th>空出日期</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>S581</strong></td>
+        <td>605/8 Rose Valley Way, Zetland</td>
+        <td>Double Bedroom (shared bath) · 3B2B</td>
+        <td class="price">$570</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>UNSW</td>
+        <td>泳池</td>
+        <td>2026-08-01</td>
+      </tr>
+      <tr>
+        <td><strong>S603</strong></td>
+        <td>1704/281 Elizabeth St, Sydney</td>
+        <td>整租 2B2B</td>
+        <td class="price">$1,450</td>
+        <td><span class="tag tag-red">不含</span>（~$100/周）</td>
+        <td>City</td>
+        <td>泳池·桑拿·健身房</td>
+        <td>2026-05-23</td>
+      </tr>
+      <tr>
+        <td><strong>S604</strong></td>
+        <td>1530/887 South Dowling St, Waterloo</td>
+        <td>Double Bedroom (shared bath) · 3B2B</td>
+        <td class="price">$590</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>UNSW</td>
+        <td>泳池·桑拿·健身房</td>
+        <td>2026-07-14</td>
+      </tr>
+      <tr>
+        <td><strong>S605</strong></td>
+        <td>82/1 Shirley St, Alexandria</td>
+        <td>Ensuite Bedroom · 3B2B</td>
+        <td class="price">$650</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-07-07</td>
+      </tr>
+      <tr>
+        <td><strong>S606</strong></td>
+        <td>82/1 Shirley St, Alexandria</td>
+        <td>Double Bedroom (shared bath) · 3B2B</td>
+        <td class="price">$490</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-06-06</td>
+      </tr>
+      <tr>
+        <td><strong>S607</strong></td>
+        <td>82/1 Shirley St, Alexandria</td>
+        <td>Double Bedroom (shared bath) · 2B2B</td>
+        <td class="price">$490</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-06-06</td>
+      </tr>
+      <tr>
+        <td><strong>Type A</strong></td>
+        <td>26 Sparkes St, Camperdown (×12)</td>
+        <td>Studio</td>
+        <td class="price">$750</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-06-25</td>
+      </tr>
+      <tr>
+        <td><strong>Type B</strong></td>
+        <td>26 Sparkes St, Camperdown (×6)</td>
+        <td>Studio</td>
+        <td class="price">$780</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-06-25</td>
+      </tr>
+      <tr>
+        <td><strong>Type C</strong></td>
+        <td>26 Sparkes St, Camperdown (×2) 带阳台</td>
+        <td>Studio</td>
+        <td class="price">$850</td>
+        <td><span class="tag tag-green">含</span></td>
+        <td>Inner West</td>
+        <td>N/A</td>
+        <td>2026-06-25</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-warn" style="margin-top:16px;">
+    <strong>⚠️ 注意</strong>：库存通过 Google Sheet 每周更新，推房前务必确认最新可租状态。各房源详情页见 Mysa 官网：<a href="https://www.themysahouse.com/listings" target="_blank">themysahouse.com/listings</a>
+  </div>
+</section>
+
+<!-- ── 三、申请流程 ── -->
+<section id="s3">
+  <h2><span class="num">3</span> 申请流程</h2>
+
+  <div class="steps">
+    <div class="step">
+      <h4>查库存</h4>
+      <p>打开 Google Sheet 查看实时可租房源 + 官网确认。库存每周更新，推房前必须核实。</p>
+    </div>
+    <div class="step">
+      <h4>提交申请</h4>
+      <p>在<strong>异乡好居后台一键提交</strong>即可，无需到 Mysa 网站重复递交。系统自动将申请推送至 Mysa。</p>
+    </div>
+    <div class="step">
+      <h4>系统自动发送材料邮件</h4>
+      <p>申请推送后，Mysa 系统自动发邮件通知客户提交申请材料。</p>
+    </div>
+    <div class="step">
+      <h4>Mysa 人工审核</h4>
+      <p>Mysa 团队审核客户材料（国际学生：护照+手机号+邮箱+在读/工作证明）。</p>
+    </div>
+    <div class="step">
+      <h4>发 Offer / Contract</h4>
+      <p>审核通过后，Mysa 发送合同。客户签约并支付押金 + 首期房租。</p>
+    </div>
+    <div class="step">
+      <h4>入住</h4>
+      <p>签约付款完成，按合同日期入住。</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 20px 0 12px;">📌 推客确认机制</h3>
+  <div class="card">
+    <p>通过异乡好居后台一键提交申请后，系统自动完成推客记录。如需人工跟进确认，可发送邮件至 <strong>members@themysahouse.com</strong>，写明客户姓名和邮箱。</p>
+  </div>
+
+  <h3 style="margin: 20px 0 12px;">📋 国际学生申请材料清单</h3>
+  <table>
+    <tr><th>材料</th><th>说明</th></tr>
+    <tr><td>护照</td><td>每位申请人国际护照</td></tr>
+    <tr><td>手机号</td><td>每位申请人</td></tr>
+    <tr><td>邮箱</td><td>每位申请人</td></tr>
+    <tr><td>在读/工作证明</td><td>COE、学生签证、录取通知书均可；已工作则提供工资单、合同或银行流水</td></tr>
+    <tr><td>资金证明（备选）</td><td>如 COE 不足，可提供：国际资金证明 / Sponsor Letter / 银行流水</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--muted);margin-top:6px;">💡 接受 COE Total Program Amount 作为收入证明，无需担保人。</p>
+</section>
+
+<!-- ── 四、佣金 ── -->
+<section id="s4">
+  <h2><span class="num">4</span> 佣金</h2>
+
+  <p style="margin-bottom:16px;">Mysa House 采用<strong>阶梯制佣金</strong>，按自然年累计签约量自动升级。所有金额为 AUD。</p>
+
+  <table>
+    <thead>
+      <tr><th>年签约量 (Tier)</th><th>26 周合同</th><th>52 周合同</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tier 1</strong> · 1 – 30 单/年</td>
+        <td class="price">$270</td>
+        <td class="price">$350</td>
+      </tr>
+      <tr>
+        <td><strong>Tier 2</strong> · 30 – 80 单/年</td>
+        <td class="price">$290</td>
+        <td class="price">$370</td>
+      </tr>
+      <tr>
+        <td><strong>Tier 3</strong> · 80+ 单/年</td>
+        <td class="price">$310</td>
+        <td class="price">$400</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin: 20px 0 12px;">💰 佣金规则速查</h3>
+  <table>
+    <tr><th style="width:35%">项目</th><th>规则</th></tr>
+    <tr><td>续租佣金</td><td>✅ 适用（Yes）</td></tr>
+    <tr><td>短租佣金</td><td>可协商（视合同长度）</td></tr>
+    <tr><td>开票触发点</td><td>客户支付押金 + 首期房租后</td></tr>
+    <tr><td>付款周期</td><td>按合作协议条款执行</td></tr>
+  </table>
+</section>
+
+<!-- ── 五、租赁政策 ── -->
+<section id="s5">
+  <h2><span class="num">5</span> 租赁政策</h2>
+
+  <table>
+    <tr><th style="width:30%">事项</th><th>政策</th></tr>
+    <tr>
+      <td>合同类型</td>
+      <td>Individual Lease（单间合同）/ Joint Lease（整租合同）均有；可按间、可按套签约</td>
+    </tr>
+    <tr>
+      <td>毁约 (Break Fee)</td>
+      <td>
+        <strong>剩余租期 &gt; 50%</strong>：扣除 100% 押金<br>
+        <strong>剩余租期 ≤ 50%</strong>：扣除 50% 押金<br>
+        另需付清未缴房租、损坏赔偿等
+      </td>
+    </tr>
+    <tr>
+      <td>申请后/入住前取消</td>
+      <td>不允许取消。如取消，<strong>扣除 1 周押金</strong></td>
+    </tr>
+    <tr>
+      <td>Co-tenant 擅自搬离</td>
+      <td>未给足 4 周通知即搬离，Mysa 保留扣除全部押金的权利</td>
+    </tr>
+    <tr>
+      <td>转租 (Sublease)</td>
+      <td>Case by case，需提前告知 Mysa（安全原因）</td>
+    </tr>
+    <tr>
+      <td>租约转让 (Lease Transfer)</td>
+      <td>✅ 支持。新租客需重新申请 → Mysa 审核 → 通过后签约付押金</td>
+    </tr>
+    <tr>
+      <td>其他费用</td>
+      <td>无申请费；清洁费按各房源规定收取</td>
+    </tr>
+  </table>
+
+  <div class="alert alert-warn" style="margin-top:16px;">
+    <strong>⚠️ 推房提醒</strong>：毁约罚金较重（最高扣全部押金），向客户介绍时务必提前说明合同约束条款，避免后期纠纷。
+  </div>
+</section>
+
+<!-- ── 六、联系方式 ── -->
+<section id="s6">
+  <h2><span class="num">6</span> 联系方式</h2>
+
+  <table>
+    <tr><th style="width:30%">用途</th><th>联系方式</th></tr>
+    <tr>
+      <td>日常对接<br><span style="font-size:12px;color:var(--muted)">房源沟通、推客确认</span></td>
+      <td>
+        📧 members@themysahouse.com<br>
+        👤 Alejandra Reyes<br>
+        📱 +61 411 599 018
+      </td>
+    </tr>
+    <tr>
+      <td>租赁/物业管理</td>
+      <td>📧 themysahouse@email.propertyme.com</td>
+    </tr>
+    <tr>
+      <td>账单/佣金</td>
+      <td>📧 themysahouse@email.propertyme.com</td>
+    </tr>
+    <tr>
+      <td>紧急升级</td>
+      <td>📧 admin@themysahouse.com</td>
+    </tr>
+    <tr>
+      <td>紧急维修 (24/7)</td>
+      <td>📧 themysahouse@email.propertyme.com</td>
+    </tr>
+  </table>
+
+  <div class="card" style="margin-top:16px;">
+    <h3>🔗 常用链接</h3>
+    <table style="margin-top:8px;">
+      <tr><td style="border:none;padding:6px 14px;">📊 库存表</td><td style="border:none;padding:6px 14px;"><a href="https://docs.google.com/spreadsheets/d/1cfohG1OXjNzD56a7UKvmPPcvjiRWJ-yubZ8k1ODPU_k/edit" target="_blank">Google Sheet 实时库存</a></td></tr>
+      <tr><td style="border:none;padding:6px 14px;">🌐 官网</td><td style="border:none;padding:6px 14px;"><a href="https://www.themysahouse.com/listings" target="_blank">themysahouse.com/listings</a></td></tr>
+    </table>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  Mysa House Training Materials · Prepared for Uhomes Sydney Sales Team · 2026.06.09<br>
+  数据来源：Mysa House Onboarding Details + Google Sheet 库存表。库存每周更新，推房前请核实。
+</div>
+
+<!-- ── Nav highlight on scroll ── -->
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const links = nav.querySelectorAll('a');
+  const sections = [];
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const s = document.getElementById(id);
+    if (s) sections.push({ el: s, link: a });
+  });
+  function update(){
+    let current = sections[0];
+    sections.forEach(({el,link}) => {
+      if (el.getBoundingClientRect().top <= 120) current = {el,link};
+    });
+    links.forEach(a => a.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>
