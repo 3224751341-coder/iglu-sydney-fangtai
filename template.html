@@ -86,6 +86,13 @@
   .sub-panel { display: none; }
   .sub-panel.active { display: block; }
 
+  /* Coming Soon (即将开业占位) */
+  .coming-soon { text-align: center; padding: 64px 24px; background: var(--card-bg); border: 1px dashed var(--border); border-radius: var(--radius); margin-top: 8px; }
+  .cs-badge { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: #b26a00; background: #fff4e0; border: 1px solid #f0d9ad; border-radius: 999px; padding: 6px 16px; margin-bottom: 16px; }
+  .cs-title { font-size: 1.4rem; font-weight: 700; margin: 0 0 8px; }
+  .cs-text { font-size: 0.92rem; line-height: 1.8; color: var(--text-muted); margin: 0; }
+  .cs-text b { color: var(--text); }
+
   /* Footer */
   .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
   .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 18px; }
@@ -112,7 +119,7 @@
   <div class="header-top">
     <h1>Iglu Sydney 房态</h1>
   </div>
-  <p class="meta">📍 悉尼 8 所 Iglu 公寓 &ensp;|&ensp; 更新于 {{UPDATE_TIME}} &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
+  <p class="meta">📍 悉尼 9 所 Iglu 公寓 &ensp;|&ensp; 更新于 {{UPDATE_TIME}} &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
 </div>
 
 <nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav">{{PROP_NAV}}</nav>

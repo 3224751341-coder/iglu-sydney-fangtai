@@ -26,10 +26,15 @@ PROPERTIES = {
     "Central Park": "central-park",
     "Chatswood": "chatswood",
     "Mascot": "mascot",
+    "Mascot Duo": "mascot-duo",   # 2027年1月开业，官网尚未发布可预订房型页 → Coming Soon 占位
     "Redfern": "redfern",
     "Summer Hill": "summer-hill",
     "Waterloo": "waterloo",
 }
+
+# 即将开业、暂无真实房型数据的楼（官网未发布可预订房型页）。
+# 这些楼只显示在导航里并标注"即将"，不参与抓取，避免误抓旧楼数据。
+COMING_SOON = {"mascot-duo"}
 
 # ── Room metadata (manually curated to avoid scraping noise) ──
 ROOM_META = {
@@ -157,18 +162,23 @@ def extract_prices(html: str) -> dict:
     if w22_m:
         prices['22周'] = int(w22_m.group(1).replace(',', ''))
 
+    # "44 Weeks ($XXX/wk)" — only available in Sydney Semester 1
+    w44_m = re.search(r'44\s*Weeks?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
+    if w44_m:
+        prices['44周'] = int(w44_m.group(1).replace(',', ''))
+
     # "Short Stay ($600/wk)"
     ss_m = re.search(r'Short\s+Stay\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
     if ss_m:
         prices['短租'] = int(ss_m.group(1).replace(',', ''))
 
-    # "12 Months...$XXX" or "12-month...$XXX"  (less common, only some rooms show this)
-    m12_m = re.search(r'12[\s-]*Months?[^$]*\$([\d,]+)', text, re.IGNORECASE)
+    # "12 Months ($XXX/wk)" or "12 Months **($XXX/wk)**"
+    m12_m = re.search(r'12\s*Months?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
     if m12_m:
         prices['12月'] = int(m12_m.group(1).replace(',', ''))
 
-    # "24 Months...$XXX"
-    m24_m = re.search(r'24[\s-]*Months?[^$]*\$([\d,]+)', text, re.IGNORECASE)
+    # "24 Months ($XXX/wk)"
+    m24_m = re.search(r'24\s*Months?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
     if m24_m:
         prices['24月'] = int(m24_m.group(1).replace(',', ''))
 
@@ -427,6 +437,7 @@ PROPERTY_ROOM_MAP = {
         "standard-studio-apartment-ma", "premium-studio-apartment-ma",
         "standard-studio-apartment-queen",
     ],
+    "mascot-duo": [],   # Coming Soon（2027年1月开业），房型 slug 待官网公布后补
     "redfern": [
         "single-bed-6-share-apt-saex-sre", "single-bedroom-6-share-apt-re",
         "single-bedroom-5-share-apt-re", "single-bedroom-4-share-apt-re",
@@ -496,6 +507,7 @@ def build_studio_row(room: dict) -> str:
         f'<td>{room["area"]}</td>'
         f'<td>{room["bed"]}</td>'
         f'<td><span class="price">{format_price(p, "12月")}</span></td>'
+        f'<td><span class="price">{format_price(p, "44周")}</span></td>'
         f'<td><span class="price">{format_price(p, "22周")}</span></td>'
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
         f'<td>{status_html}</td>'
@@ -513,6 +525,8 @@ def build_share_row(room: dict) -> str:
         f'<td><span class="room-name">{room["name"]}</span></td>'
         f'<td>{room["area"]}</td>'
         f'<td>{room["bed"]}</td>'
+        f'<td><span class="price">{format_price(p, "12月")}</span></td>'
+        f'<td><span class="price">{format_price(p, "44周")}</span></td>'
         f'<td><span class="price">{format_price(p, "22周")}</span></td>'
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
         f'<td>{room["note"]}</td>'
@@ -536,13 +550,13 @@ def build_property_section(prop: dict) -> str:
     if studio_rows:
         sections.append(f'''<div class="table-wrap fade-in" style="margin-bottom:24px">
 <h3 style="padding:16px 20px 0;font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">🏠 Studio</h3>
-<table><thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<table><thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
 <tbody>{"".join(studio_rows)}</tbody></table></div>''')
 
     if share_rows:
         sections.append(f'''<div class="table-wrap fade-in" style="margin-bottom:24px">
 <h3 style="padding:16px 20px 0;font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">👥 合租单间</h3>
-<table><thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<table><thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
 <tbody>{"".join(share_rows)}</tbody></table></div>''')
 
     if not sections:
@@ -570,20 +584,34 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
         sub_tabs_html += f'<button class="sub-tab active" data-type="studio" onclick="switchSub(\'{prop["slug"]}\',\'studio\')">🏠 Studio</button>'
         studio_html = f'''<div class="sub-panel active" data-type="studio">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
 <tbody>{"".join(studio_rows)}</tbody>
 </table></div></div>'''
     if share_rows:
         sub_tabs_html += f'<button class="sub-tab{" active" if not studio_rows else ""}" data-type="share" onclick="switchSub(\'{prop["slug"]}\',\'share\')">👥 合租</button>'
         share_html = f'''<div class="sub-panel{" active" if not studio_rows else ""}" data-type="share">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
 <tbody>{"".join(share_rows)}</tbody>
 </table></div></div>'''
 
+    coming_soon_html = ""
+    if not studio_rows and not share_rows:
+        if prop["slug"] in COMING_SOON:
+            coming_soon_html = (
+                '<div class="coming-soon">'
+                '<div class="cs-badge">🚧 即将开业</div>'
+                '<p class="cs-title">Iglu Mascot Duo</p>'
+                '<p class="cs-text">预计 <b>2027 年 1 月</b> 开业，官网目前为招租登记阶段，'
+                '尚未公布可预订房型与价格。<br>房型上线后本页将自动同步真实房态。</p>'
+                '</div>'
+            )
+        else:
+            coming_soon_html = '<div class="coming-soon"><p class="cs-text">暂无房型数据</p></div>'
+
     return f'''<div class="prop-panel{active_class}" id="prop-{prop['slug']}">
 <div class="sub-tabs">{sub_tabs_html}</div>
-{studio_html}{share_html}
+{studio_html}{share_html}{coming_soon_html}
 </div>'''
 
 
@@ -603,9 +631,10 @@ def build_html(all_properties: list) -> str:
     for i, prop in enumerate(all_properties):
         room_count = len(prop['rooms'])
         active = ' active' if i == 0 else ''
+        badge = "即将" if prop["slug"] in COMING_SOON else str(room_count)
         nav_buttons.append(
             f'<button class="prop-btn{active}" id="prop-btn-{prop["slug"]}" '
-            f'onclick="switchProp(\'{prop["slug"]}\')">{prop["name"]}<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">{room_count}</span></button>'
+            f'onclick="switchProp(\'{prop["slug"]}\')">{prop["name"]}<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">{badge}</span></button>'
         )
 
     # Build property panels
