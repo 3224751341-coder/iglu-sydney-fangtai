@@ -324,27 +324,32 @@ def format_price(prices: dict, key: str) -> str:
     return f"${val:,}"
 
 
+# 手动精准起租日期覆盖表：配置后该房型优先显示此处日期（用于官网未展示具体日期、
+# 但 Agent Portal 可见的情况）。键 = 页面房型显示名（如 "Premium Studio"）；
+# 同名房型（不同楼栋）会同时生效，如需只改某一栋请把键写成 "楼栋slug/房型slug"。
+DATE_OVERRIDES = {
+    # "Premium Studio": "2026年8月25日",
+}
+
+
 def format_dates(date_data: dict) -> str:
-    """Format dates for display. Includes Flexible Start indicator."""
+    """Format dates for display. Keeps year for precision. Includes Flexible Start indicator."""
     dates = date_data.get('dates', []) if isinstance(date_data, dict) else date_data
     flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
 
-    # Build the date portion
     if not dates:
-        return "灵活自选" if flexible else "灵活自选"
+        return "灵活自选"
 
     from collections import defaultdict
-    by_month = defaultdict(list)
+    by_ym = defaultdict(list)
     for y, m, d in dates:
-        by_month[f"{m}月"].append(d)
+        by_ym[(y, m)].append(d)
 
     parts = []
-    for month, days in by_month.items():
-        # Compact: "6.12-15" for consecutive days
+    for (y, m), days in sorted(by_ym.items()):
         days.sort()
         ranges = []
-        start = days[0]
-        end = days[0]
+        start = end = days[0]
         for d in days[1:]:
             if d == end + 1:
                 end = d
@@ -356,18 +361,20 @@ def format_dates(date_data: dict) -> str:
         day_strs = []
         for s, e in ranges:
             if s == e:
-                day_strs.append(str(s))
+                day_strs.append(f"{s}日")
             else:
-                day_strs.append(f"{s}-{e}")
-        parts.append(f"{month}{'.'.join(day_strs)}")
+                day_strs.append(f"{s}-{e}日")
 
-    date_str = ', '.join(parts)
+        if len(day_strs) == 1:
+            parts.append(f"{y}年{m}月" + day_strs[0])
+        else:
+            parts.append(f"{y}年{m}月" + "、".join(day_strs))
 
-    # Prepend Flexible indicator if page has both specific dates and flexible option
+    date_str = "、".join(parts)
+
     if flexible and dates:
         return f"灵活自选 + {date_str}"
-    else:
-        return date_str
+    return date_str
 
 
 def scrape_room(property_slug: str, room_slug: str) -> dict:
@@ -405,7 +412,7 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
         "avail_count": avail_count,
         "avail_text": avail_text,
         "date_data": date_data,
-        "date_str": format_dates(date_data),
+        "date_str": DATE_OVERRIDES.get(meta[0], format_dates(date_data)),
     }
 
 
