@@ -377,6 +377,53 @@ def format_dates(date_data: dict) -> str:
     return date_str
 
 
+def format_start_label(avail_status: str, date_data: dict) -> str:
+    """精准起租日期：区分今年可起租 / 今年已无房只有明年 / 等位无房。"""
+    from collections import defaultdict
+    from datetime import datetime
+    dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
+    if not dates:
+        if avail_status == 'waitlist':
+            return '今年无房（等位）'
+        return '灵活自选'
+
+    this_year = datetime.now().year
+    this_dates = sorted(d for d in dates if d[0] == this_year)
+    future_dates = sorted(d for d in dates if d[0] > this_year)
+
+    def short(ds):
+        by_m = defaultdict(list)
+        for y, m, d in ds:
+            by_m[m].append(d)
+        parts = []
+        for m in sorted(by_m):
+            days = sorted(by_m[m])
+            segs = []
+            start = end = days[0]
+            for d in days[1:]:
+                if d == end + 1:
+                    end = d
+                else:
+                    segs.append((start, end))
+                    start = end = d
+            segs.append((start, end))
+            seg_txt = []
+            for s, e in segs:
+                seg_txt.append(f"{s}日" if s == e else f"{s}-{e}日")
+            parts.append(f"{m}月" + "、".join(seg_txt))
+        return "、".join(parts)
+
+    def full(ds):
+        return format_dates({'dates': ds, 'flexible': False})
+
+    if this_dates:
+        label = '今年起租：' + short(this_dates)
+        if future_dates:
+            label += '（亦可' + full(future_dates) + '）'
+        return label
+    return '今年已无房：' + full(future_dates)
+
+
 def scrape_room(property_slug: str, room_slug: str) -> dict:
     """Scrape a single room page and return structured data."""
     url = f"https://iglu.com.au/rooms/sydney/{property_slug}/{room_slug}/"
@@ -412,7 +459,7 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
         "avail_count": avail_count,
         "avail_text": avail_text,
         "date_data": date_data,
-        "date_str": DATE_OVERRIDES.get(meta[0], format_dates(date_data)),
+        "date_str": DATE_OVERRIDES.get(meta[0], format_start_label(avail_status, date_data)),
     }
 
 
