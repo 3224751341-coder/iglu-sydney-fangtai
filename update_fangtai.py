@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Iglu Sydney 全公寓房态抓取 + 网页更新脚本
-用法: python3 update_fangtai.py
+Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里斯班）
+用法: python3 update_fangtai.py [--no-deploy]
 输出: 更新 index.html → 自动部署到 Cloudflare Pages
 """
 
@@ -16,84 +16,234 @@ COOKIE_FILE = os.path.join(PROJECT_DIR, ".agent_cookies.txt")
 TEMPLATE_PATH = os.path.join(PROJECT_DIR, "template.html")
 OUTPUT_PATH = os.path.join(PROJECT_DIR, "index.html")
 CLOUDFLARE_PROJECT = "iglu-centralpark"
-MAX_WORKERS = 10
+MAX_WORKERS = 12
 REQUEST_TIMEOUT = 25
 
-# ── Sydney Properties ──
-PROPERTIES = {
-    "Broadway": "broadway",
-    "Central": "central",
-    "Central Park": "central-park",
-    "Chatswood": "chatswood",
-    "Mascot": "mascot",
-    "Mascot Duo": "mascot-duo",   # 2027年1月开业，官网尚未发布可预订房型页 → Coming Soon 占位
-    "Redfern": "redfern",
-    "Summer Hill": "summer-hill",
-    "Waterloo": "waterloo",
+# ── Cities & Properties ──
+# 城市 slug → {label, properties: {显示名: slug}, room_meta, property_rooms}
+CITIES = {
+    "sydney": {
+        "label": "悉尼",
+        "properties": {
+            "Broadway": "broadway",
+            "Central": "central",
+            "Central Park": "central-park",
+            "Chatswood": "chatswood",
+            "Mascot": "mascot",
+            "Mascot Duo": "mascot-duo",   # 2027年1月开业，官网尚未发布可预订房型页 → Coming Soon 占位
+            "Redfern": "redfern",
+            "Summer Hill": "summer-hill",
+            "Waterloo": "waterloo",
+        },
+        "room_meta": {
+            # Broadway
+            "standard-studio-apartment-nras-br": ("Standard Studio NRAS", "Studio", "17m²", "Queen", "NRAS补贴"),
+            "single-bedroom-6-share-apt-br": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "single-bedroom-5-share-apt-br": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
+            "single-bedroom-4-share-apt-br": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
+            "standard-studio-apartment-br": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "superior-studio-apartment-br": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
+            "premium-studio-apartment-br": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            # Central
+            "single-bedroom-share-bathroom-ce": ("Single Share Bath", "Share", "~12m²", "King Single", "Share Bath"),
+            "single-bedroom-6-share-apt-ce": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "single-bedroom-5-share-apt-ce": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
+            "standard-studio-apartment-ce": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            # Central Park
+            "standard-studio-apartment-cp": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "superior-studio-apartment": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
+            "premium-studio-apartment-cp": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            "single-bedroom-6-share-apt-cp": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "single-bedroom-4-share-apt-cp": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
+            "single-bedroom-3-share-apt-cp": ("3 Share Apt", "Share", "~13m²", "King Single", "3人"),
+            "premium-studio-nras-cp": ("Premium Studio NRAS", "Studio", "31m²", "Queen", "NRAS补贴"),
+            # Chatswood
+            "single-bedroom-6-share-apt-ch": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "single-bedroom-5-share-apt-ch": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
+            "single-bedroom-4-share-apt-ch": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
+            "standard-studio-apartment-ch": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "superior-studio-apartment-ch": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
+            "premium-studio-apartment-ch": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            # Mascot
+            "single-bedroom-6-share-apt-ma": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "premium-single-bedroom-6-share-ma": ("Premium 6 Share", "Share", "~14m²", "King Single", "6人"),
+            "standard-studio-apartment-ma": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "premium-studio-apartment-ma": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            "standard-studio-apartment-queen": ("Standard Studio Queen", "Studio", "17m²", "Queen", ""),
+            # Redfern
+            "single-bed-6-share-apt-saex-sre": ("6 Share SAEX", "Share", "~13m²", "King Single", "6人 USYD"),
+            "single-bedroom-6-share-apt-re": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
+            "single-bedroom-5-share-apt-re": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
+            "single-bedroom-4-share-apt-re": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
+            "single-studio-apartment-re": ("Single Studio", "Studio", "15m²", "Double", ""),
+            "standard-studio-apartment-re": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "premium-studio-apartment-re": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            "single-bedroom-6-share-nras": ("6 Share NRAS", "Share", "~13m²", "King Single", "6人 NRAS"),
+            "single-studio-apartment-nras": ("Single Studio NRAS", "Studio", "15m²", "Double", "NRAS"),
+            "standard-studio-apartment-nras": ("Standard Studio NRAS", "Studio", "17m²", "Queen", "NRAS"),
+            # Summer Hill
+            "standard-studio-apartment-sh": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "premium-studio-apartment-sh": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            # Waterloo
+            "single-bedroom-2-share-apt-wa": ("2 Share Apt", "Share", "~13m²", "King Single", "2人"),
+            "standard-studio-apartment-wa": ("Standard Studio", "Studio", "17m²", "Queen", ""),
+            "superior-studio-apartment-wa": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
+            "premium-studio-apartment-wa": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+        },
+        "property_rooms": {
+            "broadway": [
+                "standard-studio-apartment-nras-br", "single-bedroom-6-share-apt-br",
+                "single-bedroom-5-share-apt-br", "single-bedroom-4-share-apt-br",
+                "standard-studio-apartment-br", "superior-studio-apartment-br",
+                "premium-studio-apartment-br",
+            ],
+            "central": [
+                "single-bedroom-share-bathroom-ce", "single-bedroom-6-share-apt-ce",
+                "single-bedroom-5-share-apt-ce", "standard-studio-apartment-ce",
+            ],
+            "central-park": [
+                "standard-studio-apartment-cp", "superior-studio-apartment",
+                "premium-studio-apartment-cp", "single-bedroom-6-share-apt-cp",
+                "single-bedroom-4-share-apt-cp", "single-bedroom-3-share-apt-cp",
+                "premium-studio-nras-cp",
+            ],
+            "chatswood": [
+                "single-bedroom-6-share-apt-ch", "single-bedroom-5-share-apt-ch",
+                "single-bedroom-4-share-apt-ch", "standard-studio-apartment-ch",
+                "superior-studio-apartment-ch", "premium-studio-apartment-ch",
+            ],
+            "mascot": [
+                "single-bedroom-6-share-apt-ma", "premium-single-bedroom-6-share-ma",
+                "standard-studio-apartment-ma", "premium-studio-apartment-ma",
+                "standard-studio-apartment-queen",
+            ],
+            "mascot-duo": [],   # Coming Soon（2027年1月开业），房型 slug 待官网公布后补
+            "redfern": [
+                "single-bed-6-share-apt-saex-sre", "single-bedroom-6-share-apt-re",
+                "single-bedroom-5-share-apt-re", "single-bedroom-4-share-apt-re",
+                "single-studio-apartment-re", "standard-studio-apartment-re",
+                "premium-studio-apartment-re", "single-bedroom-6-share-nras",
+                "single-studio-apartment-nras", "standard-studio-apartment-nras",
+            ],
+            "summer-hill": [
+                "standard-studio-apartment-sh", "premium-studio-apartment-sh",
+            ],
+            "waterloo": [
+                "single-bedroom-2-share-apt-wa", "standard-studio-apartment-wa",
+                "superior-studio-apartment-wa", "premium-studio-apartment-wa",
+            ],
+        },
+    },
+
+    "melbourne": {
+        "label": "墨尔本",
+        "properties": {
+            "Flagstaff Gardens": "flagstaff-gardens",
+            "Flagstaff Station": "flagstaff-station",
+            "Melbourne Central": "melbourne-central",
+            "Melbourne City": "melbourne-city",
+            "South Yarra": "south-yarra",
+        },
+        "room_meta": {
+            # Flagstaff Gardens
+            "premium-corner-studio-apartment-fg": ("Premium Corner Studio", "Studio", "?", "Double", ""),
+            "premium-single-bedroom-2-share-fg": ("Premium 2 Share", "Share", "?", "King Single", "2人"),
+            "premium-studio-apartment-fg": ("Premium Studio", "Studio", "?", "Double", ""),
+            "single-bedroom-2-share-apt-fg": ("2 Share Apt", "Share", "?", "King Single", "2人"),
+            "single-studio-apartment": ("Single Studio", "Studio", "?", "King Single", ""),
+            "standard-studio-apartment-fg": ("Standard Studio", "Studio", "?", "Double", ""),
+            # Flagstaff Station
+            "premium-studio-apartment-cnr-fs": ("Premium Studio Corner", "Studio", "?", "Queen", ""),
+            "premium-studio-apartment-fs": ("Premium Studio", "Studio", "?", "Queen", ""),
+            "single-bedroom-2-share-apt-fs": ("2 Share Apt", "Share", "?", "King Single", "2人"),
+            "standard-studio-apartment-fs": ("Standard Studio", "Studio", "?", "Queen", ""),
+            # Melbourne Central
+            "premium-studio-apartment-mce": ("Premium Studio", "Studio", "?", "Double", ""),
+            "standard-studio-apartment-mce": ("Standard Studio", "Studio", "?", "Double", ""),
+            # Melbourne City
+            "premium-studio-apartment-mc": ("Premium Studio", "Studio", "?", "Double", ""),
+            "standard-studio-apartment-mc": ("Standard Studio", "Studio", "?", "Double", ""),
+            "single-bedroom-5-share-apt-mc": ("5 Share Apt", "Share", "?", "King Single", "5人"),
+            "single-bedroom-6-share-apt-mc": ("6 Share Apt", "Share", "?", "King Single", "6人"),
+            # South Yarra
+            "premium-single-bedroom-5-share-apt-sy": ("Premium 5 Share", "Share", "?", "King Single", "5人"),
+            "premium-single-bedroom-6-share-apt-sy": ("Premium 6 Share", "Share", "?", "King Single", "6人"),
+            "premium-studio-apartment-sy": ("Premium Studio", "Studio", "?", "King Single", ""),
+            "single-bedroom-5-share-apt-sy": ("5 Share Apt", "Share", "?", "King Single", "5人"),
+            "single-bedroom-6-share-apt-sy": ("6 Share Apt", "Share", "?", "King Single", "6人"),
+            "single-studio-apartment-sy": ("Single Studio", "Studio", "?", "King Single", ""),
+            "standard-studio-apartment-sy": ("Standard Studio", "Studio", "?", "King Single", ""),
+        },
+        "property_rooms": {
+            "flagstaff-gardens": [
+                "premium-corner-studio-apartment-fg", "premium-single-bedroom-2-share-fg",
+                "premium-studio-apartment-fg", "single-bedroom-2-share-apt-fg",
+                "single-studio-apartment", "standard-studio-apartment-fg",
+            ],
+            "flagstaff-station": [
+                "premium-studio-apartment-cnr-fs", "premium-studio-apartment-fs",
+                "single-bedroom-2-share-apt-fs", "standard-studio-apartment-fs",
+            ],
+            "melbourne-central": [
+                "premium-studio-apartment-mce", "standard-studio-apartment-mce",
+            ],
+            "melbourne-city": [
+                "premium-studio-apartment-mc", "standard-studio-apartment-mc",
+                "single-bedroom-5-share-apt-mc", "single-bedroom-6-share-apt-mc",
+            ],
+            "south-yarra": [
+                "premium-single-bedroom-5-share-apt-sy", "premium-single-bedroom-6-share-apt-sy",
+                "premium-studio-apartment-sy", "single-bedroom-5-share-apt-sy",
+                "single-bedroom-6-share-apt-sy", "single-studio-apartment-sy",
+                "standard-studio-apartment-sy",
+            ],
+        },
+    },
+
+    "brisbane": {
+        "label": "布里斯班",
+        "properties": {
+            "Brisbane City": "brisbane-city",
+            "Kelvin Grove": "kelvin-grove",
+        },
+        "room_meta": {
+            # Brisbane City
+            "premium-studio-apartment-bc": ("Premium Studio", "Studio", "?", "Double", ""),
+            "standard-studio-apartment-bc": ("Standard Studio", "Studio", "?", "Double", ""),
+            "single-bedroom-5-share-apt-bc": ("5 Share Apt", "Share", "?", "King Single", "5人"),
+            "single-bedroom-6-share-apt-bc": ("6 Share Apt", "Share", "?", "King Single", "6人"),
+            "student-room-shared-bathroom-bc": ("Single Share Bath", "Share", "?", "King Single", "Share Bath"),
+            # Kelvin Grove
+            "1-bedroom-apartment-kg": ("1 Bedroom Apt", "Apt", "?", "King Single", ""),
+            "single-bedroom-2-share-apt-kg": ("2 Share Apt", "Share", "?", "King Single", "2人"),
+            "single-bedroom-3-share-apt-kg": ("3 Share Apt", "Share", "?", "King Single", "3人"),
+            "single-bedroom-5-share-apt-kg": ("5 Share Apt", "Share", "?", "King Single", "5人"),
+            "single-bedroom-6-share-apt-kg": ("6 Share Apt", "Share", "?", "King Single", "6人"),
+        },
+        "property_rooms": {
+            "brisbane-city": [
+                "premium-studio-apartment-bc", "standard-studio-apartment-bc",
+                "single-bedroom-5-share-apt-bc", "single-bedroom-6-share-apt-bc",
+                "student-room-shared-bathroom-bc",
+            ],
+            "kelvin-grove": [
+                "1-bedroom-apartment-kg", "single-bedroom-2-share-apt-kg",
+                "single-bedroom-3-share-apt-kg", "single-bedroom-5-share-apt-kg",
+                "single-bedroom-6-share-apt-kg",
+            ],
+        },
+    },
 }
 
 # 即将开业、暂无真实房型数据的楼（官网未发布可预订房型页）。
 # 这些楼只显示在导航里并标注"即将"，不参与抓取，避免误抓旧楼数据。
 COMING_SOON = {"mascot-duo"}
 
-# ── Room metadata (manually curated to avoid scraping noise) ──
-ROOM_META = {
-    # Broadway
-    "standard-studio-apartment-nras-br": ("Standard Studio NRAS", "Studio", "17m²", "Queen", "NRAS补贴"),
-    "single-bedroom-6-share-apt-br": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "single-bedroom-5-share-apt-br": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
-    "single-bedroom-4-share-apt-br": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
-    "standard-studio-apartment-br": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "superior-studio-apartment-br": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
-    "premium-studio-apartment-br": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    # Central
-    "single-bedroom-share-bathroom-ce": ("Single Share Bath", "Share", "~12m²", "King Single", "Share Bath"),
-    "single-bedroom-6-share-apt-ce": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "single-bedroom-5-share-apt-ce": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
-    "standard-studio-apartment-ce": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    # Central Park
-    "standard-studio-apartment-cp": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "superior-studio-apartment": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
-    "premium-studio-apartment-cp": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    "single-bedroom-6-share-apt-cp": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "single-bedroom-4-share-apt-cp": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
-    "single-bedroom-3-share-apt-cp": ("3 Share Apt", "Share", "~13m²", "King Single", "3人"),
-    "premium-studio-nras-cp": ("Premium Studio NRAS", "Studio", "31m²", "Queen", "NRAS补贴"),
-    # Chatswood
-    "single-bedroom-6-share-apt-ch": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "single-bedroom-5-share-apt-ch": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
-    "single-bedroom-4-share-apt-ch": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
-    "standard-studio-apartment-ch": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "superior-studio-apartment-ch": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
-    "premium-studio-apartment-ch": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    # Mascot
-    "single-bedroom-6-share-apt-ma": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "premium-single-bedroom-6-share-ma": ("Premium 6 Share", "Share", "~14m²", "King Single", "6人"),
-    "standard-studio-apartment-ma": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "premium-studio-apartment-ma": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    "standard-studio-apartment-queen": ("Standard Studio Queen", "Studio", "17m²", "Queen", ""),
-    # Redfern
-    "single-bed-6-share-apt-saex-sre": ("6 Share SAEX", "Share", "~13m²", "King Single", "6人 USYD"),
-    "single-bedroom-6-share-apt-re": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
-    "single-bedroom-5-share-apt-re": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
-    "single-bedroom-4-share-apt-re": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
-    "single-studio-apartment-re": ("Single Studio", "Studio", "15m²", "Double", ""),
-    "standard-studio-apartment-re": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "premium-studio-apartment-re": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    "single-bedroom-6-share-nras": ("6 Share NRAS", "Share", "~13m²", "King Single", "6人 NRAS"),
-    "single-studio-apartment-nras": ("Single Studio NRAS", "Studio", "15m²", "Double", "NRAS"),
-    "standard-studio-apartment-nras": ("Standard Studio NRAS", "Studio", "17m²", "Queen", "NRAS"),
-    # Summer Hill
-    "standard-studio-apartment-sh": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "premium-studio-apartment-sh": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-    # Waterloo
-    "single-bedroom-2-share-apt-wa": ("2 Share Apt", "Share", "~13m²", "King Single", "2人"),
-    "standard-studio-apartment-wa": ("Standard Studio", "Studio", "17m²", "Queen", ""),
-    "superior-studio-apartment-wa": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
-    "premium-studio-apartment-wa": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
-}
+# ── Room type display order (sub-tabs inside a property) ──
+TYPE_ORDER = ["Studio", "Apt", "Share"]
+TYPE_TAB_LABELS = {"Studio": "🏠 Studio", "Apt": "🛏️ 1居室", "Share": "👥 合租"}
 
-# U18 rooms - separated for clarity
+# U18 rooms - separated for clarity（悉尼保留，用于未来扩展；不参与常规展示）
 U18_ROOMS = {
     "sce-6-bedroom-share-bathroom-u18-female": ("U18 6 Share Bath Female", "Central"),
     "sce-6-bedroom-share-bathroom-u18-male": ("U18 6 Share Bath Male", "Central"),
@@ -424,9 +574,9 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     return '今年已无房：' + full(future_dates)
 
 
-def scrape_room(property_slug: str, room_slug: str) -> dict:
+def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) -> dict:
     """Scrape a single room page and return structured data."""
-    url = f"https://iglu.com.au/rooms/sydney/{property_slug}/{room_slug}/"
+    url = f"https://iglu.com.au/rooms/{city}/{property_slug}/{room_slug}/"
     try:
         # Try agent view first for better availability data
         html = fetch_page(url, use_agent=True)
@@ -442,7 +592,7 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
     features = extract_features(html)
 
     # Use ROOM_META as fallback for name/type/note, but prefer scraped area/bed
-    meta = ROOM_META.get(room_slug, (room_slug.replace('-', ' ').title(), "Unknown", "?", "?", ""))
+    meta = room_meta.get(room_slug, (room_slug.replace('-', ' ').title(), "Unknown", "?", "?", ""))
     area = features.get('area') or meta[2]
     bed = features.get('bed') or meta[3]
 
@@ -463,63 +613,17 @@ def scrape_room(property_slug: str, room_slug: str) -> dict:
     }
 
 
-# Explicit mapping of property slug → room slugs
-PROPERTY_ROOM_MAP = {
-    "broadway": [
-        "standard-studio-apartment-nras-br", "single-bedroom-6-share-apt-br",
-        "single-bedroom-5-share-apt-br", "single-bedroom-4-share-apt-br",
-        "standard-studio-apartment-br", "superior-studio-apartment-br",
-        "premium-studio-apartment-br",
-    ],
-    "central": [
-        "single-bedroom-share-bathroom-ce", "single-bedroom-6-share-apt-ce",
-        "single-bedroom-5-share-apt-ce", "standard-studio-apartment-ce",
-    ],
-    "central-park": [
-        "standard-studio-apartment-cp", "superior-studio-apartment",
-        "premium-studio-apartment-cp", "single-bedroom-6-share-apt-cp",
-        "single-bedroom-4-share-apt-cp", "single-bedroom-3-share-apt-cp",
-        "premium-studio-nras-cp",
-    ],
-    "chatswood": [
-        "single-bedroom-6-share-apt-ch", "single-bedroom-5-share-apt-ch",
-        "single-bedroom-4-share-apt-ch", "standard-studio-apartment-ch",
-        "superior-studio-apartment-ch", "premium-studio-apartment-ch",
-    ],
-    "mascot": [
-        "single-bedroom-6-share-apt-ma", "premium-single-bedroom-6-share-ma",
-        "standard-studio-apartment-ma", "premium-studio-apartment-ma",
-        "standard-studio-apartment-queen",
-    ],
-    "mascot-duo": [],   # Coming Soon（2027年1月开业），房型 slug 待官网公布后补
-    "redfern": [
-        "single-bed-6-share-apt-saex-sre", "single-bedroom-6-share-apt-re",
-        "single-bedroom-5-share-apt-re", "single-bedroom-4-share-apt-re",
-        "single-studio-apartment-re", "standard-studio-apartment-re",
-        "premium-studio-apartment-re", "single-bedroom-6-share-nras",
-        "single-studio-apartment-nras", "standard-studio-apartment-nras",
-    ],
-    "summer-hill": [
-        "standard-studio-apartment-sh", "premium-studio-apartment-sh",
-    ],
-    "waterloo": [
-        "single-bedroom-2-share-apt-wa", "standard-studio-apartment-wa",
-        "superior-studio-apartment-wa", "premium-studio-apartment-wa",
-    ],
-}
-
-
-def scrape_property(name: str, slug: str) -> dict:
+def scrape_property(city: str, name: str, slug: str, room_meta: dict, property_rooms: dict) -> dict:
     """Scrape all rooms for a property."""
-    print(f"  📍 {name} ({slug})")
+    print(f"  📍 {city} · {name} ({slug})")
 
-    room_slugs = PROPERTY_ROOM_MAP.get(slug, [])
+    room_slugs = property_rooms.get(slug, [])
 
     print(f"     {len(room_slugs)} room types to scrape")
 
     rooms = []
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = {executor.submit(scrape_room, slug, rs): rs for rs in room_slugs}
+        futures = {executor.submit(scrape_room, city, slug, rs, room_meta): rs for rs in room_slugs}
         for future in as_completed(futures):
             result = future.result()
             if "error" not in result:
@@ -528,8 +632,9 @@ def scrape_property(name: str, slug: str) -> dict:
             else:
                 print(f"     ❌ {futures[future]}: {result['error']}")
 
-    # Sort: Studio first, then Share
-    rooms.sort(key=lambda r: (0 if r['type'] == 'Studio' else 1, r['name']))
+    # Sort: Studio/Apt first, then Share (按 TYPE_ORDER 排序，同类按名称)
+    type_rank = {t: i for i, t in enumerate(TYPE_ORDER)}
+    rooms.sort(key=lambda r: (type_rank.get(r['type'], 99), r['name']))
     return {"name": name, "slug": slug, "rooms": rooms}
 
 
@@ -550,7 +655,7 @@ def avail_info(status: str, count) -> tuple:
 
 
 def build_studio_row(room: dict) -> str:
-    """Build a single studio table row."""
+    """Build a single studio/apt table row."""
     p = room['prices']
     row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     note = room.get("note", "")
@@ -590,67 +695,40 @@ def build_share_row(room: dict) -> str:
     )
 
 
-def build_property_section(prop: dict) -> str:
-    """Build HTML section for a single property."""
-    studio_rows = []
-    share_rows = []
-    for room in prop['rooms']:
-        if room['type'] == 'Studio':
-            studio_rows.append(build_studio_row(room))
-        else:
-            share_rows.append(build_share_row(room))
-
-    sections = []
-    if studio_rows:
-        sections.append(f'''<div class="table-wrap fade-in" style="margin-bottom:24px">
-<h3 style="padding:16px 20px 0;font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">🏠 Studio</h3>
-<table><thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody>{"".join(studio_rows)}</tbody></table></div>''')
-
-    if share_rows:
-        sections.append(f'''<div class="table-wrap fade-in" style="margin-bottom:24px">
-<h3 style="padding:16px 20px 0;font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">👥 合租单间</h3>
-<table><thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody>{"".join(share_rows)}</tbody></table></div>''')
-
-    if not sections:
-        sections.append('<p style="color:var(--text-muted);padding:20px">暂无房型数据</p>')
-
-    return "\n".join(sections)
-
-
 def build_prop_panel(prop: dict, is_first: bool) -> str:
-    """Build a single property panel with Studio/Share sub-tabs."""
-    studio_rows = []
-    share_rows = []
+    """Build a single property panel with sub-tabs (Studio / 1居室 / 合租)."""
+    # Group rooms by type, in TYPE_ORDER
+    groups = {t: [] for t in TYPE_ORDER}
     for room in prop['rooms']:
-        if room['type'] == 'Studio':
-            studio_rows.append(build_studio_row(room))
-        else:
-            share_rows.append(build_share_row(room))
+        t = room['type'] if room['type'] in groups else 'Share'
+        groups[t].append(room)
 
-    studio_html = ""
-    share_html = ""
     sub_tabs_html = ""
-    active_class = " active" if is_first else ""
+    panels_html = []
+    first_rendered = True
 
-    if studio_rows:
-        sub_tabs_html += f'<button class="sub-tab active" data-type="studio" onclick="switchSub(\'{prop["slug"]}\',\'studio\')">🏠 Studio</button>'
-        studio_html = f'''<div class="sub-panel active" data-type="studio">
+    for t in TYPE_ORDER:
+        rows = groups[t]
+        if not rows:
+            continue
+        if t == 'Share':
+            row_builder = build_share_row
+            thead = '<th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th>'
+        else:
+            row_builder = build_studio_row
+            thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th>'
+
+        active_cls = ' active' if first_rendered else ''
+        sub_tabs_html += f'<button class="sub-tab{active_cls}" data-type="{t}" onclick="switchSub(\'{prop["slug"]}\',\'{t}\')">{TYPE_TAB_LABELS.get(t, t)}</button>'
+        panels_html.append(f'''<div class="sub-panel{active_cls}" data-type="{t}">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody>{"".join(studio_rows)}</tbody>
-</table></div></div>'''
-    if share_rows:
-        sub_tabs_html += f'<button class="sub-tab{" active" if not studio_rows else ""}" data-type="share" onclick="switchSub(\'{prop["slug"]}\',\'share\')">👥 合租</button>'
-        share_html = f'''<div class="sub-panel{" active" if not studio_rows else ""}" data-type="share">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody>{"".join(share_rows)}</tbody>
-</table></div></div>'''
+<thead><tr>{thead}</tr></thead>
+<tbody>{"".join(row_builder(r) for r in rows)}</tbody>
+</table></div></div>''')
+        first_rendered = False
 
     coming_soon_html = ""
-    if not studio_rows and not share_rows:
+    if not groups['Studio'] and not groups['Apt'] and not groups['Share']:
         if prop["slug"] in COMING_SOON:
             coming_soon_html = (
                 '<div class="coming-soon">'
@@ -663,13 +741,38 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
         else:
             coming_soon_html = '<div class="coming-soon"><p class="cs-text">暂无房型数据</p></div>'
 
-    return f'''<div class="prop-panel{active_class}" id="prop-{prop['slug']}">
+    return f'''<div class="prop-panel{" active" if is_first else ""}" id="prop-{prop['slug']}">
 <div class="sub-tabs">{sub_tabs_html}</div>
-{studio_html}{share_html}{coming_soon_html}
+{"".join(panels_html)}{coming_soon_html}
 </div>'''
 
 
-def build_html(all_properties: list) -> str:
+def build_city_block(city_slug: str, city_data: dict) -> str:
+    """Build one city block: its property nav + all property panels."""
+    props = city_data['properties']
+
+    nav_buttons = []
+    room_results = city_data.get("room_results", {})
+    for i, (name, slug) in enumerate(props.items()):
+        active = ' active' if i == 0 else ''
+        badge = "即将" if slug in COMING_SOON else str(len(room_results.get(slug, [])))
+        nav_buttons.append(
+            f'<button class="prop-btn{active}" id="prop-btn-{slug}" '
+            f'onclick="switchProp(\'{city_slug}\',\'{slug}\')">{name}<span class="count">{badge}</span></button>'
+        )
+
+    panels = []
+    for i, (name, slug) in enumerate(props.items()):
+        prop_data = {"name": name, "slug": slug, "rooms": city_data.get("room_results", {}).get(slug, [])}
+        panels.append(build_prop_panel(prop_data, is_first=(i == 0)))
+
+    return f'''<div class="city-block" data-city="{city_slug}">
+<nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav-{city_slug}">{"".join(nav_buttons)}</nav>
+{"".join(panels)}
+</div>'''
+
+
+def build_html(all_cities: dict) -> str:
     """Build the complete HTML page from template and data."""
     with open(TEMPLATE_PATH, 'r') as f:
         template = f.read()
@@ -680,28 +783,22 @@ def build_html(all_properties: list) -> str:
     update_time = now.strftime("%Y年%m月%d日 %H:%M")
     update_badge = now.strftime("%m/%d %H:%M 更新")
 
-    # Build property nav buttons
-    nav_buttons = []
-    for i, prop in enumerate(all_properties):
-        room_count = len(prop['rooms'])
-        active = ' active' if i == 0 else ''
-        badge = "即将" if prop["slug"] in COMING_SOON else str(room_count)
-        nav_buttons.append(
-            f'<button class="prop-btn{active}" id="prop-btn-{prop["slug"]}" '
-            f'onclick="switchProp(\'{prop["slug"]}\')">{prop["name"]}<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">{badge}</span></button>'
-        )
+    # City summary: 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所
+    summary_parts = []
+    for city_slug, city_data in all_cities.items():
+        n = len(city_data['properties'])
+        summary_parts.append(f"{city_data['label']} {n} 所")
+    city_summary = "📍 " + " · ".join(summary_parts) + " Iglu 公寓"
 
-    # Build property panels
-    panels = []
-    for i, prop in enumerate(all_properties):
-        panels.append(build_prop_panel(prop, is_first=(i == 0)))
+    # City blocks (each with its own nav + panels)
+    city_blocks = [build_city_block(city_slug, city_data) for city_slug, city_data in all_cities.items()]
 
     # Replace placeholders
     html = template
     html = html.replace("{{UPDATE_TIME}}", update_time)
     html = html.replace("{{UPDATE_BADGE}}", update_badge)
-    html = html.replace("{{PROP_NAV}}", "\n".join(nav_buttons))
-    html = html.replace("{{PROP_PANELS}}", "\n".join(panels))
+    html = html.replace("{{CITY_SUMMARY}}", city_summary)
+    html = html.replace("{{CITY_BLOCKS}}", "\n".join(city_blocks))
 
     return html
 
@@ -727,8 +824,9 @@ def deploy():
 
 
 def main():
+    no_deploy = "--no-deploy" in sys.argv
     print("=" * 50)
-    print(f"🔄 Iglu Sydney 房态更新 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🔄 Iglu 澳洲房态更新 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
     # Try Agent Portal login for more accurate inventory
@@ -736,26 +834,39 @@ def main():
     if not agent_ok:
         print("  ℹ️  Will use public page data only")
 
-    all_properties = []
+    all_cities = {}
+    total_props = 0
     total_rooms = 0
 
-    for prop_name, prop_slug in PROPERTIES.items():
-        prop_data = scrape_property(prop_name, prop_slug)
-        all_properties.append(prop_data)
-        total_rooms += len(prop_data['rooms'])
+    for city_slug, city_cfg in CITIES.items():
+        print(f"\n🏙️  {city_slug.upper()} ({city_cfg['label']})")
+        room_results = {}
+        for prop_name, prop_slug in city_cfg["properties"].items():
+            prop_data = scrape_property(city_slug, prop_name, prop_slug,
+                                        city_cfg["room_meta"], city_cfg["property_rooms"])
+            room_results[prop_slug] = prop_data["rooms"]
+            total_props += 1
+            total_rooms += len(prop_data["rooms"])
+        all_cities[city_slug] = {
+            "label": city_cfg["label"],
+            "properties": city_cfg["properties"],
+            "room_results": room_results,
+        }
 
-    print(f"\n📊 Total: {len(all_properties)} properties, {total_rooms} room types")
+    print(f"\n📊 Total: {total_props} properties, {total_rooms} room types")
 
     # Build HTML
     print("\n📝 Generating HTML...")
-    html = build_html(all_properties)
+    html = build_html(all_cities)
 
     with open(OUTPUT_PATH, 'w') as f:
         f.write(html)
     print(f"   ✅ Saved to {OUTPUT_PATH}")
 
-    # Deploy
-    deploy()
+    if no_deploy:
+        print("\n⏭️  --no-deploy 模式：跳过部署（仅生成本地 index.html）")
+    else:
+        deploy()
 
     print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")
 

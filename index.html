@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iglu Sydney 房态 — 异乡好居悉尼</title>
+<title>Iglu 澳洲房态 — 异乡好居</title>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,6 +17,7 @@
     --red: #dc2626; --red-bg: #fef2f2;
     --radius: 10px;
     --font: 'Satoshi', system-ui, -apple-system, sans-serif;
+    --brand: #FF5A5F;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -31,13 +32,23 @@
   html { font-family: var(--font); -webkit-font-smoothing: antialiased; background: var(--bg); color: var(--text); }
   body { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.6; }
 
-  .header { margin-bottom: 32px; }
+  .header { margin-bottom: 24px; }
   .header-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 4px; }
   .header h1 { font-size: clamp(1.4rem, 3.5vw, 1.8rem); font-weight: 700; letter-spacing: -0.025em; }
   .header .meta { color: var(--text-muted); font-size: 0.84rem; }
-  .uhomes-badge { display: flex; align-items: center; gap: 7px; padding: 5px 14px; border: 1.5px solid #FF5A5F; border-radius: 999px; background: rgba(255,255,255,.06); color: #FF5A5F; font-size: 12.5px; font-weight: 600; letter-spacing: .3px; white-space: nowrap; align-self: center; }
-  .uhomes-badge .ub-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF5A5F; box-shadow: 0 0 0 3px rgba(255,90,95,.18); }
+  .uhomes-badge { display: flex; align-items: center; gap: 7px; padding: 5px 14px; border: 1.5px solid var(--brand); border-radius: 999px; background: rgba(255,255,255,.06); color: var(--brand); font-size: 12.5px; font-weight: 600; letter-spacing: .3px; white-space: nowrap; align-self: center; }
+  .uhomes-badge .ub-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px rgba(255,90,95,.18); }
   .watermark { position: fixed; right: 16px; bottom: 8px; font-size: 12px; font-weight: 500; letter-spacing: 1.5px; color: rgba(139,115,85,.25); pointer-events: none; user-select: none; z-index: 999; }
+
+  /* City tabs */
+  .city-tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+  .city-btn { padding: 9px 24px; border-radius: 999px; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--text-muted); border: 1.5px solid var(--border); background: var(--card-bg); font-family: var(--font); transition: all 200ms cubic-bezier(0.32,0.72,0,1); }
+  .city-btn:hover { color: var(--text); border-color: var(--text-muted); }
+  .city-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 2px 10px rgba(255,90,95,.28); }
+
+  /* City blocks */
+  .city-block { display: none; }
+  .city-block.active { display: block; }
 
   /* Property nav */
   .prop-nav { display: flex; gap: 6px; margin-bottom: 28px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -84,10 +95,23 @@
   .room-name { font-weight: 600; }
 
   /* Panel visibility */
-  .prop-panel { display: none; }
+  .prop-panel { display: none; position: relative; }
   .prop-panel.active { display: block; }
   .sub-panel { display: none; }
   .sub-panel.active { display: block; }
+
+  /* Official site link (各楼官网) */
+  .prop-toolbar { position: absolute; top: 6px; right: 0; z-index: 3; }
+  .site-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); background: var(--card-bg); font-family: var(--font); text-decoration: none; transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; }
+  .site-link:hover { color: var(--text); border-color: var(--text-muted); }
+  @media (max-width:768px) { .prop-toolbar { position: static; display: flex; justify-content: flex-end; margin-bottom: 10px; } }
+
+  /* Coming Soon (即将开业占位) */
+  .coming-soon { text-align: center; padding: 64px 24px; background: var(--card-bg); border: 1px dashed var(--border); border-radius: var(--radius); margin-top: 8px; }
+  .cs-badge { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: #b26a00; background: #fff4e0; border: 1px solid #f0d9ad; border-radius: 999px; padding: 6px 16px; margin-bottom: 16px; }
+  .cs-title { font-size: 1.4rem; font-weight: 700; margin: 0 0 8px; }
+  .cs-text { font-size: 0.92rem; line-height: 1.8; color: var(--text-muted); margin: 0; }
+  .cs-text b { color: var(--text); }
 
   /* Footer */
   .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
@@ -113,112 +137,189 @@
 
 <div class="header fade-in" style="animation-delay:0ms">
   <div class="header-top">
-    <h1>Iglu Sydney 房态</h1>
+    <h1>Iglu 澳洲房态</h1>
     <div class="uhomes-badge"><span class="ub-dot"></span>uhomes 异乡好居</div>
   </div>
-  <p class="meta">📍 悉尼 8 所 Iglu 公寓 &ensp;|&ensp; 更新于 2026年06月08日 15:09 &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
+  <p class="meta">📍 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所 Iglu 公寓 &ensp;|&ensp; 更新于 2026年08月18日 19:10 &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
 </div>
 
-<nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav"><button class="prop-btn active" id="prop-btn-broadway" onclick="switchProp('broadway')">Broadway<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">7</span></button>
-<button class="prop-btn" id="prop-btn-central" onclick="switchProp('central')">Central<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">4</span></button>
-<button class="prop-btn" id="prop-btn-central-park" onclick="switchProp('central-park')">Central Park<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">7</span></button>
-<button class="prop-btn" id="prop-btn-chatswood" onclick="switchProp('chatswood')">Chatswood<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">6</span></button>
-<button class="prop-btn" id="prop-btn-mascot" onclick="switchProp('mascot')">Mascot<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">5</span></button>
-<button class="prop-btn" id="prop-btn-redfern" onclick="switchProp('redfern')">Redfern<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">10</span></button>
-<button class="prop-btn" id="prop-btn-summer-hill" onclick="switchProp('summer-hill')">Summer Hill<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">2</span></button>
-<button class="prop-btn" id="prop-btn-waterloo" onclick="switchProp('waterloo')">Waterloo<span style="font-size:0.7rem;opacity:0.6;margin-left:4px">4</span></button></nav>
+<div class="city-tabs fade-in" style="animation-delay:40ms">
+  <button class="city-btn" data-city="sydney" onclick="switchCity('sydney')">Sydney · 悉尼</button>
+  <button class="city-btn" data-city="melbourne" onclick="switchCity('melbourne')">Melbourne · 墨尔本</button>
+  <button class="city-btn" data-city="brisbane" onclick="switchCity('brisbane')">Brisbane · 布里斯班</button>
+</div>
 
+<div class="city-block" data-city="sydney">
+<nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav-sydney"><button class="prop-btn active" id="prop-btn-broadway" onclick="switchProp('sydney','broadway')">Broadway<span class="count">7</span></button><button class="prop-btn" id="prop-btn-central" onclick="switchProp('sydney','central')">Central<span class="count">4</span></button><button class="prop-btn" id="prop-btn-central-park" onclick="switchProp('sydney','central-park')">Central Park<span class="count">7</span></button><button class="prop-btn" id="prop-btn-chatswood" onclick="switchProp('sydney','chatswood')">Chatswood<span class="count">6</span></button><button class="prop-btn" id="prop-btn-mascot" onclick="switchProp('sydney','mascot')">Mascot<span class="count">5</span></button><button class="prop-btn" id="prop-btn-mascot-duo" onclick="switchProp('sydney','mascot-duo')">Mascot Duo<span class="count">即将</span></button><button class="prop-btn" id="prop-btn-redfern" onclick="switchProp('sydney','redfern')">Redfern<span class="count">10</span></button><button class="prop-btn" id="prop-btn-summer-hill" onclick="switchProp('sydney','summer-hill')">Summer Hill<span class="count">2</span></button><button class="prop-btn" id="prop-btn-waterloo" onclick="switchProp('sydney','waterloo')">Waterloo<span class="count">4</span></button></nav>
 <div class="prop-panel active" id="prop-broadway">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('broadway','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('broadway','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('broadway','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('broadway','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>30m²</td><td>Double</td><td><span class="price">$1,035</span></td><td><span class="price">$1,095</span></td><td><span class="price">$800</span></td><td><span class="tag tag-ok">3间</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19m²</td><td>King Single</td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">$700</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月14</td></tr><tr class="row-bad"><td><span class="room-name">Standard Studio NRAS</span><span class="room-note">NRAS补贴</span></td><td>17m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>23m²</td><td>Double</td><td><span class="price">$1,005</span></td><td><span class="price">$1,065</span></td><td><span class="price">$750</span></td><td><span class="tag tag-ok">3间</span></td><td>灵活自选 + 7月15</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-bad"><td><span class="room-name">Premium Studio</span></td><td>30m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19m²</td><td>King Single</td><td><span class="price">$885</span></td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">$800</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-bad"><td><span class="room-name">Standard Studio NRAS</span><span class="room-note">NRAS补贴</span></td><td>17m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr><tr class="row-bad"><td><span class="room-name">Superior Studio</span></td><td>23m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-warn"><td><span class="room-name">4 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$855</span></td><td><span class="price">$600</span></td><td>4人</td><td><span class="tag tag-warn">仅剩2间</span></td><td>灵活自选 + 7月14</td></tr><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$875</span></td><td><span class="price">$550</span></td><td>5人</td><td><span class="tag tag-ok">4间</span></td><td>灵活自选 + 7月15</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$865</span></td><td><span class="price">$600</span></td><td>6人</td><td><span class="tag tag-ok">3间</span></td><td>灵活自选 + 7月16</td></tr></tbody>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">4 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$805</span></td><td><span class="price">$805</span></td><td><span class="price">$865</span></td><td><span class="price">$770</span></td><td>4人</td><td><span class="tag tag-ok">4间</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$795</span></td><td><span class="price">$795</span></td><td><span class="price">$855</span></td><td><span class="price">$760</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>17m²</td><td>King Single</td><td><span class="price">$785</span></td><td><span class="price">$785</span></td><td><span class="price">$845</span></td><td><span class="price">$750</span></td><td>6人</td><td><span class="tag tag-ok">4间</span></td><td>今年已无房：2027年2月9日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-central">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('central','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('central','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>16.5m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">$865</span></td><td><span class="price">$925</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-off"><td><span class="room-name">5 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">$775</span></td><td><span class="price">$835</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Single Share Bath</span></td><td>11m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">$725</span></td><td><span class="price">$785</span></td><td><span class="price">—</span></td><td>Share Bath</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-central-park">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('central-park','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('central-park','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-bad"><td><span class="room-name">Premium Studio</span></td><td>31m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr><tr class="row-off"><td><span class="room-name">Premium Studio NRAS</span><span class="room-note">NRAS补贴</span></td><td>31m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19m²</td><td>Queen</td><td><span class="price">$925</span></td><td><span class="price">$925</span></td><td><span class="price">$985</span></td><td><span class="price">$985</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>21m²</td><td>Queen</td><td><span class="price">$1,005</span></td><td><span class="price">$1,005</span></td><td><span class="price">$1,065</span></td><td><span class="price">$1,065</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-off"><td><span class="room-name">3 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>3人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">4 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>4人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">$795</span></td><td><span class="price">$855</span></td><td><span class="price">$855</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月12日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-chatswood">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('chatswood','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('chatswood','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$835</span></td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">$895</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-warn"><td><span class="room-name">Standard Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$795</span></td><td><span class="price">$795</span></td><td><span class="price">$855</span></td><td><span class="price">$855</span></td><td><span class="tag tag-warn">仅剩2间</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$805</span></td><td><span class="price">$805</span></td><td><span class="price">$865</span></td><td><span class="price">$865</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">4 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$625</span></td><td><span class="price">$625</span></td><td><span class="price">$685</span></td><td><span class="price">$685</span></td><td>4人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$605</span></td><td><span class="price">$605</span></td><td><span class="price">$665</span></td><td><span class="price">$665</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$585</span></td><td><span class="price">$585</span></td><td><span class="price">$645</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-mascot">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('mascot','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('mascot','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>17m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17m²</td><td>Double</td><td><span class="price">$815</span></td><td><span class="price">$815</span></td><td><span class="price">$875</span></td><td><span class="price">$875</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">Standard Studio Queen</span></td><td>21m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>14m²</td><td>Double</td><td><span class="price">$685</span></td><td><span class="price">$685</span></td><td><span class="price">$745</span></td><td><span class="price">$745</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Premium 6 Share</span></td><td>14m²</td><td>Double</td><td><span class="price">$705</span></td><td><span class="price">$705</span></td><td><span class="price">$765</span></td><td><span class="price">$765</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-mascot-duo">
+<div class="sub-tabs"></div>
+<div class="coming-soon"><div class="cs-badge">🚧 即将开业</div><p class="cs-title">Iglu Mascot Duo</p><p class="cs-text">预计 <b>2027 年 1 月</b> 开业，官网目前为招租登记阶段，尚未公布可预订房型与价格。<br>房型上线后本页将自动同步真实房态。</p></div>
+</div><div class="prop-panel" id="prop-redfern">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('redfern','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('redfern','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">$945</span></td><td><span class="price">$1,005</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、15日</td></tr><tr class="row-off"><td><span class="room-name">Single Studio</span></td><td>17.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">Single Studio NRAS</span><span class="room-note">NRAS</span></td><td>17.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19.5m²</td><td>Double</td><td><span class="price">$885</span></td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、15日</td></tr><tr class="row-bad"><td><span class="room-name">Standard Studio NRAS</span><span class="room-note">NRAS</span></td><td>19.5m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-off"><td><span class="room-name">4 Share Apt</span></td><td>~13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>4人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">5 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">$745</span></td><td><span class="price">$745</span></td><td><span class="price">$805</span></td><td><span class="price">$805</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、15日</td></tr><tr class="row-off"><td><span class="room-name">6 Share NRAS</span></td><td>~13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人 NRAS</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share SAEX</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$675</span></td><td><span class="price">—</span></td><td>6人 USYD</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-summer-hill">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('summer-hill','Studio')">🏠 Studio</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$775</span></td><td><span class="price">$775</span></td><td><span class="price">$835</span></td><td><span class="price">$835</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$745</span></td><td><span class="price">$745</span></td><td><span class="price">$805</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-waterloo">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('waterloo','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('waterloo','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$885</span></td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$835</span></td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$855</span></td><td><span class="price">$855</span></td><td><span class="price">$915</span></td><td><span class="price">$915</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月9日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-warn"><td><span class="room-name">2 Share Apt</span></td><td>29m²</td><td>King Single</td><td><span class="price">$705</span></td><td><span class="price">$705</span></td><td><span class="price">$765</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-warn">仅剩2间</span></td><td>灵活自选</td></tr></tbody>
 </table></div></div>
 </div>
-<div class="prop-panel" id="prop-central">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('central','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('central','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
+</div>
+<div class="city-block" data-city="melbourne">
+<nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav-melbourne"><button class="prop-btn active" id="prop-btn-flagstaff-gardens" onclick="switchProp('melbourne','flagstaff-gardens')">Flagstaff Gardens<span class="count">6</span></button><button class="prop-btn" id="prop-btn-flagstaff-station" onclick="switchProp('melbourne','flagstaff-station')">Flagstaff Station<span class="count">4</span></button><button class="prop-btn" id="prop-btn-melbourne-central" onclick="switchProp('melbourne','melbourne-central')">Melbourne Central<span class="count">2</span></button><button class="prop-btn" id="prop-btn-melbourne-city" onclick="switchProp('melbourne','melbourne-city')">Melbourne City<span class="count">4</span></button><button class="prop-btn" id="prop-btn-south-yarra" onclick="switchProp('melbourne','south-yarra')">South Yarra<span class="count">7</span></button></nav>
+<div class="prop-panel active" id="prop-flagstaff-gardens">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('flagstaff-gardens','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('flagstaff-gardens','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>16.5m²</td><td>Double</td><td><span class="price">$855</span></td><td><span class="price">$915</span></td><td><span class="price">$800</span></td><td><span class="tag tag-ok">3间</span></td><td>灵活自选</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-warn"><td><span class="room-name">Premium Corner Studio</span></td><td>?</td><td>Double</td><td><span class="price">$725</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-warn">仅剩1间</span></td><td>今年已无房：2027年2月18日</td></tr><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>21m²</td><td>Double</td><td><span class="price">$685</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月4日、11日、18日</td></tr><tr class="row-bad"><td><span class="room-name">Single Studio</span></td><td>20m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$655</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$705</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月4日、11日、18日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$875</span></td><td><span class="price">$500</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$855</span></td><td><span class="price">$500</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Single Share Bath</span></td><td>11m²</td><td>King Single</td><td><span class="price">$815</span></td><td><span class="price">$470</span></td><td>Share Bath</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月1</td></tr></tbody>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">2 Share Apt</span></td><td>28.5m²</td><td>King Single</td><td><span class="price">$535</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月4日、18日</td></tr><tr class="row-ok"><td><span class="room-name">Premium 2 Share</span></td><td>56.3m²</td><td>Double</td><td><span class="price">$615</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月11日、18日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-flagstaff-station">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('flagstaff-station','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('flagstaff-station','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>18m²</td><td>Queen</td><td><span class="price">$695</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月2日、10日、16日</td></tr><tr class="row-bad"><td><span class="room-name">Premium Studio Corner</span></td><td>23.8m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>18m²</td><td>Queen</td><td><span class="price">$665</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月2日、10日、16日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">2 Share Apt</span></td><td>30.3m²</td><td>King Single</td><td><span class="price">$555</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月2日、10日、16日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-melbourne-central">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('melbourne-central','Studio')">🏠 Studio</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$665</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$715</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$645</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-melbourne-city">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('melbourne-city','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('melbourne-city','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>21m²</td><td>Double</td><td><span class="price">$735</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年起租：9月30日（亦可2027年2月3日、10日、17日）</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>21m²</td><td>Double</td><td><span class="price">$675</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$755</span></td><td><span class="tag tag-ok">有房</span></td><td>今年起租：8月31日、9月14日、10月26日、11月2日、16日（亦可2027年2月3日、10日、2027年7月13日）</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">$545</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">$515</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年起租：8月24日、10月13日（亦可2027年2月3日、10日、17日）</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-south-yarra">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('south-yarra','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('south-yarra','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>25.5m²</td><td>Double</td><td><span class="price">$725</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">4间</span></td><td>今年已无房：2027年2月3日、10日</td></tr><tr class="row-ok"><td><span class="room-name">Single Studio</span></td><td>17m²</td><td>King Single</td><td><span class="price">$675</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19m²</td><td>Double</td><td><span class="price">$685</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$735</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>14.5m²</td><td>King Single</td><td><span class="price">$565</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$615</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>14.5m²</td><td>King Single</td><td><span class="price">$555</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">4间</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr><tr class="row-ok"><td><span class="room-name">Premium 5 Share</span></td><td>14.5m²</td><td>King Single</td><td><span class="price">$585</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$635</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr><tr class="row-ok"><td><span class="room-name">Premium 6 Share</span></td><td>14.5m²</td><td>King Single</td><td><span class="price">$575</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月3日、10日、17日</td></tr></tbody>
 </table></div></div>
 </div>
-<div class="prop-panel" id="prop-central-park">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('central-park','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('central-park','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
+</div>
+<div class="city-block" data-city="brisbane">
+<nav class="prop-nav fade-in" style="animation-delay:80ms" id="prop-nav-brisbane"><button class="prop-btn active" id="prop-btn-brisbane-city" onclick="switchProp('brisbane','brisbane-city')">Brisbane City<span class="count">5</span></button><button class="prop-btn" id="prop-btn-kelvin-grove" onclick="switchProp('brisbane','kelvin-grove')">Kelvin Grove<span class="count">5</span></button></nav>
+<div class="prop-panel active" id="prop-brisbane-city">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Studio" onclick="switchSub('brisbane-city','Studio')">🏠 Studio</button><button class="sub-tab" data-type="Share" onclick="switchSub('brisbane-city','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Studio">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-bad"><td><span class="room-name">Premium Studio</span></td><td>31m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">Premium Studio NRAS</span><span class="room-note">NRAS补贴</span></td><td>31m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17m²</td><td>Queen</td><td><span class="price">$925</span></td><td><span class="price">$985</span></td><td><span class="price">$965</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 6月12-15.18-19.21-22, 7月7.14</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>21m²</td><td>Queen</td><td><span class="price">$1,005</span></td><td><span class="price">$1,065</span></td><td><span class="price">$1,035</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 6月9.11.13-16.21-22.27, 7月7.14</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-warn"><td><span class="room-name">Premium Studio</span></td><td>18.3m²</td><td>Double</td><td><span class="price">$759</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-warn">仅剩1间</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>18.3m²</td><td>Double</td><td><span class="price">$739</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$789</span></td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
 <div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-warn"><td><span class="room-name">3 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">$925</span></td><td><span class="price">$900</span></td><td>3人</td><td><span class="tag tag-warn">仅剩2间</span></td><td>灵活自选</td></tr><tr class="row-warn"><td><span class="room-name">4 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">$905</span></td><td><span class="price">$885</span></td><td>4人</td><td><span class="tag tag-warn">仅剩1间</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13m²</td><td>King Single</td><td><span class="price">$855</span></td><td><span class="price">$835</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 6月10.15.22.24.26</td></tr></tbody>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>12.8m²</td><td>King Single</td><td><span class="price">$559</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>12.8m²</td><td>King Single</td><td><span class="price">$539</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$589</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr><tr class="row-ok"><td><span class="room-name">Single Share Bath</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">$449</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$499</span></td><td>Share Bath</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月8日</td></tr></tbody>
+</table></div></div>
+</div><div class="prop-panel" id="prop-kelvin-grove">
+<div class="sub-tabs"><button class="sub-tab active" data-type="Apt" onclick="switchSub('kelvin-grove','Apt')">🛏️ 1居室</button><button class="sub-tab" data-type="Share" onclick="switchSub('kelvin-grove','Share')">👥 合租</button></div>
+<div class="sub-panel active" data-type="Apt">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-bad"><td><span class="room-name">1 Bedroom Apt</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>今年无房（等位）</td></tr></tbody>
+</table></div></div><div class="sub-panel" data-type="Share">
+<div class="table-wrap"><table>
+<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
+<tbody><tr class="row-ok"><td><span class="room-name">2 Share Apt</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">$489</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月11日</td></tr><tr class="row-ok"><td><span class="room-name">3 Share Apt</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">$459</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>3人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月11日</td></tr><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">$429</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">$479</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月11日</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>10.5m²</td><td>King Single</td><td><span class="price">$429</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>今年已无房：2027年2月11日</td></tr></tbody>
 </table></div></div>
 </div>
-<div class="prop-panel" id="prop-chatswood">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('chatswood','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('chatswood','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$795</span></td><td><span class="price">$855</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">3间</span></td><td>灵活自选 + 7月8.17</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$805</span></td><td><span class="price">$865</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月8</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">4 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$685</span></td><td><span class="price">—</span></td><td>4人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 6月25, 7月8</td></tr><tr class="row-ok"><td><span class="room-name">5 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$665</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月8</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.4m²</td><td>King Single</td><td><span class="price">$645</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 6月15, 7月8.15.17</td></tr></tbody>
-</table></div></div>
-</div>
-<div class="prop-panel" id="prop-mascot">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('mascot','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('mascot','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>17m²</td><td>Double</td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">4间</span></td><td>灵活自选 + 7月14.21, 9月7</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17m²</td><td>Double</td><td><span class="price">$815</span></td><td><span class="price">$875</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">4间</span></td><td>灵活自选 + 7月14.21</td></tr><tr class="row-off"><td><span class="room-name">Standard Studio Queen</span></td><td>21m²</td><td>Queen</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>14m²</td><td>Double</td><td><span class="price">$745</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">5间</span></td><td>灵活自选 + 7月14.21, 9月7</td></tr><tr class="row-ok"><td><span class="room-name">Premium 6 Share</span></td><td>14m²</td><td>Double</td><td><span class="price">$765</span></td><td><span class="price">—</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月14.21, 9月7</td></tr></tbody>
-</table></div></div>
-</div>
-<div class="prop-panel" id="prop-redfern">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('redfern','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('redfern','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>20m²</td><td>Double</td><td><span class="price">$945</span></td><td><span class="price">$1,005</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">Single Studio</span></td><td>17.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-off"><td><span class="room-name">Single Studio NRAS</span><span class="room-note">NRAS</span></td><td>17.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>19.5m²</td><td>Double</td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">$945</span></td><td><span class="tag tag-ok">4间</span></td><td>灵活自选 + 6月24, 7月16.20</td></tr><tr class="row-bad"><td><span class="room-name">Standard Studio NRAS</span><span class="room-note">NRAS</span></td><td>19.5m²</td><td>Double</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="price">—</span></td><td><span class="tag tag-bad">等位</span></td><td>灵活自选</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">4 Share Apt</span></td><td>~13m²</td><td>King Single</td><td><span class="price">$835</span></td><td><span class="price">—</span></td><td>4人</td><td><span class="tag tag-ok">3间</span></td><td>灵活自选 + 7月8</td></tr><tr class="row-off"><td><span class="room-name">5 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>5人</td><td><span class="tag tag-off">售罄</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share Apt</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">$805</span></td><td><span class="price">$805</span></td><td>6人</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月8.27</td></tr><tr class="row-ok"><td><span class="room-name">6 Share NRAS</span></td><td>~13m²</td><td>King Single</td><td><span class="price">—</span></td><td><span class="price">—</span></td><td>6人 NRAS</td><td><span class="tag tag-ok">3间</span></td><td>灵活自选</td></tr><tr class="row-ok"><td><span class="room-name">6 Share SAEX</span></td><td>13.5m²</td><td>King Single</td><td><span class="price">$675</span></td><td><span class="price">—</span></td><td>6人 USYD</td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月15</td></tr></tbody>
-</table></div></div>
-</div>
-<div class="prop-panel" id="prop-summer-hill">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('summer-hill','studio')">🏠 Studio</button></div>
-<div class="sub-panel active" data-type="studio">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$775</span></td><td><span class="price">$835</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月17.20, 9月7</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>18m²</td><td>Double</td><td><span class="price">$745</span></td><td><span class="price">$805</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月17.20, 9月7</td></tr></tbody>
-</table></div></div>
-</div>
-<div class="prop-panel" id="prop-waterloo">
-<div class="sub-tabs"><button class="sub-tab active" data-type="studio" onclick="switchSub('waterloo','studio')">🏠 Studio</button><button class="sub-tab" data-type="share" onclick="switchSub('waterloo','share')">👥 合租</button></div>
-<div class="sub-panel active" data-type="studio">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">Premium Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$885</span></td><td><span class="price">$945</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月10</td></tr><tr class="row-ok"><td><span class="room-name">Standard Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$835</span></td><td><span class="price">$895</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">4间</span></td><td>灵活自选 + 7月10</td></tr><tr class="row-ok"><td><span class="room-name">Superior Studio</span></td><td>17.3m²</td><td>Double</td><td><span class="price">$855</span></td><td><span class="price">$915</span></td><td><span class="price">—</span></td><td><span class="tag tag-ok">有房</span></td><td>灵活自选 + 7月10, 9月7, 10月19</td></tr></tbody>
-</table></div></div><div class="sub-panel" data-type="share">
-<div class="table-wrap"><table>
-<thead><tr><th>房型</th><th>卧室面积</th><th>床型</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th></tr></thead>
-<tbody><tr class="row-ok"><td><span class="room-name">2 Share Apt</span></td><td>29m²</td><td>King Single</td><td><span class="price">$765</span></td><td><span class="price">—</span></td><td>2人</td><td><span class="tag tag-ok">3间</span></td><td>灵活自选 + 7月10</td></tr></tbody>
-</table></div></div>
 </div>
 
 <div class="footer fade-in" style="animation-delay:400ms">
@@ -239,34 +340,106 @@
     <div class="footer-card">
       <h3>数据来源</h3>
       <ul>
-        <li>iglu.com.au 房型页面</li>
+        <li>iglu.com.au 房型页面（悉尼 / 墨尔本 / 布里斯班）</li>
         <li>Iglu Agent Portal (A1336)</li>
         <li>GitHub Actions 自动抓取</li>
       </ul>
     </div>
   </div>
-  <p style="color:var(--text-muted);font-size:0.78rem;margin-top:24px;text-align:center">异乡好居悉尼 · 梁赛威 (VX) · 仅供内部参考</p>
+  <p style="color:var(--text-muted);font-size:0.78rem;margin-top:24px;text-align:center">异乡好居 · 梁赛威 (VX) · 仅供内部参考</p>
 </div>
 
 <script>
-function switchProp(slug){
-  document.querySelectorAll('.prop-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.prop-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('prop-btn-'+slug).classList.add('active');
-  var panel=document.getElementById('prop-'+slug);
+/* 各楼官网地址 */
+var PROP_SITES = {
+  /* Sydney */
+  'broadway': 'https://iglu.com.au/sydney/broadway/',
+  'central': 'https://iglu.com.au/sydney/central/',
+  'central-park': 'https://iglu.com.au/sydney/central-park/',
+  'chatswood': 'https://iglu.com.au/sydney/chatswood/',
+  'mascot': 'https://iglu.com.au/sydney/mascot/',
+  'mascot-duo': 'https://iglu.com.au/sydney/mascot-duo/',
+  'redfern': 'https://iglu.com.au/sydney/redfern/',
+  'summer-hill': 'https://iglu.com.au/sydney/summer-hill/',
+  'waterloo': 'https://iglu.com.au/sydney/waterloo/',
+  /* Melbourne */
+  'flagstaff-gardens': 'https://iglu.com.au/melbourne/flagstaff-gardens/',
+  'flagstaff-station': 'https://iglu.com.au/melbourne/flagstaff-station/',
+  'melbourne-central': 'https://iglu.com.au/melbourne/melbourne-central/',
+  'melbourne-city': 'https://iglu.com.au/melbourne/melbourne-city/',
+  'south-yarra': 'https://iglu.com.au/melbourne/south-yarra/',
+  /* Brisbane */
+  'brisbane-city': 'https://iglu.com.au/brisbane/brisbane-city/',
+  'kelvin-grove': 'https://iglu.com.au/brisbane/kelvin-grove/'
+};
+document.querySelectorAll('.prop-panel').forEach(function(panel){
+  var slug = panel.id.replace('prop-','');
+  var url = PROP_SITES[slug];
+  if(!url) return;
+  var bar = document.createElement('div');
+  bar.className = 'prop-toolbar';
+  var a = document.createElement('a');
+  a.className = 'site-link';
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
+  bar.appendChild(a);
+  panel.insertBefore(bar, panel.firstChild);
+});
+
+var CITY_KEYS = ['sydney', 'melbourne', 'brisbane'];
+
+/* 切换城市：显示对应城市块，并记住选择（下次打开自动恢复） */
+function switchCity(city){
+  document.querySelectorAll('.city-block').forEach(function(b){
+    b.classList.toggle('active', b.dataset.city === city);
+  });
+  document.querySelectorAll('.city-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.city === city);
+  });
+  try { localStorage.setItem('iglu_city', city); } catch(e) {}
+}
+
+function switchProp(city, slug){
+  var block = document.querySelector('.city-block[data-city="'+city+'"]');
+  if(!block) return;
+  block.querySelectorAll('.prop-btn').forEach(function(b){b.classList.remove('active');});
+  block.querySelectorAll('.prop-panel').forEach(function(p){p.classList.remove('active');});
+  block.querySelector('#prop-btn-'+slug).classList.add('active');
+  var panel = block.querySelector('#prop-'+slug);
+  if(!panel) return;
   panel.classList.add('active');
-  panel.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
-  panel.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('active'));
-  var first=panel.querySelector('.sub-tab');
-  if(first){first.classList.add('active');panel.querySelector('.sub-panel[data-type="'+first.dataset.type+'"]').classList.add('active');}
+  panel.querySelectorAll('.sub-tab').forEach(function(t){t.classList.remove('active');});
+  panel.querySelectorAll('.sub-panel').forEach(function(p){p.classList.remove('active');});
+  var first = panel.querySelector('.sub-tab');
+  if(first){
+    first.classList.add('active');
+    var sp = panel.querySelector('.sub-panel[data-type="'+first.dataset.type+'"]');
+    if(sp) sp.classList.add('active');
+  }
 }
+
 function switchSub(slug,type){
-  var panel=document.getElementById('prop-'+slug);
-  panel.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('active'));
-  panel.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('active'));
-  panel.querySelector('.sub-tab[data-type="'+type+'"]').classList.add('active');
-  panel.querySelector('.sub-panel[data-type="'+type+'"]').classList.add('active');
+  var panel = document.getElementById('prop-'+slug);
+  if(!panel) return;
+  panel.querySelectorAll('.sub-tab').forEach(function(t){t.classList.remove('active');});
+  panel.querySelectorAll('.sub-panel').forEach(function(p){p.classList.remove('active');});
+  var st = panel.querySelector('.sub-tab[data-type="'+type+'"]');
+  var sp = panel.querySelector('.sub-panel[data-type="'+type+'"]');
+  if(st) st.classList.add('active');
+  if(sp) sp.classList.add('active');
 }
+
+/* 初始化：恢复上次停留的城市（默认悉尼） */
+(function(){
+  var saved = 'sydney';
+  try {
+    var v = localStorage.getItem('iglu_city');
+    if (v && CITY_KEYS.indexOf(v) !== -1) saved = v;
+  } catch(e) {}
+  switchCity(saved);
+})();
 </script>
 <div class="watermark">梁赛威 · Murphy</div>
 </body>
