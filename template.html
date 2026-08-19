@@ -179,27 +179,27 @@
 </div>
 
 <script>
-/* 各楼官网地址（对应物业页：含楼介绍+房型卡片+预订入口） */
+/* 各楼官网直达（预租模式下官网把楼页重定向到申请主页，故用该楼房型页直达，打开即见该楼信息） */
 var PROP_SITES = {
   /* Sydney */
-  'broadway': 'https://iglu.com.au/properties/sydney/broadway/',
-  'central': 'https://iglu.com.au/properties/sydney/central/',
-  'central-park': 'https://iglu.com.au/properties/sydney/central-park/',
-  'chatswood': 'https://iglu.com.au/properties/sydney/chatswood/',
-  'mascot': 'https://iglu.com.au/properties/sydney/mascot/',
+  'broadway': 'https://iglu.com.au/rooms/sydney/broadway/standard-studio-apartment-br/',
+  'central': 'https://iglu.com.au/rooms/sydney/central/standard-studio-apartment-ce/',
+  'central-park': 'https://iglu.com.au/rooms/sydney/central-park/standard-studio-apartment-cp/',
+  'chatswood': 'https://iglu.com.au/rooms/sydney/chatswood/standard-studio-apartment-ch/',
+  'mascot': 'https://iglu.com.au/rooms/sydney/mascot/standard-studio-apartment-ma/',
   'mascot-duo': 'https://iglu.com.au/sydney/mascot-duo/',
-  'redfern': 'https://iglu.com.au/properties/sydney/redfern/',
-  'summer-hill': 'https://iglu.com.au/properties/sydney/summer-hill/',
-  'waterloo': 'https://iglu.com.au/properties/sydney/waterloo/',
+  'redfern': 'https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-re/',
+  'summer-hill': 'https://iglu.com.au/rooms/sydney/summer-hill/standard-studio-apartment-sh/',
+  'waterloo': 'https://iglu.com.au/rooms/sydney/waterloo/standard-studio-apartment-wa/',
   /* Melbourne */
-  'flagstaff-gardens': 'https://iglu.com.au/properties/melbourne/flagstaff-gardens/',
-  'flagstaff-station': 'https://iglu.com.au/properties/melbourne/flagstaff-station/',
-  'melbourne-central': 'https://iglu.com.au/properties/melbourne/melbourne-central/',
-  'melbourne-city': 'https://iglu.com.au/properties/melbourne/melbourne-city/',
-  'south-yarra': 'https://iglu.com.au/properties/melbourne/south-yarra/',
+  'flagstaff-gardens': 'https://iglu.com.au/rooms/melbourne/flagstaff-gardens/standard-studio-apartment-fg/',
+  'flagstaff-station': 'https://iglu.com.au/rooms/melbourne/flagstaff-station/standard-studio-apartment-fs/',
+  'melbourne-central': 'https://iglu.com.au/rooms/melbourne/melbourne-central/standard-studio-apartment-mce/',
+  'melbourne-city': 'https://iglu.com.au/rooms/melbourne/melbourne-city/standard-studio-apartment-mc/',
+  'south-yarra': 'https://iglu.com.au/rooms/melbourne/south-yarra/standard-studio-apartment-sy/',
   /* Brisbane */
-  'brisbane-city': 'https://iglu.com.au/properties/brisbane/brisbane-city/',
-  'kelvin-grove': 'https://iglu.com.au/properties/brisbane/kelvin-grove/'
+  'brisbane-city': 'https://iglu.com.au/rooms/brisbane/brisbane-city/standard-studio-apartment-bc/',
+  'kelvin-grove': 'https://iglu.com.au/rooms/brisbane/kelvin-grove/1-bedroom-apartment-kg/'
 };
 document.querySelectorAll('.prop-panel').forEach(function(panel){
   var slug = panel.id.replace('prop-','');
@@ -211,8 +211,8 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   a.className = 'site-link';
   a.href = url;
   a.target = '_blank';
-  a.rel = 'noopener';
-  a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
+  a.rel = 'noreferrer noopener';
+  a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网房型 ↗';
   bar.appendChild(a);
   panel.insertBefore(bar, panel.firstChild);
 });
