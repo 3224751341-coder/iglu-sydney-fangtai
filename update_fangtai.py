@@ -663,6 +663,41 @@ def avail_info(status: str, count) -> tuple:
         return ('row-off', '<span class="tag tag-off">未知</span>')
 
 
+def build_date_cell(room: dict) -> str:
+    """起租日期单元格：醒目徽标（今年可订 / 今年已无房 / 等位无房 / 灵活自选）+ 日期细节。
+    今年可订 = 有今年日期 或 Flexible Start（灵活起租，可今年入住）。"""
+    from datetime import datetime
+    date_data = room.get('date_data', {})
+    avail = room['avail_status']
+    dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
+    flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
+    this_year = datetime.now().year
+
+    if avail == 'soldout':
+        return '<span class="tag tag-off tag-mini">已售罄</span>'
+    if avail == 'waitlist':
+        return '<span class="tag tag-bad tag-mini">等位无房</span>'
+    if not dates:
+        if flexible:
+            return '<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">灵活起租</span>'
+        return '<span class="tag tag-ok tag-mini">灵活自选</span>'
+
+    this_dates = [d for d in dates if d[0] == this_year]
+    future_dates = [d for d in dates if d[0] > this_year]
+
+    if this_dates or flexible:
+        if this_dates:
+            detail = format_dates({'dates': this_dates, 'flexible': False})
+            if future_dates:
+                detail += '（亦可' + format_dates({'dates': future_dates, 'flexible': False}) + '）'
+        else:
+            detail = '灵活起租'
+        return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{detail}</span>'
+    else:
+        detail = format_dates({'dates': future_dates, 'flexible': False})
+        return f'<span class="tag tag-off tag-mini">今年已无房</span> <span class="date-detail">{detail}</span>'
+
+
 def build_studio_row(room: dict) -> str:
     """Build a single studio/apt table row."""
     p = room['prices']
@@ -679,7 +714,7 @@ def build_studio_row(room: dict) -> str:
         f'<td><span class="price">{format_price(p, "22周")}</span></td>'
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
         f'<td>{status_html}</td>'
-        f'<td>{room["date_str"]}</td>'
+        f'<td>{build_date_cell(room)}</td>'
         f'</tr>'
     )
 
@@ -699,7 +734,7 @@ def build_share_row(room: dict) -> str:
         f'<td><span class="price">{format_price(p, "短租")}</span></td>'
         f'<td>{room["note"]}</td>'
         f'<td>{status_html}</td>'
-        f'<td>{room["date_str"]}</td>'
+        f'<td>{build_date_cell(room)}</td>'
         f'</tr>'
     )
 
