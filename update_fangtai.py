@@ -425,11 +425,11 @@ def extract_dates(html: str) -> dict:
                 if month:
                     dates.append((year, month, day))
 
-    # Deduplicate and sort
+    # Deduplicate and sort (按完整年月日去重，保留同月内的多个日期)
     seen = set()
     unique = []
     for d in dates:
-        key = f"{d[2]:02d}-{d[1]:02d}"
+        key = f"{d[2]:04d}-{d[1]:02d}-{d[0]:02d}"
         if key not in seen:
             seen.add(key)
             unique.append(d)
@@ -528,10 +528,12 @@ def format_dates(date_data: dict) -> str:
 
 
 def format_start_label(avail_status: str, date_data: dict) -> str:
-    """精准起租日期：区分今年可起租 / 今年已无房只有明年 / 等位无房。"""
+    """精准起租日期：区分今年可起租 / 今年已无房只有明年 / 等位无房。
+    Flexible Start（灵活自选）优先：可随时起租（含今年），即使只列出明年具体日期。"""
     from collections import defaultdict
     from datetime import datetime
     dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
+    flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
     if not dates:
         if avail_status == 'waitlist':
             return '今年无房（等位）'
@@ -566,8 +568,15 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     def full(ds):
         return format_dates({'dates': ds, 'flexible': False})
 
+    # 灵活自选：可随时起租（含今年），即使只列出明年的具体日期
+    if flexible and not this_dates:
+        return '灵活自选'
+
     if this_dates:
-        label = '今年起租：' + short(this_dates)
+        if flexible:
+            label = '灵活自选（' + short(this_dates) + ' 起）'
+        else:
+            label = '今年起租：' + short(this_dates)
         if future_dates:
             label += '（亦可' + full(future_dates) + '）'
         return label
