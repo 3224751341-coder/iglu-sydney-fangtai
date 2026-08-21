@@ -872,17 +872,8 @@ def build_snapshot(all_cities: dict) -> dict:
 
 
 def load_snapshot() -> dict:
-    """读上次快照：优先线上（GitHub Actions 环境），否则本地文件"""
-    # 1) 线上
-    try:
-        req = urllib.request.Request(SNAPSHOT_URL, headers={"User-Agent": "iglu-fangtai-bot"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            if isinstance(data, dict) and data:
-                return data
-    except Exception:
-        pass
-    # 2) 本地
+    """读上次快照：优先本地（仓库 checkout 自带），线上兜底"""
+    # 1) 本地
     if os.path.exists(SNAPSHOT_PATH):
         try:
             with open(SNAPSHOT_PATH, encoding="utf-8") as f:
@@ -891,6 +882,15 @@ def load_snapshot() -> dict:
                     return data
         except Exception:
             pass
+    # 2) 线上
+    try:
+        req = urllib.request.Request(SNAPSHOT_URL, headers={"User-Agent": "iglu-fangtai-bot"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if isinstance(data, dict) and data:
+                return data
+    except Exception:
+        pass
     return {}
 
 

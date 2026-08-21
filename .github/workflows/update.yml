@@ -11,6 +11,9 @@ on:
       - '.github/workflows/update.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -27,3 +30,15 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ef0a1a33b94f19c47fb3f9e2737f9214
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
         run: python update_fangtai.py
+
+      - name: Commit snapshot back
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data_snapshot.json
+          if git diff --cached --quiet; then
+            echo "快照无变化，跳过提交"
+          else
+            git commit -m "chore: update data snapshot [skip ci]"
+            git push
+          fi
