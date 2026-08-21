@@ -5,7 +5,7 @@ Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里
 输出: 更新 index.html → 自动部署到 Cloudflare Pages
 """
 
-import json, re, sys, os, subprocess
+import json, re, sys, os, subprocess, urllib.request
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -18,6 +18,12 @@ OUTPUT_PATH = os.path.join(PROJECT_DIR, "index.html")
 CLOUDFLARE_PROJECT = "iglu-centralpark"
 MAX_WORKERS = 12
 REQUEST_TIMEOUT = 25
+
+# ── 变化检测 & 推送 ──
+# 快照：存到仓库目录 + 随部署上线（https://iglu-centralpark.pages.dev/data_snapshot.json），下次运行优先读线上
+SNAPSHOT_PATH = os.path.join(PROJECT_DIR, "data_snapshot.json")
+SNAPSHOT_URL = f"https://{CLOUDFLARE_PROJECT}.pages.dev/data_snapshot.json"
+WECOM_WEBHOOK = os.environ.get("WECOM_WEBHOOK", "")
 
 # ── Cities & Properties ──
 # 城市 slug → {label, properties: {显示名: slug}, room_meta, property_rooms}
@@ -847,6 +853,132 @@ def build_html(all_cities: dict) -> str:
     return html
 
 
+# ── 变化检测 & 企微推送 ──
+
+def build_snapshot(all_cities: dict) -> dict:
+    """把抓取结果压成可对比的快照: key=city/prop/room_slug → {prices, avail, count, date}"""
+    snap = {}
+    for city, city_data in all_cities.items():
+        for prop_slug, rooms in city_data["room_results"].items():
+            for r in rooms:
+                key = f"{city}/{prop_slug}/{r.get('slug','')}"
+                snap[key] = {
+                    "prices": r.get("prices", {}),
+                    "avail": r.get("avail_status", ""),
+                    "count": r.get("avail_count", ""),
+                    "date": r.get("date_str", ""),
+                }
+    return snap
+
+
+def load_snapshot() -> dict:
+    """读上次快照：优先线上（GitHub Actions 环境），否则本地文件"""
+    # 1) 线上
+    try:
+        req = urllib.request.Request(SNAPSHOT_URL, headers={"User-Agent": "iglu-fangtai-bot"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if isinstance(data, dict) and data:
+                return data
+    except Exception:
+        pass
+    # 2) 本地
+    if os.path.exists(SNAPSHOT_PATH):
+        try:
+            with open(SNAPSHOT_PATH, encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and data:
+                    return data
+        except Exception:
+            pass
+    return {}
+
+
+def save_snapshot(snap: dict):
+    with open(SNAPSHOT_PATH, "w", encoding="utf-8") as f:
+        json.dump(snap, f, ensure_ascii=False, indent=1)
+
+
+def diff_snapshot(old: dict, new: dict):
+    """对比两次快照，返回变化列表 [(key, field, old_val, new_val), ...]"""
+    changes = []
+    for key, cur in new.items():
+        prev = old.get(key)
+        if prev is None:
+            continue  # 首次抓取/新增房型不打扰
+        for field in ("prices", "avail", "count", "date"):
+            if prev.get(field) != cur.get(field):
+                changes.append((key, field, prev.get(field), cur.get(field)))
+    return changes
+
+
+def format_changes(changes: list, all_cities: dict) -> str:
+    """变化列表 → 企微 markdown 消息"""
+    # city/prop → 显示名
+    prop_label = {}
+    for city, city_data in all_cities.items():
+        for name, slug in city_data["properties"].items():
+            prop_label[f"{city}/{slug}"] = name
+    # room slug → 房型显示名
+    room_label = {}
+    for city, city_data in all_cities.items():
+        for prop_slug, rooms in city_data["room_results"].items():
+            for r in rooms:
+                room_label[f"{city}/{prop_slug}/{r.get('slug','')}"] = r.get("name", r.get("slug",""))
+
+    groups = {}
+    for key, field, oldv, newv in changes:
+        groups.setdefault(key, []).append((field, oldv, newv))
+
+    lines = []
+    for key, items in groups.items():
+        city, prop_slug, room_slug = key.split("/", 2)
+        name = room_label.get(key, room_slug)
+        pname = prop_label.get(f"{city}/{prop_slug}", prop_slug)
+        lines.append(f"**{pname} · {name}**")
+        for field, oldv, newv in items:
+            if field == "prices":
+                # 价格 dict 变短显示
+                def fmt_price(p):
+                    if not p or not isinstance(p, dict):
+                        return "—"
+                    vals = [str(v) for v in p.values() if v]
+                    return "$" + "/".join(vals) if vals else "—"
+                lines.append(f"> 价格: {fmt_price(oldv)} → {fmt_price(newv)}")
+            elif field == "avail":
+                lines.append(f"> 库存: {oldv or '?'} → {newv or '?'}")
+            elif field == "count":
+                lines.append(f"> 余量: {oldv or '-'} → {newv or '-'}")
+            elif field == "date":
+                lines.append(f"> 起租: {oldv or '—'} → {newv or '—'}")
+        lines.append("")
+
+    # 控制消息长度（企微 markdown 上限约 4096 字符）
+    text = "\n".join(lines).strip()
+    if len(text) > 3500:
+        text = text[:3500] + "\n... (更多变化请查看页面)"
+    return text
+
+
+def notify_wecom(text: str):
+    """推送到企业微信群机器人 webhook"""
+    if not WECOM_WEBHOOK:
+        print("  ℹ️  未配置 WECOM_WEBHOOK，跳过推送（更新照常）")
+        return
+    payload = {"msgtype": "markdown", "markdown": {"content": text}}
+    try:
+        req = urllib.request.Request(
+            WECOM_WEBHOOK,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            body = resp.read().decode("utf-8")
+            print(f"  📨 企微推送: {body[:120]}")
+    except Exception as e:
+        print(f"  ❌ 企微推送失败: {e}")
+
+
 def deploy():
     """Deploy to Cloudflare Pages."""
     print("\n🚀 Deploying to Cloudflare Pages...")
@@ -907,10 +1039,36 @@ def main():
         f.write(html)
     print(f"   ✅ Saved to {OUTPUT_PATH}")
 
-    if no_deploy:
-        print("\n⏭️  --no-deploy 模式：跳过部署（仅生成本地 index.html）")
+    # ── 变化检测：有变化才部署 + 推送；无变化静默跳过 ──
+    force = "--force" in sys.argv
+    new_snap = build_snapshot(all_cities)
+    old_snap = load_snapshot()
+    changes = diff_snapshot(old_snap, new_snap) if old_snap else []
+    changed_count = len(set(c[0] for c in changes))
+
+    if force or (old_snap and changes):
+        print(f"\n📢 检测到变化: {changed_count} 个房型 ({len(changes)} 项字段变动)")
+        if no_deploy:
+            print("  ⏭️  --no-deploy 模式：不部署，仅保存快照")
+        else:
+            deploy()
+            save_snapshot(new_snap)
+            if not force and changes:
+                msg = format_changes(changes, all_cities)
+                notify_wecom(
+                    f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
+                    f"[查看实时房态](https://{CLOUDFLARE_PROJECT}.pages.dev/)"
+                )
+    elif not old_snap:
+        print("\n🆕 首次运行：保存快照并部署（不推送）")
+        if no_deploy:
+            print("  ⏭️  --no-deploy 模式：不部署")
+        else:
+            deploy()
+        save_snapshot(new_snap)
     else:
-        deploy()
+        print("\n✅ 无变化，跳过部署（避免无意义更新）")
+        save_snapshot(new_snap)
 
     print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")
 
