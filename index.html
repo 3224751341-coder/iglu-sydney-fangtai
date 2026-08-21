@@ -98,6 +98,22 @@
   .price { font-weight: 600; }
   .room-name { font-weight: 600; }
 
+  /* 每行申请链接 */
+  .apply-link {
+    display: inline-flex; align-items: center; gap: 3px;
+    margin-left: 8px;
+    padding: 2px 10px;
+    border-radius: 99px;
+    font-size: 0.72rem; font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #FF5A1F, #FF7A45);
+    text-decoration: none;
+    vertical-align: middle;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    white-space: nowrap;
+  }
+  .apply-link:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(255,90,31,0.4); }
+
   /* Panel visibility */
   .prop-panel { display: none; position: relative; }
   .prop-panel.active { display: block; }
@@ -134,50 +150,6 @@
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .table-wrap table { min-width: 680px; }
     .header-top { flex-direction: column; align-items: flex-start; }
-  }
-
-  /* Agent Portal CTA */
-  .agent-cta {
-    margin-top: 40px;
-    padding: 28px 32px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #FF5A1F 0%, #FF7A45 100%);
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 28px;
-    align-items: center;
-    box-shadow: 0 10px 28px -10px rgba(255, 90, 31, 0.45);
-  }
-  .cta-eyebrow { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; opacity: 0.9; margin-bottom: 6px; }
-  .cta-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
-  .cta-desc { font-size: 0.9rem; line-height: 1.65; opacity: 0.95; }
-  .cta-desc strong { font-weight: 700; background: rgba(255,255,255,0.22); padding: 1px 8px; border-radius: 4px; letter-spacing: 0.04em; }
-  .cta-actions { display: flex; flex-direction: column; gap: 10px; }
-  .cta-btn {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-family: var(--font);
-    transition: transform 200ms ease, box-shadow 200ms ease;
-  }
-  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
-  .cta-btn-primary { background: #fff; color: #FF5A1F; }
-  .cta-btn-secondary { background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
-  .cta-btn-secondary:hover { background: rgba(255,255,255,0.22); }
-  .cta-btn-num { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,90,31,0.14); color: #FF5A1F; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
-  .cta-btn-secondary .cta-btn-num { background: rgba(255,255,255,0.25); color: #fff; }
-  .cta-btn-text { display: flex; flex-direction: column; flex: 1; }
-  .cta-btn-main { font-weight: 600; font-size: 0.96rem; line-height: 1.2; }
-  .cta-btn-sub { font-size: 0.72rem; opacity: 0.7; margin-top: 2px; }
-  .cta-btn-secondary .cta-btn-sub { opacity: 0.85; }
-  .cta-arrow { font-size: 1.1rem; opacity: 0.6; }
-
-  @media (max-width:768px) {
-    .agent-cta { grid-template-columns: 1fr; padding: 22px; gap: 18px; }
-    .cta-title { font-size: 1.35rem; }
-    .cta-desc { font-size: 0.85rem; }
   }
 </style>
 </head>
@@ -370,33 +342,6 @@
 </div>
 </div>
 
-<!-- Agent Portal CTA -->
-<div class="agent-cta fade-in" style="animation-delay:350ms">
-  <div>
-    <div class="cta-eyebrow">Agent Portal · Code A1336</div>
-    <h2 class="cta-title">直接提交申请</h2>
-    <p class="cta-desc">用代理代码 <strong>A1336</strong> 登录 Iglu Agent Portal 后，会话内可一键进入 Quick Apply 表单（4 步：城市 → 公寓 → 房型 → 代理/学生/支付），省掉学生公开页 43 步流程。</p>
-  </div>
-  <div class="cta-actions">
-    <a class="cta-btn cta-btn-primary" href="https://iglu.com.au/portal/" target="_blank" rel="noopener">
-      <span class="cta-btn-num">1</span>
-      <span class="cta-btn-text">
-        <span class="cta-btn-main">登录 Agent Portal</span>
-        <span class="cta-btn-sub">首次输入 A1336</span>
-      </span>
-      <span class="cta-arrow">→</span>
-    </a>
-    <a class="cta-btn cta-btn-secondary" href="https://iglu.com.au/apply-online/" target="_blank" rel="noopener">
-      <span class="cta-btn-num">2</span>
-      <span class="cta-btn-text">
-        <span class="cta-btn-main">快速申请房间</span>
-        <span class="cta-btn-sub">需先完成 ①</span>
-      </span>
-      <span class="cta-arrow">→</span>
-    </a>
-  </div>
-</div>
-
 <div class="footer fade-in" style="animation-delay:400ms">
   <div class="footer-grid">
     <div class="footer-card">
@@ -514,6 +459,145 @@ function switchSub(slug,type){
     if (v && CITY_KEYS.indexOf(v) !== -1) saved = v;
   } catch(e) {}
   switchCity(saved);
+})();
+
+/* ===== 每行房型 → Agent 申请直达链接 ===== */
+/* 数据来源：iglu.com.au apply-online AJAX (filter_get_rooms) 2026-08-21 实测 */
+var ROOM_APPLY = {
+  'sydney': {
+    'broadway': {
+      'Premium Studio': 'premium-studio-apartment-br',
+      'Standard Studio': 'standard-studio-apartment-br',
+      'Superior Studio': 'superior-studio-apartment-br',
+      '4 Share Apt': 'single-bedroom-4-share-apt-br',
+      '5 Share Apt': 'single-bedroom-5-share-apt-br',
+      '6 Share Apt': 'single-bedroom-6-share-apt-br'
+    },
+    'central': {
+      'Standard Studio': 'standard-studio-apartment-ce',
+      '5 Share Apt': 'single-bedroom-5-share-apt-ce',
+      '6 Share Apt': 'single-bedroom-6-share-apt-ce',
+      'Single Share Bath': 'single-bedroom-share-bathroom-ce'
+    },
+    'central-park': {
+      'Premium Studio': 'premium-studio-apartment-cp',
+      'Standard Studio': 'standard-studio-apartment-cp',
+      'Superior Studio': 'superior-studio-apartment',
+      '3 Share Apt': 'single-bedroom-3-share-apt-cp',
+      '4 Share Apt': 'single-bedroom-4-share-apt-cp',
+      '6 Share Apt': 'single-bedroom-6-share-apt-cp'
+    },
+    'chatswood': {
+      'Premium Studio': 'premium-studio-apartment-ch',
+      'Standard Studio': 'standard-studio-apartment-ch',
+      'Superior Studio': 'superior-studio-apartment-ch',
+      '4 Share Apt': 'single-bedroom-4-share-apt-ch',
+      '5 Share Apt': 'single-bedroom-5-share-apt-ch',
+      '6 Share Apt': 'single-bedroom-6-share-apt-ch'
+    },
+    'mascot': {
+      'Premium Studio': 'premium-studio-apartment-ma',
+      'Standard Studio': 'standard-studio-apartment-ma',
+      '6 Share Apt': 'single-bedroom-6-share-apt-ma',
+      'Premium 6 Share': 'premium-single-bedroom-6-share-ma'
+    },
+    'redfern': {
+      'Premium Studio': 'premium-studio-apartment-re',
+      'Single Studio': 'single-studio-apartment-re',
+      'Standard Studio': 'standard-studio-apartment-re',
+      '4 Share Apt': 'single-bedroom-4-share-apt-re',
+      '5 Share Apt': 'single-bedroom-5-share-apt-re',
+      '6 Share Apt': 'single-bedroom-6-share-apt-re'
+    },
+    'summer-hill': {
+      'Premium Studio': 'premium-studio-apartment-sh',
+      'Standard Studio': 'standard-studio-apartment-sh'
+    },
+    'waterloo': {
+      'Premium Studio': 'premium-studio-apartment-wa',
+      'Standard Studio': 'standard-studio-apartment-wa',
+      'Superior Studio': 'superior-studio-apartment-wa',
+      '2 Share Apt': 'single-bedroom-2-share-apt-wa'
+    }
+  },
+  'brisbane': {
+    'brisbane-city': {
+      'Premium Studio': 'premium-studio-apartment-bc',
+      'Standard Studio': 'standard-studio-apartment-bc',
+      '5 Share Apt': 'single-bedroom-5-share-apt-bc',
+      '6 Share Apt': 'single-bedroom-6-share-apt-bc',
+      'Single Share Bath': 'student-room-shared-bathroom-bc'
+    },
+    'kelvin-grove': {
+      '1 Bedroom Apt': '1-bedroom-apartment-kg',
+      '2 Share Apt': 'single-bedroom-2-share-apt-kg',
+      '3 Share Apt': 'single-bedroom-3-share-apt-kg',
+      '5 Share Apt': 'single-bedroom-5-share-apt-kg',
+      '6 Share Apt': 'single-bedroom-6-share-apt-kg'
+    }
+  },
+  'melbourne': {
+    'flagstaff-station': {
+      'Premium Studio': 'premium-studio-apartment-fs',
+      'Premium Studio Corner': 'premium-studio-apartment-cnr-fs',
+      'Standard Studio': 'standard-studio-apartment-fs',
+      '2 Share Apt': 'single-bedroom-2-share-apt-fs'
+    },
+    'flagstaff-gardens': {
+      'Single Studio': 'single-studio-apartment',
+      'Standard Studio': 'standard-studio-apartment-fg',
+      'Premium Studio': 'premium-studio-apartment-fg',
+      'Premium Corner Studio': 'premium-corner-studio-apartment-fg',
+      '2 Share Apt': 'single-bedroom-2-share-apt-fg',
+      'Premium 2 Share': 'premium-single-bedroom-2-share-fg'
+    },
+    'melbourne-central': {
+      'Premium Studio': 'premium-studio-apartment-mce',
+      'Standard Studio': 'standard-studio-apartment-mce'
+    },
+    'melbourne-city': {
+      'Premium Studio': 'premium-studio-apartment-mc',
+      'Standard Studio': 'standard-studio-apartment-mc',
+      '5 Share Apt': 'single-bedroom-5-share-apt-mc',
+      '6 Share Apt': 'single-bedroom-6-share-apt-mc'
+    },
+    'south-yarra': {
+      'Premium Studio': 'premium-studio-apartment-sy',
+      'Single Studio': 'single-studio-apartment-sy',
+      'Standard Studio': 'standard-studio-apartment-sy',
+      '5 Share Apt': 'single-bedroom-5-share-apt-sy',
+      '6 Share Apt': 'single-bedroom-6-share-apt-sy',
+      'Premium 5 Share': 'premium-single-bedroom-5-share-apt-sy',
+      'Premium 6 Share': 'premium-single-bedroom-6-share-apt-sy'
+    }
+  }
+};
+var CITY_OF_PROP = { 'broadway':'sydney','central':'sydney','central-park':'sydney','chatswood':'sydney','mascot':'sydney','redfern':'sydney','summer-hill':'sydney','waterloo':'sydney','brisbane-city':'brisbane','kelvin-grove':'brisbane','flagstaff-station':'melbourne','flagstaff-gardens':'melbourne','melbourne-central':'melbourne','melbourne-city':'melbourne','south-yarra':'melbourne' };
+(function(){
+  function injectApplyLinks(){
+    document.querySelectorAll('.prop-panel').forEach(function(panel){
+      var prop = panel.id.replace('prop-','');
+      var city = CITY_OF_PROP[prop];
+      var map = ROOM_APPLY[city] && ROOM_APPLY[city][prop];
+      if(!map) return;
+      panel.querySelectorAll('tbody tr').forEach(function(tr){
+        var nameEl = tr.querySelector('.room-name');
+        if(!nameEl) return;
+        var name = nameEl.textContent.trim();
+        var slug = map[name];
+        if(!slug) return;   // NRAS / 售罄无申请位等不映射
+        if(tr.querySelector('.apply-link')) return; // 避免重复
+        var a = document.createElement('a');
+        a.className = 'apply-link';
+        a.href = 'https://iglu.com.au/apply-online/?q=' + city + '&p=' + prop + '&r=' + slug;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = '申请 ↗';
+        nameEl.appendChild(a);
+      });
+    });
+  }
+  injectApplyLinks();
 })();
 </script>
 <div class="watermark">梁赛威 · Murphy</div>
