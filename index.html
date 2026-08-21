@@ -38,6 +38,19 @@
   .header .meta { color: var(--text-muted); font-size: 0.84rem; }
   .uhomes-badge { display: flex; align-items: center; gap: 7px; padding: 5px 14px; border: 1.5px solid var(--brand); border-radius: 999px; background: rgba(255,255,255,.06); color: var(--brand); font-size: 12.5px; font-weight: 600; letter-spacing: .3px; white-space: nowrap; align-self: center; }
   .uhomes-badge .ub-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px rgba(255,90,95,.18); }
+  .agent-login-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #FF5A1F, #FF7A45);
+    color: #fff;
+    font-size: 12.5px; font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    align-self: center;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .agent-login-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(255,90,31,0.4); }
   .watermark { position: fixed; right: 16px; bottom: 8px; font-size: 12px; font-weight: 500; letter-spacing: 1.5px; color: rgba(139,115,85,.25); pointer-events: none; user-select: none; z-index: 999; }
 
   /* City tabs */
@@ -158,7 +171,10 @@
 <div class="header fade-in" style="animation-delay:0ms">
   <div class="header-top">
     <h1>Iglu 澳洲房态</h1>
-    <div class="uhomes-badge"><span class="ub-dot"></span>uhomes 异乡好居</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a class="agent-login-btn" href="https://iglu.com.au/iglu-agent-portal-login/" target="_blank" rel="noopener">🔑 Agent 登录 A1336</a>
+      <div class="uhomes-badge"><span class="ub-dot"></span>uhomes 异乡好居</div>
+    </div>
   </div>
   <p class="meta">📍 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所 Iglu 公寓 &ensp;|&ensp; 更新于 2026年08月19日 15:27 &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
 </div>
