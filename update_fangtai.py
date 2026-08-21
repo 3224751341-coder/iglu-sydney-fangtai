@@ -1051,8 +1051,8 @@ def main():
         if no_deploy:
             print("  ⏭️  --no-deploy 模式：不部署，仅保存快照")
         else:
+            save_snapshot(new_snap)   # 先存快照，随部署一起上传
             deploy()
-            save_snapshot(new_snap)
             if not force and changes:
                 msg = format_changes(changes, all_cities)
                 notify_wecom(
@@ -1064,8 +1064,8 @@ def main():
         if no_deploy:
             print("  ⏭️  --no-deploy 模式：不部署")
         else:
+            save_snapshot(new_snap)   # 先存快照，随部署一起上传
             deploy()
-        save_snapshot(new_snap)
     else:
         print("\n✅ 无变化，跳过部署（避免无意义更新）")
         save_snapshot(new_snap)
