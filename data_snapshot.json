@@ -670,12 +670,11 @@
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
   "prices": {
-   "From": 759,
-   "12月": 759
+   "From": 759
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "灵活自选"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "brisbane/brisbane-city/standard-studio-apartment-bc": {
   "prices": {
