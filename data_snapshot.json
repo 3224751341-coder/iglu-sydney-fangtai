@@ -197,8 +197,8 @@
    "12月": 795
   },
   "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月8日"
+  "count": 2,
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -435,7 +435,7 @@
    "12月": 835
   },
   "avail": "available",
-  "count": 5,
+  "count": null,
   "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
