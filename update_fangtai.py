@@ -298,6 +298,9 @@ def fetch_page(url: str, use_agent: bool = False) -> str:
         raise Exception("Cloudflare challenge detected")
     if "403 Forbidden" in result.stdout[:200]:
         raise Exception("403 Forbidden")
+    # 404 页面（WordPress <title>Page not found</title>）——页面不存在，标记失败而非当有效数据处理
+    if re.search(r'<title>\s*page\s+not\s+found', result.stdout, re.IGNORECASE):
+        raise Exception("Page not found (404)")
     return result.stdout
 
 
@@ -375,8 +378,11 @@ def extract_availability(html: str, date_data: dict = None) -> tuple:
             if not has_any_dates:
                 return ('waitlist', None, '')
 
-    # No visible inventory number → assume available
-    return ('available', None, '')
+    # 无库存数字/sold out/waitlist 标记时：若解析到可订日期或灵活起租（长租/短租/flexible）→ 视为有房；
+    # 完全无任何信息 → unknown（可能是 404/异常页面，避免假"有房"）
+    if date_data and (date_data.get('dates') or date_data.get('shortstay_dates') or date_data.get('flexible')):
+        return ('available', None, '')
+    return ('unknown', None, '')
 
 
 def extract_dates(html: str) -> dict:
@@ -703,6 +709,8 @@ def avail_info(status: str, count) -> tuple:
         return ('row-bad', '<span class="tag tag-bad">等位</span>')
     elif status == 'soldout':
         return ('row-off', '<span class="tag tag-off">售罄</span>')
+    elif status == 'unknown':
+        return ('row-off', '<span class="tag tag-off">未知</span>')
     else:
         return ('row-off', '<span class="tag tag-off">未知</span>')
 
@@ -722,6 +730,8 @@ def build_date_cell(room: dict) -> str:
         return '<span class="tag tag-off tag-mini">已售罄</span>'
     if avail == 'waitlist':
         return '<span class="tag tag-bad tag-mini">等位无房</span>'
+    if avail == 'unknown':
+        return '<span class="tag tag-off tag-mini">未知</span>'
     if not dates:
         # 长租无具体日期：短租今年可订 → 短租；灵活起租 → 灵活自选；否则待定
         ss_this = [d for d in ss_dates if d[0] == this_year]
