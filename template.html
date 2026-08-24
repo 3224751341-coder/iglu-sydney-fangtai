@@ -456,35 +456,6 @@ var ROOM_APPLY = {
   }
 };
 var CITY_OF_PROP = { 'broadway':'sydney','central':'sydney','central-park':'sydney','chatswood':'sydney','mascot':'sydney','redfern':'sydney','summer-hill':'sydney','waterloo':'sydney','brisbane-city':'brisbane','kelvin-grove':'brisbane','flagstaff-station':'melbourne','flagstaff-gardens':'melbourne','melbourne-central':'melbourne','melbourne-city':'melbourne','south-yarra':'melbourne' };
-(function(){
-  function injectApplyLinks(){
-    document.querySelectorAll('.prop-panel').forEach(function(panel){
-      var prop = panel.id.replace('prop-','');
-      var city = CITY_OF_PROP[prop];
-      var map = ROOM_APPLY[city] && ROOM_APPLY[city][prop];
-      if(!map) return;
-      panel.querySelectorAll('tbody tr').forEach(function(tr){
-        var nameEl = tr.querySelector('.room-name');
-        if(!nameEl) return;
-        var name = nameEl.textContent.trim();
-        var slug = map[name];
-        var td = document.createElement('td');
-        td.className = 'apply-cell';
-        if(slug && !tr.querySelector('.apply-cell .apply-link')){
-          var a = document.createElement('a');
-          a.className = 'apply-link';
-          a.href = 'https://iglu.com.au/apply-online/?q=' + city + '&p=' + prop + '&r=' + slug;
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.textContent = '申请 ↗';
-          td.appendChild(a);
-        }
-        tr.appendChild(td);
-      });
-    });
-  }
-  injectApplyLinks();
-})();
 </script>
 <div class="watermark">梁赛威 · Murphy</div>
 </body>
