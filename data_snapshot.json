@@ -17,7 +17,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（9月4日 起）（亦可2027年2月9日）"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -251,11 +251,12 @@
   "prices": {
    "From": 835,
    "22周": 895,
-   "44周": 835
+   "44周": 835,
+   "12月": 835
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（9月7日 起）"
  },
  "sydney/mascot/standard-studio-apartment-ma": {
   "prices": {
@@ -267,7 +268,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（9月7日 起）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -287,7 +288,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（9月7日 起）"
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
   "prices": {
@@ -299,7 +300,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（9月7日 起）"
  },
  "sydney/redfern/premium-studio-apartment-re": {
   "prices": {
