@@ -37,15 +37,15 @@
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
   "prices": {
-   "From": 770,
+   "From": 805,
    "22周": 865,
    "44周": 805,
    "短租": 770,
    "12月": 805
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "灵活自选"
+  "avail": "available",
+  "count": 3,
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
