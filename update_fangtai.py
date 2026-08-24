@@ -441,15 +441,25 @@ def extract_dates(html: str) -> dict:
             unique.append(d)
     unique.sort()
 
-    # Short Stay 短租可订日期（available-shortstay-picker-date，value 格式 YYYY,M,D；
-    # 为空表示短租当前不可订，如 6B）。长租与短租起租日期可能不同，需分别记录。
+    # Short Stay 短租：picker-date 非空 = 短租可订（如 6B 为空则不可订）。
+    # 短租为"灵活起租"（日历选日期），最早可订 = picker-start-date（日历起点，如 Chatswood 5B
+    # start=2026,8,25 可灵活选今年日期，即使默认选中 picker-date 在明年）。
     shortstay_dates = []
-    ss_m = re.search(
+    ss_date_m = re.search(
         r"available-shortstay-picker-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
         html
     )
-    if ss_m:
-        shortstay_dates.append((int(ss_m.group(1)), int(ss_m.group(2)), int(ss_m.group(3))))
+    if ss_date_m:
+        ss_start_m = re.search(
+            r"available-shortstay-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
+            html
+        )
+        if ss_start_m:
+            # 灵活起租：最早可订 = 日历起点（picker-start-date）
+            shortstay_dates.append((int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3))))
+        else:
+            # 起点缺失时回退用 picker-date
+            shortstay_dates.append((int(ss_date_m.group(1)), int(ss_date_m.group(2)), int(ss_date_m.group(3))))
 
     # 过滤已过期日期（页面可能残留过去年份的旧数据，如墨尔本某楼短租 2025,2,17）
     from datetime import datetime as _dt
