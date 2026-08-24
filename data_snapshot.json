@@ -17,7 +17,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月4日 起）（亦可2027年2月9日）"
+  "date": "灵活自选（9月4日 起）（亦可2027年1月5日、2027年2月9日）"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -45,7 +45,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -57,7 +57,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -69,7 +69,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -135,7 +135,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -147,7 +147,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -174,7 +174,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月12日）"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
@@ -186,7 +186,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）（亦可2027年2月8日）"
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
@@ -198,7 +198,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）（亦可2027年2月8日）"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -210,7 +210,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）（亦可2027年2月8日）"
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
@@ -222,7 +222,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）（亦可2027年2月8日）"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -234,7 +234,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）（亦可2027年2月8日）"
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
@@ -245,7 +245,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（12月9日 起）"
  },
  "sydney/mascot/premium-studio-apartment-ma": {
   "prices": {
@@ -256,7 +256,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月7日 起）"
+  "date": "灵活自选（9月7日 起）（亦可2027年1月5日）"
  },
  "sydney/mascot/standard-studio-apartment-ma": {
   "prices": {
@@ -268,7 +268,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月7日 起）"
+  "date": "灵活自选（9月7日 起）（亦可2027年1月5日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -288,7 +288,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月7日 起）"
+  "date": "灵活自选（9月7日 起）（亦可2027年1月5日）"
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
   "prices": {
@@ -300,7 +300,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月7日 起）"
+  "date": "灵活自选（9月7日 起）（亦可2027年1月5日）"
  },
  "sydney/redfern/premium-studio-apartment-re": {
   "prices": {
@@ -310,7 +310,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、15日）"
  },
  "sydney/redfern/single-studio-apartment-re": {
   "prices": {
@@ -337,7 +337,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、15日）"
  },
  "sydney/redfern/standard-studio-apartment-nras": {
   "prices": {
@@ -374,7 +374,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、15日）"
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
@@ -391,7 +391,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）"
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
   "prices": {
@@ -403,7 +403,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -414,7 +414,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
@@ -425,7 +425,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -436,7 +436,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
@@ -448,7 +448,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月9日）"
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
@@ -459,7 +459,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -476,7 +476,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月4日、11日、18日）"
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
   "prices": {
@@ -494,7 +494,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月4日、11日、18日）"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
@@ -503,7 +503,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月4日、18日）"
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
   "prices": {
@@ -512,7 +512,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月11日、18日）"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
   "prices": {
@@ -521,7 +521,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月2日、10日、16日）"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
@@ -538,7 +538,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月2日、10日、16日）"
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
   "prices": {
@@ -547,7 +547,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月2日、10日、16日）"
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
   "prices": {
@@ -557,7 +557,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日）"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
@@ -566,7 +566,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日）"
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
   "prices": {
@@ -575,7 +575,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月30日 起）（亦可2027年2月3日、10日、17日）"
+  "date": "灵活自选（8月25日、9月30日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
   "prices": {
@@ -585,7 +585,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（11月2日、16日 起）（亦可2027年2月3日、10日、2027年7月13日）"
+  "date": "灵活自选（8月25日、11月2日、16日 起）（亦可2027年2月3日、10日、2027年7月13日）"
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
   "prices": {
@@ -594,7 +594,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
   "prices": {
@@ -603,7 +603,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
   "prices": {
@@ -612,7 +612,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日）"
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
@@ -622,7 +622,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
   "prices": {
@@ -632,7 +632,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -642,7 +642,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
   "prices": {
@@ -651,7 +651,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -661,7 +661,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
@@ -670,7 +670,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月3日、10日、17日）"
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
   "prices": {
@@ -688,7 +688,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月8日）"
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
   "prices": {
@@ -697,7 +697,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月8日）"
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
   "prices": {
@@ -707,7 +707,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月8日）"
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
   "prices": {
@@ -717,7 +717,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月8日）"
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
@@ -734,7 +734,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月11日）"
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
@@ -743,7 +743,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月11日）"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
@@ -753,7 +753,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月11日）"
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
@@ -762,6 +762,6 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选"
+  "date": "灵活自选（8月25日 起）（亦可2027年2月11日）"
  }
 }

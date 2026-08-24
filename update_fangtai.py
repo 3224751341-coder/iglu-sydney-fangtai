@@ -431,6 +431,16 @@ def extract_dates(html: str) -> dict:
                 if month:
                     dates.append((year, month, day))
 
+    # Strategy 3: 最早可起租日期 —— picker 隐藏字段（格式 YYYY,M,D，如 value="2026,8,25"）
+    picker_m = re.search(
+        r"available-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
+        html
+    )
+    if picker_m:
+        p_year, p_month, p_day = int(picker_m.group(1)), int(picker_m.group(2)), int(picker_m.group(3))
+        if (p_year, p_month, p_day) not in dates:
+            dates.append((p_year, p_month, p_day))
+
     # Deduplicate and sort (按完整年月日去重，保留同月内的多个日期)
     seen = set()
     unique = []
@@ -704,8 +714,8 @@ def build_date_cell(room: dict) -> str:
         return f'<span class="tag tag-off tag-mini">今年已无房</span> <span class="date-detail">{detail}</span>'
 
 
-def build_studio_row(room: dict) -> str:
-    """Build a single studio/apt table row."""
+def build_room_row(room: dict) -> str:
+    """Build a single table row (统一渲染 Studio / Share，不再分表)。"""
     p = room['prices']
     row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     note = room.get("note", "")
@@ -725,60 +735,32 @@ def build_studio_row(room: dict) -> str:
     )
 
 
-def build_share_row(room: dict) -> str:
-    """Build a single share table row."""
-    p = room['prices']
-    row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
-    return (
-        f'<tr class="{row_cls}">'
-        f'<td><span class="room-name">{room["name"]}</span></td>'
-        f'<td>{room["area"]}</td>'
-        f'<td>{room["bed"]}</td>'
-        f'<td><span class="price">{format_price(p, "12月")}</span></td>'
-        f'<td><span class="price">{format_price(p, "44周")}</span></td>'
-        f'<td><span class="price">{format_price(p, "22周")}</span></td>'
-        f'<td><span class="price">{format_price(p, "短租")}</span></td>'
-        f'<td>{room["note"]}</td>'
-        f'<td>{status_html}</td>'
-        f'<td>{build_date_cell(room)}</td>'
-        f'</tr>'
-    )
+def room_sort_key(room: dict):
+    """按「有房先后」排序：可订优先 → 起租日期早优先 → 名称。
+    有房顺序 = available > limited > waitlist > soldout；
+    日期顺序 = 今年可订(含灵活) > 有明年日期 > 无日期。"""
+    from datetime import datetime
+    avail_rank = {'available': 0, 'limited': 1, 'waitlist': 2, 'soldout': 3}.get(room['avail_status'], 4)
+    date_data = room.get('date_data', {}) or {}
+    dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
+    flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
+    this_year = datetime.now().year
+    if flexible or any(d[0] == this_year for d in dates):
+        date_rank = 0
+    elif dates:
+        date_rank = 1
+    else:
+        date_rank = 2
+    return (avail_rank, date_rank, room['name'])
 
 
 def build_prop_panel(prop: dict, is_first: bool) -> str:
-    """Build a single property panel with sub-tabs (Studio / 1居室 / 合租)."""
-    # Group rooms by type, in TYPE_ORDER
-    groups = {t: [] for t in TYPE_ORDER}
-    for room in prop['rooms']:
-        t = room['type'] if room['type'] in groups else 'Share'
-        groups[t].append(room)
-
-    sub_tabs_html = ""
-    panels_html = []
-    first_rendered = True
-
-    for t in TYPE_ORDER:
-        rows = groups[t]
-        if not rows:
-            continue
-        if t == 'Share':
-            row_builder = build_share_row
-            thead = '<th>房型</th><th>卧室面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>合租人数</th><th>库存</th><th>起租日期</th>'
-        else:
-            row_builder = build_studio_row
-            thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th>'
-
-        active_cls = ' active' if first_rendered else ''
-        sub_tabs_html += f'<button class="sub-tab{active_cls}" data-type="{t}" onclick="switchSub(\'{prop["slug"]}\',\'{t}\')">{TYPE_TAB_LABELS.get(t, t)}</button>'
-        panels_html.append(f'''<div class="sub-panel{active_cls}" data-type="{t}">
-<div class="table-wrap"><table>
-<thead><tr>{thead}</tr></thead>
-<tbody>{"".join(row_builder(r) for r in rows)}</tbody>
-</table></div></div>''')
-        first_rendered = False
+    """Build a single property panel：所有房型一次性展示（不分类），按有房先后排序。"""
+    rooms = sorted(prop['rooms'], key=room_sort_key)
+    thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th>'
 
     coming_soon_html = ""
-    if not groups['Studio'] and not groups['Apt'] and not groups['Share']:
+    if not rooms:
         if prop["slug"] in COMING_SOON:
             coming_soon_html = (
                 '<div class="coming-soon">'
@@ -792,8 +774,10 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
             coming_soon_html = '<div class="coming-soon"><p class="cs-text">暂无房型数据</p></div>'
 
     return f'''<div class="prop-panel{" active" if is_first else ""}" id="prop-{prop['slug']}">
-<div class="sub-tabs">{sub_tabs_html}</div>
-{"".join(panels_html)}{coming_soon_html}
+<div class="table-wrap"><table>
+<thead><tr>{thead}</tr></thead>
+<tbody>{"".join(build_room_row(r) for r in rooms)}</tbody>
+</table></div>{coming_soon_html}
 </div>'''
 
 
