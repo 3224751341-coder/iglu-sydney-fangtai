@@ -51,6 +51,19 @@
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
   .agent-login-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(255,90,31,0.4); }
+  .agent-hint {
+    display: flex; align-items: center; gap: 6px;
+    margin: 10px 0 0;
+    padding: 7px 14px;
+    border-radius: 10px;
+    background: rgba(255, 90, 95, 0.08);
+    border: 1px solid rgba(255, 90, 95, 0.25);
+    color: #C0392B;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .agent-hint b { font-weight: 700; }
   .watermark { position: fixed; right: 16px; bottom: 8px; font-size: 12px; font-weight: 500; letter-spacing: 1.5px; color: rgba(139,115,85,.25); pointer-events: none; user-select: none; z-index: 999; }
 
   /* City tabs */
@@ -134,9 +147,11 @@
   .sub-panel.active { display: block; }
 
   /* Official site link (各楼官网) */
-  .prop-toolbar { position: absolute; top: 6px; right: 0; z-index: 3; }
+  .prop-toolbar { position: absolute; top: 6px; right: 0; z-index: 3; display: flex; gap: 8px; }
   .site-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); background: var(--card-bg); font-family: var(--font); text-decoration: none; transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; }
   .site-link:hover { color: var(--text); border-color: var(--text-muted); }
+  .apply-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #FF5A1F, #FF7A45); font-family: var(--font); text-decoration: none; transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; box-shadow: 0 2px 8px rgba(255,90,31,.25); }
+  .apply-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,90,31,.35); }
   @media (max-width:768px) { .prop-toolbar { position: static; display: flex; justify-content: flex-end; margin-bottom: 10px; } }
 
   /* Coming Soon (即将开业占位) */
@@ -172,11 +187,12 @@
   <div class="header-top">
     <h1>Iglu 澳洲房态</h1>
     <div style="display:flex;align-items:center;gap:10px">
-      <a class="agent-login-btn" href="https://iglu.com.au/iglu-agent-portal-login/" target="_blank" rel="noopener">🔑 Agent 登录 A1336</a>
+      <a class="agent-login-btn" href="https://iglu.com.au/portal/" target="_blank" rel="noopener" title="已登录直接进入 Portal；未登录自动跳转登录页（配合自动登录脚本免输入）">🔑 Agent Portal</a>
       <div class="uhomes-badge"><span class="ub-dot"></span>uhomes 异乡好居</div>
     </div>
   </div>
   <p class="meta">{{CITY_SUMMARY}} &ensp;|&ensp; 更新于 {{UPDATE_TIME}} &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每日 10:00 / 19:00 自动刷新</p>
+  <div class="agent-hint">⚠️ 申请须知：预订/申请请先点击右上角「<b>🔑 Agent Portal</b>」登录（A1336）后再操作 —— 未登录提交的申请<b>不会计入</b> Agent 名下</div>
 </div>
 
 <div class="city-tabs fade-in" style="animation-delay:40ms">
@@ -250,8 +266,28 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   a.rel = 'noreferrer noopener';
   a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
   bar.appendChild(a);
+  /* 直达申请：apply-online 支持 ?p=楼&q=城市 直接进入该楼申请流程 */
+  var applyUrl = applyUrlFor(slug);
+  if (applyUrl) {
+    var a2 = document.createElement('a');
+    a2.className = 'apply-link';
+    a2.href = applyUrl;
+    a2.target = '_blank';
+    a2.rel = 'noreferrer noopener';
+    a2.textContent = '申请 ↗';
+    bar.appendChild(a2);
+  }
   panel.insertBefore(bar, panel.firstChild);
 });
+
+/* 由官网 URL 推导城市，生成该楼直达申请链接（mascot-duo 未开业，暂无申请入口） */
+function applyUrlFor(slug){
+  var site = PROP_SITES[slug];
+  if(!site || slug === 'mascot-duo') return null;
+  var m = site.match(/iglu\.com\.au\/properties\/(\w+)\//);
+  if(!m) return null;
+  return 'https://iglu.com.au/apply-online?p=' + slug + '&q=' + m[1];
+}
 
 var CITY_KEYS = ['sydney', 'melbourne', 'brisbane'];
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iglu Agent 自动登录 · 安装引导</title>
+<style>
+  :root {
+    --uhomes: #FF5A5F;
+    --bg: #FAF6F0;
+    --panel: #FFFFFF;
+    --ink: #3D3530;
+    --muted: #9A8E80;
+    --line: #EAE2D8;
+    --green: #27AE60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 32px 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 28px; }
+  header .logo { color: var(--uhomes); font-weight: 700; font-size: 15px; letter-spacing: .3px; margin-bottom: 8px; }
+  header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  header p { color: var(--muted); font-size: 13.5px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 12px rgba(139, 115, 85, 0.05);
+  }
+  .card h2 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .step { display: flex; gap: 12px; margin-bottom: 14px; }
+  .step-num {
+    flex: 0 0 26px; height: 26px; border-radius: 50%;
+    background: var(--uhomes); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; margin-top: 2px;
+  }
+  .step-body { flex: 1; font-size: 14px; }
+  .step-body code {
+    background: #F5EFE6; padding: 1px 7px; border-radius: 5px;
+    font-size: 13px; color: #8B5E3C;
+  }
+  .drag-btn-wrap {
+    text-align: center; margin: 18px 0 8px;
+    padding: 18px; border: 2px dashed #E0B8A0; border-radius: 12px;
+    background: #FDF6F2;
+  }
+  .drag-btn-wrap p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  a.dragbtn {
+    display: inline-block;
+    padding: 11px 26px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #FF5A1F, #FF7A45);
+    color: #fff; text-decoration: none;
+    font-size: 15px; font-weight: 700;
+    box-shadow: 0 4px 14px rgba(255, 90, 31, 0.35);
+    cursor: grab;
+    user-select: none;
+  }
+  a.dragbtn:hover { transform: translateY(-1px); }
+  .ok { color: var(--green); font-weight: 600; }
+  .warn {
+    background: rgba(255, 90, 95, 0.07); border: 1px solid rgba(255, 90, 95, 0.25);
+    color: #C0392B; border-radius: 10px; padding: 12px 16px; font-size: 13.5px; margin-top: 8px;
+  }
+  .use { display: grid; gap: 10px; }
+  .use-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: #FBF7F2; border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px; font-size: 13.5px;
+  }
+  .use-item b { color: var(--uhomes); }
+  .manual { font-size: 13.5px; }
+  .manual ol { padding-left: 20px; }
+  .manual li { margin-bottom: 8px; }
+  .manual code {
+    background: #F5EFE6; padding: 1px 7px; border-radius: 5px;
+    font-size: 12.5px; color: #8B5E3C; word-break: break-all;
+  }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 22px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">uhomes 异乡好居</div>
+    <h1>Iglu Agent 自动登录 · 30 秒安装</h1>
+    <p>装好后，登录 Iglu Agent Portal 再也不用手动输 A1336</p>
+  </header>
+
+  <div class="card">
+    <h2>🖱️ 第一步：把按钮拖到浏览器书签栏</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        确保浏览器顶部能看到<strong>书签栏</strong>（Chrome/Edge：按 <code>⌘+Shift+B</code> 或 <code>Ctrl+Shift+B</code> 显示）
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        用鼠标<strong>按住下方按钮，拖到书签栏</strong>后松开，松手时选「完成」或「保存」：
+      </div>
+    </div>
+    <div class="drag-btn-wrap">
+      <p>👇 按住这个按钮，拖到上面/左侧的书签栏</p>
+      <a class="dragbtn" href="javascript:(function(){var i=document.getElementById('agent_code');var f=document.getElementById('agent_from');if(i&amp;&amp;f){i.value='A1336';i.dispatchEvent(new Event('input',{bubbles:true}));setTimeout(function(){var b=f.querySelector('input[type=submit],button[type=submit]');b?b.click():f.submit();},300);}else{alert('Open the Iglu Agent login page first');}})();">🔑 Iglu自动登录</a>
+    </div>
+    <div class="warn">
+      ⚠️ 如果拖不动：在书签栏<strong>空白处右键 → 「添加网页…」</strong>，名称填 <strong>Iglu自动登录</strong>，网址粘贴下框里的代码，保存即可：
+      <br><br>
+      <code style="display:block;font-size:12px">javascript:(function(){var i=document.getElementById('agent_code');var f=document.getElementById('agent_from');if(i&amp;&amp;f){i.value='A1336';i.dispatchEvent(new Event('input',{bubbles:true}));setTimeout(function(){var b=f.querySelector('input[type=submit],button[type=submit]');b?b.click():f.submit();},300);}else{alert('Open the Iglu Agent login page first');}})();</code>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>✅ 第二步：以后怎么用（2 步，零输入）</h2>
+    <div class="use">
+      <div class="use-item">
+        <span>1️⃣</span>
+        <span>在门户/房态页点右上角 <b>「🔑 Agent Portal」</b> → 浏览器新标签打开 Iglu，未登录会自动停在登录页</span>
+      </div>
+      <div class="use-item">
+        <span>2️⃣</span>
+        <span>点一下书签栏里的 <b>「🔑 Iglu自动登录」</b> → 自动填 A1336 并提交 → 直接进入 Portal</span>
+      </div>
+      <div class="use-item">
+        <span>💡</span>
+        <span>判断是否生效：登录后打开申请表单，能看到 <b>Agency Code: A1336</b>，提交的申请就是 Agent 单</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card manual">
+    <h2>🔄 进阶：想要完全免点击？（可选）</h2>
+    <ol>
+      <li>浏览器安装 <strong>Tampermonkey 扩展</strong>（Edge/Chrome 扩展商店搜「Tampermonkey」）</li>
+      <li>点扩展图标 → 「添加新脚本…」→ 清空默认内容，粘贴项目目录里的 <code>iglu-agent-autologin.user.js</code> 全部内容</li>
+      <li>按 <code>⌘+S</code> 保存。之后<strong>打开登录页就自动登录</strong>，连书签都不用点</li>
+    </ol>
+    <p style="margin-top:10px;font-size:13px;color:var(--muted)">两个方案可共存；书签方案零安装，任何浏览器（含手机外接键盘场景）都能用。</p>
+  </div>
+
+  <footer>Iglu 澳洲房态工作台 · 梁赛威 (VX) · 仅供内部参考</footer>
+</div>
+</body>
+</html>
