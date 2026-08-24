@@ -748,7 +748,7 @@ def room_sort_key(room: dict):
 def build_prop_panel(prop: dict, is_first: bool) -> str:
     """Build a single property panel：所有房型一次性展示（不分类），按有房先后排序。"""
     rooms = sorted(prop['rooms'], key=room_sort_key)
-    thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th>'
+    thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th><th>申请</th>'
 
     coming_soon_html = ""
     if not rooms:

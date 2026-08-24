@@ -152,6 +152,8 @@
   .site-link:hover { color: var(--text); border-color: var(--text-muted); }
   .apply-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #FF5A1F, #FF7A45); font-family: var(--font); text-decoration: none; transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; box-shadow: 0 2px 8px rgba(255,90,31,.25); }
   .apply-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,90,31,.35); }
+  .apply-cell { text-align: center; white-space: nowrap; }
+  .apply-cell .apply-link { padding: 4px 13px; font-size: 0.75rem; }
   @media (max-width:768px) { .prop-toolbar { position: static; display: flex; justify-content: flex-end; margin-bottom: 10px; } }
 
   /* Coming Soon (即将开业占位) */
@@ -466,15 +468,18 @@ var CITY_OF_PROP = { 'broadway':'sydney','central':'sydney','central-park':'sydn
         if(!nameEl) return;
         var name = nameEl.textContent.trim();
         var slug = map[name];
-        if(!slug) return;   // NRAS / 售罄无申请位等不映射
-        if(tr.querySelector('.apply-link')) return; // 避免重复
-        var a = document.createElement('a');
-        a.className = 'apply-link';
-        a.href = 'https://iglu.com.au/apply-online/?q=' + city + '&p=' + prop + '&r=' + slug;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.textContent = '申请 ↗';
-        nameEl.appendChild(a);
+        var td = document.createElement('td');
+        td.className = 'apply-cell';
+        if(slug && !tr.querySelector('.apply-cell .apply-link')){
+          var a = document.createElement('a');
+          a.className = 'apply-link';
+          a.href = 'https://iglu.com.au/apply-online/?q=' + city + '&p=' + prop + '&r=' + slug;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = '申请 ↗';
+          td.appendChild(a);
+        }
+        tr.appendChild(td);
       });
     });
   }
