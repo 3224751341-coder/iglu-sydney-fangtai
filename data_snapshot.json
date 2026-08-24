@@ -37,15 +37,15 @@
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
   "prices": {
-   "From": 805,
+   "From": 770,
    "22周": 865,
    "44周": 805,
    "短租": 770,
    "12月": 805
   },
-  "avail": "available",
-  "count": 3,
-  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
+  "avail": "limited",
+  "count": 2,
+  "date": "灵活自选"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -57,7 +57,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月9日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -186,7 +186,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
@@ -198,7 +198,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -210,7 +210,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
@@ -222,7 +222,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -234,7 +234,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
@@ -374,7 +374,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月3日、15日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月3日、15日"
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
@@ -403,7 +403,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月9日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -414,7 +414,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月9日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
@@ -448,7 +448,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月9日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月9日"
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
@@ -494,7 +494,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月4日、11日、18日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月4日、11日、18日"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
@@ -521,7 +521,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月2日、10日、16日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月2日、10日、16日"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
@@ -538,7 +538,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月2日、10日、16日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月2日、10日、16日"
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
   "prices": {
@@ -547,7 +547,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月2日、10日、16日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月2日、10日、16日"
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
   "prices": {
@@ -632,7 +632,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月3日、10日、17日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -697,7 +697,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月25日 起；长租 2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
   "prices": {
