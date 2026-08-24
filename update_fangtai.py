@@ -431,16 +431,6 @@ def extract_dates(html: str) -> dict:
                 if month:
                     dates.append((year, month, day))
 
-    # Strategy 3: 最早可起租日期 —— picker 隐藏字段（格式 YYYY,M,D，如 value="2026,8,25"）
-    picker_m = re.search(
-        r"available-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
-        html
-    )
-    if picker_m:
-        p_year, p_month, p_day = int(picker_m.group(1)), int(picker_m.group(2)), int(picker_m.group(3))
-        if (p_year, p_month, p_day) not in dates:
-            dates.append((p_year, p_month, p_day))
-
     # Deduplicate and sort (按完整年月日去重，保留同月内的多个日期)
     seen = set()
     unique = []
@@ -584,10 +574,7 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     def full(ds):
         return format_dates({'dates': ds, 'flexible': False})
 
-    # 灵活自选：可随时起租（含今年），即使只列出明年的具体日期
-    if flexible and not this_dates:
-        return '灵活自选'
-
+    # 以「今年实际可订日期」为准；flexible 仅作修饰，不单独判定今年可订
     if this_dates:
         if flexible:
             label = '灵活自选（' + short(this_dates) + ' 起）'
@@ -596,7 +583,11 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
         if future_dates:
             label += '（亦可' + full(future_dates) + '）'
         return label
-    return '今年已无房：' + full(future_dates)
+    if future_dates:
+        return '今年已无房：' + full(future_dates)
+    if avail_status == 'waitlist':
+        return '今年无房（等位）'
+    return '待定'
 
 
 def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) -> dict:
@@ -694,24 +685,24 @@ def build_date_cell(room: dict) -> str:
     if avail == 'waitlist':
         return '<span class="tag tag-bad tag-mini">等位无房</span>'
     if not dates:
-        if flexible:
-            return '<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">灵活起租</span>'
-        return '<span class="tag tag-ok tag-mini">灵活自选</span>'
+        return '<span class="tag tag-off tag-mini">待定</span>'
 
     this_dates = [d for d in dates if d[0] == this_year]
     future_dates = [d for d in dates if d[0] > this_year]
 
-    if this_dates or flexible:
-        if this_dates:
-            detail = format_dates({'dates': this_dates, 'flexible': False})
-            if future_dates:
-                detail += '（亦可' + format_dates({'dates': future_dates, 'flexible': False}) + '）'
+    # 以今年实际可订日期为准（flexible 仅修饰，不单独判定今年可订）
+    if this_dates:
+        if flexible:
+            detail = '灵活自选（' + format_dates({'dates': this_dates, 'flexible': False}) + ' 起）'
         else:
-            detail = '灵活起租'
+            detail = format_dates({'dates': this_dates, 'flexible': False}) + ' 起'
+        if future_dates:
+            detail += '（亦可' + format_dates({'dates': future_dates, 'flexible': False}) + '）'
         return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{detail}</span>'
-    else:
-        detail = format_dates({'dates': future_dates, 'flexible': False})
-        return f'<span class="tag tag-off tag-mini">今年已无房</span> <span class="date-detail">{detail}</span>'
+    if future_dates:
+        detail = format_dates({'dates': future_dates, 'flexible': False}) + ' 起'
+        return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{detail}</span>'
+    return '<span class="tag tag-off tag-mini">待定</span>'
 
 
 def build_room_row(room: dict) -> str:
