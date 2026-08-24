@@ -440,7 +440,18 @@ def extract_dates(html: str) -> dict:
             seen.add(key)
             unique.append(d)
     unique.sort()
-    return {'dates': unique, 'flexible': flexible}
+
+    # Short Stay 短租可订日期（available-shortstay-picker-date，value 格式 YYYY,M,D；
+    # 为空表示短租当前不可订，如 6B）。长租与短租起租日期可能不同，需分别记录。
+    shortstay_dates = []
+    ss_m = re.search(
+        r"available-shortstay-picker-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
+        html
+    )
+    if ss_m:
+        shortstay_dates.append((int(ss_m.group(1)), int(ss_m.group(2)), int(ss_m.group(3))))
+
+    return {'dates': unique, 'flexible': flexible, 'shortstay_dates': shortstay_dates}
 
 
 def extract_features(html: str) -> dict:
@@ -574,6 +585,9 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     def full(ds):
         return format_dates({'dates': ds, 'flexible': False})
 
+    ss_dates = date_data.get('shortstay_dates', []) if isinstance(date_data, dict) else []
+    ss_this = sorted(d for d in ss_dates if d[0] == this_year)
+
     # 以「今年实际可订日期」为准；flexible 仅作修饰，不单独判定今年可订
     if this_dates:
         if flexible:
@@ -584,7 +598,12 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
             label += '（亦可' + full(future_dates) + '）'
         return label
     if future_dates:
+        # 长租今年无房：短租今年可订则标注
+        if ss_this:
+            return '今年可订（短租）：' + short(ss_this) + ' 起；长租 ' + full(future_dates)
         return '今年已无房：' + full(future_dates)
+    if ss_this:
+        return '今年可订（短租）：' + short(ss_this) + ' 起'
     if avail_status == 'waitlist':
         return '今年无房（等位）'
     return '待定'
@@ -678,6 +697,7 @@ def build_date_cell(room: dict) -> str:
     avail = room['avail_status']
     dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
     flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
+    ss_dates = date_data.get('shortstay_dates', []) if isinstance(date_data, dict) else []
     this_year = datetime.now().year
 
     if avail == 'soldout':
@@ -685,6 +705,11 @@ def build_date_cell(room: dict) -> str:
     if avail == 'waitlist':
         return '<span class="tag tag-bad tag-mini">等位无房</span>'
     if not dates:
+        # 长租无具体日期，但短租今年可订
+        ss_this = [d for d in ss_dates if d[0] == this_year]
+        if ss_this:
+            ss_str = format_dates({'dates': ss_this, 'flexible': False})
+            return f'<span class="tag tag-ok tag-mini">今年可订（短租）</span> <span class="date-detail">{ss_str} 起</span>'
         return '<span class="tag tag-off tag-mini">待定</span>'
 
     this_dates = [d for d in dates if d[0] == this_year]
@@ -700,8 +725,13 @@ def build_date_cell(room: dict) -> str:
             detail += '（亦可' + format_dates({'dates': future_dates, 'flexible': False}) + '）'
         return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{detail}</span>'
     if future_dates:
-        detail = format_dates({'dates': future_dates, 'flexible': False}) + ' 起'
-        return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{detail}</span>'
+        # 长租今年无房：若短租今年可订，则标注"今年可订（短租）"
+        ss_this = [d for d in ss_dates if d[0] == this_year]
+        fut_str = format_dates({'dates': future_dates, 'flexible': False})
+        if ss_this:
+            ss_str = format_dates({'dates': ss_this, 'flexible': False})
+            return f'<span class="tag tag-ok tag-mini">今年可订（短租）</span> <span class="date-detail">{ss_str} 起；长租 {fut_str}</span>'
+        return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{fut_str} 起</span>'
     return '<span class="tag tag-off tag-mini">待定</span>'
 
 
@@ -735,10 +765,12 @@ def room_sort_key(room: dict):
     date_data = room.get('date_data', {}) or {}
     dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
     flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
+    ss_dates = date_data.get('shortstay_dates', []) if isinstance(date_data, dict) else []
     this_year = datetime.now().year
-    if flexible or any(d[0] == this_year for d in dates):
+    ss_this = any(d[0] == this_year for d in ss_dates)
+    if flexible or any(d[0] == this_year for d in dates) or ss_this:
         date_rank = 0
-    elif dates:
+    elif dates or ss_dates:
         date_rank = 1
     else:
         date_rank = 2
