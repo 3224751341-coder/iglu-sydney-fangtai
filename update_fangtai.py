@@ -451,6 +451,12 @@ def extract_dates(html: str) -> dict:
     if ss_m:
         shortstay_dates.append((int(ss_m.group(1)), int(ss_m.group(2)), int(ss_m.group(3))))
 
+    # 过滤已过期日期（页面可能残留过去年份的旧数据，如墨尔本某楼短租 2025,2,17）
+    from datetime import datetime as _dt
+    _today = (_dt.now().year, _dt.now().month, _dt.now().day)
+    unique = [d for d in unique if d >= _today]
+    shortstay_dates = [d for d in shortstay_dates if d >= _today]
+
     return {'dates': unique, 'flexible': flexible, 'shortstay_dates': shortstay_dates}
 
 
@@ -554,7 +560,9 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     if not dates:
         if avail_status == 'waitlist':
             return '今年无房（等位）'
-        return '灵活自选'
+        if flexible:
+            return '灵活自选'
+        return '待定'
 
     this_year = datetime.now().year
     this_dates = sorted(d for d in dates if d[0] == this_year)
@@ -705,11 +713,13 @@ def build_date_cell(room: dict) -> str:
     if avail == 'waitlist':
         return '<span class="tag tag-bad tag-mini">等位无房</span>'
     if not dates:
-        # 长租无具体日期，但短租今年可订
+        # 长租无具体日期：短租今年可订 → 短租；灵活起租 → 灵活自选；否则待定
         ss_this = [d for d in ss_dates if d[0] == this_year]
         if ss_this:
             ss_str = format_dates({'dates': ss_this, 'flexible': False})
             return f'<span class="tag tag-ok tag-mini">今年可订（短租）</span> <span class="date-detail">{ss_str} 起</span>'
+        if flexible:
+            return '<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">灵活自选</span>'
         return '<span class="tag tag-off tag-mini">待定</span>'
 
     this_dates = [d for d in dates if d[0] == this_year]
