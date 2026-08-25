@@ -8,6 +8,7 @@ on:
     paths:
       - 'update_fangtai.py'
       - 'template.html'
+      - 'functions/**'
       - '.github/workflows/update.yml'
   workflow_dispatch:
 
