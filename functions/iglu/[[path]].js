@@ -169,6 +169,7 @@ export async function onRequest(context) {
     const debugComment = `<!-- DEBUG: cookie=${cookie ? cookie.substring(0, 80) : 'EMPTY'} login=${lastLoginDebug} respStatus=${resp.status} -->`;
 
     const interceptor = `<script>
+window.__IGLU_PROXY_VERSION__ = 'v3-correct-params';
 (function(){
   var P='${proxyOrigin}';
   function rw(u){
