@@ -56,8 +56,8 @@
    "12月": 795
   },
   "avail": "available",
-  "count": 4,
-  "date": "今年已无房：2027年2月9日"
+  "count": 5,
+  "date": "今年可订：短租 8月26日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -78,7 +78,7 @@
    "44周": 865
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年已无房：长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
