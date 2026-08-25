@@ -194,7 +194,7 @@
     </div>
   </div>
   <p class="meta">{{CITY_SUMMARY}} &ensp;|&ensp; 更新于 {{UPDATE_TIME}} &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每小时自动刷新</p>
-  <div class="agent-hint">⚠️ 申请须知：预订/申请请先点击右上角「<b>🔑 Agent Portal</b>」登录（A1336）后再操作 —— 未登录提交的申请<b>不会计入</b> Agent 名下</div>
+  <div class="agent-hint">✅ 点击「<b>申请 ↗</b>」自动登录 Agent Portal（A1336）并跳转申请页，无需手动输入 Agent Code</div>
 </div>
 
 <div class="city-tabs fade-in" style="animation-delay:40ms">
@@ -268,7 +268,7 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   a.rel = 'noreferrer noopener';
   a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
   bar.appendChild(a);
-  /* 直达申请：apply-online 支持 ?p=楼&q=城市 直接进入该楼申请流程 */
+  /* 直达申请：自动登录 Agent Portal（A1336）后跳转申请页 */
   var applyUrl = applyUrlFor(slug);
   if (applyUrl) {
     var a2 = document.createElement('a');
@@ -277,6 +277,10 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
     a2.target = '_blank';
     a2.rel = 'noreferrer noopener';
     a2.textContent = '申请 ↗';
+    a2.addEventListener('click', function(e){
+      e.preventDefault();
+      agentLoginAndRedirect(applyUrl, a2);
+    });
     bar.appendChild(a2);
   }
   panel.insertBefore(bar, panel.firstChild);
@@ -289,6 +293,38 @@ function applyUrlFor(slug){
   var m = site.match(/iglu\.com\.au\/properties\/(\w+)\//);
   if(!m) return null;
   return 'https://iglu.com.au/apply-online?p=' + slug + '&q=' + m[1];
+}
+
+/* 自动登录 Agent Portal（A1336）并跳转申请页
+   流程：fetch no-cors POST 到 admin-ajax.php → 服务器设 PHPSESSID cookie → 跳转申请页 */
+function agentLoginAndRedirect(applyUrl, btn){
+  /* 同步打开空白窗口（避免弹出拦截），先显示加载中 */
+  var win = window.open('', '_blank');
+  if(!win){
+    /* 弹窗被拦截，直接跳转申请页（用户需手动登录 Portal） */
+    window.location.href = applyUrl;
+    return;
+  }
+  win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f5f5f5}p{color:#666;font-size:1.1em}</style></head><body><p>🔑 正在登录 Agent Portal，请稍候…</p></body></html>');
+  win.document.close();
+
+  if(btn){ var orig = btn.textContent; btn.textContent = '登录中…'; btn.style.opacity = '0.6'; }
+
+  fetch('https://iglu.com.au/wp-admin/admin-ajax.php', {
+    method: 'POST',
+    mode: 'no-cors',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'action=agent_code_action&code=A1336'
+  }).then(function(){
+    /* cookie 已设好，跳转申请页 */
+    setTimeout(function(){ win.location.href = applyUrl; }, 500);
+  }).catch(function(){
+    /* 网络失败，回退到 Portal 手动登录 */
+    win.location.href = 'https://iglu.com.au/portal/';
+  }).finally(function(){
+    if(btn){ setTimeout(function(){ btn.textContent = orig; btn.style.opacity = '1'; }, 2000); }
+  });
 }
 
 var CITY_KEYS = ['sydney', 'melbourne', 'brisbane'];
