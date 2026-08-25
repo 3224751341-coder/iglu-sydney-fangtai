@@ -197,8 +197,8 @@
    "12月": 795
   },
   "avail": "limited",
-  "count": 2,
-  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
+  "count": 1,
+  "date": "今年已无房：2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -256,7 +256,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选（9月7日 起）"
+  "date": "灵活自选"
  },
  "sydney/mascot/standard-studio-apartment-ma": {
   "prices": {
@@ -717,7 +717,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
