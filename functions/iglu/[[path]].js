@@ -4,6 +4,7 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 
 let cachedCookie = null;
 let cookieExpiry = 0;
+let lastLoginDebug = '';
 
 function extractSetCookies(headers) {
   const results = [];
@@ -64,10 +65,12 @@ async function getSessionCookie() {
     if (allCookies.length > 0) {
       cachedCookie = allCookies.join('; ');
       cookieExpiry = Date.now() + 5 * 60 * 1000;
+      lastLoginDebug = `status=${resp.status} cookies=${allCookies.join(',').substring(0, 100)}`;
       return cachedCookie;
     }
 
     const body = await resp.text();
+    lastLoginDebug = `status=${resp.status} noCookies body=${body.substring(0, 200)}`;
     const userMatch = body.match(/"username"\s*:\s*"([^"]+)"/);
     if (userMatch) {
       cachedCookie = `username=${userMatch[1]}`;
@@ -163,6 +166,8 @@ export async function onRequest(context) {
 
     html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${IGLU_ORIGIN}/">`);
 
+    const debugComment = `<!-- DEBUG: cookie=${cookie ? cookie.substring(0, 80) : 'EMPTY'} login=${lastLoginDebug} respStatus=${resp.status} -->`;
+
     const interceptor = `<script>
 (function(){
   var P='${proxyOrigin}';
@@ -183,7 +188,7 @@ export async function onRequest(context) {
   });
 })();
 </script>`;
-    html = html.replace('</head>', interceptor + '</head>');
+    html = html.replace('</head>', interceptor + debugComment + '</head>');
 
     return new Response(html, {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
