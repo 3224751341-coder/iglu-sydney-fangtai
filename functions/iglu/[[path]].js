@@ -1,8 +1,26 @@
 const AGENT_CODE = 'A1336';
 const IGLU_ORIGIN = 'https://iglu.com.au';
+const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 let cachedCookie = null;
 let cookieExpiry = 0;
+
+function extractSetCookies(headers) {
+  const results = [];
+  if (headers.getSetCookie) {
+    const sc = headers.getSetCookie();
+    if (sc && sc.length) return sc;
+  }
+  if (headers.getAll) {
+    const sc = headers.getAll('set-cookie');
+    if (sc && sc.length) return sc;
+  }
+  const raw = headers.get('set-cookie');
+  if (raw) {
+    return raw.split(/,\s*(?=[a-zA-Z_]+=)/);
+  }
+  return results;
+}
 
 async function getSessionCookie() {
   if (cachedCookie && Date.now() < cookieExpiry) return cachedCookie;
@@ -14,19 +32,45 @@ async function getSessionCookie() {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Origin': IGLU_ORIGIN,
         'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'User-Agent': UA,
       },
       body: `action=iglu_agent_login&agent_code=${AGENT_CODE}`,
+      redirect: 'manual',
     });
 
-    const setCookies = resp.headers.getSetCookie?.() || [];
-    const cookies = [];
+    const allCookies = [];
+    const setCookies = extractSetCookies(resp.headers);
     for (const sc of setCookies) {
-      cookies.push(sc.split(';')[0]);
+      allCookies.push(sc.split(';')[0]);
     }
 
-    if (cookies.length > 0) {
-      cachedCookie = cookies.join('; ');
+    if (resp.status >= 300 && resp.status < 400) {
+      const loc = resp.headers.get('Location');
+      if (loc) {
+        const redirectUrl = loc.startsWith('http') ? loc : IGLU_ORIGIN + loc;
+        const resp2 = await fetch(redirectUrl, {
+          headers: {
+            'Cookie': allCookies.join('; '),
+            'User-Agent': UA,
+            'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
+          },
+          redirect: 'manual',
+        });
+        const sc2 = extractSetCookies(resp2.headers);
+        for (const s of sc2) allCookies.push(s.split(';')[0]);
+      }
+    }
+
+    if (allCookies.length > 0) {
+      cachedCookie = allCookies.join('; ');
+      cookieExpiry = Date.now() + 5 * 60 * 1000;
+      return cachedCookie;
+    }
+
+    const body = await resp.text();
+    const userMatch = body.match(/"username"\s*:\s*"([^"]+)"/);
+    if (userMatch) {
+      cachedCookie = `username=${userMatch[1]}`;
       cookieExpiry = Date.now() + 5 * 60 * 1000;
       return cachedCookie;
     }
@@ -38,9 +82,40 @@ async function getSessionCookie() {
 
 export async function onRequest(context) {
   const { request, params } = context;
+  const url = new URL(request.url);
+
+  if (url.searchParams.get('debug') === '1') {
+    let debugInfo = {};
+    try {
+      const resp = await fetch(`${IGLU_ORIGIN}/wp-admin/admin-ajax.php`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Origin': IGLU_ORIGIN,
+          'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
+          'User-Agent': UA,
+        },
+        body: `action=iglu_agent_login&agent_code=${AGENT_CODE}`,
+        redirect: 'manual',
+      });
+      const setCookies = extractSetCookies(resp.headers);
+      const body = await resp.text();
+      debugInfo = {
+        status: resp.status,
+        setCookies,
+        allHeaders: Object.fromEntries(resp.headers.entries()),
+        bodyPreview: body.substring(0, 500),
+      };
+    } catch (e) {
+      debugInfo = { error: e.message };
+    }
+    return new Response(JSON.stringify(debugInfo, null, 2), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
   const cookie = await getSessionCookie();
 
-  const url = new URL(request.url);
   const targetPath = '/' + (params.path || []).join('/');
   const targetUrl = IGLU_ORIGIN + targetPath + url.search;
 
@@ -53,7 +128,7 @@ export async function onRequest(context) {
   if (ct) headers.set('Content-Type', ct);
   headers.set('Cookie', cookie);
   headers.set('Referer', `${IGLU_ORIGIN}/iglu-agent-portal-login/`);
-  headers.set('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36');
+  headers.set('User-Agent', UA);
 
   const init = { method: request.method, headers };
   if (request.method !== 'GET' && request.method !== 'HEAD') {
@@ -67,7 +142,6 @@ export async function onRequest(context) {
     return new Response('Proxy error: ' + e.message, { status: 502 });
   }
 
-  // Handle redirects: rewrite Location to go through proxy
   if (resp.status >= 300 && resp.status < 400) {
     const loc = resp.headers.get('Location');
     if (loc) {
