@@ -8,6 +8,7 @@ Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里
 import json, re, sys, os, subprocess, urllib.request
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from curl_cffi import requests as cffi_req
 
 # ── Config ──
 # trigger CI re-scrape
@@ -17,7 +18,7 @@ COOKIE_FILE = os.path.join(PROJECT_DIR, ".agent_cookies.txt")
 TEMPLATE_PATH = os.path.join(PROJECT_DIR, "template.html")
 OUTPUT_PATH = os.path.join(PROJECT_DIR, "index.html")
 CLOUDFLARE_PROJECT = "iglu-centralpark"
-MAX_WORKERS = 12
+MAX_WORKERS = 6
 REQUEST_TIMEOUT = 25
 
 # ── 变化检测 & 推送 ──
@@ -277,32 +278,51 @@ def login_agent_portal() -> bool:
     return False
 
 
-def fetch_page(url: str, use_agent: bool = False) -> str:
-    """Fetch a page using curl. If use_agent=True, use agent cookies."""
-    cmd = [
-        "curl", "-sL",
-        "--compressed",
-        "-H", "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "-H", "Accept-Language: en-AU,en;q=0.9",
-        "--connect-timeout", "15",
-        "--max-time", str(REQUEST_TIMEOUT),
-    ]
+def fetch_page(url: str, use_agent: bool = False, retries: int = 3) -> str:
+    """Fetch a page using curl_cffi (Chrome TLS fingerprint to bypass Cloudflare).
+    Falls back to curl if curl_cffi unavailable."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-AU,en;q=0.9",
+    }
     if use_agent and os.path.exists(COOKIE_FILE):
-        cmd += ["-b", COOKIE_FILE]
-    cmd.append(url)
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=REQUEST_TIMEOUT + 5)
-    if result.returncode != 0:
-        raise Exception(f"curl failed: {result.stderr[:200]}")
-    # Check for Cloudflare challenge
-    if "cf-browser-verify" in result.stdout.lower() or "just a moment" in result.stdout.lower():
-        raise Exception("Cloudflare challenge detected")
-    if "403 Forbidden" in result.stdout[:200]:
-        raise Exception("403 Forbidden")
-    # 404 页面（WordPress <title>Page not found</title>）——页面不存在，标记失败而非当有效数据处理
-    if re.search(r'<title>\s*page\s+not\s+found', result.stdout, re.IGNORECASE):
-        raise Exception("Page not found (404)")
-    return result.stdout
+        try:
+            with open(COOKIE_FILE) as f:
+                cookie_str = f.read().strip()
+            if cookie_str:
+                headers["Cookie"] = cookie_str
+        except Exception:
+            pass
+
+    import time
+    for attempt in range(retries):
+        try:
+            r = cffi_req.get(url, headers=headers, impersonate="chrome131",
+                             timeout=REQUEST_TIMEOUT, allow_redirects=True)
+            text = r.text
+            # Check for Cloudflare challenge
+            if "cf-browser-verify" in text.lower() or "just a moment" in text.lower():
+                if attempt < retries - 1:
+                    time.sleep(3 * (attempt + 1))
+                    continue
+                raise Exception("Cloudflare challenge detected")
+            if r.status_code == 403:
+                if attempt < retries - 1:
+                    time.sleep(3 * (attempt + 1))
+                    continue
+                raise Exception("403 Forbidden")
+            # 404 页面
+            if re.search(r'<title>\s*page\s+not\s+found', text, re.IGNORECASE):
+                raise Exception("Page not found (404)")
+            return text
+        except Exception as e:
+            if "Cloudflare" in str(e) or "403" in str(e) or "Page not found" in str(e):
+                raise
+            if attempt < retries - 1:
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
 
 
 def extract_prices(html: str) -> dict:
