@@ -197,8 +197,8 @@
    "12月": 795
   },
   "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月8日"
+  "count": 2,
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -463,11 +463,12 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 725
+   "From": 725,
+   "12月": 725
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年可订（短租）：8月26日 起；长租 2027年2月18日"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
@@ -688,7 +689,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年可订（短租）：8月30日 起；长租 2027年2月8日"
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
   "prices": {
@@ -697,7 +698,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订（短租）：8月26日 起；长租 2027年2月8日"
+  "date": "灵活自选（11月1日 起）（亦可2027年2月8日）"
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
   "prices": {
