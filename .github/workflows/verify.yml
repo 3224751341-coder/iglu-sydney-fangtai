@@ -1,0 +1,52 @@
+name: Verify Calendar Accuracy
+
+# 每日用真实浏览器核对 Python 解析与官网日历的一致性（差分测试）
+on:
+  schedule:
+    - cron: '30 13 * * *'   # UTC 13:30 = 北京 21:30，避开整点抓取高峰
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: '只核对前 N 个房型（0=全部）'
+        required: false
+        default: '0'
+      city:
+        description: '只核对指定城市（空=全部）'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Run differential verification
+        env:
+          WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
+        run: |
+          ARGS=""
+          [ "${{ github.event.inputs.sample }}" != "" ] && [ "${{ github.event.inputs.sample }}" != "0" ] && ARGS="$ARGS --sample ${{ github.event.inputs.sample }}"
+          [ "${{ github.event.inputs.city }}" != "" ] && ARGS="$ARGS --city ${{ github.event.inputs.city }}"
+          python verify_calendar.py $ARGS
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-report
+          path: verify_report.json
+          retention-days: 30
