@@ -29,7 +29,8 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ef0a1a33b94f19c47fb3f9e2737f9214
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
-        run: python update_fangtai.py
+        # push 触发（代码变更）时强制重新部署——渲染逻辑修复可能不影响快照数据但影响 HTML
+        run: python update_fangtai.py ${{ github.event_name == 'push' && '--force' || '' }}
 
       - name: Commit snapshot back
         run: |
