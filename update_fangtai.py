@@ -463,13 +463,20 @@ def extract_dates(html: str) -> dict:
     contract_end = None
     flexible_start = None
     flexible_end = None
-    availnow_m = re.search(r'id=["\']availNowBtn["\']', html)
-    if availnow_m:
-        flexible = True
+    btn_tag_m = re.search(r'<button[^>]*id=["\']availNowBtn["\'][^>]*>', html)
+    if btn_tag_m:
+        # 按钮租期类（ltermSS/lterm22/...）决定它在哪些租期下可见（iglu.js showHideStartDates：
+        # 选中租期 X 时，无 ltermX 类的按钮所在 li 被隐藏）。按钮只带 ltermSS ⟺ 该 Flexible Start
+        # 仅短租可选（如 Broadway 4B/5B、Chatswood 全部 Studio、South Yarra 等），
+        # 长租灵活起租不存在——实测差分核对 2026-08-25，此前一律置 flexible=True 属误报。
+        _cls_m = re.search(r'class="([^"]*)"', btn_tag_m.group(0))
+        _btn_lterms = set(re.findall(r'lterm(\w+)', _cls_m.group(1))) if _cls_m else set()
+        if _btn_lterms & {'6', '12', '24', '22', '44'}:
+            flexible = True
         # 合同结束日 = data-22w / data-44w / data-6m（取最早且未过期的）
         from datetime import datetime as _dt_now
         _today_c = (_dt_now.now().year, _dt_now.now().month, _dt_now.now().day)
-        seg = html[max(0, availnow_m.start() - 300):availnow_m.end() + 300]
+        seg = html[max(0, btn_tag_m.start() - 300):btn_tag_m.end() + 300]
         end_candidates = []
         for key in ('data-6m', 'data-22w', 'data-44w'):
             dm = re.search(re.escape(key) + r'=["\']([\d/]{4,10})["\']', seg)
@@ -479,26 +486,27 @@ def extract_dates(html: str) -> dict:
                     end_candidates.append(parsed)
         if end_candidates:
             contract_end = min(end_candidates)
-        # 灵活起租最早可入住日 = 日历起点（available-picker-start-date，格式 2026,8,26）；
-        # 字段为空时官网 JS 用 "+1D"（明天）作 minDate
-        fs_m = re.search(
-            r'available-picker-start-date[^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
-            html
-        )
-        if fs_m:
-            flexible_start = (int(fs_m.group(1)), int(fs_m.group(2)), int(fs_m.group(3)))
-            flexible_start = _earliest_available(flexible_start)
-        else:
-            from datetime import date as _d0, timedelta as _t0
-            _tm = _d0.today() + _t0(days=1)
-            flexible_start = _earliest_available((_tm.year, _tm.month, _tm.day))
-        # 灵活起租最晚可入住日 = 日历终点（available-picker-date，格式 2026,9,30）
-        fe_m = re.search(
-            r'id=["\']available-picker-date["\'][^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
-            html
-        )
-        if fe_m:
-            flexible_end = (int(fe_m.group(1)), int(fe_m.group(2)), int(fe_m.group(3)))
+        if flexible:
+            # 灵活起租最早可入住日 = 日历起点（available-picker-start-date，格式 2026,8,26）；
+            # 字段为空时官网 JS 用 "+1D"（明天）作 minDate
+            fs_m = re.search(
+                r'available-picker-start-date[^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
+                html
+            )
+            if fs_m:
+                flexible_start = (int(fs_m.group(1)), int(fs_m.group(2)), int(fs_m.group(3)))
+                flexible_start = _earliest_available(flexible_start)
+            else:
+                from datetime import date as _d0, timedelta as _t0
+                _tm = _d0.today() + _t0(days=1)
+                flexible_start = _earliest_available((_tm.year, _tm.month, _tm.day))
+            # 灵活起租最晚可入住日 = 日历终点（available-picker-date，格式 2026,9,30）
+            fe_m = re.search(
+                r'id=["\']available-picker-date["\'][^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
+                html
+            )
+            if fe_m:
+                flexible_end = (int(fe_m.group(1)), int(fe_m.group(2)), int(fe_m.group(3)))
     else:
         # 兜底：无按钮时仍检测文本（不精确，仅作标记）
         flexible = bool(re.search(r'Flexible\s+Start', html, re.IGNORECASE))
@@ -583,6 +591,13 @@ def extract_dates(html: str) -> dict:
         contract_end = None
     if flexible_start and flexible_start < _today:
         flexible_start = None
+    # 灵活起租窗口已关闭（maxDate 过期或早于 minDate，日历零可选日）→ 整体不算长租灵活。
+    # 实测 Redfern SAEX 6B：picker-start=2026,8,26 而 picker-date=2026,7,27（已过期），
+    # 官网日历无可选日期，此前仍显示「长租灵活 8/27 起」属误报（差分核对 2026-08-25）。
+    if flexible_end and (flexible_end < _today or (flexible_start and flexible_end < flexible_start)):
+        flexible = False
+        flexible_start = None
+        flexible_end = None
     if flexible_end and flexible_end < _today:
         flexible_end = None
 

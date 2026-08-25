@@ -50,11 +50,21 @@ JS_OPEN_CALENDAR = """() => {
 }"""
 
 JS_FIRST_SELECTABLE = """() => {
-    const tds = jQuery('#iglu-datepicker td[data-handler="selectDay"]');
-    if (!tds.length) return null;
-    const td = tds.first();
-    const day = parseInt(td.find('a').first().text(), 10);
-    return { y: td.data('year'), m: td.data('month') + 1, d: day };
+    const dp = jQuery('#iglu-datepicker');
+    // 当前视图无可选日时向后翻页（minDate 可能远于当前月，如 2027-01），
+    // next 按钮 disabled 即到 maxDate 边界
+    for (let i = 0; i < 24; i++) {
+        const tds = dp.find('td[data-handler="selectDay"]');
+        if (tds.length) {
+            const td = tds.first();
+            const d = parseInt(td.find('a').first().text(), 10);
+            if (d > 0) return { y: td.data('year'), m: td.data('month') + 1, d: d };
+        }
+        const next = dp.find('a.ui-datepicker-next').first();
+        if (!next.length || next.hasClass('ui-state-disabled')) return null;
+        next.click();
+    }
+    return null;
 }"""
 
 JS_VISIBLE_FIXED = """() => {
@@ -72,7 +82,12 @@ def ui_probe_room(page, url):
     page.goto(url, wait_until="domcontentloaded", timeout=45000)
     if "just a moment" in page.title().lower():
         raise RuntimeError("Cloudflare challenge")
-    page.wait_for_selector("#move-in-dates, #rtermsUL", timeout=15000)
+    try:
+        page.wait_for_selector("#move-in-dates, #rtermsUL", timeout=8000)
+    except Exception:
+        # 无预订面板（等位/售罄页）——官网无任何起租入口，返回空结果与解析器对比：
+        # 若解析器在这种页面还报出日期，即为真实 bug
+        return out
     page.wait_for_timeout(800)  # 等 triggerLterms() 跑完
 
     for term in TERMS:
