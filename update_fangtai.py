@@ -669,13 +669,16 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
         return format_dates({'dates': ds, 'flexible': False})
 
     def flex_text():
-        """灵活起租日期区间：'2026年8月26日~9月30日'"""
+        """灵活起租日期区间：'2026年8月26日~9月30日'（跨年带年份）"""
         if not flexible_start:
             return None
         s = f"{flexible_start[0]}年{flexible_start[1]}月{flexible_start[2]}日"
         if (flexible_end and flexible_end > flexible_start
                 and flexible_end[1] != flexible_start[1]):
-            s += f"~{flexible_end[1]}月{flexible_end[2]}日"
+            if flexible_end[0] == flexible_start[0]:
+                s += f"~{flexible_end[1]}月{flexible_end[2]}日"
+            else:
+                s += f"~{flexible_end[0]}年{flexible_end[1]}月{flexible_end[2]}日"
         return s
 
     def flex_full():
@@ -826,13 +829,16 @@ def build_date_cell(room: dict) -> str:
     fs_this = bool(flexible_start and flexible_start[0] == this_year)
 
     def _flex_text():
-        """灵活起租日期区间：'2026年8月26日~9月30日'"""
+        """灵活起租日期区间：'2026年8月26日~9月30日'（跨年带年份）"""
         if not flexible_start:
             return None
         s = f"{flexible_start[0]}年{flexible_start[1]}月{flexible_start[2]}日"
         if (flexible_end and flexible_end > flexible_start
                 and flexible_end[1] != flexible_start[1]):
-            s += f"~{flexible_end[1]}月{flexible_end[2]}日"
+            if flexible_end[0] == flexible_start[0]:
+                s += f"~{flexible_end[1]}月{flexible_end[2]}日"
+            else:
+                s += f"~{flexible_end[0]}年{flexible_end[1]}月{flexible_end[2]}日"
         return s
 
     def _flex_full():
