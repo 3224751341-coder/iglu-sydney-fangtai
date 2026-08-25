@@ -410,6 +410,36 @@ def extract_dates(html: str) -> dict:
                 return (year, mon, day)
         return None
 
+    # 禁用日期（buffer days）：官网 available-buffer-days 字段，格式 "YYYY-MM-DD,YYYY-MM-DD"。
+    # 日历 minDate（picker-start-date）只是最早可浏览日，具体日期还受此禁用列表约束：
+    # 实测 Redfern 6B buffer=2026-08-26 → 最早可入住 8/27；Brisbane City 6B buffer=26,27 → 8/28；
+    # Summer Hill buffer=26,27,28 → 8/29；Central Park buffer 空 → 8/26。
+    buffer_dates = set()
+    bm = re.search(
+        r'available-buffer-days[^>]*?value\s*=\s*["\']([^"\']*)["\']'
+        r'|value\s*=\s*["\']([^"\']*)["\'][^>]*?available-buffer-days',
+        html
+    )
+    if bm:
+        buf_val = bm.group(1) if bm.group(1) is not None else bm.group(2)
+        if buf_val:
+            for part in buf_val.split(','):
+                part = part.strip()
+                if re.match(r'^\d{4}-\d{2}-\d{2}$', part):
+                    buffer_dates.add(part)
+
+    def _earliest_available(start, max_lookahead=180):
+        """从 start 起逐日找第一个不在 buffer 禁用的日期（日历实际最早可选日）。"""
+        if not start:
+            return None
+        from datetime import date as _date, timedelta as _td
+        d = _date(start[0], start[1], start[2])
+        for _ in range(max_lookahead):
+            if d.strftime('%Y-%m-%d') not in buffer_dates:
+                return (d.year, d.month, d.day)
+            d += _td(days=1)
+        return start
+
     flexible = False
     contract_end = None
     flexible_start = None
@@ -437,6 +467,7 @@ def extract_dates(html: str) -> dict:
         )
         if fs_m:
             flexible_start = (int(fs_m.group(1)), int(fs_m.group(2)), int(fs_m.group(3)))
+            flexible_start = _earliest_available(flexible_start)
         # 灵活起租最晚可入住日 = 日历终点（available-picker-date，格式 2026,9,30）
         fe_m = re.search(
             r'id=["\']available-picker-date["\'][^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
@@ -503,8 +534,9 @@ def extract_dates(html: str) -> dict:
             html
         )
         if ss_start_m:
-            # 灵活起租：最早可订 = 日历起点（picker-start-date）
-            shortstay_dates.append((int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3))))
+            # 灵活起租：最早可订 = 日历起点（picker-start-date），跳过 buffer 禁用日
+            _ss = (int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3)))
+            shortstay_dates.append(_earliest_available(_ss))
         else:
             # 起点缺失时回退用 picker-date
             ss_date_m = re.search(
