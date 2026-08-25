@@ -597,24 +597,6 @@
   "count": null,
   "date": "今年已无房：2027年2月3日、10日、17日"
  },
- "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
-  "prices": {
-   "From": 515,
-   "12月": 515
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：长租灵活 2026年8月28日~9月30日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
- },
- "melbourne/south-yarra/premium-studio-apartment-sy": {
-  "prices": {
-   "From": 725,
-   "12月": 725
-  },
-  "avail": "available",
-  "count": 4,
-  "date": "今年已无房：2027年2月3日、10日"
- },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
    "From": 675,
@@ -654,72 +636,6 @@
   "count": 4,
   "date": "今年已无房：2027年2月3日、10日、17日"
  },
- "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
-  "prices": {
-   "From": 585,
-   "短租": 635,
-   "12月": 585
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
- },
- "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
-  "prices": {
-   "From": 575,
-   "12月": 575
-  },
-  "avail": "available",
-  "count": 5,
-  "date": "今年已无房：2027年2月3日、10日、17日"
- },
- "brisbane/brisbane-city/premium-studio-apartment-bc": {
-  "prices": {
-   "From": 759
-  },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
- },
- "brisbane/brisbane-city/standard-studio-apartment-bc": {
-  "prices": {
-   "From": 739,
-   "短租": 789,
-   "12月": 739
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：短租 8月30日 起；长租灵活 2026年8月28日~9月10日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
- },
- "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
-  "prices": {
-   "From": 559,
-   "12月": 559
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：固定起租 11月1日 起；长租亦可 2027年2月8日"
- },
- "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
-  "prices": {
-   "From": 539,
-   "短租": 589,
-   "12月": 539
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：长租灵活 2026年8月28日~9月10日 起（合同至 2027年2月3日）；长租亦可 2027年2月8日"
- },
- "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
-  "prices": {
-   "From": 449,
-   "短租": 499,
-   "12月": 449
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年8月28日~9月10日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
- },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
    "From": 699
@@ -736,25 +652,6 @@
   "avail": "available",
   "count": null,
   "date": "今年可订：长租灵活 2026年8月28日~9月24日 起（合同至 2027年2月7日）；长租亦可 2027年2月11日"
- },
- "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
-  "prices": {
-   "From": 459,
-   "12月": 459
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：长租灵活 2026年8月28日~9月10日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
- },
- "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
-  "prices": {
-   "From": 429,
-   "短租": 479,
-   "12月": 429
-  },
-  "avail": "available",
-  "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年8月28日~9月10日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
