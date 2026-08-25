@@ -490,25 +490,29 @@ def extract_dates(html: str) -> dict:
             unique.append(d)
     unique.sort()
 
-    # Short Stay 短租：日历起点（picker-start-date）非空 = 短租可订，最早可订 = 起点；
-    # 如 Central Park 6B picker-date 为空但 picker-start-date=2026,8,26（短租 8/26 起）。
-    # 起点缺失时回退用 picker-date（默认选中日期，如 Chatswood 5B picker-date=2027,2,8）。
+    # Short Stay 短租：只有页面提供 SS 租期选项（id="mnthSS" radio）才算短租可订。
+    # 实测：Central Park 6B 有 SS 选项 → 短租日历 8/26 起可选（ssPickerStart=2026,8,26）；
+    # Chatswood 6B 无 SS 选项（无 mnthSS）→ 短租未开放，尽管 ssPickerStart 字段仍为 8/26，
+    # 若按字段解析会误报「短租 8/26 起」（实际最早只能长租灵活 12/9 起）。
+    # 短租最早可入住日 = 日历起点（available-shortstay-picker-start-date），缺失时回退 picker-date。
     shortstay_dates = []
-    ss_start_m = re.search(
-        r"available-shortstay-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
-        html
-    )
-    if ss_start_m:
-        # 灵活起租：最早可订 = 日历起点（picker-start-date）
-        shortstay_dates.append((int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3))))
-    else:
-        # 起点缺失时回退用 picker-date
-        ss_date_m = re.search(
-            r"available-shortstay-picker-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
+    has_ss_option = re.search(r'id=["\']mnthSS["\']', html) is not None
+    if has_ss_option:
+        ss_start_m = re.search(
+            r"available-shortstay-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
             html
         )
-        if ss_date_m:
-            shortstay_dates.append((int(ss_date_m.group(1)), int(ss_date_m.group(2)), int(ss_date_m.group(3))))
+        if ss_start_m:
+            # 灵活起租：最早可订 = 日历起点（picker-start-date）
+            shortstay_dates.append((int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3))))
+        else:
+            # 起点缺失时回退用 picker-date
+            ss_date_m = re.search(
+                r"available-shortstay-picker-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
+                html
+            )
+            if ss_date_m:
+                shortstay_dates.append((int(ss_date_m.group(1)), int(ss_date_m.group(2)), int(ss_date_m.group(3))))
 
     # 过滤已过期日期（页面可能残留过去年份的旧数据，如墨尔本某楼短租 2025,2,17）
     from datetime import datetime as _dt
