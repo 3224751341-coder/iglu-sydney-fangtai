@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iglu 房态工作台 · 项目总结（2026-08-25）</title>
+<style>
+  :root {
+    --uhomes: #FF5A5F;
+    --bg: #FAF6F0;
+    --panel: #FFFFFF;
+    --ink: #3D3530;
+    --muted: #9A8E80;
+    --line: #EAE2D8;
+    --green: #27AE60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.75; padding: 32px 16px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 30px; }
+  header .logo { color: var(--uhomes); font-weight: 700; font-size: 15px; letter-spacing: .3px; }
+  header h1 { font-size: 24px; font-weight: 700; margin: 8px 0 6px; }
+  header p { color: var(--muted); font-size: 13.5px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 26px; margin-bottom: 18px; box-shadow: 0 2px 12px rgba(139,115,85,.05);
+  }
+  .card h2 { font-size: 17px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .card h2::before { content: ''; width: 4px; height: 18px; background: var(--uhomes); border-radius: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 6px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #FBF4EC; font-weight: 600; white-space: nowrap; }
+  code {
+    background: #F5EFE6; padding: 1px 7px; border-radius: 5px;
+    font-size: 12.5px; color: #8B5E3C; word-break: break-all;
+  }
+  ul { padding-left: 20px; font-size: 13.8px; }
+  li { margin-bottom: 6px; }
+  .ok { color: var(--green); font-weight: 600; }
+  .url { color: var(--uhomes); font-weight: 600; word-break: break-all; }
+  .note { background: #FBF7F2; border: 1px dashed var(--line); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .tag { display: inline-block; font-size: 11.5px; padding: 2px 9px; border-radius: 999px; margin-right: 5px; }
+  .tag-done { background: #E7F6EC; color: #1E8E4A; }
+  .tag-info { background: #EAF2FB; color: #2E6DB4; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 22px; }
+  @media (max-width:640px){ .wrap{padding:0} .card{padding:16px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">uhomes 异乡好居</div>
+    <h1>Iglu 澳洲房态工作台 · 项目总结</h1>
+    <p>项目文件夹：<code>桌面/wb/悉尼公寓资源统一入口/iglu-sydney-fangtai/</code> ｜ 总结日期：2026-08-25</p>
+  </header>
+
+  <div class="card">
+    <h2>一、项目概览</h2>
+    <table>
+      <tr><th style="width:120px">线上地址</th><td class="url">https://iglu-centralpark.pages.dev/</td></tr>
+      <tr><th>功能</th><td>聚合展示 Iglu 澳洲 <b>悉尼 9 所 / 墨尔本 5 所 / 布里斯班 2 所、共 16 栋楼 78 个房型</b> 的实时房态（库存/价格/起租日期/短租/灵活起租）</td></tr>
+      <tr><th>数据更新</th><td>GitHub Actions 每小时自动抓取 iglu.com.au → 解析 → 生成页面 → 部署 Cloudflare Pages（有房态变化自动企微通知）</td></tr>
+      <tr><th>代码仓库</th><td><code>github.com/3224751341-coder/iglu-sydney-fangtai</code>（核心脚本 <code>update_fangtai.py</code>）</td></tr>
+      <tr><th>当前状态</th><td><span class="tag tag-done">✅ 已全量核对</span> 78 个房型起租日期与官网日历实测一致（2026-08-25 12:56 最终版）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>二、核心功能（当前能力）</h2>
+    <table>
+      <tr><th style="width:180px">功能</th><th>说明</th></tr>
+      <tr><td>房态一览</td><td>每栋楼一个表格：房型 / 面积 / 床型 / 12-24月 / 44周 / 22周 / 短租价格 / 库存 / 起租日期，按「有房先后」排序</td></tr>
+      <tr><td>起租日期精确显示</td><td>长租固定日期、<b>灵活起租区间</b>（如「长租灵活 8/26~9/30 起」）、<b>短租起租日</b>、<b>合同结束日</b>（如「合同至 12/1」）分开展示</td></tr>
+      <tr><td>直达申请</td><td>每栋楼右上角「申请 ↗」直达该楼申请页；登录态下自动显示 Agency Code A1336（= agent 单）</td></tr>
+      <tr><td>自动登录 + 申请预填</td><td>油猴脚本：登录页自动填 A1336；申请表单自动填 Agency 信息（首次手填后自动记忆）</td></tr>
+      <tr><td>变化通知</td><td>房态有变化时自动推送企微群</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>三、技术架构（数据流）</h2>
+    <ul>
+      <li><b>抓取</b>：GitHub Actions（<code>.github/workflows/update.yml</code>）每小时 cron + push 触发，云端跑 <code>update_fangtai.py</code>（并发 12 抓取全部房型页）</li>
+      <li><b>解析</b>：长租日期（日期按钮 data-id）＋ 灵活起租（<code>available-picker-start-date</code> 起跳禁用日）＋ 短租（<code>mnthSS</code> 选项 + picker-start-date）＋ 合同结束日（availNowBtn data-22w/44w/6m）</li>
+      <li><b>生成部署</b>：生成 <code>index.html</code>（模板 <code>template.html</code>）→ wrangler 部署 Pages → 快照 <code>data_snapshot.json</code> 提交回仓库</li>
+      <li><b>防假数据</b>：404 页面检测、无信息显示「未知」而非「有房」、过期日期过滤、禁用日（buffer-days）跳过</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>四、迭代历程（2026-08-24 ~ 08-25）</h2>
+    <table>
+      <tr><th style="width:110px">时间</th><th>改进 / 修复</th></tr>
+      <tr><td>08-24 下午</td><td>自动登录书签 → 油猴脚本；申请直达按钮（楼级+行级）；短租日期解析；404 防御；培训分发包；申请按钮去重（保留楼级）</td></tr>
+      <tr><td>08-25 上午</td><td>灵活起租按钮（availNowBtn）解析；全量审计</td></tr>
+      <tr><td>08-25 12:02</td><td><b>关键修正</b>：availNowBtn 的 data-22w/44w/6m 是<b>合同结束日</b>非起租日；灵活起租最早入住改读 <code>available-picker-start-date</code>（修复 Central Park 6B）</td></tr>
+      <tr><td>08-25 12:24</td><td>短租判据修正：须有 <code>mnthSS</code> 租期选项才算短租开放（修复 Chatswood 6B 误显示短租）</td></tr>
+      <tr><td>08-25 12:56</td><td>禁用日期（<code>available-buffer-days</code>）处理：最早可入住跳过禁用日（Redfern 8/27、Summer Hill 8/29 等）；<b>78 房型浏览器全量核对一致</b></td></tr>
+    </table>
+    <div class="note">📄 起租日期修复细节见同目录详版：<code>iglu房态起租日期修复与全量核对总结_2026-08-25.md</code>（含字段速查表、解析规则、核对样例）</div>
+  </div>
+
+  <div class="card">
+    <h2>五、配套文件清单（同目录）</h2>
+    <table>
+      <tr><th style="width:240px">文件</th><th>用途</th></tr>
+      <tr><td><code>IgluAgent_Training_Pack.zip</code></td><td><b>培训分发包</b>（发给同事：扩展+脚本+教程一包）</td></tr>
+      <tr><td><code>Tampermonkey_Chrome安装包.crx</code></td><td>Chrome 扩展安装包（国内商店打不开的替代）</td></tr>
+      <tr><td><code>Tampermonkey解压版/</code></td><td>拖 crx 被拦时的解压加载备用</td></tr>
+      <tr><td><code>iglu-agent-autologin.user.js</code></td><td>油猴自动化脚本（自动登录 + 申请表单预填）</td></tr>
+      <tr><td><code>Iglu自动登录_安装引导.html</code></td><td>安装图文教程</td></tr>
+      <tr><td><code>iglu房态起租日期修复与全量核对总结_2026-08-25.md</code></td><td>起租日期修复专项总结（8-25 三轮修复）</td></tr>
+      <tr><td><code>update_fangtai.py</code></td><td>抓取+解析+生成+部署一体化脚本（核心）</td></tr>
+      <tr><td><code>template.html</code> / <code>index.html</code></td><td>页面模板 / 生成后的线上页面</td></tr>
+      <tr><td><code>data_snapshot.json</code></td><td>房态快照（变化检测 + CI 提交）</td></tr>
+      <tr><td><code>mysa-training.html</code></td><td>MySA 培训页（历史文件）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>六、维护约定（重要）</h2>
+    <ul>
+      <li><b>改页面/脚本走 git</b>：本地改 → <code>git pull --rebase</code> → push → 等 CI（约 2 分钟）→ curl 线上验证。⚠️ <b>不要本地直接跑全量部署</b>（本机网络连 iglu 不稳定，会抓取不全覆盖好数据）</li>
+      <li><b>数据自动刷新</b>：CI 每小时 cron；线上顶部显示「更新于 …」时间</li>
+      <li><b>排障命令</b>：<code>npx wrangler whoami</code>（认证）、<code>curl https://iglu-centralpark.pages.dev/ | grep 更新于</code>（数据时间）</li>
+      <li><b>Agent 申请</b>：表单看到 <code>Agency Code: A1336</code> = agent 单；空白 = 先登录（脚本自动）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>七、风险与待办</h2>
+    <ul>
+      <li>个别房型线上解析偶发未命中（面板结构差异）——CI 每小时自动刷新可自愈</li>
+      <li>无 SS 选项但有预售标记的房型当前保守不显示短租；如业务需要可加「预售」标注</li>
+      <li>墨尔本/布里斯班部分房型为 12 个月制（data-6m）——已按长租灵活处理并核对一致</li>
+      <li>iglu 若改版新增字段，需按「字段速查表」校准（见详版总结）</li>
+    </ul>
+  </div>
+
+  <footer>Iglu 澳洲房态工作台 · 梁赛威 (VX) · 仅供内部参考</footer>
+</div>
+</body>
+</html>
