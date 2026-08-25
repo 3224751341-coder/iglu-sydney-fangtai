@@ -268,7 +268,7 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   a.rel = 'noreferrer noopener';
   a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
   bar.appendChild(a);
-  /* 直达申请：自动登录 Agent Portal（A1336）后跳转申请页 */
+  /* 直达申请：通过 Pages Function 代理自动登录 Agent Portal (A1336) */
   var applyUrl = applyUrlFor(slug);
   if (applyUrl) {
     var a2 = document.createElement('a');
@@ -277,47 +277,19 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
     a2.target = '_blank';
     a2.rel = 'noreferrer noopener';
     a2.textContent = '申请 ↗';
-    a2.addEventListener('click', function(e){
-      e.preventDefault();
-      agentLoginAndRedirect(applyUrl, a2);
-    });
     bar.appendChild(a2);
   }
   panel.insertBefore(bar, panel.firstChild);
 });
 
-/* 由官网 URL 推导城市，生成该楼直达申请链接（mascot-duo 未开业，暂无申请入口） */
+/* 由官网 URL 推导城市，生成该楼直达申请链接（mascot-duo 未开业，暂无申请入口）
+   通过 Cloudflare Pages Function 代理，服务端自动登录 Agent Portal (A1336) */
 function applyUrlFor(slug){
   var site = PROP_SITES[slug];
   if(!site || slug === 'mascot-duo') return null;
   var m = site.match(/iglu\.com\.au\/properties\/(\w+)\//);
   if(!m) return null;
-  return 'https://iglu.com.au/apply-online?p=' + slug + '&q=' + m[1];
-}
-
-/* 自动登录 Agent Portal（A1336）并跳转申请页
-   流程：新标签页表单 POST 到 iglu-agent-portal-login/（top-level navigation 设 session cookie）→ redirect_to 直达申请页 */
-function agentLoginAndRedirect(applyUrl, btn){
-  var win = window.open('', '_blank');
-  if(!win){
-    window.location.href = applyUrl;
-    return;
-  }
-  win.document.write([
-    '<!DOCTYPE html><html><head><meta charset="utf-8">',
-    '<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f5f5f5}p{color:#666;font-size:1.1em}</style>',
-    '</head><body>',
-    '<p>🔑 正在登录 Agent Portal，请稍候…</p>',
-    '<form id="lf" method="POST" action="https://iglu.com.au/iglu-agent-portal-login/">',
-    '<input type="hidden" name="agent_code" value="A1336">',
-    '<input type="hidden" name="redirect_to" value="' + applyUrl + '">',
-    '</form>',
-    '<script>document.getElementById("lf").submit();</' + 'script>',
-    '</body></html>'
-  ].join(''));
-  win.document.close();
-
-  if(btn){ var orig = btn.textContent; btn.textContent = '登录中…'; btn.style.opacity = '0.6'; setTimeout(function(){ btn.textContent = orig; btn.style.opacity = '1'; }, 3000); }
+  return '/iglu/apply-online?p=' + slug + '&q=' + m[1];
 }
 
 var CITY_KEYS = ['sydney', 'melbourne', 'brisbane'];
