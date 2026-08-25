@@ -429,16 +429,34 @@ def extract_dates(html: str) -> dict:
                 if re.match(r'^\d{4}-\d{2}-\d{2}$', part):
                     buffer_dates.add(part)
 
+    # 周末规则（iglu.js available_now_datepicker beforeShowDay）：#allow-weekends 的值
+    # 非空且 != '1' 时周末不可选（jQuery.datepicker.noWeekends）。实测各楼目前均为 '1'，
+    # 但字段存在，一旦 Iglu 改值而这里不处理，起租日会虚报到周末。
+    awm = re.search(
+        r'id=["\']allow-weekends["\'][^>]*?value\s*=\s*["\']([^"\']*)["\']'
+        r'|value\s*=\s*["\']([^"\']*)["\'][^>]*?id=["\']allow-weekends["\']',
+        html
+    )
+    allow_weekends = '1'
+    if awm:
+        allow_weekends = (awm.group(1) if awm.group(1) is not None else awm.group(2)) or '1'
+    weekends_blocked = allow_weekends != '1'
+
     def _earliest_available(start, max_lookahead=180):
-        """从 start 起逐日找第一个不在 buffer 禁用的日期（日历实际最早可选日）。"""
+        """从 start 起逐日找第一个可选日期：跳过 buffer 禁用日；周末受 allow-weekends 控制。
+        对齐 iglu.js beforeShowDay 规则（buffer 优先于周末判断，两者都需跳过）。"""
         if not start:
             return None
         from datetime import date as _date, timedelta as _td
         d = _date(start[0], start[1], start[2])
         for _ in range(max_lookahead):
-            if d.strftime('%Y-%m-%d') not in buffer_dates:
-                return (d.year, d.month, d.day)
-            d += _td(days=1)
+            if d.strftime('%Y-%m-%d') in buffer_dates:
+                d += _td(days=1)
+                continue
+            if weekends_blocked and d.weekday() >= 5:
+                d += _td(days=1)
+                continue
+            return (d.year, d.month, d.day)
         return start
 
     flexible = False
@@ -461,7 +479,8 @@ def extract_dates(html: str) -> dict:
                     end_candidates.append(parsed)
         if end_candidates:
             contract_end = min(end_candidates)
-        # 灵活起租最早可入住日 = 日历起点（available-picker-start-date，格式 2026,8,26）
+        # 灵活起租最早可入住日 = 日历起点（available-picker-start-date，格式 2026,8,26）；
+        # 字段为空时官网 JS 用 "+1D"（明天）作 minDate
         fs_m = re.search(
             r'available-picker-start-date[^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
             html
@@ -469,6 +488,10 @@ def extract_dates(html: str) -> dict:
         if fs_m:
             flexible_start = (int(fs_m.group(1)), int(fs_m.group(2)), int(fs_m.group(3)))
             flexible_start = _earliest_available(flexible_start)
+        else:
+            from datetime import date as _d0, timedelta as _t0
+            _tm = _d0.today() + _t0(days=1)
+            flexible_start = _earliest_available((_tm.year, _tm.month, _tm.day))
         # 灵活起租最晚可入住日 = 日历终点（available-picker-date，格式 2026,9,30）
         fe_m = re.search(
             r'id=["\']available-picker-date["\'][^>]*?value\s*=\s*["\'](\d{4}),(\d{1,2}),(\d{1,2})["\']',
@@ -542,17 +565,14 @@ def extract_dates(html: str) -> dict:
             html
         )
         if ss_start_m:
-            # 灵活起租：最早可订 = 日历起点（picker-start-date），跳过 buffer 禁用日
+            # 短租：最早可订 = 日历起点（ss picker-start-date），跳过 buffer 禁用日/周末
             _ss = (int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3)))
             shortstay_dates.append(_earliest_available(_ss))
         else:
-            # 起点缺失时回退用 picker-date
-            ss_date_m = re.search(
-                r"available-shortstay-picker-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
-                html
-            )
-            if ss_date_m:
-                shortstay_dates.append((int(ss_date_m.group(1)), int(ss_date_m.group(2)), int(ss_date_m.group(3))))
+            # 起点缺失时官网 JS 同样用 "+1D"（明天）作 minDate
+            from datetime import date as _d1, timedelta as _t1
+            _tm = _d1.today() + _t1(days=1)
+            shortstay_dates.append(_earliest_available((_tm.year, _tm.month, _tm.day)))
 
     # 过滤已过期日期（页面可能残留过去年份的旧数据，如墨尔本某楼短租 2025,2,17）
     from datetime import datetime as _dt
