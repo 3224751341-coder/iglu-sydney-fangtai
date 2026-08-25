@@ -521,13 +521,20 @@ def extract_dates(html: str) -> dict:
             unique.append(d)
     unique.sort()
 
-    # Short Stay 短租：只有页面提供 SS 租期选项（id="mnthSS" radio）才算短租可订。
-    # 实测：Central Park 6B 有 SS 选项 → 短租日历 8/26 起可选（ssPickerStart=2026,8,26）；
-    # Chatswood 6B 无 SS 选项（无 mnthSS）→ 短租未开放，尽管 ssPickerStart 字段仍为 8/26，
-    # 若按字段解析会误报「短租 8/26 起」（实际最早只能长租灵活 12/9 起）。
+    # Short Stay 短租：判据 = move-in-dates 区域存在带 ltermSS 类的按钮。
+    # 官网 iglu.js triggerLterms()：某租期选项显示 ⟺ #move-in-dates li .btn-rev 中
+    # 存在 class 含 lterm<term>（ltermSS/lterm22/lterm44/lterm12/lterm6）的按钮。
+    # 旧判据「页面存在 id=mnthSS radio」不成立：Mascot 6B 的 mnthSS input/label 一直在
+    # HTML 里（label 带 display:none），但按钮无 ltermSS → JS 不放开 → 实际无短租，
+    # 曾误报「短租 8/28 起」（浏览器实测 2026-08-25：仅 12M/22W/44W + 固定 9/7 起）。
     # 短租最早可入住日 = 日历起点（available-shortstay-picker-start-date），缺失时回退 picker-date。
     shortstay_dates = []
-    has_ss_option = re.search(r'id=["\']mnthSS["\']', html) is not None
+    md_ul = re.search(r'<ul[^>]*id=["\']move-in-dates["\'][^>]*>(.*?)</ul>', html, re.S)
+    if md_ul:
+        has_ss_option = re.search(r'class="[^"]*\bltermSS\b', md_ul.group(1)) is not None
+    else:
+        # 无 move-in-dates 区块的页面退回旧判据
+        has_ss_option = re.search(r'id=["\']mnthSS["\']', html) is not None
     if has_ss_option:
         ss_start_m = re.search(
             r"available-shortstay-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
@@ -731,10 +738,10 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
         parts = []
         if ss_this:
             parts.append('短租 ' + short(ss_this) + ' 起')
+        if this_dates:
+            parts.append('固定起租 ' + short(this_dates) + ' 起')
         if flexible and flexible_start:
             parts.append('长租灵活 ' + flex_full())
-        elif this_dates:
-            parts.append('长租 ' + short(this_dates) + ' 起')
         if future_dates:
             if this_dates or (flexible and flexible_start):
                 parts.append('长租亦可 ' + full(future_dates))
