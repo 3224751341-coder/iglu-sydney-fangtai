@@ -17,7 +17,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；固定起租 9月4日 起；长租灵活 2027年1月5日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 12月10日 起；固定起租 9月4日 起；长租亦可 2027年2月9日"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -45,7 +45,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：短租 8月26日 起；长租灵活 2026年8月26日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 8月26日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -57,7 +57,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：短租 8月26日 起；长租灵活 2026年8月26日 起（合同至 2026年12月7日）；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 8月26日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -186,7 +186,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年12月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 8月28日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
@@ -198,7 +198,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年12月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 8月28日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -210,7 +210,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年12月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 8月28日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
@@ -222,7 +222,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年12月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 8月28日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -234,7 +234,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月28日 起；长租灵活 2026年12月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 8月28日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
@@ -389,8 +389,8 @@
    "From": 675,
    "22周": 675
   },
-  "avail": "available",
+  "avail": "waitlist",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月27日 起（合同至 2026年12月8日）"
+  "date": "今年无房（等位）"
  }
 }
