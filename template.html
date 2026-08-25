@@ -289,7 +289,7 @@ function applyUrlFor(slug){
   if(!site || slug === 'mascot-duo') return null;
   var m = site.match(/iglu\.com\.au\/properties\/(\w+)\//);
   if(!m) return null;
-  return '/iglu/apply-online?p=' + slug + '&q=' + m[1];
+  return '/iglu/apply-online/?p=' + slug + '&q=' + m[1];
 }
 
 var CITY_KEYS = ['sydney', 'melbourne', 'brisbane'];

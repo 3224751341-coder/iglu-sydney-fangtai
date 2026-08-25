@@ -4,7 +4,6 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 
 let cachedCookie = null;
 let cookieExpiry = 0;
-let lastLoginDebug = '';
 
 function extractSetCookies(headers) {
   const results = [];
@@ -65,16 +64,6 @@ async function getSessionCookie() {
     if (allCookies.length > 0) {
       cachedCookie = allCookies.join('; ');
       cookieExpiry = Date.now() + 5 * 60 * 1000;
-      lastLoginDebug = `status=${resp.status} cookies=${allCookies.join(',').substring(0, 100)}`;
-      return cachedCookie;
-    }
-
-    const body = await resp.text();
-    lastLoginDebug = `status=${resp.status} noCookies body=${body.substring(0, 200)}`;
-    const userMatch = body.match(/"username"\s*:\s*"([^"]+)"/);
-    if (userMatch) {
-      cachedCookie = `username=${userMatch[1]}`;
-      cookieExpiry = Date.now() + 5 * 60 * 1000;
       return cachedCookie;
     }
   } catch (e) {
@@ -86,36 +75,6 @@ async function getSessionCookie() {
 export async function onRequest(context) {
   const { request, params } = context;
   const url = new URL(request.url);
-
-  if (url.searchParams.get('debug') === '1') {
-    let debugInfo = {};
-    try {
-      const resp = await fetch(`${IGLU_ORIGIN}/wp-admin/admin-ajax.php`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Origin': IGLU_ORIGIN,
-          'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
-          'User-Agent': UA,
-        },
-        body: `action=agent_code_action&code=${AGENT_CODE}`,
-        redirect: 'manual',
-      });
-      const setCookies = extractSetCookies(resp.headers);
-      const body = await resp.text();
-      debugInfo = {
-        status: resp.status,
-        setCookies,
-        allHeaders: Object.fromEntries(resp.headers.entries()),
-        bodyPreview: body.substring(0, 500),
-      };
-    } catch (e) {
-      debugInfo = { error: e.message };
-    }
-    return new Response(JSON.stringify(debugInfo, null, 2), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
 
   const cookie = await getSessionCookie();
 
@@ -166,10 +125,8 @@ export async function onRequest(context) {
 
     html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${IGLU_ORIGIN}/">`);
 
-    const debugComment = `<!-- DEBUG: cookie=${cookie ? cookie.substring(0, 80) : 'EMPTY'} login=${lastLoginDebug} respStatus=${resp.status} -->`;
-
     const interceptor = `<script>
-window.__IGLU_PROXY_VERSION__ = 'v3-correct-params';
+window.__IGLU_PROXY_VERSION__ = 'v4-final';
 (function(){
   var P='${proxyOrigin}';
   function rw(u){
@@ -189,10 +146,10 @@ window.__IGLU_PROXY_VERSION__ = 'v3-correct-params';
   });
 })();
 </script>`;
-    html = html.replace('</head>', interceptor + debugComment + '</head>');
+    html = html.replace('</head>', interceptor + '</head>');
 
     return new Response(html, {
-      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
     });
   }
 
