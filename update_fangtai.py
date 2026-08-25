@@ -902,6 +902,25 @@ def build_date_cell(room: dict) -> str:
     def _fmt(ds):
         return format_dates({'dates': ds, 'flexible': False})
 
+    def _short(ds):
+        """今年日期省略年份：'9月7日'（与 format_start_label.short 对齐）"""
+        from collections import defaultdict
+        by_m = defaultdict(list)
+        for _, m, d in ds:
+            by_m[m].append(d)
+        parts = []
+        for m in sorted(by_m):
+            days = sorted(by_m[m])
+            segs = [(days[0], days[0])]
+            for d in days[1:]:
+                if d == segs[-1][1] + 1:
+                    segs[-1] = (segs[-1][0], d)
+                else:
+                    segs.append((d, d))
+            seg_txt = [f"{s}日" if s == e else f"{s}-{e}日" for s, e in segs]
+            parts.append(f"{m}月" + "、".join(seg_txt))
+        return "、".join(parts)
+
     this_dates = [d for d in dates if d[0] == this_year]
     future_dates = [d for d in dates if d[0] > this_year]
     ss_this = [d for d in ss_dates if d[0] == this_year]
@@ -933,9 +952,9 @@ def build_date_cell(room: dict) -> str:
     if this_dates or ss_this or fs_this:
         parts = []
         if ss_this:
-            parts.append(f'短租 {_fmt(ss_this)} 起')
+            parts.append(f'短租 {_short(ss_this)} 起')
         if this_dates:
-            parts.append(f'固定起租 {_fmt(this_dates)} 起')
+            parts.append(f'固定起租 {_short(this_dates)} 起')
         if flexible and flexible_start:
             parts.append(f'长租灵活 {_flex_full()}')
         if future_dates:
