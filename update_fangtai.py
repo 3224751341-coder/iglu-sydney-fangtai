@@ -934,10 +934,10 @@ def build_date_cell(room: dict) -> str:
         parts = []
         if ss_this:
             parts.append(f'短租 {_fmt(ss_this)} 起')
+        if this_dates:
+            parts.append(f'固定起租 {_fmt(this_dates)} 起')
         if flexible and flexible_start:
             parts.append(f'长租灵活 {_flex_full()}')
-        elif this_dates:
-            parts.append(f'长租 {_fmt(this_dates)} 起')
         if future_dates:
             if this_dates or (flexible and flexible_start):
                 parts.append(f'长租亦可 {_fmt(future_dates)}')
