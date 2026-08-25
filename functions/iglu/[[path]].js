@@ -35,7 +35,7 @@ async function getSessionCookie() {
         'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
         'User-Agent': UA,
       },
-      body: `action=iglu_agent_login&agent_code=${AGENT_CODE}`,
+      body: `action=agent_code_action&code=${AGENT_CODE}`,
       redirect: 'manual',
     });
 
@@ -98,7 +98,7 @@ export async function onRequest(context) {
           'Referer': `${IGLU_ORIGIN}/iglu-agent-portal-login/`,
           'User-Agent': UA,
         },
-        body: `action=iglu_agent_login&agent_code=${AGENT_CODE}`,
+        body: `action=agent_code_action&code=${AGENT_CODE}`,
         redirect: 'manual',
       });
       const setCookies = extractSetCookies(resp.headers);
