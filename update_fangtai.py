@@ -396,13 +396,34 @@ def extract_dates(html: str) -> dict:
         'July', 'August', 'September', 'October', 'November', 'December'
     ], 1)}
 
-    # Check for Flexible Start option (clickable element, not just example text)
-    flexible = bool(re.search(
-        r'<(?:a|button|option|label|span)[^>]*?>\s*Flexible\s*Start\s*</(?:a|button|option|label|span)>',
-        html, re.IGNORECASE
-    ))
-    # Also check for "Flexible Start" near booking UI
-    if not flexible:
+    # Check for Flexible Start option：
+    # 真正的灵活起租 = id="availNowBtn" 按钮（带 data-22w/data-44w 最早可订日期，格式 DD/MM/YY），
+    # 如 Central Park 6B data-44w="01/12/26"（今年12月1日起租）。
+    # 仅页面说明文本有 "Flexible Start" 但无按钮（如 Broadway 6B prebook）不算灵活起租。
+    def _parse_ddmmyy(s):
+        m = re.match(r'\s*(\d{1,2})/(\d{1,2})/(\d{2,4})\s*$', s)
+        if m:
+            day, mon, yy = int(m.group(1)), int(m.group(2)), m.group(3)
+            year = 2000 + int(yy) if len(yy) == 2 else int(yy)
+            if 1 <= mon <= 12 and 1 <= day <= 31:
+                return (year, mon, day)
+        return None
+
+    flexible = False
+    availnow_m = re.search(r'id=["\']availNowBtn["\']', html)
+    if availnow_m:
+        flexible = True
+        # 从按钮标签区域提取 data-22w / data-44w（取较早者）
+        seg = html[max(0, availnow_m.start() - 300):availnow_m.end() + 300]
+        for key in ('data-44w', 'data-22w', 'data-6m'):
+            dm = re.search(re.escape(key) + r'=["\']([\d/]{4,10})["\']', seg)
+            if dm:
+                parsed = _parse_ddmmyy(dm.group(1))
+                if parsed:
+                    dates.append(parsed)
+                    break
+    else:
+        # 兜底：无按钮时仍检测文本（不精确，仅作标记）
         flexible = bool(re.search(r'Flexible\s+Start', html, re.IGNORECASE))
 
     # Strategy 1: Find dates inside clickable tags
@@ -612,22 +633,28 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     ss_dates = date_data.get('shortstay_dates', []) if isinstance(date_data, dict) else []
     ss_this = sorted(d for d in ss_dates if d[0] == this_year)
 
-    # 以「今年实际可订日期」为准；flexible 仅作修饰，不单独判定今年可订
-    if this_dates:
-        if flexible:
-            label = '灵活自选（' + short(this_dates) + ' 起）'
-        else:
-            label = '今年起租：' + short(this_dates)
-        if future_dates:
-            label += '（亦可' + full(future_dates) + '）'
-        return label
-    if future_dates:
-        # 长租今年无房：短租今年可订则标注
+    # 以「今年实际可订日期」为准；flexible 仅修饰，不单独判定今年可订
+    if this_dates or ss_this:
+        parts = []
         if ss_this:
-            return '今年可订（短租）：' + short(ss_this) + ' 起；长租 ' + full(future_dates)
+            parts.append('短租 ' + short(ss_this) + ' 起')
+        if this_dates:
+            if flexible:
+                parts.append('长租灵活 ' + short(this_dates) + ' 起')
+            else:
+                parts.append('长租 ' + short(this_dates) + ' 起')
+        if future_dates:
+            if this_dates:
+                parts.append('长租亦可 ' + full(future_dates))
+            else:
+                parts.append('长租 ' + full(future_dates))
+        return '今年可订：' + '；'.join(parts)
+    if future_dates:
         return '今年已无房：' + full(future_dates)
-    if ss_this:
-        return '今年可订（短租）：' + short(ss_this) + ' 起'
+    if flexible:
+        return '灵活自选'
+    if ss_dates:
+        return '今年可订：短租 ' + full(ss_dates) + ' 起'
     if avail_status == 'waitlist':
         return '今年无房（等位）'
     return '待定'
@@ -732,36 +759,35 @@ def build_date_cell(room: dict) -> str:
         return '<span class="tag tag-bad tag-mini">等位无房</span>'
     if avail == 'unknown':
         return '<span class="tag tag-off tag-mini">未知</span>'
-    if not dates:
-        # 长租无具体日期：短租今年可订 → 短租；灵活起租 → 灵活自选；否则待定
-        ss_this = [d for d in ss_dates if d[0] == this_year]
-        if ss_this:
-            ss_str = format_dates({'dates': ss_this, 'flexible': False})
-            return f'<span class="tag tag-ok tag-mini">今年可订（短租）</span> <span class="date-detail">{ss_str} 起</span>'
-        if flexible:
-            return '<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">灵活自选</span>'
-        return '<span class="tag tag-off tag-mini">待定</span>'
+    def _fmt(ds):
+        return format_dates({'dates': ds, 'flexible': False})
 
     this_dates = [d for d in dates if d[0] == this_year]
     future_dates = [d for d in dates if d[0] > this_year]
+    ss_this = [d for d in ss_dates if d[0] == this_year]
 
-    # 以今年实际可订日期为准（flexible 仅修饰，不单独判定今年可订）
-    if this_dates:
-        if flexible:
-            detail = '灵活自选（' + format_dates({'dates': this_dates, 'flexible': False}) + ' 起）'
-        else:
-            detail = format_dates({'dates': this_dates, 'flexible': False}) + ' 起'
-        if future_dates:
-            detail += '（亦可' + format_dates({'dates': future_dates, 'flexible': False}) + '）'
-        return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{detail}</span>'
-    if future_dates:
-        # 长租今年无房：若短租今年可订，则标注"今年可订（短租）"
-        ss_this = [d for d in ss_dates if d[0] == this_year]
-        fut_str = format_dates({'dates': future_dates, 'flexible': False})
+    # 今年可订（长租今年日期 或 短租今年可订 或 灵活起租按钮带今年日期）
+    if this_dates or ss_this:
+        parts = []
         if ss_this:
-            ss_str = format_dates({'dates': ss_this, 'flexible': False})
-            return f'<span class="tag tag-ok tag-mini">今年可订（短租）</span> <span class="date-detail">{ss_str} 起；长租 {fut_str}</span>'
-        return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{fut_str} 起</span>'
+            parts.append(f'短租 {_fmt(ss_this)} 起')
+        if this_dates:
+            if flexible:
+                parts.append(f'长租灵活 {_fmt(this_dates)} 起')
+            else:
+                parts.append(f'长租 {_fmt(this_dates)} 起')
+        if future_dates:
+            if this_dates:
+                parts.append(f'长租亦可 {_fmt(future_dates)}')
+            else:
+                parts.append(f'长租 {_fmt(future_dates)}')
+        return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{"；".join(parts)}</span>'
+    if future_dates:
+        return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{_fmt(future_dates)} 起</span>'
+    if flexible:
+        return '<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">灵活自选</span>'
+    if ss_dates:
+        return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">短租 {_fmt(ss_dates)} 起</span>'
     return '<span class="tag tag-off tag-mini">待定</span>'
 
 
