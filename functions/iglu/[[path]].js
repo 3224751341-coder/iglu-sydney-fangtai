@@ -126,14 +126,15 @@ export async function onRequest(context) {
     html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${IGLU_ORIGIN}/">`);
 
     const interceptor = `<script>
-window.__IGLU_PROXY_VERSION__ = 'v4-final';
+window.__IGLU_PROXY_VERSION__ = 'v5-ajax-fix';
 (function(){
   var P='${proxyOrigin}';
   function rw(u){
     if(!u||typeof u!=='string')return u;
     if(u.indexOf(P)===0)return u;
     if(u.indexOf('iglu.com.au')>=0){try{var x=new URL(u);return P+x.pathname.substring(1)+x.search+x.hash;}catch(e){}}
-    if(u[0]==='/'&&!u.startsWith('/iglu/'))return P+u.substring(1);
+    if(u[0]==='/'&&u.indexOf('/iglu/')!==0)return P+u.substring(1);
+    if(u.indexOf(location.origin)===0){try{var y=new URL(u);if(y.pathname.indexOf('/iglu/')!==0)return P+y.pathname.substring(1)+y.search+y.hash;}catch(e){}}
     return u;
   }
   var oo=XMLHttpRequest.prototype.open;
@@ -142,7 +143,7 @@ window.__IGLU_PROXY_VERSION__ = 'v4-final';
   if(of)window.fetch=function(i,o){if(typeof i==='string')i=rw(i);else if(i instanceof Request)i=new Request(rw(i.url),i);return of.call(this,i,o);};
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('form').forEach(function(f){var a=f.getAttribute('action');if(a)f.setAttribute('action',rw(a));});
-    document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&(h[0]==='/'||h.indexOf('iglu.com.au')>=0))a.setAttribute('href',rw(h));});
+    document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&(h[0]==='/'||h.indexOf('iglu.com.au')>=0||h.indexOf(location.origin)===0))a.setAttribute('href',rw(h));});
   });
 })();
 </script>`;
@@ -153,5 +154,12 @@ window.__IGLU_PROXY_VERSION__ = 'v4-final';
     });
   }
 
-  return new Response(resp.body, { status: resp.status, headers: resp.headers });
+  const passthrough = new Headers();
+  for (const [k, v] of resp.headers.entries()) {
+    if (k !== 'content-encoding' && k !== 'content-length' && k !== 'transfer-encoding') {
+      passthrough.set(k, v);
+    }
+  }
+  passthrough.set('Cache-Control', 'no-store');
+  return new Response(resp.body, { status: resp.status, headers: passthrough });
 }
