@@ -457,9 +457,9 @@
    "44周": 705,
    "12月": 705
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月8日）"
+  "avail": "available",
+  "count": 4,
+  "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -718,7 +718,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月29日 起；长租灵活 2026年8月29日~9月11日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
+  "date": "今年可订：长租灵活 2026年8月29日~9月11日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
