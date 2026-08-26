@@ -457,9 +457,9 @@
    "44周": 705,
    "12月": 705
   },
-  "avail": "available",
-  "count": 3,
-  "date": "今年可订：长租灵活 2026年8月31日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年已无房：2027年2月9日"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -477,7 +477,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月27日~9月30日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
+  "date": "今年可订：长租灵活 2026年8月28日~9月30日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
   "prices": {
@@ -558,7 +558,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月27日 起；长租灵活 2026年8月27日~9月30日 起（合同至 2027年2月16日）；长租亦可 2027年2月3日"
+  "date": "今年可订：短租 8月28日 起；长租灵活 2026年8月28日~9月30日 起（合同至 2027年2月16日）；长租亦可 2027年2月3日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
