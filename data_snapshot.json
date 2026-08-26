@@ -43,8 +43,8 @@
    "短租": 770,
    "12月": 805
   },
-  "avail": "available",
-  "count": 3,
+  "avail": "limited",
+  "count": 2,
   "date": "今年可订：短租 8月27日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
@@ -435,7 +435,7 @@
    "12月": 835
   },
   "avail": "available",
-  "count": 5,
+  "count": null,
   "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
