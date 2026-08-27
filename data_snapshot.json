@@ -127,15 +127,11 @@
  },
  "sydney/central-park/standard-studio-apartment-cp": {
   "prices": {
-   "From": 925,
-   "22周": 985,
-   "44周": 925,
-   "短租": 985,
-   "12月": 925
+   "From": 925
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月9日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -146,8 +142,8 @@
    "12月": 1005
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年可订：长租灵活 2026年8月28日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
+  "count": 4,
+  "date": "今年可订：长租灵活 2026年8月28日~9月30日 起（合同至 2026年12月1日）"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -435,7 +431,7 @@
    "12月": 835
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年可订：长租灵活 2026年8月31日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
