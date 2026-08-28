@@ -45,7 +45,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年可订：短租 8月29日 起；长租 2027年2月9日"
+  "date": "今年可订：短租 8月30日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -57,7 +57,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：短租 8月29日 起；长租 2027年2月9日"
+  "date": "今年可订：短租 8月30日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -135,7 +135,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -147,7 +147,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -174,7 +174,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月12日"
+  "date": "今年可订：长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月12日"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
@@ -186,7 +186,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
@@ -210,7 +210,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
@@ -222,7 +222,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -234,7 +234,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
@@ -374,7 +374,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月30日 起；长租灵活 2026年8月30日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月3日、15日"
+  "date": "今年可订：短租 8月31日 起；长租灵活 2026年8月31日~9月30日 起（合同至 2026年12月8日）；长租亦可 2027年2月3日、15日"
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
@@ -403,7 +403,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -425,7 +425,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -436,7 +436,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
@@ -448,7 +448,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
@@ -459,7 +459,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -477,7 +477,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
+  "date": "今年可订：长租灵活 2026年8月30日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
   "prices": {
@@ -495,7 +495,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月29日 起；长租灵活 2026年8月29日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
+  "date": "今年可订：短租 8月30日 起；长租灵活 2026年8月30日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
@@ -504,7 +504,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日"
+  "date": "今年可订：长租灵活 2026年8月30日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日"
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
   "prices": {
@@ -513,7 +513,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月29日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月11日、18日"
+  "date": "今年可订：长租灵活 2026年8月30日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月11日、18日"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
   "prices": {
@@ -558,7 +558,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月29日 起；长租灵活 2026年8月29日~9月30日 起（合同至 2027年2月16日）；长租亦可 2027年2月3日"
+  "date": "今年可订：短租 8月30日 起；长租灵活 2026年8月30日~9月30日 起（合同至 2027年2月16日）；长租亦可 2027年2月3日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
@@ -576,7 +576,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月30日 起；长租灵活 2026年8月31日~9月30日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
+  "date": "今年可订：固定起租 9月30日 起；长租灵活 2026年9月1日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
   "prices": {
@@ -604,7 +604,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 8月31日 起；长租灵活 2026年8月31日~9月30日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
+  "date": "今年可订：固定起租 8月31日 起；长租灵活 2026年9月1日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
   "prices": {
@@ -633,7 +633,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月29日 起；长租灵活 2026年8月29日~9月30日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
+  "date": "今年可订：短租 8月30日 起；长租灵活 2026年8月30日~9月30日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -661,7 +661,7 @@
    "12月": 585
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
@@ -689,7 +689,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租灵活 2026年8月31日~9月13日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租灵活 2026年9月1日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
   "prices": {
@@ -708,7 +708,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月31日~9月13日 起（合同至 2027年2月3日）；长租亦可 2027年2月8日"
+  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2027年2月3日）；长租亦可 2027年2月8日"
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
   "prices": {
@@ -718,7 +718,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租灵活 2026年8月31日~9月13日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
+  "date": "今年可订：短租 9月1日 起；长租灵活 2026年9月1日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日"
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
@@ -735,7 +735,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月31日~9月27日 起（合同至 2027年2月7日）；长租亦可 2027年2月11日"
+  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2027年2月7日）；长租亦可 2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
@@ -744,7 +744,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月31日~9月13日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
@@ -754,7 +754,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 8月31日 起；长租灵活 2026年8月31日~9月13日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "date": "今年可订：短租 9月1日 起；长租灵活 2026年9月1日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
@@ -763,6 +763,6 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年8月31日~9月13日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
  }
 }
