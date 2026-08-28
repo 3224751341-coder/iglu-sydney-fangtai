@@ -134,8 +134,8 @@
    "12月": 925
   },
   "avail": "available",
-  "count": 3,
-  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）"
+  "count": null,
+  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -146,8 +146,8 @@
    "12月": 1005
   },
   "avail": "available",
-  "count": 3,
-  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）"
+  "count": null,
+  "date": "今年可订：长租灵活 2026年8月29日~9月30日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -457,9 +457,9 @@
    "44周": 705,
    "12月": 705
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年已无房：2027年2月9日"
+  "avail": "available",
+  "count": 3,
+  "date": "今年可订：长租灵活 2026年9月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
