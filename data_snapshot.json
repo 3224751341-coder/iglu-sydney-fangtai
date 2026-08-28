@@ -17,7 +17,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；固定起租 9月4日 起；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 12月10日 起；固定起租 9月14日 起；长租亦可 2027年2月9日"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -67,9 +67,9 @@
    "短租": 750,
    "12月": 785
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年已无房：2027年2月9日"
+  "avail": "available",
+  "count": 4,
+  "date": "今年可订：短租 9月4日 起；长租 2027年2月9日"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
