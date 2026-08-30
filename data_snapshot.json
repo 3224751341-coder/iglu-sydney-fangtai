@@ -288,7 +288,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月7日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
   "prices": {
@@ -457,8 +457,8 @@
    "44周": 705,
    "12月": 705
   },
-  "avail": "limited",
-  "count": 2,
+  "avail": "available",
+  "count": 3,
   "date": "今年可订：长租灵活 2026年9月3日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
@@ -575,8 +575,8 @@
    "12月": 735
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年可订：固定起租 9月30日 起；长租亦可 2027年2月3日、17日"
+  "count": null,
+  "date": "今年可订：固定起租 9月30日 起；长租亦可 2027年2月3日、10日、17日"
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
   "prices": {
@@ -743,7 +743,7 @@
    "12月": 459
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
