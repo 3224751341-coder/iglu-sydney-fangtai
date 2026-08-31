@@ -78,7 +78,7 @@
    "44周": 865
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年已无房：长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -434,9 +434,9 @@
    "44周": 835,
    "12月": 835
   },
-  "avail": "available",
-  "count": 3,
-  "date": "今年可订：长租灵活 2026年9月4日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
@@ -743,8 +743,8 @@
    "12月": 459
   },
   "avail": "available",
-  "count": null,
-  "date": "今年可订：长租灵活 2026年9月3日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "count": 5,
+  "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
