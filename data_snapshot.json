@@ -56,8 +56,8 @@
    "12月": 795
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年可订：短租 9月2日 起；长租 2027年2月9日"
+  "count": 4,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -111,11 +111,13 @@
  },
  "sydney/central-park/premium-studio-apartment-cp": {
   "prices": {
-   "From": 1045
+   "From": 1105,
+   "22周": 1105,
+   "12月": 1045
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年可订：长租灵活 2026年9月2日 起（合同至 2026年12月1日）"
  },
  "sydney/central-park/premium-studio-nras-cp": {
   "prices": {
@@ -314,7 +316,7 @@
  },
  "sydney/redfern/single-studio-apartment-re": {
   "prices": {
-   "From": 865
+   "From": 845
   },
   "avail": "soldout",
   "count": null,
@@ -330,10 +332,10 @@
  },
  "sydney/redfern/standard-studio-apartment-re": {
   "prices": {
-   "From": 885,
-   "22周": 945,
-   "44周": 885,
-   "12月": 885
+   "From": 865,
+   "22周": 925,
+   "44周": 865,
+   "12月": 865
   },
   "avail": "available",
   "count": null,
@@ -365,12 +367,12 @@
  },
  "sydney/redfern/single-bedroom-6-share-apt-re": {
   "prices": {
-   "From": 745,
-   "22周": 805,
-   "44周": 745,
-   "短租": 805,
-   "12月": 745,
-   "24月": 745
+   "From": 725,
+   "22周": 785,
+   "44周": 725,
+   "短租": 785,
+   "12月": 725,
+   "24月": 725
   },
   "avail": "available",
   "count": null,
@@ -378,7 +380,7 @@
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
-   "From": 745
+   "From": 725
   },
   "avail": "soldout",
   "count": null,
@@ -576,7 +578,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月30日 起；长租亦可 2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
   "prices": {
@@ -743,7 +745,7 @@
    "12月": 459
   },
   "avail": "available",
-  "count": 4,
+  "count": 3,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
