@@ -44,8 +44,8 @@
    "12月": 805
   },
   "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月9日"
+  "count": 2,
+  "date": "今年可订：短租 9月3日 起；长租 2027年2月9日"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -67,9 +67,9 @@
    "短租": 750,
    "12月": 785
   },
-  "avail": "available",
-  "count": 3,
-  "date": "今年可订：短租 9月4日 起；长租 2027年2月9日"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -413,7 +413,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年可订：长租灵活 2026年9月6日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
@@ -494,7 +494,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月3日 起；长租灵活 2026年9月3日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日"
+  "date": "今年可订：短租 9月3日 起；长租 2027年2月4日、11日、18日"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
