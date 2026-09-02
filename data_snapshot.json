@@ -224,7 +224,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月5日 起；长租 2027年2月8日"
+  "date": "今年已无房：2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -434,7 +434,7 @@
    "12月": 835
   },
   "avail": "limited",
-  "count": 2,
+  "count": 1,
   "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
