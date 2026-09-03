@@ -78,7 +78,7 @@
    "44周": 865
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年已无房：长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -190,11 +190,15 @@
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
-   "From": 795
+   "From": 795,
+   "22周": 855,
+   "44周": 795,
+   "短租": 855,
+   "12月": 795
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年已无房：2027年2月8日"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -422,14 +426,11 @@
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
-   "From": 835,
-   "22周": 895,
-   "44周": 835,
-   "12月": 835
+   "From": 835
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月9日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
