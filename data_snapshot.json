@@ -78,7 +78,7 @@
    "44周": 865
   },
   "avail": "available",
-  "count": 5,
+  "count": null,
   "date": "今年已无房：长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -268,7 +268,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：固定起租 9月7日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -426,11 +426,14 @@
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
-   "From": 835
+   "From": 835,
+   "22周": 895,
+   "44周": 835,
+   "12月": 835
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
