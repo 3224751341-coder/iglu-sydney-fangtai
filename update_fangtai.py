@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里斯班）
-用法: python3 update_fangtai.py [--no-deploy]
-输出: 更新 index.html → 自动部署到 Cloudflare Pages
+用法: python3 update_fangtai.py [--no-deploy] [--force]
+输出: 更新 index.html → 烤入 container/ 后部署到公司容器平台（app.uhouzz.net/iglu-rate-desk）
 """
 
-import json, re, sys, os, subprocess, urllib.request
+import json, re, sys, os, shutil, subprocess, urllib.request
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from curl_cffi import requests as cffi_req
@@ -17,14 +17,19 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 COOKIE_FILE = os.path.join(PROJECT_DIR, ".agent_cookies.txt")
 TEMPLATE_PATH = os.path.join(PROJECT_DIR, "template.html")
 OUTPUT_PATH = os.path.join(PROJECT_DIR, "index.html")
-CLOUDFLARE_PROJECT = "iglu-centralpark"
 MAX_WORKERS = 6
 REQUEST_TIMEOUT = 25
 
+# ── 部署目标：公司容器平台 ──
+CONTAINER_DIR = os.path.join(PROJECT_DIR, "container")
+DEPLOY_NAME = "iglu-rate-desk"
+PUBLIC_SITE = "https://app.uhouzz.net/iglu-rate-desk"
+# 心跳：数据无变化时，已部署页面超过 4 小时也重部署一次，保持"最新更新"时间新鲜
+HEARTBEAT_MS = 4 * 3600 * 1000
+
 # ── 变化检测 & 推送 ──
-# 快照：存到仓库目录 + 随部署上线（https://iglu-centralpark.pages.dev/data_snapshot.json），下次运行优先读线上
+# 快照：存仓库目录并随部署保持同步，下次运行读取对比
 SNAPSHOT_PATH = os.path.join(PROJECT_DIR, "data_snapshot.json")
-SNAPSHOT_URL = f"https://{CLOUDFLARE_PROJECT}.pages.dev/data_snapshot.json"
 WECOM_WEBHOOK = os.environ.get("WECOM_WEBHOOK", "")
 
 # ── Cities & Properties ──
@@ -1138,8 +1143,7 @@ def build_snapshot(all_cities: dict) -> dict:
 
 
 def load_snapshot() -> dict:
-    """读上次快照：优先本地（仓库 checkout 自带），线上兜底"""
-    # 1) 本地
+    """读上次快照（仓库 checkout 自带，随部署提交保持同步）"""
     if os.path.exists(SNAPSHOT_PATH):
         try:
             with open(SNAPSHOT_PATH, encoding="utf-8") as f:
@@ -1148,15 +1152,6 @@ def load_snapshot() -> dict:
                     return data
         except Exception:
             pass
-    # 2) 线上
-    try:
-        req = urllib.request.Request(SNAPSHOT_URL, headers={"User-Agent": "iglu-fangtai-bot"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            if isinstance(data, dict) and data:
-                return data
-    except Exception:
-        pass
     return {}
 
 
@@ -1245,24 +1240,40 @@ def notify_wecom(text: str):
         print(f"  ❌ 企微推送失败: {e}")
 
 
+def deployed_page_age_ms():
+    """已部署容器快照（container/public/index.html，随仓库提交）的页面时间距今毫秒数；无记录返回 None"""
+    try:
+        with open(os.path.join(CONTAINER_DIR, "public", "index.html"), encoding="utf-8") as f:
+            html = f.read()
+    except OSError:
+        return None
+    m = re.search(r"更新于\s*(\d{4})年(\d{2})月(\d{2})日\s*(\d{2}):(\d{2})", html)
+    if not m:
+        return None
+    beijing = timezone(timedelta(hours=8))
+    rendered = datetime(int(m[1]), int(m[2]), int(m[3]), int(m[4]), int(m[5]), tzinfo=beijing)
+    return (datetime.now(timezone.utc) - rendered).total_seconds() * 1000
+
+
 def deploy():
-    """Deploy to Cloudflare Pages."""
-    print("\n🚀 Deploying to Cloudflare Pages...")
+    """把最新渲染页面烤入 container/ 并部署到公司容器平台。"""
+    print("\n🚀 Deploying to uhouzz 容器平台...")
+    pub_dir = os.path.join(CONTAINER_DIR, "public")
+    os.makedirs(pub_dir, exist_ok=True)
+    shutil.copyfile(OUTPUT_PATH, os.path.join(pub_dir, "index.html"))
     result = subprocess.run(
-        ["npx", "wrangler", "pages", "deploy", ".", "--project-name", CLOUDFLARE_PROJECT, "--commit-dirty=true"],
-        cwd=PROJECT_DIR,
-        capture_output=True,
-        text=True,
-        timeout=60,
+        [sys.executable, os.path.join(PROJECT_DIR, "deploy_uhouzz.py"),
+         "--dir", CONTAINER_DIR, "--name", DEPLOY_NAME],
+        capture_output=True, text=True, timeout=900,
     )
+    if result.stdout.strip():
+        print(result.stdout.strip())
     if result.returncode == 0:
-        # Extract deployment URL
-        for line in result.stdout.split('\n'):
-            if 'pages.dev' in line:
-                print(f"   ✅ Deployed: {line.strip()}")
-        print(f"   🔗 https://{CLOUDFLARE_PROJECT}.pages.dev/")
+        print(f"   🔗 {PUBLIC_SITE}")
     else:
-        print(f"   ❌ Deploy failed: {result.stderr[:300]}")
+        err = (result.stderr or result.stdout)[-400:]
+        print(f"   ❌ Deploy failed: {err}")
+        notify_wecom(f"**❌ Iglu 容器部署失败** ({datetime.now().strftime('%m-%d %H:%M')})\n\n```\n{err}\n```")
 
 
 def main():
@@ -1305,35 +1316,39 @@ def main():
         f.write(html)
     print(f"   ✅ Saved to {OUTPUT_PATH}")
 
-    # ── 变化检测：有变化才部署 + 推送；无变化静默跳过 ──
+    # ── 部署决策：数据变化 / 首次运行 / 心跳超时（保持页面时间新鲜）──
     force = "--force" in sys.argv
     new_snap = build_snapshot(all_cities)
     old_snap = load_snapshot()
     changes = diff_snapshot(old_snap, new_snap) if old_snap else []
     changed_count = len(set(c[0] for c in changes))
 
-    if force or (old_snap and changes):
-        print(f"\n📢 检测到变化: {changed_count} 个房型 ({len(changes)} 项字段变动)")
+    page_age = deployed_page_age_ms()
+    heartbeat_due = page_age is None or page_age > HEARTBEAT_MS or not old_snap
+
+    if force or changes or heartbeat_due:
+        if force:
+            reason = "强制部署"
+        elif changes:
+            reason = f"数据变化: {changed_count} 个房型 ({len(changes)} 项字段变动)"
+        elif not old_snap:
+            reason = "首次运行"
+        else:
+            reason = f"心跳刷新（页龄 {round((page_age or 0) / 3600000)}h）"
+        print(f"\n📢 {reason}")
         if no_deploy:
             print("  ⏭️  --no-deploy 模式：不部署，仅保存快照")
         else:
-            save_snapshot(new_snap)   # 先存快照，随部署一起上传
+            save_snapshot(new_snap)   # 先存快照，随仓库提交保持同步
             deploy()
-            if not force and changes:
+            if changes:
                 msg = format_changes(changes, all_cities)
                 notify_wecom(
                     f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
-                    f"[查看实时房态](https://{CLOUDFLARE_PROJECT}.pages.dev/)"
+                    f"[查看实时房态]({PUBLIC_SITE})"
                 )
-    elif not old_snap:
-        print("\n🆕 首次运行：保存快照并部署（不推送）")
-        if no_deploy:
-            print("  ⏭️  --no-deploy 模式：不部署")
-        else:
-            save_snapshot(new_snap)   # 先存快照，随部署一起上传
-            deploy()
     else:
-        print("\n✅ 无变化，跳过部署（避免无意义更新）")
+        print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
 
     print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")

@@ -8,7 +8,10 @@ on:
     paths:
       - 'update_fangtai.py'
       - 'template.html'
-      - 'functions/**'
+      - 'deploy_uhouzz.py'
+      - 'container/server.mjs'
+      - 'container/Dockerfile'
+      - 'container/platform.yaml'
       - '.github/workflows/update.yml'
   workflow_dispatch:
 
@@ -30,17 +33,16 @@ jobs:
 
       - name: Scrape, Diff and Deploy
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ef0a1a33b94f19c47fb3f9e2737f9214
+          DEPLOY_KEY: ${{ secrets.UHOUZZ_DEPLOY_KEY }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
-        # push 触发（代码变更）时强制重新部署——渲染逻辑修复可能不影响快照数据但影响 HTML
+        # push 触发（代码变更）时强制重新部署——渲染/容器逻辑修复可能不影响快照数据但影响页面
         run: python update_fangtai.py ${{ github.event_name == 'push' && '--force' || '' }}
 
       - name: Commit snapshot back
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data_snapshot.json
+          git add data_snapshot.json container/public/index.html
           if git diff --cached --quiet; then
             echo "快照无变化，跳过提交"
           else
