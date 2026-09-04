@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""部署到公司内部容器平台（app.uhouzz.net），替代原 Cloudflare Pages 部署。
+"""部署到公司内部容器平台（app.uhomes.com），替代原 Cloudflare Pages 部署。
 本地或 GitHub Actions 通用；口令从环境变量 DEPLOY_KEY（Actions 里对应 secret UHOUZZ_DEPLOY_KEY）
 或 ~/.uhouzz-deploy/key 读取。
 用法: python3 deploy_uhouzz.py --dir ./container --name iglu-rate-desk
@@ -14,7 +14,7 @@ import fnmatch
 import urllib.request
 import urllib.error
 
-GATEWAY = os.environ.get("GATEWAY_URL", "https://app.uhouzz.net/gateway").rstrip("/")
+GATEWAY = os.environ.get("GATEWAY_URL", "https://app.uhomes.com/gateway").rstrip("/")
 
 SKIP_DIRS = {".git", "__pycache__", "node_modules", ".venv", ".wrangler"}
 TEXT_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".txt", ".md", ".py",

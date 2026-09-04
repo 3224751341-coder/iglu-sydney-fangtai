@@ -2,7 +2,7 @@
 """
 Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里斯班）
 用法: python3 update_fangtai.py [--no-deploy] [--force]
-输出: 更新 index.html → 烤入 container/ 后部署到公司容器平台（app.uhouzz.net/iglu-rate-desk）
+输出: 更新 index.html → 烤入 container/ 后部署到公司容器平台（app.uhomes.com/iglu-rate-desk）
 """
 
 import json, re, sys, os, shutil, subprocess, urllib.request
@@ -23,7 +23,7 @@ REQUEST_TIMEOUT = 25
 # ── 部署目标：公司容器平台 ──
 CONTAINER_DIR = os.path.join(PROJECT_DIR, "container")
 DEPLOY_NAME = "iglu-rate-desk"
-PUBLIC_SITE = "https://app.uhouzz.net/iglu-rate-desk"
+PUBLIC_SITE = "https://app.uhomes.com/iglu-rate-desk"
 # 心跳：数据无变化时，已部署页面超过 4 小时也重部署一次，保持"最新更新"时间新鲜
 HEARTBEAT_MS = 4 * 3600 * 1000
 
