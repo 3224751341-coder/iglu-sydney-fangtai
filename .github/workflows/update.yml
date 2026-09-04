@@ -38,8 +38,8 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.UHOUZZ_DEPLOY_KEY }}
           WECOM_WEBHOOK: ${{ secrets.WEWORK_WEBHOOK }}
-        # push 触发（代码变更）时强制重新部署——渲染/容器逻辑修复可能不影响快照数据但影响页面
-        run: python update_fangtai.py ${{ github.event_name == 'push' && '--force' || '' }}
+        # push 触发（代码变更）或手动勾选 force 时强制重新部署——渲染/容器逻辑修复可能不影响快照数据但影响页面
+        run: python update_fangtai.py ${{ (github.event_name == 'push' || inputs.force == true) && '--force' || '' }}
 
       - name: Commit snapshot back
         run: |
