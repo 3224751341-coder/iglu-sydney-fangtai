@@ -111,13 +111,11 @@
  },
  "sydney/central-park/premium-studio-apartment-cp": {
   "prices": {
-   "From": 1045,
-   "22周": 1105,
-   "12月": 1045
+   "From": 1045
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年可订：长租灵活 2026年9月11日 起（合同至 2026年12月1日）"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "sydney/central-park/premium-studio-nras-cp": {
   "prices": {
