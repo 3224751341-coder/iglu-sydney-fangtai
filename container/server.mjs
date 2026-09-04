@@ -60,7 +60,7 @@ function isFresh(dataTime) {
 function syncChip(dataTime) {
   const fresh = isFresh(dataTime);
   const timeStr = dataTime || "内置快照";
-  const statusText = dataTime ? (fresh ? "整点自动抓取" : "数据待更新") : "离线快照模式";
+  const statusText = dataTime ? (fresh ? "每小时自动抓取" : "数据待更新") : "离线快照模式";
   const dotColor = fresh ? "#22c55e" : "#f59e0b";
   const brandColor = "#E04047";
   return `
