@@ -1274,6 +1274,7 @@ def deploy():
         err = (result.stderr or result.stdout)[-400:]
         print(f"   ❌ Deploy failed: {err}")
         notify_wecom(f"**❌ Iglu 容器部署失败** ({datetime.now().strftime('%m-%d %H:%M')})\n\n```\n{err}\n```")
+        sys.exit(1)  # 部署失败要让 workflow 变红，否则静默失败无法察觉
 
 
 def main():

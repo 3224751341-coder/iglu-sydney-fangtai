@@ -3,8 +3,9 @@
 // 架构：public/index.html 为烤入的数据快照，正常访问零外部依赖；
 // 数据更新：GitHub Actions 爬虫（iglu-sydney-fangtai 仓库）抓取 iglu.com.au 后，
 // 经公司部署网关整体重新部署本容器，快照随部署刷新（服务端按 mtime 热加载，无需重启）。
-// /iglu/* 为经纪人代理（agent A1336）：申请直链经容器代理到 iglu.com.au，
-// 连不上时降级为提示页 + 直链。
+// 申请直链（agent A1336）：容器出网被墙，直连 iglu.com.au 必然失败，
+// 「申请」按钮直接跳转 pages.dev 的海外 Pages Function 代理（自动登录 A1336）。
+// /iglu/* 容器内代理保留为兜底，连不上时降级为提示页 + 直链。
 import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -19,6 +20,8 @@ const IGLU_ORIGIN = "https://iglu.com.au";
 const AGENT_CODE = "A1336";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 const PROXY_TIMEOUT_MS = 30_000;
+// 容器在国内连不上 iglu.com.au，申请代理只能借道海外的 pages.dev Pages Function
+const APPLY_PROXY_URL = "https://iglu-centralpark.pages.dev/iglu/apply-online/";
 
 const REBRAND = [
   [/#FF5A1F/g, "#E04047"],
@@ -26,7 +29,6 @@ const REBRAND = [
   [/rgba\(255,\s*90,\s*31/gi, "rgba(224,64,71"],
 ];
 
-const APP_BASE_SCRIPT = `<script>(function(){var s=location.pathname.split("/").filter(Boolean)[0];window.APP_BASE=s?"/"+s+"/":"/";})();</script>`;
 const HIDE_BADGE_STYLE = "<style>.uhomes-badge,.watermark{display:none!important}</style>";
 
 // 快照缓存：部署替换 index.html 后按 mtime 自动重载
@@ -74,8 +76,8 @@ function syncChip(dataTime) {
 
 function decorate(html, dataTime) {
   return rebrand(html)
-    .replace("</head>", `${APP_BASE_SCRIPT}${HIDE_BADGE_STYLE}</head>`)
-    .replace(`'/iglu/apply-online/?p='`, `(window.APP_BASE||'')+'/iglu/apply-online/?p='`)
+    .replace("</head>", `${HIDE_BADGE_STYLE}</head>`)
+    .replace(`'/iglu/apply-online/?p='`, `'${APPLY_PROXY_URL}?p='`)
     .replace("</body>", `${syncChip(dataTime)}</body>`);
 }
 
