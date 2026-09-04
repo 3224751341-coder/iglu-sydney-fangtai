@@ -2,7 +2,10 @@ name: Update Iglu Fangtai
 
 on:
   schedule:
-    - cron: '0 * * * *'      # 每小时 0 分（北京 08:00~23:00 每小时）
+    # GitHub 整点（:00）cron 最拥堵、常被延迟甚至丢弃（实测近一周每小时 1 个点仅触发 5~7 次/天），
+    # 改成每小时两个错峰点提高触发率；脚本侧已有去重（数据变化才部署 / 页龄>4h 心跳），多触发无副作用
+    - cron: '13 * * * *'
+    - cron: '43 * * * *'
   push:
     branches: [main]
     paths:
