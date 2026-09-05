@@ -209,8 +209,8 @@
    "12月": 805
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年已无房：2027年2月8日"
+  "count": null,
+  "date": "今年可订：短租 9月8日 起；长租 2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
