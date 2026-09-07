@@ -67,9 +67,9 @@
    "短租": 750,
    "12月": 785
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年已无房：2027年2月9日"
+  "avail": "available",
+  "count": 3,
+  "date": "今年可订：短租 9月25日 起；长租 2027年2月9日"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -739,7 +739,7 @@
    "12月": 459
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
