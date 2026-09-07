@@ -1321,6 +1321,24 @@ def main():
     force = "--force" in sys.argv
     new_snap = build_snapshot(all_cities)
     old_snap = load_snapshot()
+
+    # 熔断：房型总数比上次骤降（或直接抓到 0），大概率是本次抓取本身失败
+    # （Agent Portal 登录失效 / 网络不通，例如本机直连 iglu.com.au 被墙），
+    # 而不是真的全部房源同时下架 —— 这种情况绝不能覆盖线上数据。
+    prev_total = len(old_snap) if old_snap else 0
+    scrape_looks_broken = old_snap and (total_rooms == 0 or total_rooms < prev_total * 0.5)
+    if scrape_looks_broken and not force:
+        print(f"\n⚠️  抓取结果异常：房型数从 {prev_total} 骤降到 {total_rooms}，"
+              f"判断为本次抓取失败（登录失效/网络问题），跳过部署，保留线上现有数据")
+        notify_wecom(
+            f"**⚠️ Iglu 抓取异常，已跳过本次部署**（{datetime.now().strftime('%m-%d %H:%M')}）\n\n"
+            f"房型数从 {prev_total} 骤降到 {total_rooms}，疑似 Agent Portal 登录失效或网络不通，"
+            f"线上数据未被覆盖，仍是上次的正常数据。\n\n"
+            f"[查看实时房态]({PUBLIC_SITE})"
+        )
+        print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")
+        return
+
     changes = diff_snapshot(old_snap, new_snap) if old_snap else []
     changed_count = len(set(c[0] for c in changes))
 
