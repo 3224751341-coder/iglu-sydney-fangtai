@@ -1221,8 +1221,9 @@ def format_changes(changes: list, all_cities: dict) -> str:
     return text
 
 
-def notify_wecom(text: str):
-    """推送到企业微信群机器人 webhook"""
+def notify_wecom(text: str, mention_all: bool = False):
+    """推送到企业微信群机器人 webhook；mention_all=True 时额外补发一条 @全体成员
+    （markdown 消息类型本身不支持 @，官方 API 只有 text 类型支持 mentioned_list）"""
     if not WECOM_WEBHOOK:
         print("  ℹ️  未配置 WECOM_WEBHOOK，跳过推送（更新照常）")
         return
@@ -1238,6 +1239,19 @@ def notify_wecom(text: str):
             print(f"  📨 企微推送: {body[:120]}")
     except Exception as e:
         print(f"  ❌ 企微推送失败: {e}")
+        return
+    if mention_all:
+        try:
+            ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
+            req2 = urllib.request.Request(
+                WECOM_WEBHOOK,
+                data=json.dumps(ping).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+            with urllib.request.urlopen(req2, timeout=10) as resp2:
+                resp2.read()
+        except Exception as e:
+            print(f"  ❌ @全体成员推送失败: {e}")
 
 
 def deployed_page_age_ms():
@@ -1364,7 +1378,8 @@ def main():
                 msg = format_changes(changes, all_cities)
                 notify_wecom(
                     f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
-                    f"[查看实时房态]({PUBLIC_SITE})"
+                    f"[查看实时房态]({PUBLIC_SITE})",
+                    mention_all=True,
                 )
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
