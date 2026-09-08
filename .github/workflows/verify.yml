@@ -31,7 +31,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          pip install playwright
+          pip install playwright curl_cffi
           playwright install chromium --with-deps
 
       - name: Run differential verification
