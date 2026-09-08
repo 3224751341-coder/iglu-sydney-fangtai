@@ -36,7 +36,7 @@ jobs:
 
       - name: Run differential verification
         env:
-          WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
+          WECOM_WEBHOOK: ${{ secrets.WEWORK_WEBHOOK }}
         run: |
           ARGS=""
           [ "${{ github.event.inputs.sample }}" != "" ] && [ "${{ github.event.inputs.sample }}" != "0" ] && ARGS="$ARGS --sample ${{ github.event.inputs.sample }}"
