@@ -136,9 +136,9 @@
    "短租": 975,
    "12月": 915
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年可订：长租灵活 2026年9月9日 起（合同至 2026年12月1日）"
+  "avail": "available",
+  "count": 3,
+  "date": "今年可订：长租灵活 2026年9月10日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -177,7 +177,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月9日 起（合同至 2026年12月1日）；长租亦可 2027年2月12日"
+  "date": "今年可订：长租灵活 2026年9月10日 起（合同至 2026年12月1日）；长租亦可 2027年2月12日"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
