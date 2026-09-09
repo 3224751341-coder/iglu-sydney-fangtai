@@ -34,14 +34,12 @@ jobs:
       - name: Install dependencies
         run: pip install curl_cffi
 
-      # 2026-09-09：Iglu 房态抓取已搬进 iglu-rate-desk 容器本身（每 30 分钟自跑一次，
-      # 改用 Playwright 加载页面绕过 Cloudflare），这个 workflow 不再需要往 app.uhomes.com 部署——
-      # 加 --no-deploy 只保留抓取 + 快照 diff + 企微通知，不再调用 deploy_uhouzz.py。
-      - name: Scrape and Diff (no deploy)
+      - name: Scrape, Diff and Deploy
         env:
           DEPLOY_KEY: ${{ secrets.UHOUZZ_DEPLOY_KEY }}
           WECOM_WEBHOOK: ${{ secrets.WEWORK_WEBHOOK }}
-        run: python update_fangtai.py --no-deploy ${{ (github.event_name == 'push' || inputs.force == true) && '--force' || '' }}
+        # push 触发（代码变更）或手动勾选 force 时强制重新部署——渲染/容器逻辑修复可能不影响快照数据但影响页面
+        run: python update_fangtai.py ${{ (github.event_name == 'push' || inputs.force == true) && '--force' || '' }}
 
       - name: Commit snapshot back
         run: |
