@@ -271,7 +271,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月14日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月12日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -286,12 +286,11 @@
    "From": 685,
    "22周": 745,
    "44周": 685,
-   "短租": 745,
-   "12月": 685
+   "短租": 745
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月14日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月12日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
   "prices": {
@@ -303,7 +302,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 9月14日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月12日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/redfern/premium-studio-apartment-re": {
   "prices": {
@@ -583,7 +582,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：固定起租 11月2日、16日 起；长租亦可 2027年2月3日、10日、2027年7月13日"
+  "date": "今年可订：固定起租 11月16日 起；长租亦可 2027年2月3日、10日、2027年7月13日"
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
   "prices": {
@@ -729,7 +728,7 @@
    "12月": 489
   },
   "avail": "available",
-  "count": null,
+  "count": 4,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
@@ -738,7 +737,7 @@
    "12月": 459
   },
   "avail": "available",
-  "count": 4,
+  "count": 3,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
