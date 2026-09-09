@@ -55,8 +55,8 @@
    "短租": 760,
    "12月": 805
   },
-  "avail": "available",
-  "count": 4,
+  "avail": "limited",
+  "count": 2,
   "date": "今年已无房：2027年2月9日"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
@@ -445,7 +445,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月13日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
@@ -699,12 +699,11 @@
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
   "prices": {
    "From": 539,
-   "短租": 589,
    "12月": 539
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月3日）；长租亦可 2027年2月8日"
+  "date": "今年已无房：2027年2月8日"
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
   "prices": {
