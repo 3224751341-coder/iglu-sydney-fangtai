@@ -137,8 +137,8 @@
    "12月": 915
   },
   "avail": "available",
-  "count": 3,
-  "date": "今年可订：长租灵活 2026年9月10日 起（合同至 2026年12月1日）；长租亦可 2027年2月9日"
+  "count": null,
+  "date": "今年可订：短租 9月10日 起；长租灵活 2026年9月10日~2027年2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -149,8 +149,8 @@
    "12月": 995
   },
   "avail": "available",
-  "count": 4,
-  "date": "今年已无房：2027年2月9日"
+  "count": null,
+  "date": "今年可订：短租 9月10日 起；长租灵活 2026年9月10日~2027年2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -177,15 +177,15 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月10日 起（合同至 2026年12月1日）；长租亦可 2027年2月12日"
+  "date": "今年可订：短租 9月10日 起；长租灵活 2026年9月10日~2027年2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
-   "From": 835,
-   "22周": 895,
-   "44周": 835,
-   "短租": 895,
-   "12月": 835
+   "From": 815,
+   "22周": 875,
+   "44周": 815,
+   "短租": 875,
+   "12月": 815
   },
   "avail": "available",
   "count": null,
@@ -193,11 +193,11 @@
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
-   "From": 795,
-   "22周": 855,
-   "44周": 795,
-   "短租": 855,
-   "12月": 795
+   "From": 775,
+   "22周": 835,
+   "44周": 775,
+   "短租": 835,
+   "12月": 775
   },
   "avail": "limited",
   "count": 1,
@@ -205,11 +205,11 @@
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
-   "From": 805,
-   "22周": 865,
-   "44周": 805,
-   "短租": 865,
-   "12月": 805
+   "From": 785,
+   "22周": 845,
+   "44周": 785,
+   "短租": 845,
+   "12月": 785
   },
   "avail": "available",
   "count": null,
@@ -252,10 +252,10 @@
  },
  "sydney/mascot/premium-studio-apartment-ma": {
   "prices": {
-   "From": 835,
-   "22周": 895,
-   "44周": 835,
-   "12月": 835
+   "From": 825,
+   "22周": 885,
+   "44周": 825,
+   "12月": 825
   },
   "avail": "available",
   "count": null,
@@ -263,11 +263,11 @@
  },
  "sydney/mascot/standard-studio-apartment-ma": {
   "prices": {
-   "From": 815,
-   "22周": 875,
-   "44周": 815,
-   "短租": 875,
-   "12月": 815
+   "From": 805,
+   "22周": 865,
+   "44周": 805,
+   "短租": 865,
+   "12月": 805
   },
   "avail": "available",
   "count": null,
@@ -395,11 +395,11 @@
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
   "prices": {
-   "From": 775,
-   "22周": 835,
-   "44周": 775,
-   "短租": 835,
-   "12月": 775
+   "From": 755,
+   "22周": 815,
+   "44周": 755,
+   "短租": 815,
+   "12月": 755
   },
   "avail": "available",
   "count": null,
@@ -407,10 +407,10 @@
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
-   "From": 745,
-   "22周": 805,
-   "44周": 745,
-   "12月": 745
+   "From": 735,
+   "22周": 795,
+   "44周": 735,
+   "12月": 735
   },
   "avail": "available",
   "count": null,
@@ -418,10 +418,10 @@
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
-   "From": 885,
-   "22周": 945,
-   "44周": 885,
-   "12月": 885
+   "From": 865,
+   "22周": 925,
+   "44周": 865,
+   "12月": 865
   },
   "avail": "available",
   "count": null,
@@ -429,7 +429,7 @@
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
-   "From": 835
+   "From": 825
   },
   "avail": "waitlist",
   "count": null,
@@ -437,11 +437,11 @@
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
-   "From": 855,
-   "22周": 915,
-   "44周": 855,
-   "短租": 915,
-   "12月": 855
+   "From": 845,
+   "22周": 905,
+   "44周": 845,
+   "短租": 905,
+   "12月": 845
   },
   "avail": "available",
   "count": null,
@@ -449,10 +449,10 @@
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
-   "From": 705,
-   "22周": 765,
-   "44周": 705,
-   "12月": 705
+   "From": 685,
+   "22周": 745,
+   "44周": 685,
+   "12月": 685
   },
   "avail": "limited",
   "count": 2,
