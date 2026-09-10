@@ -417,14 +417,11 @@
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
-   "From": 865,
-   "22周": 925,
-   "44周": 865,
-   "12月": 865
+   "From": 865
   },
-  "avail": "available",
+  "avail": "waitlist",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年无房（等位）"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -448,14 +445,11 @@
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
-   "From": 685,
-   "22周": 745,
-   "44周": 685,
-   "12月": 685
+   "From": 685
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年可订：长租灵活 2026年9月14日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -736,8 +730,8 @@
    "From": 459,
    "12月": 459
   },
-  "avail": "limited",
-  "count": 2,
+  "avail": "available",
+  "count": 3,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
