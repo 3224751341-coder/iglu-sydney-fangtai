@@ -17,7 +17,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；固定起租 9月11日 起；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 12月10日 起；固定起租 9月11日 起；长租灵活 2026年9月25日~10月1日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -445,11 +445,14 @@
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
-   "From": 685
+   "From": 685,
+   "22周": 745,
+   "44周": 685,
+   "12月": 685
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年可订：长租灵活 2026年9月14日 起（合同至 2026年12月8日）"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
