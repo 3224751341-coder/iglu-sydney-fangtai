@@ -603,8 +603,8 @@
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
   "prices": {
-   "From": 725,
-   "12月": 725
+   "From": 715,
+   "12月": 715
   },
   "avail": "available",
   "count": 4,
@@ -612,9 +612,9 @@
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
-   "From": 675,
-   "短租": 735,
-   "12月": 675
+   "From": 665,
+   "短租": 725,
+   "12月": 665
   },
   "avail": "available",
   "count": null,
