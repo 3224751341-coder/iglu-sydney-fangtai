@@ -642,11 +642,12 @@
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
   "prices": {
-   "From": 555
+   "From": 555,
+   "12月": 555
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年已无房：2027年2月3日"
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
   "prices": {
