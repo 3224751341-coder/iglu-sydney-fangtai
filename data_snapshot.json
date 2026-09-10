@@ -417,11 +417,13 @@
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
-   "From": 865
+   "From": 865,
+   "22周": 925,
+   "44周": 865
   },
-  "avail": "waitlist",
+  "avail": "available",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -740,12 +742,11 @@
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
    "From": 429,
-   "短租": 479,
    "12月": 429
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月13日 起；长租灵活 2026年9月13日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
@@ -754,6 +755,6 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月13日 起（合同至 2026年11月21日）；长租亦可 2027年2月11日"
+  "date": "今年已无房：2027年2月11日"
  }
 }
