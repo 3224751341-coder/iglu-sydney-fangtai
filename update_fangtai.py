@@ -1221,9 +1221,10 @@ def format_changes(changes: list, all_cities: dict) -> str:
     return text
 
 
-def notify_wecom(text: str, mention_all: bool = False):
-    """推送到企业微信群机器人 webhook；mention_all=True 时额外补发一条 @全体成员
-    （markdown 消息类型本身不支持 @，官方 API 只有 text 类型支持 mentioned_list）"""
+def _send_wecom_now(text: str, mention_all: bool = False):
+    """实际发送（原 notify_wecom 的全部逻辑）；推送到企业微信群机器人 webhook，
+    mention_all=True 时额外补发一条 @全体成员（markdown 消息类型本身不支持 @，
+    官方 API 只有 text 类型支持 mentioned_list）"""
     if not WECOM_WEBHOOK:
         print("  ℹ️  未配置 WECOM_WEBHOOK，跳过推送（更新照常）")
         return
@@ -1252,6 +1253,56 @@ def notify_wecom(text: str, mention_all: bool = False):
                 resp2.read()
         except Exception as e:
             print(f"  ❌ @全体成员推送失败: {e}")
+
+
+# ── 企微静默时段：22:00-次日09:00（北京时间）不推送，攒到当天早上一起发一条汇总，
+# 避免半夜/凌晨的房态变化提醒打扰大家休息。跨进程（每次 workflow 单独跑一次 Python 进程），
+# 队列落盘到 WECOM_QUEUE_PATH，随仓库提交保持跨次运行同步。──
+WECOM_QUIET_START_HOUR = 22
+WECOM_QUIET_END_HOUR = 9
+WECOM_QUEUE_PATH = os.path.join(PROJECT_DIR, "wecom_queue.json")
+
+
+def _in_wecom_quiet_hours() -> bool:
+    h = datetime.now(timezone(timedelta(hours=8))).hour
+    return h >= WECOM_QUIET_START_HOUR or h < WECOM_QUIET_END_HOUR
+
+
+def _load_wecom_queue() -> list:
+    if os.path.exists(WECOM_QUEUE_PATH):
+        try:
+            with open(WECOM_QUEUE_PATH, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return []
+
+
+def _save_wecom_queue(queue: list):
+    with open(WECOM_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(queue, f, ensure_ascii=False, indent=1)
+
+
+def flush_wecom_queue():
+    queue = _load_wecom_queue()
+    if not queue:
+        return
+    merged = "\n\n---\n\n".join(f"_{q['at']}_\n{q['text']}" for q in queue)
+    any_mention = any(q.get("mention_all") for q in queue)
+    _send_wecom_now(f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
+    _save_wecom_queue([])
+
+
+def notify_wecom(text: str, mention_all: bool = False):
+    if _in_wecom_quiet_hours():
+        queue = _load_wecom_queue()
+        now_str = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
+        queue.append({"text": text, "mention_all": mention_all, "at": now_str})
+        _save_wecom_queue(queue)
+        print("  🌙 静默时段（22:00-09:00），消息已加入队列，明早集中推送")
+        return
+    flush_wecom_queue()  # 先把攒的老消息发出去，再发这条新的
+    _send_wecom_now(text, mention_all)
 
 
 def deployed_page_age_ms():
@@ -1296,6 +1347,9 @@ def main():
     print("=" * 50)
     print(f"🔄 Iglu 澳洲房态更新 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
+
+    if not _in_wecom_quiet_hours():
+        flush_wecom_queue()  # 出了静默时段就把攒的老消息发出去，不用等新变化触发
 
     # Try Agent Portal login for more accurate inventory
     agent_ok = login_agent_portal()
