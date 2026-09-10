@@ -1428,8 +1428,10 @@ def main():
         else:
             save_snapshot(new_snap)   # 先存快照，随仓库提交保持同步
             deploy()
-            if changes:
-                msg = format_changes(changes, all_cities)
+            # 只推送悉尼的房态变化到企微；墨尔本/布里斯班照常抓取部署，只是不推送通知
+            sydney_changes = [c for c in changes if c[0].startswith("sydney/")]
+            if sydney_changes:
+                msg = format_changes(sydney_changes, all_cities)
                 notify_wecom(
                     f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
                     f"[查看实时房态]({PUBLIC_SITE})",
