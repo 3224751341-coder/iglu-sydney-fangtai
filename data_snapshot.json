@@ -456,12 +456,11 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705,
-   "12月": 705
+   "From": 705
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月18日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
