@@ -225,7 +225,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月14日 起；长租 2027年2月8日"
+  "date": "今年已无房：2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
@@ -456,11 +456,12 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705
+   "From": 705,
+   "12月": 705
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年已无房：2027年2月18日"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
