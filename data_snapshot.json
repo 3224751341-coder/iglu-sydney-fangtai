@@ -419,11 +419,12 @@
   "prices": {
    "From": 865,
    "22周": 925,
-   "44周": 865
+   "44周": 865,
+   "短租": 925
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年可订：短租 9月15日 起；长租 2027年2月9日"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -458,8 +459,8 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 725,
-   "12月": 725
+   "From": 705,
+   "12月": 705
   },
   "avail": "limited",
   "count": 1,
@@ -467,8 +468,8 @@
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
-   "From": 685,
-   "12月": 685
+   "From": 665,
+   "12月": 665
   },
   "avail": "available",
   "count": null,
@@ -484,9 +485,9 @@
  },
  "melbourne/flagstaff-gardens/standard-studio-apartment-fg": {
   "prices": {
-   "From": 655,
-   "短租": 715,
-   "12月": 655
+   "From": 635,
+   "短租": 695,
+   "12月": 635
   },
   "avail": "available",
   "count": null,
@@ -494,8 +495,8 @@
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
-   "From": 535,
-   "12月": 535
+   "From": 515,
+   "12月": 515
   },
   "avail": "available",
   "count": null,
@@ -553,7 +554,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月16日）；长租亦可 2027年2月3日"
+  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月16日）；长租亦可 2027年2月10日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
