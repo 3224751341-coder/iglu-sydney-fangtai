@@ -448,14 +448,11 @@
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
-   "From": 685,
-   "22周": 745,
-   "44周": 685,
-   "12月": 685
+   "From": 685
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年可订：长租灵活 2026年9月15日 起（合同至 2026年12月8日）"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
@@ -522,7 +519,7 @@
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
-   "From": 725
+   "From": 735
   },
   "avail": "waitlist",
   "count": null,
@@ -539,8 +536,8 @@
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
   "prices": {
-   "From": 555,
-   "12月": 555
+   "From": 535,
+   "12月": 535
   },
   "avail": "available",
   "count": null,
@@ -554,7 +551,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月10日"
+  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月16日）；长租亦可 2027年2月10日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
@@ -605,11 +602,12 @@
  "melbourne/south-yarra/premium-studio-apartment-sy": {
   "prices": {
    "From": 715,
+   "短租": 775,
    "12月": 715
   },
   "avail": "available",
-  "count": 4,
-  "date": "今年已无房：2027年2月3日、10日"
+  "count": null,
+  "date": "今年可订：短租 9月12日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
@@ -629,7 +627,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月12日 起；长租灵活 2026年9月12日 起（合同至 2027年2月9日）；长租亦可 2027年2月3日、10日、17日"
+  "date": "今年可订：短租 9月12日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -638,17 +636,18 @@
    "12月": 565
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "count": null,
+  "date": "今年可订：短租 9月12日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
   "prices": {
    "From": 555,
+   "短租": 615,
    "12月": 555
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月3日"
+  "avail": "available",
+  "count": null,
+  "date": "今年可订：短租 9月12日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
   "prices": {
@@ -657,8 +656,8 @@
    "12月": 585
   },
   "avail": "available",
-  "count": 5,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "count": null,
+  "date": "今年可订：短租 9月12日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
@@ -666,7 +665,7 @@
    "12月": 575
   },
   "avail": "available",
-  "count": 4,
+  "count": null,
   "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
