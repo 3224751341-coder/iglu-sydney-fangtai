@@ -68,8 +68,8 @@
    "12月": 795
   },
   "avail": "limited",
-  "count": 2,
-  "date": "今年可订：短租 9月25日 起；长租 2027年2月9日"
+  "count": 1,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -551,7 +551,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月16日）；长租亦可 2027年2月10日"
+  "date": "今年已无房：2027年2月10日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
