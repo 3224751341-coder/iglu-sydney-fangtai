@@ -31,6 +31,9 @@ HEARTBEAT_MS = 4 * 3600 * 1000
 # 快照：存仓库目录并随部署保持同步，下次运行读取对比
 SNAPSHOT_PATH = os.path.join(PROJECT_DIR, "data_snapshot.json")
 WECOM_WEBHOOK = os.environ.get("WECOM_WEBHOOK", "")
+# 悉尼专属机器人（Murphy 2026-09-11 直接给的 key，非密文，跟其它文件里硬编码
+# DEFAULT_WECOM_WEBHOOK 的做法一致），只推悉尼房态变化，静默窗口比原机器人早一小时
+WECOM2_WEBHOOK = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=af4669ef-7ba5-4de8-ba1b-da5be7c184e0"
 
 # ── Cities & Properties ──
 # 城市 slug → {label, properties: {显示名: slug}, room_meta, property_rooms}
@@ -1305,6 +1308,86 @@ def notify_wecom(text: str, mention_all: bool = False):
     _send_wecom_now(text, mention_all)
 
 
+# ── 悉尼专属机器人（新增 2026-09-11）：只镜像"📢 Iglu 房态变化"这条已经过滤成
+# 悉尼房源的真实变化消息，不镜像抓取异常/部署失败这类跟城市无关的运维告警。
+# 静默窗口 21:00-次日09:00（比原机器人早一小时），独立队列文件，互不影响。──
+WECOM2_QUIET_START_HOUR = 21
+WECOM2_QUIET_END_HOUR = 9
+WECOM2_QUEUE_PATH = os.path.join(PROJECT_DIR, "wecom_queue2.json")
+
+
+def _in_wecom2_quiet_hours() -> bool:
+    h = datetime.now(timezone(timedelta(hours=8))).hour
+    return h >= WECOM2_QUIET_START_HOUR or h < WECOM2_QUIET_END_HOUR
+
+
+def _load_wecom2_queue() -> list:
+    if os.path.exists(WECOM2_QUEUE_PATH):
+        try:
+            with open(WECOM2_QUEUE_PATH, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return []
+
+
+def _save_wecom2_queue(queue: list):
+    with open(WECOM2_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(queue, f, ensure_ascii=False, indent=1)
+
+
+def _send_wecom2_now(text: str, mention_all: bool = False):
+    if not WECOM2_WEBHOOK:
+        return
+    payload = {"msgtype": "markdown", "markdown": {"content": text}}
+    try:
+        req = urllib.request.Request(
+            WECOM2_WEBHOOK,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            body = resp.read().decode("utf-8")
+            print(f"  📨 [悉尼机器人] 企微推送: {body[:120]}")
+    except Exception as e:
+        print(f"  ❌ [悉尼机器人] 企微推送失败: {e}")
+        return
+    if mention_all:
+        try:
+            ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
+            req2 = urllib.request.Request(
+                WECOM2_WEBHOOK,
+                data=json.dumps(ping).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+            with urllib.request.urlopen(req2, timeout=10) as resp2:
+                resp2.read()
+        except Exception as e:
+            print(f"  ❌ [悉尼机器人] @全体成员推送失败: {e}")
+
+
+def flush_wecom2_queue():
+    queue = _load_wecom2_queue()
+    if not queue:
+        return
+    merged = "\n\n---\n\n".join(f"_{q['at']}_\n{q['text']}" for q in queue)
+    any_mention = any(q.get("mention_all") for q in queue)
+    _send_wecom2_now(f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
+    _save_wecom2_queue([])
+
+
+def notify_wecom2(text: str, mention_all: bool = False):
+    if _in_wecom2_quiet_hours():
+        queue = _load_wecom2_queue()
+        now_str = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
+        queue.append({"text": text, "mention_all": mention_all, "at": now_str})
+        _save_wecom2_queue(queue)
+        print("  🌙 [悉尼机器人] 静默时段（21:00-09:00），消息已加入队列，明早集中推送")
+        return
+    flush_wecom2_queue()  # 先把攒的老消息发出去，再发这条新的
+    _send_wecom2_now(text, mention_all)
+
+
 def deployed_page_age_ms():
     """已部署容器快照（container/public/index.html，随仓库提交）的页面时间距今毫秒数；无记录返回 None"""
     try:
@@ -1350,6 +1433,8 @@ def main():
 
     if not _in_wecom_quiet_hours():
         flush_wecom_queue()  # 出了静默时段就把攒的老消息发出去，不用等新变化触发
+    if not _in_wecom2_quiet_hours():
+        flush_wecom2_queue()
 
     # Try Agent Portal login for more accurate inventory
     agent_ok = login_agent_portal()
@@ -1432,11 +1517,12 @@ def main():
             sydney_changes = [c for c in changes if c[0].startswith("sydney/")]
             if sydney_changes:
                 msg = format_changes(sydney_changes, all_cities)
-                notify_wecom(
+                full_msg = (
                     f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
-                    f"[查看实时房态]({PUBLIC_SITE})",
-                    mention_all=True,
+                    f"[查看实时房态]({PUBLIC_SITE})"
                 )
+                notify_wecom(full_msg, mention_all=True)
+                notify_wecom2(full_msg, mention_all=True)
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
