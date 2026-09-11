@@ -554,16 +554,16 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月12日 起（合同至 2027年2月16日）；长租亦可 2027年2月10日"
+  "date": "今年已无房：2027年2月10日"
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
-   "From": 645,
-   "12月": 645
+   "From": 635,
+   "12月": 635
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日"
+  "date": "今年已无房：2027年2月10日"
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
   "prices": {
