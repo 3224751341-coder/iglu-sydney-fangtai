@@ -138,7 +138,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月13日 起；长租灵活 2026年9月13日~2027年2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日"
+  "date": "今年可订：短租 9月13日 起；长租灵活 2026年9月13日~2027年2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -691,7 +691,7 @@
    "12月": 559
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年已无房：2027年2月8日"
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
