@@ -45,7 +45,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data_snapshot.json container/public/index.html wecom_queue.json wecom_queue2.json
+          # wecom_queue*.json 用通配符：以后在 RECIPIENTS 里加新城市机器人，新的队列文件
+          # （wecom_queue_xxx.json）会自动被提交，不用再改这个 workflow 文件
+          git add data_snapshot.json container/public/index.html wecom_queue*.json
           if git diff --cached --quiet; then
             echo "快照无变化，跳过提交"
           else

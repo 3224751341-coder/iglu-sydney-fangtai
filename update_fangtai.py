@@ -44,6 +44,48 @@ WECOM_WEBHOOK = os.environ.get("WECOM_WEBHOOK", "")
 # DEFAULT_WECOM_WEBHOOK 的做法一致），只推悉尼房态变化，静默窗口比原机器人早一小时
 WECOM2_WEBHOOK = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=af4669ef-7ba5-4de8-ba1b-da5be7c184e0"
 
+# ── 多城市推送配置（2026-09-12 框架化）──────────────────────────────
+# 每加一个新城市的群，在这里加一条就行，不用碰下面的推送/队列/静默/降噪逻辑。
+# - id：随便起，只用来在日志/队列文件名里区分是哪个机器人
+# - city：对应 CITIES 字典的 key（sydney/melbourne/brisbane），决定这个机器人只收哪个
+#   城市的"房态变化"消息——运维类告警（抓取异常/部署失败）不走这条，统一走 Bark
+# - webhook：留空就自动跳过这个机器人的推送，不影响抓取/部署，方便还没建群时先占位
+# - quiet_start/quiet_end：这个机器人自己的静默时段（北京时间，含义同 22 点到次日 9 点）
+# - queue_file：这个机器人自己的待发队列文件名，务必每条不同，否则会互相覆盖
+RECIPIENTS = [
+    {  # 老的共用机器人（container-shared），行为不变——只看悉尼，21-09 windows 之前就是这样
+        "id": "shared", "city": "sydney", "webhook": WECOM_WEBHOOK,
+        "quiet_start": 22, "quiet_end": 9, "queue_file": "wecom_queue.json",
+    },
+    {  # 悉尼专属机器人（2026-09-11 新增），静默窗口比共用机器人早一小时
+        "id": "sydney2", "city": "sydney", "webhook": WECOM2_WEBHOOK,
+        "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue2.json",
+    },
+    # 新城市示例（webhook 留空占位，实际添加时把 webhook 填上即可）：
+    # {"id": "melbourne", "city": "melbourne", "webhook": "",
+    #  "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue_melbourne.json"},
+]
+# Murphy 2026-09-12：抓取异常/部署失败这类运维告警不应该发到业务群打扰大家，改成只
+# Bark 推送到 Murphy 本人手机；复用 rate-desk-watchdog 已经在用的同一个 Bark 地址。
+BARK_URL = "https://api.day.app/PCNR5LcwXWyHKFJ7VWpx5j"
+
+
+def send_bark(title: str, text: str):
+    try:
+        payload = json.dumps({"title": title, "body": text, "group": "房态运维告警"}).encode("utf-8")
+        req = urllib.request.Request(
+            BARK_URL + "/",
+            data=payload,
+            method="POST",
+            headers={"Content-Type": "application/json; charset=utf-8"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+            if result.get("code") != 200:
+                print(f"  ❌ Bark 推送失败: {result}")
+    except Exception as e:
+        print(f"  ❌ Bark 推送异常: {e}")
+
 # ── Cities & Properties ──
 # 城市 slug → {label, properties: {显示名: slug}, room_meta, property_rooms}
 CITIES = {
@@ -1306,31 +1348,57 @@ def _truncate_utf8_bytes(text: str, max_bytes: int) -> str:
     return b[:max_bytes].decode("utf-8", errors="ignore") + "\n> ……内容过长已截断"
 
 
-def _send_wecom_now(text: str, mention_all: bool = False):
-    """实际发送（原 notify_wecom 的全部逻辑）；推送到企业微信群机器人 webhook，
+def _in_quiet_hours(recipient: dict) -> bool:
+    h = _bjt_now().hour
+    return h >= recipient["quiet_start"] or h < recipient["quiet_end"]
+
+
+def _queue_path(recipient: dict) -> str:
+    return os.path.join(PROJECT_DIR, recipient["queue_file"])
+
+
+def _load_queue(recipient: dict) -> list:
+    p = _queue_path(recipient)
+    if os.path.exists(p):
+        try:
+            with open(p, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return []
+
+
+def _save_queue(recipient: dict, queue: list):
+    with open(_queue_path(recipient), "w", encoding="utf-8") as f:
+        json.dump(queue, f, ensure_ascii=False, indent=1)
+
+
+def _send_now(recipient: dict, text: str, mention_all: bool = False):
+    """实际发送一条消息到某个机器人；推送到企业微信群机器人 webhook，
     mention_all=True 时额外补发一条 @全体成员（markdown 消息类型本身不支持 @，
-    官方 API 只有 text 类型支持 mentioned_list）"""
-    if not WECOM_WEBHOOK:
-        print("  ℹ️  未配置 WECOM_WEBHOOK，跳过推送（更新照常）")
+    官方 API 只有 text 类型支持 mentioned_list）。webhook 留空就跳过，不报错。"""
+    webhook = recipient["webhook"]
+    tag = f"[{recipient['id']}] "
+    if not webhook:
         return
     text = _truncate_utf8_bytes(text, WECOM_CONTENT_MAX_BYTES)
     payload = {"msgtype": "markdown", "markdown": {"content": text}}
     ok = False
     try:
         req = urllib.request.Request(
-            WECOM_WEBHOOK,
+            webhook,
             data=json.dumps(payload).encode("utf-8"),
             headers={"Content-Type": "application/json"},
         )
         with urllib.request.urlopen(req, timeout=10) as resp:
             body = resp.read().decode("utf-8")
-            print(f"  📨 企微推送: {body[:120]}")
+            print(f"  📨 {tag}企微推送: {body[:120]}")
             j = json.loads(body)
             ok = j.get("errcode") == 0
             if not ok:
-                print(f"  ❌ 企微推送被拒绝: errcode={j.get('errcode')} {j.get('errmsg')}")
+                print(f"  ❌ {tag}企微推送被拒绝: errcode={j.get('errcode')} {j.get('errmsg')}")
     except Exception as e:
-        print(f"  ❌ 企微推送失败: {e}")
+        print(f"  ❌ {tag}企微推送失败: {e}")
         return
     # 内容本身没推成功就不发 @全体成员的"详见上方消息"，否则群里只看到一条空头支票的 @all
     if not ok:
@@ -1338,159 +1406,65 @@ def _send_wecom_now(text: str, mention_all: bool = False):
     # 周末不 @全体（按实际发送时刻的星期判断，不是变化被检测到的时刻——静默期攒到
     # 周六早上才发的消息，也应该按发送当天是周末来判断，不打扰）
     if mention_all and not _is_weekday_bjt():
-        print("  🔕 周末不 @全体成员，仅发普通消息")
+        print(f"  🔕 {tag}周末不 @全体成员，仅发普通消息")
     if mention_all and _is_weekday_bjt():
         try:
             ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
             req2 = urllib.request.Request(
-                WECOM_WEBHOOK,
+                webhook,
                 data=json.dumps(ping).encode("utf-8"),
                 headers={"Content-Type": "application/json"},
             )
             with urllib.request.urlopen(req2, timeout=10) as resp2:
                 resp2.read()
         except Exception as e:
-            print(f"  ❌ @全体成员推送失败: {e}")
+            print(f"  ❌ {tag}@全体成员推送失败: {e}")
 
 
-# ── 企微静默时段：22:00-次日09:00（北京时间）不推送，攒到当天早上一起发一条汇总，
-# 避免半夜/凌晨的房态变化提醒打扰大家休息。跨进程（每次 workflow 单独跑一次 Python 进程），
-# 队列落盘到 WECOM_QUEUE_PATH，随仓库提交保持跨次运行同步。──
-WECOM_QUIET_START_HOUR = 22
-WECOM_QUIET_END_HOUR = 9
-WECOM_QUEUE_PATH = os.path.join(PROJECT_DIR, "wecom_queue.json")
-
-
-def _in_wecom_quiet_hours() -> bool:
-    h = datetime.now(timezone(timedelta(hours=8))).hour
-    return h >= WECOM_QUIET_START_HOUR or h < WECOM_QUIET_END_HOUR
-
-
-def _load_wecom_queue() -> list:
-    if os.path.exists(WECOM_QUEUE_PATH):
-        try:
-            with open(WECOM_QUEUE_PATH, encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return []
-
-
-def _save_wecom_queue(queue: list):
-    with open(WECOM_QUEUE_PATH, "w", encoding="utf-8") as f:
-        json.dump(queue, f, ensure_ascii=False, indent=1)
-
-
-def flush_wecom_queue():
-    queue = _load_wecom_queue()
+def _flush_queue(recipient: dict):
+    queue = _load_queue(recipient)
     if not queue:
         return
     merged = "\n\n---\n\n".join(f"_{q['at']}_\n{q['text']}" for q in queue)
     any_mention = any(q.get("mention_all") for q in queue)
-    _send_wecom_now(f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
-    _save_wecom_queue([])
+    _send_now(recipient, f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
+    _save_queue(recipient, [])
 
 
-def notify_wecom(text: str, mention_all: bool = False):
-    if _in_wecom_quiet_hours():
-        queue = _load_wecom_queue()
-        now_str = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
-        queue.append({"text": text, "mention_all": mention_all, "at": now_str})
-        _save_wecom_queue(queue)
-        print("  🌙 静默时段（22:00-09:00），消息已加入队列，明早集中推送")
+def notify_recipient(recipient: dict, text: str, mention_all: bool = False):
+    tag = f"[{recipient['id']}] "
+    if _in_quiet_hours(recipient):
+        queue = _load_queue(recipient)
+        queue.append({"text": text, "mention_all": mention_all, "at": _bjt_now().strftime("%Y-%m-%d %H:%M")})
+        _save_queue(recipient, queue)
+        print(f"  🌙 {tag}静默时段（{recipient['quiet_start']}:00-{recipient['quiet_end']}:00），"
+              f"消息已加入队列，明早集中推送")
         return
-    flush_wecom_queue()  # 先把攒的老消息发出去，再发这条新的
-    _send_wecom_now(text, mention_all)
+    _flush_queue(recipient)  # 先把攒的老消息发出去，再发这条新的
+    _send_now(recipient, text, mention_all)
 
 
-# ── 悉尼专属机器人（新增 2026-09-11）：只镜像"📢 Iglu 房态变化"这条已经过滤成
-# 悉尼房源的真实变化消息，不镜像抓取异常/部署失败这类跟城市无关的运维告警。
-# 静默窗口 21:00-次日09:00（比原机器人早一小时），独立队列文件，互不影响。──
-WECOM2_QUIET_START_HOUR = 21
-WECOM2_QUIET_END_HOUR = 9
-WECOM2_QUEUE_PATH = os.path.join(PROJECT_DIR, "wecom_queue2.json")
+def flush_all_recipients():
+    """出静默时段就把各机器人攒的老消息发出去，不用等新变化触发（每个机器人独立判断，
+    互不影响——一个机器人推送失败/webhook 未配置，不影响其它机器人照常发）"""
+    for r in RECIPIENTS:
+        if not _in_quiet_hours(r):
+            _flush_queue(r)
 
 
-def _in_wecom2_quiet_hours() -> bool:
-    h = datetime.now(timezone(timedelta(hours=8))).hour
-    return h >= WECOM2_QUIET_START_HOUR or h < WECOM2_QUIET_END_HOUR
+def notify_city(city: str, text: str, mention_all: bool = False):
+    """把一条消息发给所有关注这个城市的机器人（可能有 0 个、1 个或多个）"""
+    for r in RECIPIENTS:
+        if r["city"] == city:
+            notify_recipient(r, text, mention_all)
 
 
-def _load_wecom2_queue() -> list:
-    if os.path.exists(WECOM2_QUEUE_PATH):
-        try:
-            with open(WECOM2_QUEUE_PATH, encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return []
-
-
-def _save_wecom2_queue(queue: list):
-    with open(WECOM2_QUEUE_PATH, "w", encoding="utf-8") as f:
-        json.dump(queue, f, ensure_ascii=False, indent=1)
-
-
-def _send_wecom2_now(text: str, mention_all: bool = False):
-    if not WECOM2_WEBHOOK:
-        return
-    text = _truncate_utf8_bytes(text, WECOM_CONTENT_MAX_BYTES)
-    payload = {"msgtype": "markdown", "markdown": {"content": text}}
-    ok = False
-    try:
-        req = urllib.request.Request(
-            WECOM2_WEBHOOK,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
-        )
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            body = resp.read().decode("utf-8")
-            print(f"  📨 [悉尼机器人] 企微推送: {body[:120]}")
-            j = json.loads(body)
-            ok = j.get("errcode") == 0
-            if not ok:
-                print(f"  ❌ [悉尼机器人] 企微推送被拒绝: errcode={j.get('errcode')} {j.get('errmsg')}")
-    except Exception as e:
-        print(f"  ❌ [悉尼机器人] 企微推送失败: {e}")
-        return
-    if not ok:
-        return
-    if mention_all and not _is_weekday_bjt():
-        print("  🔕 [悉尼机器人] 周末不 @全体成员，仅发普通消息")
-    if mention_all and _is_weekday_bjt():
-        try:
-            ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
-            req2 = urllib.request.Request(
-                WECOM2_WEBHOOK,
-                data=json.dumps(ping).encode("utf-8"),
-                headers={"Content-Type": "application/json"},
-            )
-            with urllib.request.urlopen(req2, timeout=10) as resp2:
-                resp2.read()
-        except Exception as e:
-            print(f"  ❌ [悉尼机器人] @全体成员推送失败: {e}")
-
-
-def flush_wecom2_queue():
-    queue = _load_wecom2_queue()
-    if not queue:
-        return
-    merged = "\n\n---\n\n".join(f"_{q['at']}_\n{q['text']}" for q in queue)
-    any_mention = any(q.get("mention_all") for q in queue)
-    _send_wecom2_now(f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
-    _save_wecom2_queue([])
-
-
-def notify_wecom2(text: str, mention_all: bool = False):
-    if _in_wecom2_quiet_hours():
-        queue = _load_wecom2_queue()
-        now_str = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
-        queue.append({"text": text, "mention_all": mention_all, "at": now_str})
-        _save_wecom2_queue(queue)
-        print("  🌙 [悉尼机器人] 静默时段（21:00-09:00），消息已加入队列，明早集中推送")
-        return
-    flush_wecom2_queue()  # 先把攒的老消息发出去，再发这条新的
-    _send_wecom2_now(text, mention_all)
+def _group_changes_by_city(changes: list) -> dict:
+    grouped = {}
+    for c in changes:
+        city = c[0].split("/", 1)[0]
+        grouped.setdefault(city, []).append(c)
+    return grouped
 
 
 def deployed_page_age_ms():
@@ -1526,7 +1500,7 @@ def deploy():
     else:
         err = (result.stderr or result.stdout)[-400:]
         print(f"   ❌ Deploy failed: {err}")
-        notify_wecom(f"**❌ Iglu 容器部署失败** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n```\n{err}\n```")
+        send_bark("❌ Iglu 容器部署失败", f"{_bjt_now().strftime('%m-%d %H:%M')}\n{err}")
         sys.exit(1)  # 部署失败要让 workflow 变红，否则静默失败无法察觉
 
 
@@ -1536,10 +1510,7 @@ def main():
     print(f"🔄 Iglu 澳洲房态更新 — {_bjt_now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
-    if not _in_wecom_quiet_hours():
-        flush_wecom_queue()  # 出了静默时段就把攒的老消息发出去，不用等新变化触发
-    if not _in_wecom2_quiet_hours():
-        flush_wecom2_queue()
+    flush_all_recipients()  # 出了静默时段就把各机器人攒的老消息发出去，不用等新变化触发
 
     # Try Agent Portal login for more accurate inventory
     agent_ok = login_agent_portal()
@@ -1588,11 +1559,11 @@ def main():
     if scrape_looks_broken and not force:
         print(f"\n⚠️  抓取结果异常：房型数从 {prev_total} 骤降到 {total_rooms}，"
               f"判断为本次抓取失败（登录失效/网络问题），跳过部署，保留线上现有数据")
-        notify_wecom(
-            f"**⚠️ Iglu 抓取异常，已跳过本次部署**（{_bjt_now().strftime('%m-%d %H:%M')}）\n\n"
+        send_bark(
+            "⚠️ Iglu 抓取异常，已跳过本次部署",
+            f"{_bjt_now().strftime('%m-%d %H:%M')}\n"
             f"房型数从 {prev_total} 骤降到 {total_rooms}，疑似 Agent Portal 登录失效或网络不通，"
-            f"线上数据未被覆盖，仍是上次的正常数据。\n\n"
-            f"[查看实时房态]({PUBLIC_SITE})"
+            f"线上数据未被覆盖，仍是上次的正常数据。\n{PUBLIC_SITE}"
         )
         print(f"\n✅ Done! {_bjt_now().strftime('%H:%M:%S')}")
         return
@@ -1618,19 +1589,22 @@ def main():
         else:
             save_snapshot(new_snap)   # 先存快照，随仓库提交保持同步
             deploy()
-            # 只推送悉尼的房态变化到企微；墨尔本/布里斯班照常抓取部署，只是不推送通知
-            sydney_changes = [c for c in changes if c[0].startswith("sydney/")]
-            reportable_changes = _filter_reportable_changes(sydney_changes)
-            if reportable_changes:
-                msg = format_changes(reportable_changes, all_cities)
-                full_msg = (
-                    f"**📢 Iglu 房态变化** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
-                    f"[查看实时房态]({PUBLIC_SITE})"
-                )
-                notify_wecom(full_msg, mention_all=True)
-                notify_wecom2(full_msg, mention_all=True)
-            elif sydney_changes:
-                print(f"  ℹ️  {len(sydney_changes)} 项悉尼变化均为起租日期正常滚动，跳过企微推送")
+            # 按城市分组推送到企微：每个城市只推给关注这个城市的机器人（RECIPIENTS 配置表），
+            # 没配置机器人的城市照常抓取部署，只是没人推送通知（比如墨尔本/布里斯班还没建群）
+            changes_by_city = _group_changes_by_city(changes)
+            configured_cities = {r["city"] for r in RECIPIENTS if r["webhook"]}
+            for city in configured_cities:
+                city_changes = changes_by_city.get(city, [])
+                reportable_changes = _filter_reportable_changes(city_changes)
+                if reportable_changes:
+                    msg = format_changes(reportable_changes, all_cities)
+                    full_msg = (
+                        f"**📢 Iglu 房态变化** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
+                        f"[查看实时房态]({PUBLIC_SITE})"
+                    )
+                    notify_city(city, full_msg, mention_all=True)
+                elif city_changes:
+                    print(f"  ℹ️  {city}: {len(city_changes)} 项变化均为起租日期正常滚动，跳过企微推送")
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
