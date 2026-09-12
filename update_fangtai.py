@@ -6,7 +6,7 @@ Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里
 """
 
 import json, re, sys, os, shutil, subprocess, urllib.request
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from curl_cffi import requests as cffi_req
 
@@ -1176,6 +1176,67 @@ def diff_snapshot(old: dict, new: dict):
     return changes
 
 
+# 2026-09-12 事故复盘发现："date" 字段（起租日期文案，如"短租 9月12日 起"）几乎每天
+# 都会变，因为官网日历的"最早可入住日"本来就是跟着今天的日期往前滚（今天变明天，
+# 显示的起租日也跟着 +1），不是真的有新房源/日期跳变。这类"整体只有日期数字往后挪了
+# 固定天数、其余文案完全不变"的情况判定为噪音，不计入推送内容（部署/页面仍照常更新，
+# 只是不再为纯日期滚动发企微通知）。真正的日期跳变（比如长租起租日突然提前一个月）
+# 数字位移不均匀或跳变幅度较大，不会被这条规则误伤。
+_DATE_TOKEN_RE = re.compile(r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日")
+
+
+def _is_trivial_date_rollover(old_val: str, new_val: str) -> bool:
+    if not old_val or not new_val or old_val == new_val:
+        return False
+    old_tokens = _DATE_TOKEN_RE.findall(old_val)
+    new_tokens = _DATE_TOKEN_RE.findall(new_val)
+    if not old_tokens or len(old_tokens) != len(new_tokens):
+        return False
+    # 除日期数字外，文案其余部分必须完全一致（结构/措辞有变化就不算纯日期滚动）
+    if _DATE_TOKEN_RE.sub("", old_val) != _DATE_TOKEN_RE.sub("", new_val):
+        return False
+    deltas = set()
+    for (oy, om, od), (ny, nm, nd) in zip(old_tokens, new_tokens):
+        if (oy, om, od) == (ny, nm, nd):
+            continue  # 这处日期原样没变，只看真正变了的那些日期字段是否等幅滚动
+        base_year = int(oy) if oy else 2026
+        try:
+            od_date = date(base_year, int(om), int(od))
+        except ValueError:
+            return False
+        new_year = int(ny) if ny else base_year
+        try:
+            nd_date = date(new_year, int(nm), int(nd))
+        except ValueError:
+            return False
+        if not oy and not ny and nd_date < od_date:
+            # 跨年但两边都没写年份（如 12月31日 → 1月1日），按下一年计算
+            try:
+                nd_date = date(base_year + 1, int(nm), int(nd))
+            except ValueError:
+                return False
+        deltas.add((nd_date - od_date).days)
+    # 所有日期字段必须往前挪了同样的天数（1~3 天，覆盖每日运行/跨周末的调度间隔），
+    # 否则（跳变幅度不一致、倒退、或跨度过大）判定为真实变化
+    return len(deltas) == 1 and next(iter(deltas)) in (1, 2, 3)
+
+
+def _filter_reportable_changes(changes: list) -> list:
+    """过滤掉纯日期滚动噪音，只保留值得推送的真实变化"""
+    reportable = []
+    for c in changes:
+        _, field, oldv, newv = c
+        if field == "date" and _is_trivial_date_rollover(oldv, newv):
+            continue
+        reportable.append(c)
+    return reportable
+
+
+def _is_weekday_bjt() -> bool:
+    """北京时间周一到周五为工作日；周六日不 @全体，避免打扰"""
+    return datetime.now(timezone(timedelta(hours=8))).weekday() < 5
+
+
 def format_changes(changes: list, all_cities: dict) -> str:
     """变化列表 → 企微 markdown 消息"""
     # city/prop → 显示名
@@ -1265,7 +1326,11 @@ def _send_wecom_now(text: str, mention_all: bool = False):
     # 内容本身没推成功就不发 @全体成员的"详见上方消息"，否则群里只看到一条空头支票的 @all
     if not ok:
         return
-    if mention_all:
+    # 周末不 @全体（按实际发送时刻的星期判断，不是变化被检测到的时刻——静默期攒到
+    # 周六早上才发的消息，也应该按发送当天是周末来判断，不打扰）
+    if mention_all and not _is_weekday_bjt():
+        print("  🔕 周末不 @全体成员，仅发普通消息")
+    if mention_all and _is_weekday_bjt():
         try:
             ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
             req2 = urllib.request.Request(
@@ -1381,7 +1446,9 @@ def _send_wecom2_now(text: str, mention_all: bool = False):
         return
     if not ok:
         return
-    if mention_all:
+    if mention_all and not _is_weekday_bjt():
+        print("  🔕 [悉尼机器人] 周末不 @全体成员，仅发普通消息")
+    if mention_all and _is_weekday_bjt():
         try:
             ping = {"msgtype": "text", "text": {"content": "Iglu 房态有变化，详见上方消息", "mentioned_list": ["@all"]}}
             req2 = urllib.request.Request(
@@ -1544,14 +1611,17 @@ def main():
             deploy()
             # 只推送悉尼的房态变化到企微；墨尔本/布里斯班照常抓取部署，只是不推送通知
             sydney_changes = [c for c in changes if c[0].startswith("sydney/")]
-            if sydney_changes:
-                msg = format_changes(sydney_changes, all_cities)
+            reportable_changes = _filter_reportable_changes(sydney_changes)
+            if reportable_changes:
+                msg = format_changes(reportable_changes, all_cities)
                 full_msg = (
                     f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
                     f"[查看实时房态]({PUBLIC_SITE})"
                 )
                 notify_wecom(full_msg, mention_all=True)
                 notify_wecom2(full_msg, mention_all=True)
+            elif sydney_changes:
+                print(f"  ℹ️  {len(sydney_changes)} 项悉尼变化均为起租日期正常滚动，跳过企微推送")
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
