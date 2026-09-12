@@ -61,9 +61,11 @@ RECIPIENTS = [
         "id": "sydney2", "city": "sydney", "webhook": WECOM2_WEBHOOK,
         "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue2.json",
     },
-    # 新城市示例（webhook 留空占位，实际添加时把 webhook 填上即可）：
-    # {"id": "melbourne", "city": "melbourne", "webhook": "",
-    #  "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue_melbourne.json"},
+    {  # 墨尔本专属机器人（Murphy 2026-09-12 新增）
+        "id": "melbourne", "city": "melbourne",
+        "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=070ab7c7-3525-42e9-85fd-e75191fef3aa",
+        "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue_melbourne.json",
+    },
 ]
 # Murphy 2026-09-12：抓取异常/部署失败这类运维告警不应该发到业务群打扰大家，改成只
 # Bark 推送到 Murphy 本人手机；复用 rate-desk-watchdog 已经在用的同一个 Bark 地址。
