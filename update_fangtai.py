@@ -11,6 +11,15 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from curl_cffi import requests as cffi_req
 
 # ── Config ──
+
+# GitHub Actions 跑这个脚本的服务器系统时钟是 UTC，之前多处日志/推送消息里的时间戳直接用
+# 裸 datetime.now()（取的是服务器 UTC 时间，没做时区转换），导致企微消息里显示的时间比
+# 实际收到的时间"晚了 8 小时"（2026-09-12 事故：显示 04:34，实际是北京时间 12:34 送达）。
+# 统一改用这个北京时间版本。
+def _bjt_now():
+    return datetime.now(timezone(timedelta(hours=8)))
+
+
 # trigger CI re-scrape
 AGENT_CODE = "A1336"
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -744,7 +753,7 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     flexible_end = date_data.get('flexible_end')
     contract_end = date_data.get('contract_end')
 
-    this_year = datetime.now().year
+    this_year = _bjt_now().year
     this_dates = sorted(d for d in dates if d[0] == this_year)
     future_dates = sorted(d for d in dates if d[0] > this_year)
     ss_this = sorted(d for d in ss_dates if d[0] == this_year)
@@ -919,7 +928,7 @@ def build_date_cell(room: dict) -> str:
     flexible_start = date_data.get('flexible_start') if isinstance(date_data, dict) else None
     flexible_end = date_data.get('flexible_end') if isinstance(date_data, dict) else None
     contract_end = date_data.get('contract_end') if isinstance(date_data, dict) else None
-    this_year = datetime.now().year
+    this_year = _bjt_now().year
 
     if avail == 'soldout':
         return '<span class="tag tag-off tag-mini">已售罄</span>'
@@ -1033,7 +1042,7 @@ def room_sort_key(room: dict):
     dates = date_data.get('dates', []) if isinstance(date_data, dict) else []
     flexible = date_data.get('flexible', False) if isinstance(date_data, dict) else False
     ss_dates = date_data.get('shortstay_dates', []) if isinstance(date_data, dict) else []
-    this_year = datetime.now().year
+    this_year = _bjt_now().year
     ss_this = any(d[0] == this_year for d in ss_dates)
     if flexible or any(d[0] == this_year for d in dates) or ss_this:
         date_rank = 0
@@ -1517,14 +1526,14 @@ def deploy():
     else:
         err = (result.stderr or result.stdout)[-400:]
         print(f"   ❌ Deploy failed: {err}")
-        notify_wecom(f"**❌ Iglu 容器部署失败** ({datetime.now().strftime('%m-%d %H:%M')})\n\n```\n{err}\n```")
+        notify_wecom(f"**❌ Iglu 容器部署失败** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n```\n{err}\n```")
         sys.exit(1)  # 部署失败要让 workflow 变红，否则静默失败无法察觉
 
 
 def main():
     no_deploy = "--no-deploy" in sys.argv
     print("=" * 50)
-    print(f"🔄 Iglu 澳洲房态更新 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🔄 Iglu 澳洲房态更新 — {_bjt_now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
     if not _in_wecom_quiet_hours():
@@ -1580,12 +1589,12 @@ def main():
         print(f"\n⚠️  抓取结果异常：房型数从 {prev_total} 骤降到 {total_rooms}，"
               f"判断为本次抓取失败（登录失效/网络问题），跳过部署，保留线上现有数据")
         notify_wecom(
-            f"**⚠️ Iglu 抓取异常，已跳过本次部署**（{datetime.now().strftime('%m-%d %H:%M')}）\n\n"
+            f"**⚠️ Iglu 抓取异常，已跳过本次部署**（{_bjt_now().strftime('%m-%d %H:%M')}）\n\n"
             f"房型数从 {prev_total} 骤降到 {total_rooms}，疑似 Agent Portal 登录失效或网络不通，"
             f"线上数据未被覆盖，仍是上次的正常数据。\n\n"
             f"[查看实时房态]({PUBLIC_SITE})"
         )
-        print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")
+        print(f"\n✅ Done! {_bjt_now().strftime('%H:%M:%S')}")
         return
 
     changes = diff_snapshot(old_snap, new_snap) if old_snap else []
@@ -1615,7 +1624,7 @@ def main():
             if reportable_changes:
                 msg = format_changes(reportable_changes, all_cities)
                 full_msg = (
-                    f"**📢 Iglu 房态变化** ({datetime.now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
+                    f"**📢 Iglu 房态变化** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
                     f"[查看实时房态]({PUBLIC_SITE})"
                 )
                 notify_wecom(full_msg, mention_all=True)
@@ -1626,7 +1635,7 @@ def main():
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
 
-    print(f"\n✅ Done! {datetime.now().strftime('%H:%M:%S')}")
+    print(f"\n✅ Done! {_bjt_now().strftime('%H:%M:%S')}")
 
 
 if __name__ == "__main__":
