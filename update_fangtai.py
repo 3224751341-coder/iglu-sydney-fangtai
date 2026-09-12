@@ -1224,6 +1224,18 @@ def format_changes(changes: list, all_cities: dict) -> str:
     return text
 
 
+# 企微 markdown 内容上限 4096 字节（按 UTF-8 字节数，不是字符数——中文一个字就占 3
+# 字节，之前按字符截断导致真实字节数仍能超限，被企微拒收却没人发现，见 2026-09-12 事故）
+WECOM_CONTENT_MAX_BYTES = 3900
+
+
+def _truncate_utf8_bytes(text: str, max_bytes: int) -> str:
+    b = text.encode("utf-8")
+    if len(b) <= max_bytes:
+        return text
+    return b[:max_bytes].decode("utf-8", errors="ignore") + "\n> ……内容过长已截断"
+
+
 def _send_wecom_now(text: str, mention_all: bool = False):
     """实际发送（原 notify_wecom 的全部逻辑）；推送到企业微信群机器人 webhook，
     mention_all=True 时额外补发一条 @全体成员（markdown 消息类型本身不支持 @，
@@ -1231,7 +1243,9 @@ def _send_wecom_now(text: str, mention_all: bool = False):
     if not WECOM_WEBHOOK:
         print("  ℹ️  未配置 WECOM_WEBHOOK，跳过推送（更新照常）")
         return
+    text = _truncate_utf8_bytes(text, WECOM_CONTENT_MAX_BYTES)
     payload = {"msgtype": "markdown", "markdown": {"content": text}}
+    ok = False
     try:
         req = urllib.request.Request(
             WECOM_WEBHOOK,
@@ -1241,8 +1255,15 @@ def _send_wecom_now(text: str, mention_all: bool = False):
         with urllib.request.urlopen(req, timeout=10) as resp:
             body = resp.read().decode("utf-8")
             print(f"  📨 企微推送: {body[:120]}")
+            j = json.loads(body)
+            ok = j.get("errcode") == 0
+            if not ok:
+                print(f"  ❌ 企微推送被拒绝: errcode={j.get('errcode')} {j.get('errmsg')}")
     except Exception as e:
         print(f"  ❌ 企微推送失败: {e}")
+        return
+    # 内容本身没推成功就不发 @全体成员的"详见上方消息"，否则群里只看到一条空头支票的 @all
+    if not ok:
         return
     if mention_all:
         try:
@@ -1339,7 +1360,9 @@ def _save_wecom2_queue(queue: list):
 def _send_wecom2_now(text: str, mention_all: bool = False):
     if not WECOM2_WEBHOOK:
         return
+    text = _truncate_utf8_bytes(text, WECOM_CONTENT_MAX_BYTES)
     payload = {"msgtype": "markdown", "markdown": {"content": text}}
+    ok = False
     try:
         req = urllib.request.Request(
             WECOM2_WEBHOOK,
@@ -1349,8 +1372,14 @@ def _send_wecom2_now(text: str, mention_all: bool = False):
         with urllib.request.urlopen(req, timeout=10) as resp:
             body = resp.read().decode("utf-8")
             print(f"  📨 [悉尼机器人] 企微推送: {body[:120]}")
+            j = json.loads(body)
+            ok = j.get("errcode") == 0
+            if not ok:
+                print(f"  ❌ [悉尼机器人] 企微推送被拒绝: errcode={j.get('errcode')} {j.get('errmsg')}")
     except Exception as e:
         print(f"  ❌ [悉尼机器人] 企微推送失败: {e}")
+        return
+    if not ok:
         return
     if mention_all:
         try:
