@@ -150,7 +150,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月16日 起；长租灵活 2026年9月16日~2027年2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月16日 起；长租灵活 2026年9月16日~2027年2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -456,12 +456,11 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705,
-   "12月": 705
+   "From": 705
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月18日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
@@ -657,7 +656,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年可订：短租 9月16日 起；长租 2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
