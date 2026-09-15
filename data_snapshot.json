@@ -73,14 +73,14 @@
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
-   "From": 865,
+   "From": 800,
    "22周": 925,
    "44周": 865,
    "短租": 800
   },
   "avail": "available",
-  "count": null,
-  "date": "今年可订：短租 11月27日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "count": 3,
+  "date": "今年可订：短租 11月27日 起"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
   "prices": {
@@ -95,22 +95,22 @@
    "From": 775,
    "22周": 835,
    "44周": 775,
-   "短租": 700
+   "短租": 650
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 11月25日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 11月27日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
   "prices": {
    "From": 735,
    "22周": 795,
    "44周": 735,
-   "短租": 670
+   "短租": 600
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月25日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 9月22日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central-park/premium-studio-apartment-cp": {
   "prices": {
@@ -130,7 +130,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月16日 起；长租灵活 2026年9月16日~2027年2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月16日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日起租"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
@@ -142,7 +142,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月16日 起；长租灵活 2026年9月16日~2027年2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 9月16日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -169,7 +169,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月16日 起；长租灵活 2026年9月16日~2027年2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月16日 起；长租灵活 2027年1月2日~2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
@@ -365,7 +365,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
+  "date": "今年可订：短租 9月17日 起；长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
