@@ -120,14 +120,6 @@
   "count": null,
   "date": "今年无房（等位）"
  },
- "sydney/central-park/premium-studio-nras-cp": {
-  "prices": {
-   "From": 635
-  },
-  "avail": "soldout",
-  "count": null,
-  "date": "待定"
- },
  "sydney/central-park/standard-studio-apartment-cp": {
   "prices": {
    "From": 915,
