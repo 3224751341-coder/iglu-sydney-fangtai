@@ -861,9 +861,9 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
             parts.append('长租灵活 ' + flex_full())
         if future_dates:
             if this_dates or (flexible and flexible_start):
-                parts.append('长租亦可 ' + full(future_dates))
+                parts.append('长租亦可 ' + full(future_dates) + '起租')
             else:
-                parts.append('长租 ' + full(future_dates))
+                parts.append('长租 ' + full(future_dates) + '起租')
         return '今年可订：' + '；'.join(parts)
     if future_dates:
         return '今年已无房：' + full(future_dates)
@@ -1040,9 +1040,9 @@ def build_date_cell(room: dict) -> str:
             parts.append(f'长租灵活 {_flex_full()}')
         if future_dates:
             if this_dates or (flexible and flexible_start):
-                parts.append(f'长租亦可 {_fmt(future_dates)}')
+                parts.append(f'长租亦可 {_fmt(future_dates)}起租')
             else:
-                parts.append(f'长租 {_fmt(future_dates)}')
+                parts.append(f'长租 {_fmt(future_dates)}起租')
         return f'<span class="tag tag-ok tag-mini">今年可订</span> <span class="date-detail">{"；".join(parts)}</span>'
     if future_dates:
         return f'<span class="tag tag-off tag-mini">今年无房</span> <span class="date-detail">{_fmt(future_dates)} 起</span>'
