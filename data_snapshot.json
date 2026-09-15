@@ -68,8 +68,8 @@
    "12月": 795
   },
   "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月9日"
+  "count": 2,
+  "date": "今年可订：短租 9月25日 起；长租 2027年2月9日起租"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -365,7 +365,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月17日 起；长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
