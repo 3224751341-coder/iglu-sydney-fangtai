@@ -1331,10 +1331,15 @@ def format_changes(changes: list, all_cities: dict) -> str:
                 lines.append(f"> 起租: {oldv or '—'} → {newv or '—'}")
         lines.append("")
 
-    # 控制消息长度（企微 markdown 上限约 4096 字符）
+    # 按字节而非字符数截断（中文一个字 3 字节，按字符截断时真实字节数仍可能超限）。
+    # 外层还会把标题 + [查看实时房态] 链接拼在这段正文后面一起发送，这里必须预留
+    # 出那部分的字节数，否则正文刚好顶到字节上限时，外层最终截断会连链接一起吃掉
+    # （2026-09-15 发现：墨尔本变化条目多，正文顶满导致链接被截没）。
     text = "\n".join(lines).strip()
-    if len(text) > 3500:
-        text = text[:3500] + "\n... (更多变化请查看页面)"
+    budget = WECOM_CONTENT_MAX_BYTES - 300  # 300 字节留给标题+链接+提示语
+    body = text.encode("utf-8")
+    if len(body) > budget:
+        text = body[:budget].decode("utf-8", errors="ignore") + "\n> ……更多房态变化，请点击下方链接查看"
     return text
 
 
