@@ -40,36 +40,33 @@
    "From": 805,
    "22周": 865,
    "44周": 805,
-   "短租": 770,
-   "12月": 805
+   "短租": 690
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年可订：短租 9月17日 起；长租 2027年2月9日起租"
+  "avail": "available",
+  "count": null,
+  "date": "今年可订：短租 12月14日 起；固定起租 10月7日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
    "From": 805,
    "22周": 865,
    "44周": 805,
-   "短租": 760,
-   "12月": 805
+   "短租": 680
   },
   "avail": "available",
-  "count": 3,
-  "date": "今年已无房：2027年2月9日"
+  "count": null,
+  "date": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
    "From": 795,
    "22周": 855,
    "44周": 795,
-   "短租": 750,
-   "12月": 795
+   "短租": 670
   },
-  "avail": "limited",
-  "count": 2,
-  "date": "今年可订：短租 9月25日 起；长租 2027年2月9日起租"
+  "avail": "available",
+  "count": null,
+  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -532,7 +529,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月17日 起（合同至 2027年2月1日）；长租亦可 2027年2月2日、10日、16日起租"
+  "date": "今年已无房：2027年2月2日、10日、16日"
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
   "prices": {
