@@ -391,7 +391,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月20日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：长租灵活 2026年9月21日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -413,7 +413,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月20日 起；长租 2027年2月9日起租"
+  "date": "今年可订：短租 9月21日 起；长租 2027年2月9日起租"
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
@@ -458,7 +458,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月17日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租"
+  "date": "今年可订：长租灵活 2026年9月18日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租"
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
   "prices": {
@@ -476,7 +476,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月17日 起；长租 2027年2月4日、11日、18日起租"
+  "date": "今年可订：短租 9月18日 起；长租 2027年2月4日、11日、18日起租"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
@@ -494,7 +494,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：长租灵活 2026年9月17日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租"
+  "date": "今年可订：长租灵活 2026年9月18日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
   "prices": {
@@ -595,7 +595,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月17日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年可订：短租 9月18日 起；长租 2027年2月3日、10日、17日起租"
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
@@ -645,7 +645,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月17日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年可订：短租 9月18日 起；长租 2027年2月3日、10日、17日起租"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
@@ -679,7 +679,7 @@
    "12月": 559
   },
   "avail": "available",
-  "count": 3,
+  "count": 4,
   "date": "今年已无房：2027年2月8日"
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
