@@ -33,6 +33,9 @@ REQUEST_TIMEOUT = 25
 CONTAINER_DIR = os.path.join(PROJECT_DIR, "container")
 DEPLOY_NAME = "iglu-rate-desk"
 PUBLIC_SITE = "https://app.uhomes.com/iglu-rate-desk"
+# 企微"房态变化"推送点进去落在 rate-hub 统一入口的 Iglu 页签（而不是直链自家站点），顺带曝光其他房源的房态；
+# 抓取异常的 Bark 运维告警仍用 PUBLIC_SITE 直链自家站点
+RATE_HUB_LINK = "https://app.uhomes.com/rate-hub?tab=iglu"
 # 心跳：数据无变化时，已部署页面超过 4 小时也重部署一次，保持"最新更新"时间新鲜
 HEARTBEAT_MS = 4 * 3600 * 1000
 
@@ -1607,7 +1610,7 @@ def main():
                     msg = format_changes(reportable_changes, all_cities)
                     full_msg = (
                         f"**📢 Iglu 房态变化** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
-                        f"[查看实时房态]({PUBLIC_SITE})"
+                        f"[查看实时房态]({RATE_HUB_LINK})"
                     )
                     notify_city(city, full_msg, mention_all=True)
                 elif city_changes:
