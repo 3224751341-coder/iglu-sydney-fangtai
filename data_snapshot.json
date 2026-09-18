@@ -253,7 +253,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月21日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -438,11 +438,12 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705
+   "From": 705,
+   "12月": 705
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年可订：长租灵活 2026年9月28日~10月9日 起（合同至 2027年6月30日）"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
