@@ -66,7 +66,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -117,7 +117,7 @@
    "短租": 975
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年可订：短租 9月19日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/superior-studio-apartment": {
@@ -175,15 +175,11 @@
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
-   "From": 775,
-   "22周": 835,
-   "44周": 775,
-   "短租": 835,
-   "12月": 775
+   "From": 775
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月8日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
@@ -253,7 +249,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月21日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -705,8 +701,8 @@
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
   "prices": {
-   "From": 489,
-   "12月": 489
+   "From": 479,
+   "12月": 479
   },
   "avail": "available",
   "count": 5,
@@ -714,8 +710,8 @@
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
-   "From": 459,
-   "12月": 459
+   "From": 449,
+   "12月": 449
   },
   "avail": "available",
   "count": 3,
@@ -723,8 +719,8 @@
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
-   "From": 429,
-   "12月": 429
+   "From": 399,
+   "12月": 399
   },
   "avail": "available",
   "count": null,
@@ -732,8 +728,8 @@
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
-   "From": 429,
-   "12月": 429
+   "From": 399,
+   "12月": 399
   },
   "avail": "available",
   "count": null,
