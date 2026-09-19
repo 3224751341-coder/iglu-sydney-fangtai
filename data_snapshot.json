@@ -66,7 +66,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -111,14 +111,14 @@
  },
  "sydney/central-park/standard-studio-apartment-cp": {
   "prices": {
-   "From": 915,
+   "From": 975,
    "22周": 975,
    "44周": 915,
    "短租": 975
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：短租 9月20日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月20日 起"
  },
  "sydney/central-park/superior-studio-apartment": {
   "prices": {
