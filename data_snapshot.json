@@ -434,12 +434,11 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705,
-   "12月": 705
+   "From": 705
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年可订：长租灵活 2026年9月28日~10月9日 起（合同至 2027年6月30日）"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
@@ -713,8 +712,8 @@
    "From": 449,
    "12月": 449
   },
-  "avail": "available",
-  "count": 3,
+  "avail": "limited",
+  "count": 2,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
