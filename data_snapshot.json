@@ -130,7 +130,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月21日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月22日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -148,7 +148,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：短租 9月21日 起"
+  "date": "今年可订：短租 9月22日 起"
  },
  "sydney/central-park/single-bedroom-6-share-apt-cp": {
   "prices": {
@@ -315,7 +315,7 @@
    "44周": 865
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
  },
  "sydney/redfern/standard-studio-apartment-nras": {
@@ -358,7 +358,7 @@
    "From": 725
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "待定"
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
@@ -380,7 +380,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月24日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：长租灵活 2026年9月25日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -465,7 +465,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月21日 起；长租 2027年2月4日、11日、18日起租"
+  "date": "今年可订：短租 9月22日 起；长租 2027年2月4日、11日、18日起租"
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
