@@ -116,8 +116,8 @@
    "44周": 915,
    "短租": 975
   },
-  "avail": "available",
-  "count": 3,
+  "avail": "limited",
+  "count": 2,
   "date": "今年可订：短租 9月21日 起"
  },
  "sydney/central-park/superior-studio-apartment": {
@@ -705,7 +705,7 @@
    "12月": 479
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年已无房：2027年2月11日"
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
