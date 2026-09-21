@@ -1435,9 +1435,11 @@ def _flush_queue(recipient: dict):
     queue = _load_queue(recipient)
     if not queue:
         return
-    merged = "\n\n---\n\n".join(f"_{q['at']}_\n{q['text']}" for q in queue)
-    any_mention = any(q.get("mention_all") for q in queue)
-    _send_now(recipient, f"**🌅 昨晚静默时段汇总（共 {len(queue)} 条）**\n\n{merged}", any_mention)
+    # 2026-09-21 Murphy：静默期内攒了好几条就只发最新状态那一条——中间被后面
+    # 变化又覆盖回去的旧记录（比如夜里先掉库存又恢复）不用再补发，避免早上一次性
+    # 发好几条互相矛盾、其实已经不作数的旧消息。
+    latest = queue[-1]
+    _send_now(recipient, latest["text"], latest.get("mention_all", False))
     _save_queue(recipient, [])
 
 
