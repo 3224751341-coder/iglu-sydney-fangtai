@@ -66,7 +66,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -116,8 +116,8 @@
    "44周": 915,
    "短租": 975
   },
-  "avail": "available",
-  "count": 3,
+  "avail": "limited",
+  "count": 1,
   "date": "今年可订：短租 9月22日 起"
  },
  "sydney/central-park/superior-studio-apartment": {
@@ -249,7 +249,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月24日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -613,8 +613,8 @@
    "12月": 565
   },
   "avail": "available",
-  "count": null,
-  "date": "今年可订：短租 9月22日 起；长租 2027年2月3日、10日、17日起租"
+  "count": 5,
+  "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
   "prices": {
