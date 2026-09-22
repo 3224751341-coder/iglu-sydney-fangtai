@@ -1,11 +1,13 @@
 {
  "sydney/broadway/premium-studio-apartment-br": {
   "prices": {
-   "From": 1035
+   "From": 1035,
+   "22周": 1095,
+   "44周": 1035
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年已无房：长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
  },
  "sydney/broadway/standard-studio-apartment-br": {
   "prices": {
@@ -29,7 +31,7 @@
  },
  "sydney/broadway/superior-studio-apartment-br": {
   "prices": {
-   "From": 1005
+   "From": 1025
   },
   "avail": "waitlist",
   "count": null,
@@ -408,11 +410,14 @@
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
-   "From": 825
+   "From": 825,
+   "22周": 885,
+   "44周": 825,
+   "12月": 825
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "available",
+  "count": 5,
+  "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
@@ -498,7 +503,7 @@
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
-   "From": 735
+   "From": 745
   },
   "avail": "waitlist",
   "count": null,
