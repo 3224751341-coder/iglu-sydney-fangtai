@@ -415,8 +415,8 @@
    "44周": 825,
    "12月": 825
   },
-  "avail": "available",
-  "count": 4,
+  "avail": "limited",
+  "count": 2,
   "date": "今年已无房：2027年2月9日"
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
@@ -441,11 +441,12 @@
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
-   "From": 705
+   "From": 705,
+   "12月": 705
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年已无房：2027年2月18日"
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
