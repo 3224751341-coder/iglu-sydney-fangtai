@@ -77,8 +77,8 @@
    "44周": 865,
    "短租": 800
   },
-  "avail": "available",
-  "count": 3,
+  "avail": "limited",
+  "count": 2,
   "date": "今年可订：短租 11月27日 起"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -717,12 +717,11 @@
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
-   "From": 449,
-   "12月": 449
+   "From": 449
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "今年已无房：2027年2月11日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
