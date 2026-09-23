@@ -1159,6 +1159,52 @@ def build_city_block(city_slug: str, city_data: dict) -> str:
 </div>'''
 
 
+
+# ── 户型比价（Murphy 2026-09-23，创意：岳芮）──
+# 同一供应商内部比：页面前端按城市 + 户型大类把各楼同类房型按周租排序。
+# 大类与 Scape 报价台一致：1B / Studio / Ensuite / Non-ensuite / Twin。
+# Iglu 合租公寓的单间（N Share Apt，含 SAEX）都带独立卫浴 → Ensuite；
+# 只有明确写 share bathroom 的才是 Non-ensuite。NRAS 房型有申请资格限制，不参与比价。
+def compare_category(room: dict) -> str:
+    slug = (room.get("slug") or "").lower()
+    if "studio" in slug:
+        return "studio"
+    if slug.startswith("1-bedroom"):
+        return "1bed"
+    if "twin" in slug:
+        return "twin"
+    if "share-bathroom" in slug or "shared-bathroom" in slug:
+        return "share"
+    if "share" in slug:
+        return "ensuite"
+    return "other"
+
+
+def build_compare_data(all_cities: dict) -> list:
+    rows = []
+    for city_slug, city_data in all_cities.items():
+        prop_names = {slug: name for name, slug in city_data["properties"].items()}
+        for prop_slug, rooms in city_data.get("room_results", {}).items():
+            for r in rooms:
+                if "nras" in (r.get("slug") or "").lower():
+                    continue
+                rows.append({
+                    "city": city_slug,
+                    "prop": prop_names.get(prop_slug, prop_slug),
+                    "propSlug": prop_slug,
+                    "name": r.get("name", ""),
+                    "area": r.get("area", ""),
+                    "bed": r.get("bed", ""),
+                    "note": r.get("note", ""),
+                    "cat": compare_category(r),
+                    "prices": r.get("prices", {}) or {},
+                    "avail": r.get("avail_status", ""),
+                    "count": r.get("avail_count"),
+                    "date": r.get("date_str", ""),
+                })
+    return rows
+
+
 def build_html(all_cities: dict) -> str:
     """Build the complete HTML page from template and data."""
     with open(TEMPLATE_PATH, 'r') as f:
@@ -1186,6 +1232,8 @@ def build_html(all_cities: dict) -> str:
     html = html.replace("{{UPDATE_BADGE}}", update_badge)
     html = html.replace("{{CITY_SUMMARY}}", city_summary)
     html = html.replace("{{CITY_BLOCKS}}", "\n".join(city_blocks))
+    compare_json = json.dumps(build_compare_data(all_cities), ensure_ascii=False).replace("</", "<\\/")
+    html = html.replace("{{COMPARE_DATA}}", compare_json)
 
     return html
 

@@ -181,6 +181,87 @@
     .table-wrap table { min-width: 680px; }
     .header-top { flex-direction: column; align-items: flex-start; }
   }
+  /* ---------- 户型比价（Murphy 2026-09-23，创意：岳芮）：同类户型跨楼盘按周租排序 ---------- */
+  :root { --cmp-soft: rgba(255,90,95,.09); --cmp-line: var(--border); }
+  .page-toc { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 6px; margin: 0 0 16px; padding: 8px 10px; background: color-mix(in srgb, var(--card-bg) 94%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
+  .page-toc::-webkit-scrollbar { display: none; }
+  .page-toc-label { flex-shrink: 0; padding: 0 6px 0 8px; color: var(--text-muted); font-size: 12px; font-weight: 700; }
+  .page-toc-item { flex-shrink: 0; border: 1px solid transparent; background: var(--bg); color: var(--text-muted); font: inherit; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .page-toc-item:hover { border-color: rgba(255,90,95,.4); color: var(--brand); }
+  .page-toc-item.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .cmp-card, #cityTabsAnchor { scroll-margin-top: 70px; }
+  .cmp-card { margin: 0 0 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .cmp-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; cursor: pointer; list-style: none; }
+  .cmp-details > summary::-webkit-details-marker { display: none; }
+  .cmp-details > summary::after { content: "+"; flex-shrink: 0; color: var(--brand); font-size: 22px; }
+  .cmp-details[open] > summary::after { content: "−"; }
+  .cmp-kicker { color: var(--brand); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .cmp-details summary h2 { margin: 2px 0 0; font-size: 1.15rem; letter-spacing: -.02em; }
+  .cmp-stats { margin: 2px 0 0; color: var(--text-muted); font-size: 12px; }
+  .cmp-stats strong { color: var(--brand); }
+  .cmp-credit { display: inline-block; margin: 6px 0 0; padding: 2px 10px; border-radius: 999px; background: var(--cmp-soft); color: var(--brand); font-size: 11px; font-weight: 500; }
+  .cmp-credit strong { font-weight: 700; }
+  .cmp-body { padding: 0 20px 20px; border-top: 1px solid var(--border); }
+  .cmp-filters { display: grid; gap: 10px; padding-top: 14px; margin-bottom: 14px; }
+  .cmp-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .cmp-filter-label { flex: 0 0 40px; color: var(--text-muted); font-size: 12px; font-weight: 600; }
+  .cmp-seg { display: flex; flex-wrap: wrap; gap: 4px; padding: 3px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; }
+  .cmp-seg-btn { border: 0; background: transparent; color: var(--text-muted); font: inherit; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .cmp-seg-btn:hover { color: var(--brand); }
+  .cmp-seg-btn.active { background: var(--brand); color: #fff; }
+  .cmp-seg-btn small { margin-left: 4px; font-size: 10px; opacity: .75; font-weight: 500; }
+  .cmp-default-btn { border: 1px dashed var(--border); background: var(--card-bg); color: var(--text-muted); font: inherit; font-size: 12px; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+  .cmp-default-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .cmp-default-btn.is-default { border-style: solid; border-color: rgba(255,90,95,.45); background: var(--cmp-soft); color: var(--brand); font-weight: 600; }
+  .cmp-toolbar-end { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+  .cmp-body input[type=search] { min-width: 180px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 8px; font: inherit; font-size: 12px; background: var(--card-bg); color: var(--text); }
+  .cmp-sort-btn { border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font: inherit; font-size: 12px; font-weight: 600; padding: 7px 12px; border-radius: 8px; cursor: pointer; white-space: nowrap; }
+  .cmp-sort-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .cmp-summary { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .cmp-summary span { padding: 5px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .cmp-summary strong { color: var(--text); margin-left: 4px; }
+  .cmp-list { display: grid; gap: 6px; }
+  .cmp-row { display: grid; grid-template-columns: 30px minmax(110px, 1fr) minmax(150px, 1.4fr) minmax(130px, 1.1fr) 76px 92px 76px; align-items: center; gap: 12px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+  .cmp-row.cmp-head { background: transparent; border-color: transparent; padding-top: 0; padding-bottom: 0; color: var(--text-muted); font-size: 11px; font-weight: 600; }
+  .cmp-rank { font-weight: 800; color: var(--text-muted); text-align: center; }
+  .cmp-row.is-top .cmp-rank { color: var(--brand); }
+  .cmp-building { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+  .cmp-room { min-width: 0; }
+  .cmp-room-name { display: block; overflow-wrap: anywhere; }
+  .cmp-room-sub { display: block; margin-top: 1px; font-size: 11px; color: var(--text-muted); overflow-wrap: anywhere; }
+  .cmp-price-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  .cmp-price-line strong { font-size: 15px; font-variant-numeric: tabular-nums; }
+  .cmp-price-line small { color: var(--text-muted); }
+  .cmp-plan-tag { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 999px; color: var(--brand); background: var(--cmp-soft); }
+  .cmp-bar { height: 4px; margin-top: 5px; border-radius: 999px; background: var(--border); overflow: hidden; }
+  .cmp-bar i { display: block; height: 100%; border-radius: inherit; background: var(--brand); }
+  .cmp-diff { font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .cmp-diff.is-min { color: var(--green); }
+  .cmp-status .tag { white-space: nowrap; }
+  .cmp-open { justify-self: end; border: 0; background: transparent; color: var(--brand); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; padding: 4px 0; white-space: nowrap; }
+  .cmp-open:hover { text-decoration: underline; }
+  .cmp-row.is-off { opacity: .5; filter: grayscale(1); }
+  .cmp-off-divider { margin: 10px 0 2px; color: var(--text-muted); font-size: 11px; font-weight: 600; }
+  .cmp-empty { padding: 24px 0; color: var(--text-muted); font-size: 12px; text-align: center; }
+  .cmp-note { margin: 12px 0 0; color: var(--text-muted); font-size: 11px; }
+  @media (max-width: 760px) {
+    .cmp-details > summary { padding: 14px 16px; }
+    .cmp-body { padding: 0 14px 14px; }
+    .cmp-filter-label { flex-basis: 100%; }
+    .cmp-toolbar-end { margin-left: 0; width: 100%; }
+    .cmp-body input[type=search] { flex: 1; min-width: 0; }
+    .cmp-row.cmp-head { display: none; }
+    .cmp-row { grid-template-columns: 26px 1fr auto; grid-template-areas: "rank building diff" "rank room room" "rank price price" "rank status open"; row-gap: 4px; }
+    .cmp-rank { grid-area: rank; align-self: start; }
+    .cmp-building { grid-area: building; }
+    .cmp-room { grid-area: room; }
+    .cmp-price { grid-area: price; }
+    .cmp-diff { grid-area: diff; }
+    .cmp-status { grid-area: status; }
+    .cmp-open { grid-area: open; }
+    .page-toc { border-radius: 14px; padding: 6px; }
+    .page-toc-item { font-size: 12px; padding: 6px 11px; }
+  }
 </style>
 </head>
 <body>
@@ -197,6 +278,13 @@
   <div class="agent-hint">✅ 点击「<b>申请 ↗</b>」自动登录 Agent Portal（A1336）并跳转申请页，无需手动输入 Agent Code</div>
 </div>
 
+<nav class="page-toc" id="pageToc" aria-label="页面目录">
+  <span class="page-toc-label">目录</span>
+  <button type="button" class="page-toc-item" data-toc="rooms">楼盘房态明细</button>
+  <button type="button" class="page-toc-item" data-toc="cmp">户型比价</button>
+</nav>
+
+<div id="cityTabsAnchor"></div>
 <div class="city-tabs fade-in" style="animation-delay:40ms">
   <button class="city-btn" data-city="sydney" onclick="switchCity('sydney')">Sydney · 悉尼</button>
   <button class="city-btn" data-city="melbourne" onclick="switchCity('melbourne')">Melbourne · 墨尔本</button>
@@ -204,6 +292,43 @@
 </div>
 
 {{CITY_BLOCKS}}
+
+<section class="cmp-card" id="cmpCard" aria-labelledby="cmpTitle">
+  <details class="cmp-details" id="cmpDetails">
+    <summary>
+      <div>
+        <div class="cmp-kicker">Room Type Price Ranking</div>
+        <h2 id="cmpTitle">户型比价</h2>
+        <p class="cmp-stats" id="cmpStats"></p>
+        <p class="cmp-credit">💡 此功能创意由 <strong>@岳芮</strong> 提供</p>
+      </div>
+    </summary>
+    <div class="cmp-body">
+      <div class="cmp-filters">
+        <div class="cmp-filter-row">
+          <span class="cmp-filter-label">城市</span>
+          <div class="cmp-seg" id="cmpCitySeg" role="tablist" aria-label="比价城市"></div>
+          <button type="button" class="cmp-default-btn" id="cmpDefaultBtn"></button>
+        </div>
+        <div class="cmp-filter-row">
+          <span class="cmp-filter-label">租期</span>
+          <div class="cmp-seg" id="cmpTermSeg" role="tablist" aria-label="比价租期"></div>
+        </div>
+        <div class="cmp-filter-row">
+          <span class="cmp-filter-label">户型</span>
+          <div class="cmp-seg" id="cmpCatSeg" role="tablist" aria-label="比价户型"></div>
+          <div class="cmp-toolbar-end">
+            <input type="search" id="cmpSearch" placeholder="搜索楼盘或房型…" autocomplete="off">
+            <button type="button" class="cmp-sort-btn" id="cmpSortBtn"></button>
+          </div>
+        </div>
+      </div>
+      <div class="cmp-summary" id="cmpSummary"></div>
+      <div class="cmp-list" id="cmpList"></div>
+      <p class="cmp-note">价格为官网周租。选「最低」时取 12/24月、44周、22周、短租中最便宜的一档；等位 / 售罄房型官网只给起价，标灰排在最后。NRAS 房型有申请资格限制，不参与比价。</p>
+    </div>
+  </details>
+</section>
 
 <div class="footer fade-in" style="animation-delay:400ms">
   <div class="footer-grid">
@@ -457,6 +582,161 @@ var ROOM_APPLY = {
   }
 };
 var CITY_OF_PROP = { 'broadway':'sydney','central':'sydney','central-park':'sydney','chatswood':'sydney','mascot':'sydney','redfern':'sydney','summer-hill':'sydney','waterloo':'sydney','brisbane-city':'brisbane','kelvin-grove':'brisbane','flagstaff-station':'melbourne','flagstaff-gardens':'melbourne','melbourne-central':'melbourne','melbourne-city':'melbourne','south-yarra':'melbourne' };
+/* ===== 户型比价（Murphy 2026-09-23，创意：岳芮）===== */
+/* 城市筛选独立于下方城市页签；「设为默认城市」按人（浏览器）记住，设了之后每次打开都回到默认城市，没设时回到上次选的城市 */
+var IGLU_COMPARE = {{COMPARE_DATA}};
+(function initRoomCompare(){
+  try {
+    var STORE_KEY = 'iglu-compare-v1';
+    var CITY_NAMES = {sydney: '悉尼', melbourne: '墨尔本', brisbane: '布里斯班'};
+    var TERMS = [['lowest', '最低'], ['12月', '12/24月'], ['44周', '44周'], ['22周', '22周'], ['短租', '短租']];
+    var TERM_LABELS = {'12月': '12/24月', '44周': '44周', '22周': '22周', '短租': '短租', 'From': '起价'};
+    var CATS = [['1bed', '1B'], ['studio', 'Studio'], ['ensuite', 'Ensuite'], ['share', 'Non-ensuite'], ['twin', 'Twin'], ['other', '其他']];
+    var OFF = {waitlist: 1, soldout: 1, unknown: 1};
+    var $c = function(id){ return document.getElementById(id); };
+    var els = {details: $c('cmpDetails'), stats: $c('cmpStats'), city: $c('cmpCitySeg'), defaultBtn: $c('cmpDefaultBtn'), term: $c('cmpTermSeg'), cat: $c('cmpCatSeg'), search: $c('cmpSearch'), sort: $c('cmpSortBtn'), summary: $c('cmpSummary'), list: $c('cmpList')};
+    if (!els.list || !Array.isArray(IGLU_COMPARE)) return;
+    var esc = function(v){ return String(v == null ? '' : v).replace(/[&<>'"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]; }); };
+    var money = function(v){ return '$' + Number(v).toLocaleString('en-AU'); };
+
+    var memory = {};
+    try { memory = JSON.parse(localStorage.getItem(STORE_KEY) || '{}') || {}; } catch(e) { memory = {}; }
+    function save(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(memory)); } catch(e) {} }
+    var cities = CITY_KEYS.filter(function(c){ return IGLU_COMPARE.some(function(r){ return r.city === c; }); });
+    var pageCity = null;
+    try { pageCity = localStorage.getItem('iglu_city'); } catch(e) {}
+    function pick(v, allowed, fallback){ return allowed.indexOf(v) !== -1 ? v : fallback; }
+    var ui = {
+      city: pick(memory.defaultCity, cities, pick(memory.city, cities, pick(pageCity, cities, cities[0]))),
+      term: pick(memory.term, TERMS.map(function(t){ return t[0]; }), 'lowest'),
+      cat: pick(memory.cat, CATS.map(function(c){ return c[0]; }), 'studio'),
+      sort: memory.sort === 'asc' ? 'asc' : 'desc'
+    };
+    if (memory.open !== false) els.details.open = true;
+
+    function priceOf(r){
+      var p = r.prices || {};
+      if (ui.term === 'lowest') {
+        var best = null;
+        ['12月', '44周', '22周', '短租'].forEach(function(k){
+          if (typeof p[k] === 'number' && (!best || p[k] < best.value)) best = {value: p[k], term: k};
+        });
+        if (!best && typeof p.From === 'number') best = {value: p.From, term: 'From'};
+        return best;
+      }
+      return typeof p[ui.term] === 'number' ? {value: p[ui.term], term: ui.term} : null;
+    }
+    function statusHtml(r){
+      if (r.avail === 'available') return '<span class="tag tag-ok">' + (r.count ? r.count + '间' : '有房') + '</span>';
+      if (r.avail === 'limited') return '<span class="tag tag-warn">' + (r.count ? '仅剩' + r.count + '间' : '紧张') + '</span>';
+      if (r.avail === 'waitlist') return '<span class="tag tag-bad">等位</span>';
+      if (r.avail === 'soldout') return '<span class="tag tag-off">售罄</span>';
+      return '<span class="tag tag-off">未知</span>';
+    }
+    function seg(items, active, attr){
+      return items.map(function(it){
+        return '<button type="button" class="cmp-seg-btn' + (it[0] === active ? ' active' : '') + '" data-' + attr + '="' + esc(it[0]) + '" role="tab" aria-selected="' + (it[0] === active) + '">' + esc(it[1]) + (it[2] !== undefined ? '<small>' + it[2] + '</small>' : '') + '</button>';
+      }).join('');
+    }
+    function rowHtml(item, index, maxV, minV){
+      var r = item.room, p = item.price, off = !!OFF[r.avail];
+      var sub = [r.area, r.bed, r.note].filter(function(x){ return x && x !== '?'; }).join(' · ');
+      var room = '<div class="cmp-room"><span class="cmp-room-name">' + esc(r.name) + '</span>' + (sub ? '<span class="cmp-room-sub">' + esc(sub) + '</span>' : '') + '</div>';
+      var open = '<button type="button" class="cmp-open" data-city="' + esc(r.city) + '" data-prop="' + esc(r.propSlug) + '">查看楼盘 →</button>';
+      var priceCell, diffCell;
+      if (!p) {
+        priceCell = '<div class="cmp-price"><span class="cmp-price-line"><strong>—</strong><small>该租期未开放</small></span></div>';
+        diffCell = '<span class="cmp-diff">—</span>';
+      } else {
+        var w = maxV > 0 ? Math.max(4, Math.round(p.value / maxV * 100)) : 0;
+        var tag = (ui.term === 'lowest' || p.term === 'From') ? '<span class="cmp-plan-tag">' + esc(TERM_LABELS[p.term] || p.term) + '</span>' : '';
+        priceCell = '<div class="cmp-price"><span class="cmp-price-line"><strong>' + money(p.value) + '</strong><small>/周</small>' + tag + '</span>' + (off ? '' : '<div class="cmp-bar"><i style="width:' + w + '%"></i></div>') + '</div>';
+        var d = p.value - minV;
+        diffCell = off ? '<span class="cmp-diff">—</span>' : '<span class="cmp-diff' + (d === 0 ? ' is-min' : '') + '">' + (d === 0 ? '最低' : '+' + money(d)) + '</span>';
+      }
+      return '<div class="cmp-row' + (off || !p ? ' is-off' : '') + (index === 0 && !off && p ? ' is-top' : '') + '" title="' + esc(r.date) + '">'
+        + '<span class="cmp-rank">' + (off || !p ? '—' : index + 1) + '</span>'
+        + '<span class="cmp-building">' + esc(r.prop) + '</span>' + room + priceCell + diffCell
+        + '<span class="cmp-status">' + statusHtml(r) + '</span>' + open + '</div>';
+    }
+    function render(){
+      var pool = IGLU_COMPARE.filter(function(r){ return r.city === ui.city; });
+      els.city.innerHTML = seg(cities.map(function(c){ return [c, (CITY_NAMES[c] || c) + (c === memory.defaultCity ? ' ★' : '')]; }), ui.city, 'city');
+      var isDefault = memory.defaultCity === ui.city;
+      els.defaultBtn.classList.toggle('is-default', isDefault);
+      els.defaultBtn.textContent = isDefault ? '★ ' + CITY_NAMES[ui.city] + '已是默认城市（点此取消）' : '☆ 设 ' + CITY_NAMES[ui.city] + ' 为我的默认城市';
+      els.term.innerHTML = seg(TERMS, ui.term, 'term');
+      var counts = {};
+      pool.forEach(function(r){ counts[r.cat] = (counts[r.cat] || 0) + 1; });
+      var visible = CATS.filter(function(c){ return counts[c[0]]; });
+      if (visible.length && !counts[ui.cat]) ui.cat = visible[0][0];
+      els.cat.innerHTML = seg(visible.map(function(c){ return [c[0], c[1], counts[c[0]]]; }), ui.cat, 'cat');
+      els.sort.textContent = ui.sort === 'desc' ? '价格：高 → 低 ⇅' : '价格：低 → 高 ⇅';
+
+      var q = els.search.value.trim().toLowerCase();
+      var items = pool.filter(function(r){ return r.cat === ui.cat && (!q || (r.prop + ' ' + r.name).toLowerCase().indexOf(q) !== -1); })
+        .map(function(r){ return {room: r, price: priceOf(r)}; });
+      var dir = ui.sort === 'desc' ? -1 : 1;
+      var byPrice = function(a, b){ return dir * (a.price.value - b.price.value) || a.room.prop.localeCompare(b.room.prop); };
+      var live = items.filter(function(i){ return i.price && !OFF[i.room.avail]; }).sort(byPrice);
+      var off = items.filter(function(i){ return !i.price || OFF[i.room.avail]; }).sort(function(a, b){
+        if (!a.price || !b.price) return (a.price ? -1 : b.price ? 1 : 0) || a.room.prop.localeCompare(b.room.prop);
+        return byPrice(a, b);
+      });
+      var vals = live.map(function(i){ return i.price.value; });
+      var maxV = vals.length ? Math.max.apply(null, vals) : 0, minV = vals.length ? Math.min.apply(null, vals) : 0;
+      var sorted = vals.slice().sort(function(a, b){ return a - b; });
+      var med = sorted.length ? (sorted.length % 2 ? sorted[(sorted.length - 1) / 2] : Math.round((sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2)) : 0;
+      var catLabel = (CATS.filter(function(c){ return c[0] === ui.cat; })[0] || [0, ''])[1];
+      var nProps = {}; items.forEach(function(i){ nProps[i.room.prop] = 1; });
+      els.stats.innerHTML = CITY_NAMES[ui.city] + ' · <strong>' + esc(catLabel) + '</strong> · ' + Object.keys(nProps).length + ' 个楼盘 ' + items.length + ' 个房型' + (memory.defaultCity ? ' · 默认城市 ' + CITY_NAMES[memory.defaultCity] : '');
+      els.summary.innerHTML = vals.length
+        ? '<span>可订<strong>' + vals.length + '</strong></span><span>最高<strong>' + money(maxV) + '</strong></span><span>中位<strong>' + money(med) + '</strong></span><span>最低<strong>' + money(minV) + '</strong></span><span>价差<strong>' + money(maxV - minV) + '</strong></span>' + (off.length ? '<span>等位/售罄/未开放<strong>' + off.length + '</strong></span>' : '')
+        : '';
+      if (!items.length) { els.list.innerHTML = '<div class="cmp-empty">' + CITY_NAMES[ui.city] + '当前没有符合条件的 ' + esc(catLabel) + ' 房型。</div>'; return; }
+      var head = '<div class="cmp-row cmp-head"><span class="cmp-rank">#</span><span>楼盘</span><span>房型</span><span>周租（' + (ui.term === 'lowest' ? '最低一档' : TERM_LABELS[ui.term]) + '）</span><span>比最低</span><span>库存</span><span></span></div>';
+      els.list.innerHTML = head + live.map(function(i, n){ return rowHtml(i, n, maxV, minV); }).join('')
+        + (off.length ? '<div class="cmp-off-divider">等位 / 售罄 / 该租期未开放（' + off.length + '）</div>' + off.map(function(i){ return rowHtml(i, 0, maxV, minV); }).join('') : '');
+    }
+    function remember(field, value){ ui[field] = value; memory[field] = value; save(); render(); }
+    els.city.addEventListener('click', function(e){ var b = e.target.closest('[data-city]'); if (b) remember('city', b.getAttribute('data-city')); });
+    els.term.addEventListener('click', function(e){ var b = e.target.closest('[data-term]'); if (b) remember('term', b.getAttribute('data-term')); });
+    els.cat.addEventListener('click', function(e){ var b = e.target.closest('[data-cat]'); if (b) remember('cat', b.getAttribute('data-cat')); });
+    els.sort.addEventListener('click', function(){ remember('sort', ui.sort === 'desc' ? 'asc' : 'desc'); });
+    els.search.addEventListener('input', render);
+    els.defaultBtn.addEventListener('click', function(){ if (memory.defaultCity === ui.city) delete memory.defaultCity; else memory.defaultCity = ui.city; save(); render(); });
+    els.details.addEventListener('toggle', function(){ memory.open = els.details.open; save(); });
+    els.list.addEventListener('click', function(e){
+      var b = e.target.closest('.cmp-open');
+      if (!b) return;
+      var city = b.getAttribute('data-city'), prop = b.getAttribute('data-prop');
+      switchCity(city);
+      switchProp(city, prop);
+      var anchor = $c('cityTabsAnchor');
+      if (anchor) anchor.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+    render();
+
+    /* 目录：跳转 + 滚动高亮 */
+    var toc = $c('pageToc');
+    if (toc) {
+      var targets = {cmp: $c('cmpCard'), rooms: $c('cityTabsAnchor')};
+      var btns = [].slice.call(toc.querySelectorAll('.page-toc-item'));
+      btns.forEach(function(b){ b.addEventListener('click', function(){
+        var k = b.getAttribute('data-toc');
+        if (k === 'cmp' && !els.details.open) els.details.open = true;
+        if (targets[k]) targets[k].scrollIntoView({behavior: 'smooth', block: 'start'});
+      }); });
+      var hl = function(){
+        var cur = 'rooms'; /* 页面顶部就是楼盘房态明细 */
+        btns.forEach(function(b){ var el = targets[b.getAttribute('data-toc')]; if (el && el.getBoundingClientRect().top - 80 <= 4) cur = b.getAttribute('data-toc'); });
+        btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-toc') === cur); });
+      };
+      window.addEventListener('scroll', hl, {passive: true});
+      hl();
+    }
+  } catch (e) { console.error('room compare init failed', e); }
+})();
 </script>
 <div class="watermark">梁赛威 · Murphy</div>
 </body>
