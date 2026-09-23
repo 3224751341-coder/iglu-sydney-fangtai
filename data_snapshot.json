@@ -77,9 +77,9 @@
    "44周": 865,
    "短租": 800
   },
-  "avail": "available",
-  "count": 3,
-  "date": "今年可订：短租 11月27日 起"
+  "avail": "limited",
+  "count": 2,
+  "date": "今年可订：短租 11月30日 起"
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
   "prices": {
@@ -98,7 +98,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 11月27日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
   "prices": {
@@ -109,7 +109,29 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月24日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+ },
+ "sydney/central-park/premium-corner-studio-apartment-cp": {
+  "prices": {
+   "From": 1115,
+   "22周": 1115,
+   "44周": 1055,
+   "短租": 1115
+  },
+  "avail": "limited",
+  "count": 1,
+  "date": "今年可订：短租 9月24日 起"
+ },
+ "sydney/central-park/premium-studio-apartment": {
+  "prices": {
+   "From": 1075,
+   "22周": 1075,
+   "44周": 1015,
+   "短租": 1075
+  },
+  "avail": "limited",
+  "count": 2,
+  "date": "今年可订：短租 9月24日 起；固定起租 10月25日 起"
  },
  "sydney/central-park/standard-studio-apartment-cp": {
   "prices": {
@@ -161,6 +183,16 @@
   "avail": "available",
   "count": null,
   "date": "今年可订：短租 9月24日 起；长租灵活 2027年1月2日~2月9日 起（合同至 2027年7月8日）"
+ },
+ "sydney/central-park/premium-single-room-6-share-cp": {
+  "prices": {
+   "From": 815,
+   "22周": 875,
+   "44周": 815
+  },
+  "avail": "available",
+  "count": null,
+  "date": "今年已无房：2027年2月12日"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
@@ -521,7 +553,7 @@
    "12月": 615
   },
   "avail": "available",
-  "count": 4,
+  "count": 5,
   "date": "今年可订：长租灵活 2026年9月24日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
