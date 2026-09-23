@@ -276,7 +276,7 @@
       <div class="uhomes-badge"><span class="ub-dot"></span>uhomes 异乡好居</div>
     </div>
   </div>
-  <p class="meta">📍 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所 Iglu 公寓 &ensp;|&ensp; 更新于 2026年09月23日 16:11 &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每小时自动刷新</p>
+  <p class="meta">📍 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所 Iglu 公寓 &ensp;|&ensp; 更新于 2026年09月23日 16:17 &ensp;|&ensp; Agent A1336 &ensp;|&ensp; 每小时自动刷新</p>
   <div class="agent-hint">✅ 点击「<b>申请 ↗</b>」自动登录 Agent Portal（A1336）并跳转申请页，无需手动输入 Agent Code</div>
 </div>
 
@@ -460,7 +460,7 @@ var PROP_SITES = {
   'central-park': 'https://iglu.com.au/properties/sydney/central-park/',
   'chatswood': 'https://iglu.com.au/properties/sydney/chatswood/',
   'mascot': 'https://iglu.com.au/properties/sydney/mascot/',
-  'mascot-duo': 'https://iglu.com.au/sydney/mascot-duo/',
+  'mascot-duo': 'https://iglu.com.au/properties/sydney/mascot-duo/',
   'redfern': 'https://iglu.com.au/properties/sydney/redfern/',
   'summer-hill': 'https://iglu.com.au/properties/sydney/summer-hill/',
   'waterloo': 'https://iglu.com.au/properties/sydney/waterloo/',
@@ -485,7 +485,7 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   a.href = url;
   a.target = '_blank';
   a.rel = 'noreferrer noopener';
-  a.textContent = slug === 'mascot-duo' ? '官网（招租登记）↗' : '官网 ↗';
+  a.textContent = '官网 ↗';
   bar.appendChild(a);
   /* 直达申请：通过 Pages Function 代理自动登录 Agent Portal (A1336) */
   var applyUrl = applyUrlFor(slug);
@@ -501,11 +501,11 @@ document.querySelectorAll('.prop-panel').forEach(function(panel){
   panel.insertBefore(bar, panel.firstChild);
 });
 
-/* 由官网 URL 推导城市，生成该楼直达申请链接（mascot-duo 未开业，暂无申请入口）
+/* 由官网 URL 推导城市，生成该楼直达申请链接（mascot-duo 2026-09-23 已开放申请，和其他楼一样）
    通过 Cloudflare Pages Function 代理，服务端自动登录 Agent Portal (A1336) */
 function applyUrlFor(slug){
   var site = PROP_SITES[slug];
-  if(!site || slug === 'mascot-duo') return null;
+  if(!site) return null;
   var m = site.match(/iglu\.com\.au\/properties\/(\w+)\//);
   if(!m) return null;
   return '/iglu/apply-online/?p=' + slug + '&q=' + m[1];
