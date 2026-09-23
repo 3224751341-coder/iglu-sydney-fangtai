@@ -124,11 +124,13 @@ CITIES = {
             # Central Park
             "standard-studio-apartment-cp": ("Standard Studio", "Studio", "17m²", "Queen", ""),
             "superior-studio-apartment": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
-            "premium-studio-apartment-cp": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            # 2026-09-23 官网改链接：premium-studio-apartment-cp → premium-studio-apartment（旧链接 404）
+            "premium-studio-apartment": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
+            "premium-corner-studio-apartment-cp": ("Premium Corner Studio", "Studio", "31m²", "Queen", ""),
+            "premium-single-room-6-share-cp": ("Premium 6 Share", "Share", "~13m²", "King Single", "6人"),
             "single-bedroom-6-share-apt-cp": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
             "single-bedroom-4-share-apt-cp": ("4 Share Apt", "Share", "~13m²", "King Single", "4人"),
             "single-bedroom-3-share-apt-cp": ("3 Share Apt", "Share", "~13m²", "King Single", "3人"),
-            "premium-studio-nras-cp": ("Premium Studio NRAS", "Studio", "31m²", "Queen", "NRAS补贴"),
             # Chatswood
             "single-bedroom-6-share-apt-ch": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
             "single-bedroom-5-share-apt-ch": ("5 Share Apt", "Share", "~13m²", "King Single", "5人"),
@@ -179,9 +181,9 @@ CITIES = {
             ],
             "central-park": [
                 "standard-studio-apartment-cp", "superior-studio-apartment",
-                "premium-studio-apartment-cp", "single-bedroom-6-share-apt-cp",
+                "premium-studio-apartment", "premium-corner-studio-apartment-cp",
+                "single-bedroom-6-share-apt-cp", "premium-single-room-6-share-cp",
                 "single-bedroom-4-share-apt-cp", "single-bedroom-3-share-apt-cp",
-                "premium-studio-nras-cp",
             ],
             "chatswood": [
                 "single-bedroom-6-share-apt-ch", "single-bedroom-5-share-apt-ch",
@@ -1277,10 +1279,15 @@ def save_snapshot(snap: dict):
 def diff_snapshot(old: dict, new: dict):
     """对比两次快照，返回变化列表 [(key, field, old_val, new_val), ...]"""
     changes = []
+    # 2026-09-23 Murphy：已有楼盘里新上架的房型要推送（例如 Central Park 新增 Premium Corner Studio）。
+    # 只对「上次快照里已经有这栋楼」的情况报新增；整栋楼首次接入时不报，避免一次刷屏。
+    known_props = {k.rsplit("/", 1)[0] for k in old}
     for key, cur in new.items():
         prev = old.get(key)
         if prev is None:
-            continue  # 首次抓取/新增房型不打扰
+            if key.rsplit("/", 1)[0] in known_props:
+                changes.append((key, "new", None, cur))
+            continue
         for field in ("prices", "avail", "count", "date"):
             if prev.get(field) != cur.get(field):
                 changes.append((key, field, prev.get(field), cur.get(field)))
@@ -1387,6 +1394,18 @@ def format_changes(changes: list, all_cities: dict) -> str:
                 lines.append(f"> 余量: {oldv or '-'} → {newv or '-'}")
             elif field == "date":
                 lines.append(f"> 起租: {oldv or '—'} → {newv or '—'}")
+            elif field == "new":
+                cur = newv or {}
+                p = cur.get("prices") or {}
+                price_txt = " / ".join(f"{k} ${v}" for k, v in p.items() if k != "From" and v) or (f"起价 ${p['From']}" if p.get("From") else "—")
+                avail_txt = {"available": "有房", "limited": "紧张", "waitlist": "等位", "soldout": "售罄"}.get(cur.get("avail"), cur.get("avail") or "?")
+                if cur.get("count"):
+                    avail_txt += f"（{cur['count']}间）"
+                lines.append(f"> 🆕 新增房型")
+                lines.append(f"> 价格: {price_txt}")
+                lines.append(f"> 库存: {avail_txt}")
+                if cur.get("date"):
+                    lines.append(f"> 起租: {cur['date']}")
         lines.append("")
 
     # 按字节而非字符数截断（中文一个字 3 字节，按字符截断时真实字节数仍可能超限）。
