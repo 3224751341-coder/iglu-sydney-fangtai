@@ -102,7 +102,7 @@ CITIES = {
             "Central Park": "central-park",
             "Chatswood": "chatswood",
             "Mascot": "mascot",
-            "Mascot Duo": "mascot-duo",   # 2027年1月开业，官网尚未发布可预订房型页 → Coming Soon 占位
+            "Mascot Duo": "mascot-duo",   # 2027年1月开业，2026-09 已开放申请
             "Redfern": "redfern",
             "Summer Hill": "summer-hill",
             "Waterloo": "waterloo",
@@ -142,6 +142,10 @@ CITIES = {
             "standard-studio-apartment-ma": ("Standard Studio", "Studio", "17m²", "Queen", ""),
             "premium-studio-apartment-ma": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
             "standard-studio-apartment-queen": ("Standard Studio Queen", "Studio", "17m²", "Queen", ""),
+            # Mascot Duo（2027年1月开业）
+            "standard-studio-apartment-md": ("Standard Studio", "Studio", "17.7m²", "Double", ""),
+            "superior-studio-apartment-md": ("Superior Studio", "Studio", "17.7m²", "Double", ""),
+            "premium-studio-apartment-md": ("Premium Studio", "Studio", "18.5m²", "Double", ""),
             # Redfern
             "single-bed-6-share-apt-saex-sre": ("6 Share SAEX", "Share", "~13m²", "King Single", "6人 USYD"),
             "single-bedroom-6-share-apt-re": ("6 Share Apt", "Share", "~13m²", "King Single", "6人"),
@@ -189,7 +193,10 @@ CITIES = {
                 "standard-studio-apartment-ma", "premium-studio-apartment-ma",
                 "standard-studio-apartment-queen",
             ],
-            "mascot-duo": [],   # Coming Soon（2027年1月开业），房型 slug 待官网公布后补
+            "mascot-duo": [   # 2027年1月开业，2026-09 官网已开放申请
+                "standard-studio-apartment-md", "superior-studio-apartment-md",
+                "premium-studio-apartment-md",
+            ],
             "redfern": [
                 "single-bed-6-share-apt-saex-sre", "single-bedroom-6-share-apt-re",
                 "single-bedroom-5-share-apt-re", "single-bedroom-4-share-apt-re",
@@ -309,7 +316,7 @@ CITIES = {
 
 # 即将开业、暂无真实房型数据的楼（官网未发布可预订房型页）。
 # 这些楼只显示在导航里并标注"即将"，不参与抓取，避免误抓旧楼数据。
-COMING_SOON = {"mascot-duo"}
+COMING_SOON = set()
 
 # ── Room type display order (sub-tabs inside a property) ──
 TYPE_ORDER = ["Studio", "Apt", "Share"]
