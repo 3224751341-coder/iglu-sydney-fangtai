@@ -316,7 +316,7 @@
    "12月": 625
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年已无房：2027年2月8日"
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
@@ -339,7 +339,7 @@
    "12月": 585
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年可订：长租灵活 2026年12月9日~2027年2月15日 起（合同至 2027年7月14日）"
  },
  "sydney/mascot/premium-studio-apartment-ma": {
@@ -862,7 +862,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月24日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
