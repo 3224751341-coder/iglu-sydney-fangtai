@@ -19,7 +19,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
+  "date": "今年可订：短租 12月10日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -263,7 +263,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月24日 起；长租灵活 2027年1月2日~2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月24日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月15日）"
  },
  "sydney/central-park/premium-single-room-6-share-cp": {
   "prices": {
@@ -272,7 +272,7 @@
    "44周": 815
   },
   "avail": "available",
-  "count": null,
+  "count": 4,
   "date": "今年已无房：2027年2月12日"
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
