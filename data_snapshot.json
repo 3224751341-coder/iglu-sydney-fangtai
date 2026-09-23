@@ -283,6 +283,36 @@
   "count": null,
   "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
+ "sydney/mascot-duo/premium-studio-apartment-md": {
+  "prices": {
+   "From": 835,
+   "22周": 895,
+   "44周": 835
+  },
+  "avail": "available",
+  "count": null,
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+ },
+ "sydney/mascot-duo/standard-studio-apartment-md": {
+  "prices": {
+   "From": 795,
+   "22周": 855,
+   "44周": 795
+  },
+  "avail": "available",
+  "count": null,
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+ },
+ "sydney/mascot-duo/superior-studio-apartment-md": {
+  "prices": {
+   "From": 815,
+   "22周": 875,
+   "44周": 815
+  },
+  "avail": "available",
+  "count": null,
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+ },
  "sydney/redfern/premium-studio-apartment-re": {
   "prices": {
    "From": 945,
