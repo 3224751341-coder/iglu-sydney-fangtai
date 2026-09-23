@@ -210,6 +210,8 @@
   .cmp-seg-btn:hover { color: var(--brand); }
   .cmp-seg-btn.active { background: var(--brand); color: #fff; }
   .cmp-seg-btn small { margin-left: 4px; font-size: 10px; opacity: .75; font-weight: 500; }
+  .cmp-u18 { display: inline-flex; align-items: center; gap: 6px; margin-left: 4px; color: var(--text-muted); font-size: 12px; font-weight: 600; cursor: pointer; user-select: none; }
+  .cmp-u18 input { accent-color: var(--brand); }
   .cmp-default-btn { border: 1px dashed var(--border); background: var(--card-bg); color: var(--text-muted); font: inherit; font-size: 12px; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
   .cmp-default-btn:hover { border-color: var(--brand); color: var(--brand); }
   .cmp-default-btn.is-default { border-style: solid; border-color: rgba(255,90,95,.45); background: var(--cmp-soft); color: var(--brand); font-weight: 600; }
@@ -313,6 +315,7 @@
         <div class="cmp-filter-row">
           <span class="cmp-filter-label">租期</span>
           <div class="cmp-seg" id="cmpTermSeg" role="tablist" aria-label="比价租期"></div>
+          <label class="cmp-u18"><input type="checkbox" id="cmpU18"> 含 U18 房型</label>
         </div>
         <div class="cmp-filter-row">
           <span class="cmp-filter-label">户型</span>
@@ -325,7 +328,7 @@
       </div>
       <div class="cmp-summary" id="cmpSummary"></div>
       <div class="cmp-list" id="cmpList"></div>
-      <p class="cmp-note">价格为官网周租。选「最低」时取 12/24月、44周、22周、短租中最便宜的一档；等位 / 售罄房型官网只给起价，标灰排在最后。NRAS 房型有申请资格限制，不参与比价。</p>
+      <p class="cmp-note">价格为官网周租。选「最低」时取 12/24月、44周、22周、短租中最便宜的一档；等位 / 售罄房型官网只给起价，标灰排在最后。NRAS 房型有申请资格限制，不参与比价；U18（仅限未成年）房型默认不参与，可勾选「含 U18 房型」。</p>
     </div>
   </details>
 </section>
@@ -594,6 +597,7 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
     var CATS = [['1bed', '1B'], ['studio', 'Studio'], ['ensuite', 'Ensuite'], ['share', 'Non-ensuite'], ['twin', 'Twin'], ['other', '其他']];
     var OFF = {waitlist: 1, soldout: 1, unknown: 1};
     var $c = function(id){ return document.getElementById(id); };
+    var u18Box = $c('cmpU18');
     var els = {details: $c('cmpDetails'), stats: $c('cmpStats'), city: $c('cmpCitySeg'), defaultBtn: $c('cmpDefaultBtn'), term: $c('cmpTermSeg'), cat: $c('cmpCatSeg'), search: $c('cmpSearch'), sort: $c('cmpSortBtn'), summary: $c('cmpSummary'), list: $c('cmpList')};
     if (!els.list || !Array.isArray(IGLU_COMPARE)) return;
     var esc = function(v){ return String(v == null ? '' : v).replace(/[&<>'"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]; }); };
@@ -660,7 +664,7 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
         + '<span class="cmp-status">' + statusHtml(r) + '</span>' + open + '</div>';
     }
     function render(){
-      var pool = IGLU_COMPARE.filter(function(r){ return r.city === ui.city; });
+      var pool = IGLU_COMPARE.filter(function(r){ return r.city === ui.city && (memory.u18 || !r.u18); });
       els.city.innerHTML = seg(cities.map(function(c){ return [c, (CITY_NAMES[c] || c) + (c === memory.defaultCity ? ' ★' : '')]; }), ui.city, 'city');
       var isDefault = memory.defaultCity === ui.city;
       els.defaultBtn.classList.toggle('is-default', isDefault);
@@ -704,6 +708,7 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
     els.cat.addEventListener('click', function(e){ var b = e.target.closest('[data-cat]'); if (b) remember('cat', b.getAttribute('data-cat')); });
     els.sort.addEventListener('click', function(){ remember('sort', ui.sort === 'desc' ? 'asc' : 'desc'); });
     els.search.addEventListener('input', render);
+    if (u18Box) { u18Box.checked = !!memory.u18; u18Box.addEventListener('change', function(){ memory.u18 = u18Box.checked; save(); render(); }); }
     els.defaultBtn.addEventListener('click', function(){ if (memory.defaultCity === ui.city) delete memory.defaultCity; else memory.defaultCity = ui.city; save(); render(); });
     els.details.addEventListener('toggle', function(){ memory.open = els.details.open; save(); });
     els.list.addEventListener('click', function(e){

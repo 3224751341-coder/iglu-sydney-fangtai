@@ -124,6 +124,7 @@ CITIES = {
             # Central Park
             "standard-studio-apartment-cp": ("Standard Studio", "Studio", "17m²", "Queen", ""),
             "superior-studio-apartment": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
+            "superior-studio-apartment-cp": ("Superior Studio", "Studio", "21m²", "Queen+沙发", ""),
             # 2026-09-23 官网改链接：premium-studio-apartment-cp → premium-studio-apartment（旧链接 404）
             "premium-studio-apartment": ("Premium Studio", "Studio", "31m²", "Queen+客厅", ""),
             "premium-corner-studio-apartment-cp": ("Premium Corner Studio", "Studio", "31m²", "Queen", ""),
@@ -890,6 +891,26 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     return '待定'
 
 
+def auto_room_meta(room_slug: str, html: str) -> tuple:
+    """官网新出现、还没写进 room_meta 的房型：名字取房型页 <h1> 第一行（如「U18 6 Bedroom Female」），
+    类型按 slug 推断。格式同 room_meta：(名称, 类型, 面积, 床型, 备注)"""
+    name = ""
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
+    if m:
+        import html as _html
+        text = _html.unescape(re.sub(r"<[^>]+>", " ", m.group(1)))
+        name = next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+    name = re.sub(r"\s+Apartment$", "", name) or room_slug.replace("-", " ").title()
+    if "studio" in room_slug:
+        rtype = "Studio"
+    elif room_slug.startswith("1-bedroom"):
+        rtype = "Apt"
+    else:
+        rtype = "Share"
+    note = "U18" if "u18" in room_slug else ""
+    return (name, rtype, "?", "?", note)
+
+
 def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) -> dict:
     """Scrape a single room page and return structured data."""
     url = f"https://iglu.com.au/rooms/{city}/{property_slug}/{room_slug}/"
@@ -908,7 +929,7 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
     features = extract_features(html)
 
     # Use ROOM_META as fallback for name/type/note, but prefer scraped area/bed
-    meta = room_meta.get(room_slug, (room_slug.replace('-', ' ').title(), "Unknown", "?", "?", ""))
+    meta = room_meta.get(room_slug) or auto_room_meta(room_slug, html)
     area = features.get('area') or meta[2]
     bed = features.get('bed') or meta[3]
 
@@ -929,11 +950,37 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
     }
 
 
+def discover_room_slugs(city: str, property_slug: str):
+    """2026-09-23 Murphy：房型不能写死，要随官网自动增减。每轮从官网楼盘页读出
+    /rooms/<city>/<楼盘>/<房型>/ 链接作为本轮房型清单；读取失败返回 None（调用方回退到配置清单）。"""
+    try:
+        html = fetch_page(f"https://iglu.com.au/properties/{city}/{property_slug}/")
+    except Exception as e:
+        print(f"     ⚠️ 楼盘页读取失败，沿用配置清单: {e}")
+        return None
+    found = []
+    for rs in re.findall(rf'/rooms/{re.escape(city)}/{re.escape(property_slug)}/([a-z0-9-]+)/?["\'#?]', html):
+        if rs not in found:
+            found.append(rs)
+    return found or None
+
+
 def scrape_property(city: str, name: str, slug: str, room_meta: dict, property_rooms: dict) -> dict:
     """Scrape all rooms for a property."""
     print(f"  📍 {city} · {name} ({slug})")
 
-    room_slugs = property_rooms.get(slug, [])
+    configured = property_rooms.get(slug, [])
+    found = discover_room_slugs(city, slug)
+    if found:
+        added = [x for x in found if x not in configured]
+        dropped = [x for x in configured if x not in found]
+        if added:
+            print(f"     🆕 官网有、配置里没有（自动收录）: {', '.join(added)}")
+        if dropped:
+            print(f"     ➖ 配置里有、官网已不再列出（本轮不抓）: {', '.join(dropped)}")
+        room_slugs = found
+    else:
+        room_slugs = configured
 
     print(f"     {len(room_slugs)} room types to scrape")
 
@@ -1177,7 +1224,7 @@ def compare_category(room: dict) -> str:
         return "twin"
     if "share-bathroom" in slug or "shared-bathroom" in slug:
         return "share"
-    if "share" in slug:
+    if "share" in slug or "bedroom" in slug:
         return "ensuite"
     return "other"
 
@@ -1203,6 +1250,7 @@ def build_compare_data(all_cities: dict) -> list:
                     "avail": r.get("avail_status", ""),
                     "count": r.get("avail_count"),
                     "date": r.get("date_str", ""),
+                    "u18": "u18" in (r.get("slug") or "").lower(),
                 })
     return rows
 
