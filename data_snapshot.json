@@ -408,23 +408,22 @@
    "From": 755,
    "22周": 815,
    "44周": 755,
-   "短租": 815,
-   "12月": 755
+   "短租": 815
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月27日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）"
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
    "From": 735,
    "22周": 795,
    "44周": 735,
-   "12月": 735
+   "短租": 795
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月27日 起（合同至 2026年12月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）"
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
@@ -522,7 +521,7 @@
    "12月": 615
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "今年可订：长租灵活 2026年9月24日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租"
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
@@ -536,11 +535,13 @@
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
-   "From": 745
+   "From": 805,
+   "短租": 805,
+   "12月": 745
   },
-  "avail": "waitlist",
-  "count": null,
-  "date": "今年无房（等位）"
+  "avail": "limited",
+  "count": 1,
+  "date": "今年可订：短租 9月24日 起；固定起租 10月15日 起"
  },
  "melbourne/flagstaff-station/standard-studio-apartment-fs": {
   "prices": {
