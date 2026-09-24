@@ -809,12 +809,6 @@
   "count": null,
   "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租"
  },
- "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定"
- },
  "melbourne/melbourne-city/single-bed-6-share-apt-saex-mci": {
   "prices": {
    "From": 495
@@ -822,6 +816,14 @@
   "avail": "available",
   "count": null,
   "date": "今年已无房：2027年2月10日"
+ },
+ "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
+  "prices": {
+   "From": 525
+  },
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-male": {
   "prices": {
