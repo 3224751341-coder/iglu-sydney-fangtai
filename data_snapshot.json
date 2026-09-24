@@ -521,8 +521,8 @@
   "prices": {
    "From": 725
   },
-  "avail": "limited",
-  "count": 1,
+  "avail": "soldout",
+  "count": null,
   "date": "待定"
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
@@ -589,7 +589,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）"
+  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）；长租亦可 2027年2月9日起租"
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
   "prices": {
