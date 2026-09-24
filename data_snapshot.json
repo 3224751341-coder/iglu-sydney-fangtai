@@ -1010,16 +1010,13 @@
   "count": null,
   "date": "今年已无房：2027年2月11日"
  },
- "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
-  "prices": {
-   "From": 479,
-   "12月": 479
-  },
-  "avail": "available",
-  "count": 3,
-  "date": "今年已无房：2027年2月15日"
- },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-male": {
+  "prices": {},
+  "avail": "unknown",
+  "count": null,
+  "date": "待定"
+ },
+ "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
   "prices": {
    "From": 479,
    "12月": 479
