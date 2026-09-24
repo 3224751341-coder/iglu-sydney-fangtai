@@ -178,8 +178,8 @@
    "From": 779,
    "12月": 779
   },
-  "avail": "limited",
-  "count": 2,
+  "avail": "available",
+  "count": 3,
   "date": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起"
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
@@ -381,7 +381,7 @@
    "短租": 745
   },
   "avail": "available",
-  "count": null,
+  "count": 5,
   "date": "今年可订：短租 9月27日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
