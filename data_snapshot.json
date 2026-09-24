@@ -978,12 +978,11 @@
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
   "prices": {
-   "From": 479,
-   "12月": 479
+   "From": 479
   },
-  "avail": "available",
-  "count": 5,
-  "date": "今年已无房：2027年2月11日"
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）"
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
