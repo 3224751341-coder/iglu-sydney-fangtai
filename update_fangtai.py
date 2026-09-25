@@ -319,7 +319,9 @@ CITIES = {
 
 # 即将开业、暂无真实房型数据的楼（官网未发布可预订房型页）。
 # 这些楼只显示在导航里并标注"即将"，不参与抓取，避免误抓旧楼数据。
-COMING_SOON = set()
+# 格式：{楼盘slug: "YYYY-MM" 预计开业月份}。开业文案按这里的月份生成；过了这个月还没抓到房型，
+# 就不再显示"预计 X 月开业"（避免过期文案），改成中性提示。
+COMING_SOON = {}
 
 # ── Room type display order (sub-tabs inside a property) ──
 TYPE_ORDER = ["Studio", "Apt", "Share"]
@@ -399,47 +401,60 @@ def fetch_page(url: str, use_agent: bool = False, retries: int = 3) -> str:
             raise
 
 
+# 租期价格：2026-09-25 起不再只认写死的几档（之前 6 个月一直漏抓；官网新开一档如 "40 Weeks"
+# 会被静默丢掉）。房型页每个租期都是 <input name="lterm" value="X"> + <label>名称 ($价格/wk)</label>，
+# 这里通用地把页面上所有租期都抓下来：已知的映射到老键（页面列/比价/历史快照都用这些键），
+# 不认识的新租期按名称生成键（"40 Weeks" → "40周"），页面和推送照常显示。
+TERM_KEY_BY_VALUE = {"12": "12月", "24": "24月", "6": "6月", "22": "22周", "44": "44周", "SS": "短租"}
+# 页面列 / 比价里的租期排列顺序；不在这里的新租期排在最后
+TERM_ORDER = ["12月", "24月", "6月", "44周", "22周", "短租"]
+# 这次新开始抓的键：上一轮快照里完全没有时，第一轮先静默吸收，不把"抓取能力变了"当成
+# 所有房型同时新开租期推送出去（下一轮起就是正常对比）
+NEWLY_TRACKED_TERMS = {"6月"}
+
+
+def _term_key(value: str, label: str) -> str:
+    if value in TERM_KEY_BY_VALUE:
+        return TERM_KEY_BY_VALUE[value]
+    m = re.match(r"(\d+)\s*(week|month)s?$", label, re.IGNORECASE)
+    if m:
+        return m.group(1) + ("周" if m.group(2).lower() == "week" else "月")
+    if re.match(r"short\s*stay$", label, re.IGNORECASE):
+        return "短租"
+    return label
+
+
+def term_sort_key(k: str):
+    return (TERM_ORDER.index(k) if k in TERM_ORDER else len(TERM_ORDER), k)
+
+
 def extract_prices(html: str) -> dict:
     """Extract price points from a room page."""
     prices = {}
-
-    # Clean HTML tags for regex matching
-    text = re.sub(r'<[^>]+>', ' ', html)
+    # 页面里还留着一段被 <!-- --> 注释掉的旧租期表（"6 Months (+$40/wk)" 那种加价写法），必须先去掉
+    live = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
+    text = re.sub(r'<[^>]+>', ' ', live)
 
     # "From $XXX/wk" — hero price
     from_m = re.search(r'From\s+\$([\d,]+)\s*/?\s*wk', text, re.IGNORECASE)
     if from_m:
         prices['From'] = int(from_m.group(1).replace(',', ''))
 
-    # "22 Weeks ($865/wk)" or "22 Weeks $865/wk" or "22 Weeks **($865/wk)**"
-    w22_m = re.search(r'22\s*Weeks?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
-    if w22_m:
-        prices['22周'] = int(w22_m.group(1).replace(',', ''))
+    for m in re.finditer(r'<input[^>]*name="lterm"[^>]*value="([^"]*)"[^>]*>\s*<label[^>]*>(.*?)</label>', live, re.S):
+        label_txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m.group(2))).strip()
+        pm = re.match(r"(.*?)\s*\(\s*\$([\d,]+)\s*/\s*wk\s*\)", label_txt, re.IGNORECASE)
+        if not pm:
+            continue  # 没标价格（或是 "+$40/wk" 加价写法）的不算一档价格
+        key = _term_key(m.group(1).strip(), pm.group(1).strip())
+        prices.setdefault(key, int(pm.group(2).replace(',', '')))
 
-    # "44 Weeks ($XXX/wk)" — only available in Sydney Semester 1
-    w44_m = re.search(r'44\s*Weeks?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
-    if w44_m:
-        prices['44周'] = int(w44_m.group(1).replace(',', ''))
-
-    # "Short Stay ($600/wk)"
-    ss_m = re.search(r'Short\s+Stay\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
-    if ss_m:
-        prices['短租'] = int(ss_m.group(1).replace(',', ''))
-
-    # "12 Months ($XXX/wk)" or "12 Months **($XXX/wk)**"
-    m12_m = re.search(r'12\s*Months?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
-    if m12_m:
-        prices['12月'] = int(m12_m.group(1).replace(',', ''))
-
-    # "24 Months ($XXX/wk)"
-    m24_m = re.search(r'24\s*Months?\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
-    if m24_m:
-        prices['24月'] = int(m24_m.group(1).replace(',', ''))
-
-    # If we only have "From", use it as default for 短租
-    if 'From' in prices and not prices:
-        pass  # Keep 'From' as the only indicator
-
+    if len(prices) <= 1:
+        # 兜底：页面结构变了、结构化解析一个租期都没抓到时，退回按文字匹配（旧逻辑）
+        for key, pat in (("22周", r'22\s*Weeks?'), ("44周", r'44\s*Weeks?'), ("短租", r'Short\s+Stay'),
+                         ("12月", r'12\s*Months?'), ("24月", r'24\s*Months?'), ("6月", r'6\s*Months?')):
+            mm = re.search(pat + r'\s*(?:\(|\(?\*?\*?)?\$([\d,]+)', text, re.IGNORECASE)
+            if mm:
+                prices.setdefault(key, int(mm.group(1).replace(',', '')))
     return prices
 
 
@@ -947,6 +962,7 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
         "avail_text": avail_text,
         "date_data": date_data,
         "date_str": DATE_OVERRIDES.get(meta[0], format_start_label(avail_status, date_data)),
+        "scraped_at": _bjt_now().strftime("%m-%d %H:%M"),
     }
 
 
@@ -963,6 +979,12 @@ def discover_room_slugs(city: str, property_slug: str):
         if rs not in found:
             found.append(rs)
     return found or None
+
+
+# 上一轮快照（main 开始时载入）：单房型抓取失败时从这里沿用上次数据
+_PREV_SNAPSHOT: dict = {}
+# 失败房型在老快照里没有完整房型数据时，只把快照条目原样带到新快照（避免"消失又重现"误报）
+_CARRIED_SNAPSHOT: dict = {}
 
 
 def scrape_property(city: str, name: str, slug: str, room_meta: dict, property_rooms: dict) -> dict:
@@ -994,6 +1016,18 @@ def scrape_property(city: str, name: str, slug: str, room_meta: dict, property_r
                 print(f"     ✅ {result['name']}: {result.get('prices', {}).get('From', 'N/A')}")
             else:
                 print(f"     ❌ {futures[future]}: {result['error']}")
+                # 2026-09-25：单个房型偶发抓取失败不能让它从快照里消失（否则下次抓成功会被误推成
+                # "新上架"）。沿用上次快照里的数据，页面标「⚠ 未更新」。
+                key = f"{city}/{slug}/{futures[future]}"
+                prev = _PREV_SNAPSHOT.get(key)
+                if prev and prev.get("_room"):
+                    kept = dict(prev["_room"])
+                    kept["stale"] = True
+                    rooms.append(kept)
+                    print(f"        ↩️ 沿用上次数据（{kept.get('scraped_at') or '时间未知'}），页面标「未更新」")
+                elif prev:
+                    _CARRIED_SNAPSHOT[key] = prev  # 老快照没存完整房型数据：页面这轮不显示，但快照里保留
+                    print("        ↩️ 快照里保留上次数据（页面本轮不显示该房型）")
 
     # Sort: Studio/Apt first, then Share (按 TYPE_ORDER 排序，同类按名称)
     type_rank = {t: i for i, t in enumerate(TYPE_ORDER)}
@@ -1114,21 +1148,21 @@ def build_date_cell(room: dict) -> str:
     return '<span class="tag tag-off tag-mini">待定</span>'
 
 
-def build_room_row(room: dict) -> str:
-    """Build a single table row (统一渲染 Studio / Share，不再分表)。"""
+def build_room_row(room: dict, term_cols: list) -> str:
+    """Build a single table row (统一渲染 Studio / Share，不再分表)。租期列按楼盘动态生成。"""
     p = room['prices']
     row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     note = room.get("note", "")
     note_html = f'<span class="room-note">{note}</span>' if note else ''
+    if room.get("stale"):
+        note_html += f'<span class="room-note" title="本轮抓取失败，显示的是上次成功抓取的数据">⚠ 未更新（{room.get("scraped_at") or "上次"}）</span>'
+    price_cells = "".join(f'<td><span class="price">{format_price(p, k)}</span></td>' for k in term_cols)
     return (
         f'<tr class="{row_cls}">'
         f'<td><span class="room-name">{room["name"]}</span>{note_html}</td>'
         f'<td>{room["area"]}</td>'
         f'<td>{room["bed"]}</td>'
-        f'<td><span class="price">{format_price(p, "12月")}</span></td>'
-        f'<td><span class="price">{format_price(p, "44周")}</span></td>'
-        f'<td><span class="price">{format_price(p, "22周")}</span></td>'
-        f'<td><span class="price">{format_price(p, "短租")}</span></td>'
+        f'{price_cells}'
         f'<td>{status_html}</td>'
         f'<td>{build_date_cell(room)}</td>'
         f'</tr>'
@@ -1159,26 +1193,38 @@ def room_sort_key(room: dict):
 def build_prop_panel(prop: dict, is_first: bool) -> str:
     """Build a single property panel：所有房型一次性展示（不分类），按有房先后排序。"""
     rooms = sorted(prop['rooms'], key=room_sort_key)
-    thead = '<th>房型</th><th>面积</th><th>床型</th><th>12/24月</th><th>44周</th><th>22周</th><th>短租</th><th>库存</th><th>起租日期</th>'
+    # 租期列 = 这栋楼本轮官网实际有报价的租期（官网上/下架租期，列自动跟着变）
+    term_cols = sorted({k for r in rooms for k in (r.get('prices') or {}) if k != 'From'}, key=term_sort_key)
+    if not term_cols:
+        term_cols = ["12月", "短租"]
+    thead = ('<th>房型</th><th>面积</th><th>床型</th>'
+             + "".join(f'<th>{k}</th>' for k in term_cols)
+             + '<th>库存</th><th>起租日期</th>')
 
     coming_soon_html = ""
     if not rooms:
-        if prop["slug"] in COMING_SOON:
+        opening = COMING_SOON.get(prop["slug"])
+        now_ym = _bjt_now().strftime("%Y-%m")
+        if opening and opening >= now_ym:
+            oy, om = opening.split("-")
             coming_soon_html = (
                 '<div class="coming-soon">'
                 '<div class="cs-badge">🚧 即将开业</div>'
-                '<p class="cs-title">Iglu Mascot Duo</p>'
-                '<p class="cs-text">预计 <b>2027 年 1 月</b> 开业，官网目前为招租登记阶段，'
+                f'<p class="cs-title">Iglu {prop["name"]}</p>'
+                f'<p class="cs-text">预计 <b>{oy} 年 {int(om)} 月</b> 开业，官网目前为招租登记阶段，'
                 '尚未公布可预订房型与价格。<br>房型上线后本页将自动同步真实房态。</p>'
                 '</div>'
             )
+        elif opening:
+            coming_soon_html = ('<div class="coming-soon"><p class="cs-text">官网暂未上架可预订房型，'
+                                '上架后本页将自动同步真实房态。</p></div>')
         else:
             coming_soon_html = '<div class="coming-soon"><p class="cs-text">暂无房型数据</p></div>'
 
     return f'''<div class="prop-panel{" active" if is_first else ""}" id="prop-{prop['slug']}">
 <div class="table-wrap"><table>
 <thead><tr>{thead}</tr></thead>
-<tbody>{"".join(build_room_row(r) for r in rooms)}</tbody>
+<tbody>{"".join(build_room_row(r, term_cols) for r in rooms)}</tbody>
 </table></div>{coming_soon_html}
 </div>'''
 
@@ -1284,6 +1330,9 @@ def build_html(all_cities: dict) -> str:
     html = html.replace("{{CITY_BLOCKS}}", "\n".join(city_blocks))
     compare_json = json.dumps(build_compare_data(all_cities), ensure_ascii=False).replace("</", "<\\/")
     html = html.replace("{{COMPARE_DATA}}", compare_json)
+    all_terms = sorted({k for c in all_cities.values() for rs in c["room_results"].values()
+                        for r in rs for k in (r.get("prices") or {}) if k != "From"}, key=term_sort_key)
+    html = html.replace("{{TERM_KEYS}}", json.dumps(all_terms, ensure_ascii=False))
 
     return html
 
@@ -1302,7 +1351,12 @@ def build_snapshot(all_cities: dict) -> dict:
                     "avail": r.get("avail_status", ""),
                     "count": r.get("avail_count", ""),
                     "date": r.get("date_str", ""),
+                    # 以下两项不参与变化对比：name 用来识别改 slug，_room 用来在单房型抓取失败时沿用上次数据
+                    "name": r.get("name", ""),
+                    "_room": {k: v for k, v in r.items() if k != "stale"},
                 }
+    for key, entry in _CARRIED_SNAPSHOT.items():
+        snap.setdefault(key, entry)
     return snap
 
 
@@ -1324,22 +1378,91 @@ def save_snapshot(snap: dict):
         json.dump(snap, f, ensure_ascii=False, indent=1)
 
 
+def _untracked_terms(old: dict) -> set:
+    """NEWLY_TRACKED_TERMS 里上一轮快照完全没出现过的键：本轮是"开始抓"，不是官网新开，先不对比"""
+    return {k for k in NEWLY_TRACKED_TERMS if not any(k in (v.get("prices") or {}) for v in old.values())}
+
+
+def _cmp_prices(p: dict, skip: set) -> dict:
+    return {k: v for k, v in (p or {}).items() if k not in skip}
+
+
+def _find_renamed(key: str, cur: dict, old: dict, new: dict, used: set):
+    """新出现的房型 key：同楼盘里有没有"刚消失"的同名房型（官网改了 slug）→ 返回旧 key"""
+    prop, slug = key.rsplit("/", 1)
+    for ok, ov in old.items():
+        if ok in new or ok in used or ok.rsplit("/", 1)[0] != prop:
+            continue
+        oslug = ok.rsplit("/", 1)[1]
+        same_name = cur.get("name") and ov.get("name") and cur["name"] == ov["name"]
+        slug_prefix = slug.startswith(oslug + "-") or oslug.startswith(slug + "-")
+        if same_name or slug_prefix:
+            return ok
+    return None
+
+
 def diff_snapshot(old: dict, new: dict):
     """对比两次快照，返回变化列表 [(key, field, old_val, new_val), ...]"""
     changes = []
+    skip = _untracked_terms(old)
+    if skip:
+        print(f"  ℹ️  本轮开始抓取租期 {', '.join(sorted(skip))}，首轮静默吸收，不推送")
     # 2026-09-23 Murphy：已有楼盘里新上架的房型要推送（例如 Central Park 新增 Premium Corner Studio）。
     # 只对「上次快照里已经有这栋楼」的情况报新增；整栋楼首次接入时不报，避免一次刷屏。
     known_props = {k.rsplit("/", 1)[0] for k in old}
+    used = set()
     for key, cur in new.items():
         prev = old.get(key)
         if prev is None:
-            if key.rsplit("/", 1)[0] in known_props:
+            if key.rsplit("/", 1)[0] not in known_props:
+                continue
+            # 2026-09-25：官网改房型 slug（如 superior-studio-apartment → superior-studio-apartment-cp）
+            # 以前会被当成"旧的消失 + 新上架"，误推一条🆕。同楼盘同名/slug 前缀相同的刚消失房型算改名，
+            # 按老数据正常对比，有变化才推。
+            renamed = _find_renamed(key, cur, old, new, used)
+            if renamed:
+                used.add(renamed)
+                print(f"  🔁 房型改名/换 slug：{renamed} → {key}，按同一房型对比")
+                prev = old[renamed]
+            else:
                 changes.append((key, "new", None, cur))
-            continue
+                continue
         for field in ("prices", "avail", "count", "date"):
-            if prev.get(field) != cur.get(field):
-                changes.append((key, field, prev.get(field), cur.get(field)))
+            pv, cv = prev.get(field), cur.get(field)
+            if field == "prices":
+                pv, cv = _cmp_prices(pv, skip), _cmp_prices(cv, skip)
+            if pv != cv:
+                changes.append((key, field, pv, cv))
     return changes
+
+
+def property_term_events(old: dict, new: dict) -> dict:
+    """楼盘级租期上/下架：{"city/prop": {"added": {key: 最低价}, "removed": set()}}。
+    整栋楼都新出现 / 都不再有的租期，推一条「🗓 新开租期 / 租期下架」，而不是每个房型各报一遍。"""
+    skip = _untracked_terms(old) | {"From"}
+
+    def terms_by_prop(snap):
+        out = {}
+        for k, v in snap.items():
+            for t, price in (v.get("prices") or {}).items():
+                if t in skip or not price:
+                    continue
+                d = out.setdefault(k.rsplit("/", 1)[0], {})
+                d[t] = min(d.get(t, price), price)
+        return out
+
+    ot, nt = terms_by_prop(old), terms_by_prop(new)
+    known = {k.rsplit("/", 1)[0] for k in old}
+    events = {}
+    for prop in set(ot) | set(nt):
+        if prop not in known:
+            continue
+        o, n = ot.get(prop, {}), nt.get(prop, {})
+        added = {t: n[t] for t in n if t not in o}
+        removed = {t for t in o if t not in n}
+        if added or removed:
+            events[prop] = {"added": added, "removed": removed}
+    return events
 
 
 # 2026-09-12 事故复盘发现："date" 字段（起租日期文案，如"短租 9月12日 起"）几乎每天
@@ -1365,7 +1488,7 @@ def _is_trivial_date_rollover(old_val: str, new_val: str) -> bool:
     for (oy, om, od), (ny, nm, nd) in zip(old_tokens, new_tokens):
         if (oy, om, od) == (ny, nm, nd):
             continue  # 这处日期原样没变，只看真正变了的那些日期字段是否等幅滚动
-        base_year = int(oy) if oy else 2026
+        base_year = int(oy) if oy else _bjt_now().year
         try:
             od_date = date(base_year, int(om), int(od))
         except ValueError:
@@ -1403,64 +1526,184 @@ def _is_weekday_bjt() -> bool:
     return datetime.now(timezone(timedelta(hours=8))).weekday() < 5
 
 
-def format_changes(changes: list, all_cities: dict) -> str:
-    """变化列表 → 企微 markdown 消息"""
-    # city/prop → 显示名
+# 2026-09-25 Murphy：旧格式「价格: $885/945/885/750 → …」不带租期标签看不出哪一档变了、
+# 库存直接显示英文 available/limited、起租整段长文案新旧并排，太复杂。改成跟 Accolade 同一套：
+# 按楼栋分组，每个房型只写真正变了的那一项，企微 markdown 颜色标方向
+# （info=绿：加房/放房/降价，warning=红：减房/售罄/涨价，comment=灰：辅助信息）。
+_AVAIL_LABEL = {"available": "有房", "limited": "紧张", "waitlist": "等位", "soldout": "售罄"}
+_AVAIL_RANK = {"soldout": 0, "waitlist": 1, "limited": 2, "available": 3}
+
+
+def _green(t):
+    return f'<font color="info">**{t}**</font>'
+
+
+def _red(t):
+    return f'<font color="warning">**{t}**</font>'
+
+
+def _gray(t):
+    return f'<font color="comment">{t}</font>'
+
+
+def _avail_txt(avail, count):
+    t = _AVAIL_LABEL.get(avail, avail or "?")
+    return f"{t} 剩{count}间" if count else t
+
+
+def _describe_avail(old, new):
+    """old/new = (avail, count)"""
+    (oa, oc), (na, nc) = old, new
+    if oa == na:
+        if oc and nc:
+            d = int(nc) - int(oc)
+            if d > 0:
+                return f"剩 {oc} → {_green(f'{nc} 间 ↑{d}')}"
+            if d < 0:
+                return f"剩 {oc} → {_red(f'{nc} 间 ↓{-d}')}"
+        return f"{_avail_txt(oa, oc)} → {_avail_txt(na, nc)}"
+    better = _AVAIL_RANK.get(na, 0) > _AVAIL_RANK.get(oa, 0)
+    new_txt = _avail_txt(na, nc)
+    return f"{_green(new_txt) if better else _red(new_txt)} {_gray(f'（原 {_avail_txt(oa, oc)}）')}"
+
+
+def _describe_prices(old, new):
+    old, new = old or {}, new or {}
+    parts = []
+    keys = [k for k in list(new) + [k for k in old if k not in new]]
+    # "From" 就是各档最低价，其他档有变化时它是重复信息，只在没有其他档变化时才单独报
+    tiers = [k for k in keys if k != "From" and old.get(k) != new.get(k)]
+    if not tiers and old.get("From") != new.get("From"):
+        tiers = ["From"]
+    for k in tiers:
+        label = "起价" if k == "From" else k
+        ov, nv = old.get(k), new.get(k)
+        if ov and nv:
+            d = int(nv) - int(ov)
+            arrow = _red(f"${nv} ↑{d}") if d > 0 else _green(f"${nv} ↓{-d}")
+            parts.append(f"{label} ${ov} → {arrow}")
+        elif nv:
+            parts.append(f"{_green(f'新开 {label} ${nv}')}")
+        elif ov:
+            parts.append(f"{_red(f'{label} 下架')} {_gray(f'（原 ${ov}）')}")
+    return parts
+
+
+_DATE_LEADS = ("短租", "固定起租", "长租灵活", "长租亦可")
+
+
+def _split_date(s):
+    """「今年可订：短租 12月10日 起；固定起租 …」→ ("今年可订", {"短租": "12月10日 起", ...})"""
+    s = s or ""
+    head, _, body = s.partition("：") if "：" in s else ("", "", s)
+    segs = {}
+    for seg in [x.strip() for x in body.split("；") if x.strip()]:
+        lead = next((l for l in _DATE_LEADS if seg.startswith(l)), seg)
+        segs[lead] = seg[len(lead):].strip() if lead != seg else ""
+    return head, segs
+
+
+def _describe_date(old, new):
+    oh, os_ = _split_date(old)
+    nh, ns = _split_date(new)
+    parts = []
+    if oh != nh and nh:
+        parts.append(f"{nh} {_gray(f'（原 {oh}）')}" if oh else nh)
+    for lead in list(ns) + [l for l in os_ if l not in ns]:
+        ov, nv = os_.get(lead), ns.get(lead)
+        if ov == nv:
+            continue
+        if ov is not None and nv is not None:
+            parts.append(f"{lead} {_gray(ov)} → **{nv}**")
+        elif nv is not None:
+            parts.append(_green(f"新增 {lead} {nv}".strip()))
+        else:
+            parts.append(f"{_red(f'取消 {lead}')} {_gray(f'（原 {ov}）')}")
+    return parts
+
+
+def format_changes(changes: list, all_cities: dict, term_events: dict = None) -> str:
+    """变化列表 → 企微 markdown 消息正文（不含标题/链接）。
+    term_events：property_term_events() 的结果，整栋楼的租期新开/下架合成一行，不再逐房型重复报"""
+    term_events = term_events or {}
     prop_label = {}
     for city, city_data in all_cities.items():
         for name, slug in city_data["properties"].items():
             prop_label[f"{city}/{slug}"] = name
-    # room slug → 房型显示名
     room_label = {}
     for city, city_data in all_cities.items():
         for prop_slug, rooms in city_data["room_results"].items():
             for r in rooms:
                 room_label[f"{city}/{prop_slug}/{r.get('slug','')}"] = r.get("name", r.get("slug",""))
+    room_cur = {}
+    for city, city_data in all_cities.items():
+        for prop_slug, rooms in city_data["room_results"].items():
+            for r in rooms:
+                room_cur[f"{city}/{prop_slug}/{r.get('slug','')}"] = (r.get("avail_status", ""), r.get("avail_count", ""))
 
     groups = {}
     for key, field, oldv, newv in changes:
-        groups.setdefault(key, []).append((field, oldv, newv))
+        groups.setdefault(key, {})[field] = (oldv, newv)
 
-    lines = []
-    for key, items in groups.items():
+    by_prop = {}
+    cities_here = {k.split("/", 1)[0] for k in groups}
+    for prop_key, ev in term_events.items():
+        city, prop_slug = prop_key.split("/", 1)
+        if city not in cities_here:
+            continue
+        pname = prop_label.get(prop_key, prop_slug)
+        for t in sorted(ev["added"], key=term_sort_key):
+            low = ev["added"][t]
+            by_prop.setdefault(pname, []).append(f"> 🗓 {_green(f'新开租期 {t}')} {_gray(f'（${low} 起）')}")
+        for t in sorted(ev["removed"], key=term_sort_key):
+            by_prop.setdefault(pname, []).append(f"> 🗓 租期下架 {t}")
+    for key, f in groups.items():
         city, prop_slug, room_slug = key.split("/", 2)
+        ev = term_events.get(f"{city}/{prop_slug}")
+        prop_terms = set(ev["added"]) | ev["removed"] if ev else set()
         name = room_label.get(key, room_slug)
         pname = prop_label.get(f"{city}/{prop_slug}", prop_slug)
-        lines.append(f"**{pname} · {name}**")
-        for field, oldv, newv in items:
-            if field == "prices":
-                # 价格 dict 变短显示
-                def fmt_price(p):
-                    if not p or not isinstance(p, dict):
-                        return "—"
-                    vals = [str(v) for v in p.values() if v]
-                    return "$" + "/".join(vals) if vals else "—"
-                lines.append(f"> 价格: {fmt_price(oldv)} → {fmt_price(newv)}")
-            elif field == "avail":
-                lines.append(f"> 库存: {oldv or '?'} → {newv or '?'}")
-            elif field == "count":
-                lines.append(f"> 余量: {oldv or '-'} → {newv or '-'}")
-            elif field == "date":
-                lines.append(f"> 起租: {oldv or '—'} → {newv or '—'}")
-            elif field == "new":
-                cur = newv or {}
-                p = cur.get("prices") or {}
-                price_txt = " / ".join(f"{k} ${v}" for k, v in p.items() if k != "From" and v) or (f"起价 ${p['From']}" if p.get("From") else "—")
-                avail_txt = {"available": "有房", "limited": "紧张", "waitlist": "等位", "soldout": "售罄"}.get(cur.get("avail"), cur.get("avail") or "?")
-                if cur.get("count"):
-                    avail_txt += f"（{cur['count']}间）"
-                lines.append(f"> 🆕 新增房型")
-                lines.append(f"> 价格: {price_txt}")
-                lines.append(f"> 库存: {avail_txt}")
-                if cur.get("date"):
-                    lines.append(f"> 起租: {cur['date']}")
-        lines.append("")
+        parts = []
+        if "new" in f:
+            cur = f["new"][1] or {}
+            p = cur.get("prices") or {}
+            price_txt = " / ".join(f"{k} ${v}" for k, v in p.items() if k != "From" and v) or (f"起价 ${p['From']}" if p.get("From") else "暂无报价")
+            by_prop.setdefault(pname, []).append(
+                f"> 🆕 {_green(f'新增房型 {name}')}：{_avail_txt(cur.get('avail'), cur.get('count'))} {_gray(f'（{price_txt}）')}"
+            )
+            continue
+        if "avail" in f or "count" in f:
+            # 只变了其中一项时，另一项新旧相同，用本次抓取的当前值补全 (状态, 余量)
+            ca, cc = room_cur.get(key, (None, None))
+            oa, na = f.get("avail", (ca, ca))
+            oc, nc = f.get("count", (cc, cc))
+            parts.append(_describe_avail((oa, oc), (na, nc)))
+        if "prices" in f:
+            po, pn = f["prices"]
+            if prop_terms:  # 整栋楼的租期上/下架已经在楼栋行里报过，这里不再逐房型重复
+                po = {k: v for k, v in (po or {}).items() if k not in prop_terms}
+                pn = {k: v for k, v in (pn or {}).items() if k not in prop_terms}
+            parts += _describe_prices(po, pn)
+        if "date" in f:
+            parts += _describe_date(*f["date"])
+        if not parts:
+            continue
+        if len(parts) == 1:
+            by_prop.setdefault(pname, []).append(f"> {name}：{parts[0]}")
+        else:
+            by_prop.setdefault(pname, []).append(f"> {name}\n" + "\n".join(f"> 　· {x}" for x in parts))
+
+    n = sum(len(v) for v in by_prop.values())
+    blocks = [f"**🏢 {pname}**\n" + "\n".join(lines) for pname, lines in by_prop.items()]
+    if not n:
+        return ""
+    summary = _gray(f"{_bjt_now().strftime('%m-%d %H:%M')} · 共 {n} 项变化 · 绿=加房/放房/降价/新开 红=减房/售罄/涨价")
+    text = summary + "\n\n" + "\n\n".join(blocks)
 
     # 按字节而非字符数截断（中文一个字 3 字节，按字符截断时真实字节数仍可能超限）。
     # 外层还会把标题 + [查看实时房态] 链接拼在这段正文后面一起发送，这里必须预留
     # 出那部分的字节数，否则正文刚好顶到字节上限时，外层最终截断会连链接一起吃掉
     # （2026-09-15 发现：墨尔本变化条目多，正文顶满导致链接被截没）。
-    text = "\n".join(lines).strip()
     budget = WECOM_CONTENT_MAX_BYTES - 300  # 300 字节留给标题+链接+提示语
     body = text.encode("utf-8")
     if len(body) > budget:
@@ -1646,6 +1889,8 @@ def main():
 
     flush_all_recipients()  # 出了静默时段就把各机器人攒的老消息发出去，不用等新变化触发
 
+    _PREV_SNAPSHOT.update(load_snapshot())  # 单房型抓取失败时沿用上次数据
+
     # Try Agent Portal login for more accurate inventory
     agent_ok = login_agent_portal()
     if not agent_ok:
@@ -1663,7 +1908,8 @@ def main():
                                         city_cfg["room_meta"], city_cfg["property_rooms"])
             room_results[prop_slug] = prop_data["rooms"]
             total_props += 1
-            total_rooms += len(prop_data["rooms"])
+            # 熔断只数本轮真正抓成功的房型（沿用上次数据的不算），否则大面积失败会被兜底数据掩盖
+            total_rooms += sum(1 for r in prop_data["rooms"] if not r.get("stale"))
         all_cities[city_slug] = {
             "label": city_cfg["label"],
             "properties": city_cfg["properties"],
@@ -1703,6 +1949,7 @@ def main():
         return
 
     changes = diff_snapshot(old_snap, new_snap) if old_snap else []
+    term_events = property_term_events(old_snap, new_snap) if old_snap else {}
     changed_count = len(set(c[0] for c in changes))
 
     page_age = deployed_page_age_ms()
@@ -1731,9 +1978,12 @@ def main():
                 city_changes = changes_by_city.get(city, [])
                 reportable_changes = _filter_reportable_changes(city_changes)
                 if reportable_changes:
-                    msg = format_changes(reportable_changes, all_cities)
+                    msg = format_changes(reportable_changes, all_cities, term_events)
+                    if not msg:
+                        print(f"  ℹ️  {city}: 变化格式化后为空，跳过企微推送")
+                        continue
                     full_msg = (
-                        f"**📢 Iglu 房态变化** ({_bjt_now().strftime('%m-%d %H:%M')})\n\n{msg}\n\n"
+                        f"**📢 Iglu 房态变化**\n{msg}\n\n"
                         f"[查看实时房态]({RATE_HUB_LINK})"
                     )
                     notify_city(city, full_msg, mention_all=True)

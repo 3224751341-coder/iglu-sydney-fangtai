@@ -328,7 +328,7 @@
       </div>
       <div class="cmp-summary" id="cmpSummary"></div>
       <div class="cmp-list" id="cmpList"></div>
-      <p class="cmp-note">价格为官网周租。选「最低」时取 12/24月、44周、22周、短租中最便宜的一档；等位 / 售罄房型官网只给起价，标灰排在最后。NRAS 房型有申请资格限制，不参与比价；U18（仅限未成年）房型默认不参与，可勾选「含 U18 房型」。</p>
+      <p class="cmp-note">价格为官网周租。选「最低」时取官网当前各租期中最便宜的一档；等位 / 售罄房型官网只给起价，标灰排在最后。NRAS 房型有申请资格限制，不参与比价；U18（仅限未成年）房型默认不参与，可勾选「含 U18 房型」。</p>
     </div>
   </details>
 </section>
@@ -656,8 +656,11 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
   try {
     var STORE_KEY = 'iglu-compare-v1';
     var CITY_NAMES = {sydney: '悉尼', melbourne: '墨尔本', brisbane: '布里斯班'};
-    var TERMS = [['lowest', '最低'], ['12月', '12/24月'], ['44周', '44周'], ['22周', '22周'], ['短租', '短租']];
-    var TERM_LABELS = {'12月': '12/24月', '44周': '44周', '22周': '22周', '短租': '短租', 'From': '起价'};
+    // 租期由抓取器按官网当前实际开放的租期注入（官网上/下架租期这里自动跟着变）
+    var TERM_KEYS = {{TERM_KEYS}};
+    var TERMS = [['lowest', '最低']].concat(TERM_KEYS.map(function(k){ return [k, k]; }));
+    var TERM_LABELS = {'From': '起价'};
+    TERM_KEYS.forEach(function(k){ TERM_LABELS[k] = k; });
     var CATS = [['1bed', '1B'], ['studio', 'Studio'], ['ensuite', 'Ensuite'], ['share', 'Non-ensuite'], ['twin', 'Twin'], ['other', '其他']];
     var OFF = {waitlist: 1, soldout: 1, unknown: 1};
     var $c = function(id){ return document.getElementById(id); };
@@ -686,7 +689,7 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
       var p = r.prices || {};
       if (ui.term === 'lowest') {
         var best = null;
-        ['12月', '44周', '22周', '短租'].forEach(function(k){
+        TERM_KEYS.forEach(function(k){
           if (typeof p[k] === 'number' && (!best || p[k] < best.value)) best = {value: p[k], term: k};
         });
         if (!best && typeof p.From === 'number') best = {value: p.From, term: 'From'};
