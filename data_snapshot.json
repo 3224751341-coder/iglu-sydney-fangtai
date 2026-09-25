@@ -7,19 +7,123 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年已无房：长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
+  "date": "今年已无房：长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/premium-studio-apartment-br/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "30m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 1035,
+    "22周": 1095,
+    "44周": 1035
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/standard-studio-apartment-br": {
   "prices": {
    "From": 885,
+   "12月": 885,
    "22周": 945,
    "44周": 885,
-   "短租": 750,
-   "12月": 885
+   "短租": 750
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；固定起租 10月5日、8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月10日 起；固定起租 10月5日、8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/standard-studio-apartment-br/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "19m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 885,
+    "12月": 885,
+    "22周": 945,
+    "44周": 885,
+    "短租": 750
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2026,
+      10,
+      5
+     ],
+     [
+      2026,
+      10,
+      8
+     ],
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      10
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月10日 起；固定起租 10月5日、8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
   "prices": {
@@ -27,7 +131,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Standard Studio NRAS",
+  "_room": {
+   "slug": "standard-studio-apartment-nras-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/standard-studio-apartment-nras-br/",
+   "name": "Standard Studio NRAS",
+   "type": "Studio",
+   "area": "17m²",
+   "bed": "King Single",
+   "note": "NRAS补贴",
+   "prices": {
+    "From": 565
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/superior-studio-apartment-br": {
   "prices": {
@@ -35,7 +165,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Superior Studio",
+  "_room": {
+   "slug": "superior-studio-apartment-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/superior-studio-apartment-br/",
+   "name": "Superior Studio",
+   "type": "Studio",
+   "area": "23m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 1025
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
   "prices": {
@@ -46,7 +202,65 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；固定起租 10月7日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月14日 起；固定起租 10月7日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+  "name": "4 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-4-share-apt-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-4-share-apt-br/",
+   "name": "4 Share Apt",
+   "type": "Share",
+   "area": "17m²",
+   "bed": "King Single",
+   "note": "4人",
+   "prices": {
+    "From": 805,
+    "22周": 865,
+    "44周": 805,
+    "短租": 690
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2026,
+      10,
+      7
+     ],
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      14
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月14日 起；固定起租 10月7日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
   "prices": {
@@ -57,7 +271,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）"
+  "date": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-5-share-apt-br/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "17m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 805,
+    "22周": 865,
+    "44周": 805,
+    "短租": 680
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      14
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
   "prices": {
@@ -68,7 +329,65 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-br",
+   "url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-6-share-apt-br/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "17m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 795,
+    "22周": 855,
+    "44周": 795,
+    "短租": 670
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2026,
+      9,
+      28
+     ],
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      14
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/standard-studio-apartment-ce": {
   "prices": {
@@ -79,7 +398,46 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年可订：短租 11月30日 起"
+  "date": "今年可订：短租 11月30日 起",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-ce",
+   "url": "https://iglu.com.au/rooms/sydney/central/standard-studio-apartment-ce/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "16.5m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 800,
+    "22周": 925,
+    "44周": 865,
+    "短租": 800
+   },
+   "avail_status": "limited",
+   "avail_count": 2,
+   "avail_text": "2 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     7,
+     13
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      11,
+      30
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 11月30日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-2-bedroom-studio-u18-female": {
   "prices": {
@@ -87,7 +445,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "U18 2 Bedroom Studio Female",
+  "_room": {
+   "slug": "sce-2-bedroom-studio-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-female/",
+   "name": "U18 2 Bedroom Studio Female",
+   "type": "Studio",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 859
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-2-bedroom-studio-u18-male": {
   "prices": {
@@ -95,7 +479,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "U18 2 Bedroom Studio Male",
+  "_room": {
+   "slug": "sce-2-bedroom-studio-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-male/",
+   "name": "U18 2 Bedroom Studio Male",
+   "type": "Studio",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 859
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-standard-studio-u18": {
   "prices": {
@@ -103,7 +513,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "U18 Standard Studio",
+  "_room": {
+   "slug": "sce-standard-studio-u18",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-standard-studio-u18/",
+   "name": "U18 Standard Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 939
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
   "prices": {
@@ -111,7 +547,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-ce",
+   "url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-5-share-apt-ce/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "13.4m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 815
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/single-bedroom-6-share-apt-ce": {
   "prices": {
@@ -122,7 +584,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-ce",
+   "url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-6-share-apt-ce/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "13.4m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 775,
+    "22周": 835,
+    "44周": 775,
+    "短租": 650
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     1
+    ],
+    "contract_end": [
+     2027,
+     7,
+     13
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      6
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
   "prices": {
@@ -133,17 +642,102 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）"
+  "date": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
+  "name": "Single Share Bath",
+  "_room": {
+   "slug": "single-bedroom-share-bathroom-ce",
+   "url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-share-bathroom-ce/",
+   "name": "Single Share Bath",
+   "type": "Share",
+   "area": "11m²",
+   "bed": "King Single",
+   "note": "Share Bath",
+   "prices": {
+    "From": 735,
+    "22周": 795,
+    "44周": 735,
+    "短租": 600
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     1
+    ],
+    "contract_end": [
+     2027,
+     7,
+     13
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      12,
+      6
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-5-bedroom-u18-female": {
   "prices": {
    "From": 829,
-   "短租": 829,
-   "12月": 829
+   "6月": 829,
+   "12月": 829,
+   "短租": 829
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：长租灵活 2026年12月1日~2027年3月31日 起"
+  "date": "今年可订：长租灵活 2026年12月1日~2027年3月31日 起",
+  "name": "U18 5 Bedroom Female",
+  "_room": {
+   "slug": "sce-5-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-female/",
+   "name": "U18 5 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 829,
+    "6月": 829,
+    "12月": 829,
+    "短租": 829
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     12,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年12月1日~2027年3月31日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-5-bedroom-u18-male": {
   "prices": {
@@ -151,46 +745,223 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "U18 5 Bedroom Male",
+  "_room": {
+   "slug": "sce-5-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-male/",
+   "name": "U18 5 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 829
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-6-bedroom-u18-female": {
   "prices": {
    "From": 819,
-   "短租": 819,
-   "12月": 819
+   "6月": 819,
+   "12月": 819,
+   "短租": 819
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：长租灵活 2026年11月25日~2027年3月31日 起"
+  "date": "今年可订：长租灵活 2026年11月25日~2027年3月31日 起",
+  "name": "U18 6 Bedroom Female",
+  "_room": {
+   "slug": "sce-6-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-female/",
+   "name": "U18 6 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 819,
+    "6月": 819,
+    "12月": 819,
+    "短租": 819
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     11,
+     25
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年11月25日~2027年3月31日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-6-bedroom-u18-male": {
   "prices": {
    "From": 819,
-   "短租": 819,
-   "12月": 819
+   "6月": 819,
+   "12月": 819,
+   "短租": 819
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年可订：长租灵活 2026年9月26日~2027年3月31日 起"
+  "date": "今年可订：长租灵活 2026年9月26日~2027年3月31日 起",
+  "name": "U18 6 Bedroom Male",
+  "_room": {
+   "slug": "sce-6-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-male/",
+   "name": "U18 6 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 819,
+    "6月": 819,
+    "12月": 819,
+    "短租": 819
+   },
+   "avail_status": "limited",
+   "avail_count": 2,
+   "avail_text": "2 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     26
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月26日~2027年3月31日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-female": {
   "prices": {
    "From": 779,
+   "6月": 779,
    "12月": 779
   },
   "avail": "available",
   "count": 3,
-  "date": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起"
+  "date": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
+  "name": "U18 6 Bedroom Share Bathroom Female",
+  "_room": {
+   "slug": "sce-6-bedroom-share-bathroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-female/",
+   "name": "U18 6 Bedroom Share Bathroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 779,
+    "6月": 779,
+    "12月": 779
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     11,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
   "prices": {
    "From": 779,
-   "短租": 819,
-   "12月": 779
+   "6月": 779,
+   "12月": 779,
+   "短租": 819
   },
   "avail": "available",
   "count": 4,
-  "date": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起"
+  "date": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
+  "name": "U18 6 Bedroom Share Bathroom Male",
+  "_room": {
+   "slug": "sce-6-bedroom-share-bathroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-male/",
+   "name": "U18 6 Bedroom Share Bathroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 779,
+    "6月": 779,
+    "12月": 779,
+    "短租": 819
+   },
+   "avail_status": "available",
+   "avail_count": 4,
+   "avail_text": "4 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     11,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/premium-corner-studio-apartment-cp": {
   "prices": {
@@ -201,7 +972,42 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：短租 9月26日 起"
+  "date": "今年可订：短租 9月26日 起",
+  "name": "Premium Corner Studio",
+  "_room": {
+   "slug": "premium-corner-studio-apartment-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/premium-corner-studio-apartment-cp/",
+   "name": "Premium Corner Studio",
+   "type": "Studio",
+   "area": "31m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 1115,
+    "22周": 1115,
+    "44周": 1055,
+    "短租": 1115
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/premium-studio-apartment": {
   "prices": {
@@ -212,7 +1018,46 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：短租 9月26日 起"
+  "date": "今年可订：短租 9月26日 起",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/premium-studio-apartment/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 1075,
+    "22周": 1075,
+    "44周": 1015,
+    "短租": 1075
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     7,
+     8
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/standard-studio-apartment-cp": {
   "prices": {
@@ -223,7 +1068,60 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/standard-studio-apartment-cp/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "19m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 915,
+    "22周": 975,
+    "44周": 915,
+    "短租": 975
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     8
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/superior-studio-apartment-cp": {
   "prices": {
@@ -234,7 +1132,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）"
+  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）",
+  "name": "Superior Studio",
+  "_room": {
+   "slug": "superior-studio-apartment-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/superior-studio-apartment-cp/",
+   "name": "Superior Studio",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 995,
+    "22周": 1055,
+    "44周": 995,
+    "短租": 1055
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     8
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
   "prices": {
@@ -242,7 +1187,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "3 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-3-share-apt-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-3-share-apt-cp/",
+   "name": "3 Share Apt",
+   "type": "Share",
+   "area": "13m²",
+   "bed": "King Single",
+   "note": "3人",
+   "prices": {
+    "From": 925
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/single-bedroom-4-share-apt-cp": {
   "prices": {
@@ -252,7 +1223,45 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：短租 9月26日 起"
+  "date": "今年可订：短租 9月26日 起",
+  "name": "4 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-4-share-apt-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-4-share-apt-cp/",
+   "name": "4 Share Apt",
+   "type": "Share",
+   "area": "13m²",
+   "bed": "King Single",
+   "note": "4人",
+   "prices": {
+    "From": 925,
+    "22周": 905,
+    "短租": 925
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2026,
+     12,
+     1
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/single-bedroom-6-share-apt-cp": {
   "prices": {
@@ -263,7 +1272,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月15日）"
+  "date": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月15日）",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-6-share-apt-cp/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "13m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 785,
+    "22周": 845,
+    "44周": 785,
+    "短租": 845
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     15
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月15日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/central-park/premium-single-room-6-share-cp": {
   "prices": {
@@ -273,19 +1329,99 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "今年已无房：2027年2月12日"
+  "date": "今年已无房：2027年2月12日",
+  "name": "Premium 6 Share",
+  "_room": {
+   "slug": "premium-single-room-6-share-cp",
+   "url": "https://iglu.com.au/rooms/sydney/central-park/premium-single-room-6-share-cp/",
+   "name": "Premium 6 Share",
+   "type": "Share",
+   "area": "13m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 815,
+    "22周": 875,
+    "44周": 815
+   },
+   "avail_status": "available",
+   "avail_count": 4,
+   "avail_text": "4 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      12
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月12日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
   "prices": {
    "From": 815,
+   "12月": 815,
    "22周": 875,
    "44周": 815,
-   "短租": 875,
-   "12月": 815
+   "短租": 875
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：短租 9月28日 起；长租 2027年2月8日起租"
+  "date": "今年可订：短租 9月28日 起；长租 2027年2月8日起租",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/premium-studio-apartment-ch/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "20m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 815,
+    "12月": 815,
+    "22周": 875,
+    "44周": 815,
+    "短租": 875
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      28
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月28日 起；长租 2027年2月8日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
   "prices": {
@@ -293,77 +1429,345 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/standard-studio-apartment-ch/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "17.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 775
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
   "prices": {
    "From": 785,
+   "12月": 785,
    "22周": 845,
    "44周": 785,
-   "短租": 845,
-   "12月": 785
+   "短租": 845
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月28日 起；长租 2027年2月8日起租"
+  "date": "今年可订：短租 9月28日 起；长租 2027年2月8日起租",
+  "name": "Superior Studio",
+  "_room": {
+   "slug": "superior-studio-apartment-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/superior-studio-apartment-ch/",
+   "name": "Superior Studio",
+   "type": "Studio",
+   "area": "20m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 785,
+    "12月": 785,
+    "22周": 845,
+    "44周": 785,
+    "短租": 845
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      28
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月28日 起；长租 2027年2月8日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
   "prices": {
    "From": 625,
+   "12月": 625,
    "22周": 685,
    "44周": 625,
-   "短租": 685,
-   "12月": 625
+   "短租": 685
   },
   "avail": "available",
   "count": 4,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年已无房：2027年2月8日",
+  "name": "4 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-4-share-apt-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-4-share-apt-ch/",
+   "name": "4 Share Apt",
+   "type": "Share",
+   "area": "13.4m²",
+   "bed": "King Single",
+   "note": "4人",
+   "prices": {
+    "From": 625,
+    "12月": 625,
+    "22周": 685,
+    "44周": 625,
+    "短租": 685
+   },
+   "avail_status": "available",
+   "avail_count": 4,
+   "avail_text": "4 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月8日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
   "prices": {
    "From": 605,
+   "12月": 605,
    "22周": 665,
    "44周": 605,
-   "短租": 665,
-   "12月": 605
+   "短租": 665
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年已无房：2027年2月8日",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-5-share-apt-ch/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "13.4m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 605,
+    "12月": 605,
+    "22周": 665,
+    "44周": 605,
+    "短租": 665
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月8日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
    "From": 585,
+   "12月": 585,
    "22周": 645,
-   "44周": 585,
-   "12月": 585
+   "44周": 585
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：长租灵活 2026年12月9日~2027年2月15日 起（合同至 2027年7月14日）"
+  "date": "今年可订：长租灵活 2026年12月9日~2027年2月15日 起（合同至 2027年7月14日）",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-ch",
+   "url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-6-share-apt-ch/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "13.4m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 585,
+    "12月": 585,
+    "22周": 645,
+    "44周": 585
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     12,
+     9
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     15
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年12月9日~2027年2月15日 起（合同至 2027年7月14日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot/premium-studio-apartment-ma": {
   "prices": {
    "From": 825,
+   "12月": 825,
    "22周": 885,
-   "44周": 825,
-   "12月": 825
+   "44周": 825
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-ma",
+   "url": "https://iglu.com.au/rooms/sydney/mascot/premium-studio-apartment-ma/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "17m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 825,
+    "12月": 825,
+    "22周": 885,
+    "44周": 825
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot/standard-studio-apartment-ma": {
   "prices": {
    "From": 805,
+   "12月": 805,
    "22周": 865,
    "44周": 805,
-   "短租": 865,
-   "12月": 805
+   "短租": 865
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-ma",
+   "url": "https://iglu.com.au/rooms/sydney/mascot/standard-studio-apartment-ma/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "17m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 805,
+    "12月": 805,
+    "22周": 865,
+    "44周": 805,
+    "短租": 865
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot/standard-studio-apartment-queen": {
   "prices": {
@@ -371,7 +1775,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "Standard Studio Queen",
+  "_room": {
+   "slug": "standard-studio-apartment-queen",
+   "url": "https://iglu.com.au/rooms/sydney/mascot/standard-studio-apartment-queen/",
+   "name": "Standard Studio Queen",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 905
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot/single-bedroom-6-share-apt-ma": {
   "prices": {
@@ -382,19 +1812,114 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-ma",
+   "url": "https://iglu.com.au/rooms/sydney/mascot/single-bedroom-6-share-apt-ma/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "14m²",
+   "bed": "Double",
+   "note": "6人",
+   "prices": {
+    "From": 685,
+    "22周": 745,
+    "44周": 685,
+    "短租": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      28
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
   "prices": {
    "From": 705,
+   "12月": 705,
    "22周": 765,
    "44周": 705,
-   "短租": 765,
-   "12月": 705
+   "短租": 765
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）"
+  "date": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+  "name": "Premium 6 Share",
+  "_room": {
+   "slug": "premium-single-bedroom-6-share-ma",
+   "url": "https://iglu.com.au/rooms/sydney/mascot/premium-single-bedroom-6-share-ma/",
+   "name": "Premium 6 Share",
+   "type": "Share",
+   "area": "14m²",
+   "bed": "Double",
+   "note": "6人",
+   "prices": {
+    "From": 705,
+    "12月": 705,
+    "22周": 765,
+    "44周": 705,
+    "短租": 765
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      28
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月28日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot-duo/premium-studio-apartment-md": {
   "prices": {
@@ -404,7 +1929,47 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-md",
+   "url": "https://iglu.com.au/rooms/sydney/mascot-duo/premium-studio-apartment-md/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "18.5m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 835,
+    "22周": 895,
+    "44周": 835
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot-duo/standard-studio-apartment-md": {
   "prices": {
@@ -414,7 +1979,47 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-md",
+   "url": "https://iglu.com.au/rooms/sydney/mascot-duo/standard-studio-apartment-md/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "17.7m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 795,
+    "22周": 855,
+    "44周": 795
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/mascot-duo/superior-studio-apartment-md": {
   "prices": {
@@ -424,7 +2029,47 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）"
+  "date": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+  "name": "Superior Studio",
+  "_room": {
+   "slug": "superior-studio-apartment-md",
+   "url": "https://iglu.com.au/rooms/sydney/mascot-duo/superior-studio-apartment-md/",
+   "name": "Superior Studio",
+   "type": "Studio",
+   "area": "17.7m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 815,
+    "22周": 875,
+    "44周": 815
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/premium-studio-apartment-re": {
   "prices": {
@@ -434,7 +2079,47 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/premium-studio-apartment-re/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "20m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 945,
+    "22周": 1005,
+    "44周": 945
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-studio-apartment-re": {
   "prices": {
@@ -442,7 +2127,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Single Studio",
+  "_room": {
+   "slug": "single-studio-apartment-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-studio-apartment-re/",
+   "name": "Single Studio",
+   "type": "Studio",
+   "area": "17.5m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 835
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-studio-apartment-nras": {
   "prices": {
@@ -450,7 +2161,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "Single Studio NRAS",
+  "_room": {
+   "slug": "single-studio-apartment-nras",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-studio-apartment-nras/",
+   "name": "Single Studio NRAS",
+   "type": "Studio",
+   "area": "17.5m²",
+   "bed": "King Single",
+   "note": "NRAS",
+   "prices": {
+    "From": 619
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/standard-studio-apartment-re": {
   "prices": {
@@ -460,7 +2197,47 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-re/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "19.5m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 865,
+    "22周": 925,
+    "44周": 865
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/standard-studio-apartment-nras": {
   "prices": {
@@ -468,25 +2245,133 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Standard Studio NRAS",
+  "_room": {
+   "slug": "standard-studio-apartment-nras",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-nras/",
+   "name": "Standard Studio NRAS",
+   "type": "Studio",
+   "area": "19.5m²",
+   "bed": "Double",
+   "note": "NRAS",
+   "prices": {
+    "From": 672
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/sre-premium-studio-u18": {
   "prices": {
    "From": 965,
+   "6月": 965,
    "12月": 965
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+  "name": "U18 Premium Studio",
+  "_room": {
+   "slug": "sre-premium-studio-u18",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-premium-studio-u18/",
+   "name": "U18 Premium Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 965,
+    "6月": 965,
+    "12月": 965
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/u18-standard-studio": {
   "prices": {
    "From": 885,
+   "6月": 885,
    "12月": 885
   },
   "avail": "available",
   "count": 3,
-  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+  "name": "U18 Standard Studio",
+  "_room": {
+   "slug": "u18-standard-studio",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/u18-standard-studio/",
+   "name": "U18 Standard Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 885,
+    "6月": 885,
+    "12月": 885
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-bedroom-4-share-apt-re": {
   "prices": {
@@ -494,7 +2379,33 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "4 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-4-share-apt-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-4-share-apt-re/",
+   "name": "4 Share Apt",
+   "type": "Share",
+   "area": "~13m²",
+   "bed": "King Single",
+   "note": "4人",
+   "prices": {
+    "From": 775
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-bedroom-5-share-apt-re": {
   "prices": {
@@ -504,7 +2415,47 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-5-share-apt-re/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 755,
+    "22周": 815,
+    "44周": 755
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-bedroom-6-share-apt-re": {
   "prices": {
@@ -515,7 +2466,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月15日"
+  "date": "今年已无房：2027年2月15日",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-re",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-6-share-apt-re/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 725,
+    "22周": 785,
+    "44周": 725,
+    "短租": 785
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      15
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月15日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
   "prices": {
@@ -523,7 +2521,33 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "待定"
+  "date": "待定",
+  "name": "6 Share NRAS",
+  "_room": {
+   "slug": "single-bedroom-6-share-nras",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-6-share-nras/",
+   "name": "6 Share NRAS",
+   "type": "Share",
+   "area": "~13m²",
+   "bed": "King Single",
+   "note": "6人 NRAS",
+   "prices": {
+    "From": 725
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
   "prices": {
@@ -532,7 +2556,38 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "6 Share SAEX",
+  "_room": {
+   "slug": "single-bed-6-share-apt-saex-sre",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/single-bed-6-share-apt-saex-sre/",
+   "name": "6 Share SAEX",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "6人 USYD",
+   "prices": {
+    "From": 675,
+    "22周": 675
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2026,
+     12,
+     8
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/sre-4-bedroom-u18-female": {
   "prices": {
@@ -540,34 +2595,183 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "U18 4 Bedroom Female",
+  "_room": {
+   "slug": "sre-4-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-female/",
+   "name": "U18 4 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 795
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/sre-4-bedroom-u18-male": {
   "prices": {
    "From": 795,
+   "6月": 795,
    "12月": 795
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+  "name": "U18 4 Bedroom Male",
+  "_room": {
+   "slug": "sre-4-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-male/",
+   "name": "U18 4 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 795,
+    "6月": 795,
+    "12月": 795
+   },
+   "avail_status": "limited",
+   "avail_count": 2,
+   "avail_text": "2 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/sre-6-bedroom-u18-female": {
   "prices": {
    "From": 745,
+   "6月": 745,
    "12月": 745
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+  "name": "U18 6 Bedroom Female",
+  "_room": {
+   "slug": "sre-6-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-female/",
+   "name": "U18 6 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 745,
+    "6月": 745,
+    "12月": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/redfern/sre-6-bedroom-u18-male": {
   "prices": {
    "From": 745,
+   "6月": 745,
    "12月": 745
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）"
+  "date": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+  "name": "U18 6 Bedroom Male",
+  "_room": {
+   "slug": "sre-6-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-male/",
+   "name": "U18 6 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 745,
+    "6月": 745,
+    "12月": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
   "prices": {
@@ -578,7 +2782,54 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）"
+  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-sh",
+   "url": "https://iglu.com.au/rooms/sydney/summer-hill/premium-studio-apartment-sh/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 755,
+    "22周": 815,
+    "44周": 755,
+    "短租": 815
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     15
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      30
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
   "prices": {
@@ -589,18 +2840,106 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）；长租亦可 2027年2月9日起租"
+  "date": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）；长租亦可 2027年2月9日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-sh",
+   "url": "https://iglu.com.au/rooms/sydney/summer-hill/standard-studio-apartment-sh/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 735,
+    "22周": 795,
+    "44周": 735,
+    "短租": 795
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     15
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      30
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
   "prices": {
    "From": 905,
+   "12月": 865,
    "22周": 965,
-   "44周": 905,
-   "12月": 865
+   "44周": 905
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年已无房：2027年2月9日",
+  "name": "Premium Corner Studio",
+  "_room": {
+   "slug": "premium-corner-studio-apartment-wa",
+   "url": "https://iglu.com.au/rooms/sydney/waterloo/premium-corner-studio-apartment-wa/",
+   "name": "Premium Corner Studio",
+   "type": "Studio",
+   "area": "17.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 905,
+    "12月": 865,
+    "22周": 965,
+    "44周": 905
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月9日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
   "prices": {
@@ -611,59 +2950,302 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月29日 起；长租 2027年2月9日起租"
+  "date": "今年可订：短租 9月29日 起；长租 2027年2月9日起租",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-wa",
+   "url": "https://iglu.com.au/rooms/sydney/waterloo/premium-studio-apartment-wa/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "17.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 865,
+    "22周": 925,
+    "44周": 865,
+    "短租": 925
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2026,
+     12,
+     8
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      29
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月29日 起；长租 2027年2月9日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
   "prices": {
    "From": 825,
+   "12月": 825,
    "22周": 885,
-   "44周": 825,
-   "12月": 825
+   "44周": 825
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年已无房：2027年2月9日",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-wa",
+   "url": "https://iglu.com.au/rooms/sydney/waterloo/standard-studio-apartment-wa/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "17.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 825,
+    "12月": 825,
+    "22周": 885,
+    "44周": 825
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月9日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
   "prices": {
    "From": 845,
+   "12月": 845,
    "22周": 905,
    "44周": 845,
-   "短租": 905,
-   "12月": 845
+   "短租": 905
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年已无房：2027年2月9日",
+  "name": "Superior Studio",
+  "_room": {
+   "slug": "superior-studio-apartment-wa",
+   "url": "https://iglu.com.au/rooms/sydney/waterloo/superior-studio-apartment-wa/",
+   "name": "Superior Studio",
+   "type": "Studio",
+   "area": "17.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 845,
+    "12月": 845,
+    "22周": 905,
+    "44周": 845,
+    "短租": 905
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月9日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
   "prices": {
    "From": 685,
+   "12月": 685,
    "22周": 745,
-   "44周": 685,
-   "12月": 685
+   "44周": 685
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月9日"
+  "date": "今年已无房：2027年2月9日",
+  "name": "2 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-2-share-apt-wa",
+   "url": "https://iglu.com.au/rooms/sydney/waterloo/single-bedroom-2-share-apt-wa/",
+   "name": "2 Share Apt",
+   "type": "Share",
+   "area": "29m²",
+   "bed": "King Single",
+   "note": "2人",
+   "prices": {
+    "From": 685,
+    "12月": 685,
+    "22周": 745,
+    "44周": 685
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      9
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月9日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
   "prices": {
    "From": 705,
+   "6月": 765,
    "12月": 705
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年已无房：2027年2月18日"
+  "date": "今年已无房：2027年2月18日",
+  "name": "Premium Corner Studio",
+  "_room": {
+   "slug": "premium-corner-studio-apartment-fg",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg/",
+   "name": "Premium Corner Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 705,
+    "6月": 765,
+    "12月": 705
+   },
+   "avail_status": "limited",
+   "avail_count": 2,
+   "avail_text": "2 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      18
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月18日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
   "prices": {
    "From": 665,
+   "6月": 725,
    "12月": 665
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租"
+  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-fg",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-studio-apartment-fg/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 665,
+    "6月": 725,
+    "12月": 665
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      4
+     ],
+     [
+      2027,
+      2,
+      11
+     ],
+     [
+      2027,
+      2,
+      18
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     26
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     9
+    ],
+    "contract_end": [
+     2027,
+     2,
+     10
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
   "prices": {
@@ -671,154 +3253,911 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Single Studio",
+  "_room": {
+   "slug": "single-studio-apartment",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/single-studio-apartment/",
+   "name": "Single Studio",
+   "type": "Studio",
+   "area": "20m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 635
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/standard-studio-apartment-fg": {
   "prices": {
    "From": 635,
-   "短租": 695,
-   "12月": 635
+   "6月": 695,
+   "12月": 635,
+   "短租": 695
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租 2027年2月4日、11日、18日起租"
+  "date": "今年可订：短租 9月26日 起；长租 2027年2月4日、11日、18日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-fg",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/standard-studio-apartment-fg/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "20m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 635,
+    "6月": 695,
+    "12月": 635,
+    "短租": 695
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      4
+     ],
+     [
+      2027,
+      2,
+      11
+     ],
+     [
+      2027,
+      2,
+      18
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     2,
+     10
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租 2027年2月4日、11日、18日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
   "prices": {
    "From": 515,
+   "6月": 575,
    "12月": 515
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日起租"
+  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日起租",
+  "name": "2 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-2-share-apt-fg",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg/",
+   "name": "2 Share Apt",
+   "type": "Share",
+   "area": "28.5m²",
+   "bed": "King Single",
+   "note": "2人",
+   "prices": {
+    "From": 515,
+    "6月": 575,
+    "12月": 515
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      4
+     ],
+     [
+      2027,
+      2,
+      18
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     26
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     9
+    ],
+    "contract_end": [
+     2027,
+     2,
+     10
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
   "prices": {
    "From": 615,
+   "6月": 675,
    "12月": 615
   },
   "avail": "available",
   "count": 5,
-  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租"
+  "date": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租",
+  "name": "Premium 2 Share",
+  "_room": {
+   "slug": "premium-single-bedroom-2-share-fg",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg/",
+   "name": "Premium 2 Share",
+   "type": "Share",
+   "area": "56.3m²",
+   "bed": "Double",
+   "note": "2人",
+   "prices": {
+    "From": 615,
+    "6月": 675,
+    "12月": 615
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      18
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     26
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     9
+    ],
+    "contract_end": [
+     2027,
+     2,
+     10
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月26日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
   "prices": {
    "From": 695,
+   "6月": 755,
    "12月": 695
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月2日、10日、16日"
+  "date": "今年已无房：2027年2月2日、10日、16日",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-fs",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/premium-studio-apartment-fs/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 695,
+    "6月": 755,
+    "12月": 695
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      2
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      16
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月2日、10日、16日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
   "prices": {
    "From": 805,
-   "短租": 805,
-   "12月": 745
+   "6月": 805,
+   "12月": 745,
+   "短租": 805
   },
   "avail": "limited",
   "count": 1,
-  "date": "今年可订：短租 9月28日 起；固定起租 10月15日 起"
+  "date": "今年可订：短租 9月28日 起；固定起租 10月15日 起",
+  "name": "Premium Studio Corner",
+  "_room": {
+   "slug": "premium-studio-apartment-cnr-fs",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/premium-studio-apartment-cnr-fs/",
+   "name": "Premium Studio Corner",
+   "type": "Studio",
+   "area": "23.8m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 805,
+    "6月": 805,
+    "12月": 745,
+    "短租": 805
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2026,
+      10,
+      15
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     2,
+     1
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      28
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月28日 起；固定起租 10月15日 起",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-station/standard-studio-apartment-fs": {
   "prices": {
    "From": 665,
+   "6月": 725,
    "12月": 665
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月28日 起（合同至 2027年2月1日）；长租亦可 2027年2月2日、10日、16日起租"
+  "date": "今年可订：长租灵活 2026年9月28日 起（合同至 2027年2月1日）；长租亦可 2027年2月2日、10日、16日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-fs",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/standard-studio-apartment-fs/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Queen",
+   "note": "",
+   "prices": {
+    "From": 665,
+    "6月": 725,
+    "12月": 665
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      2
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      16
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     28
+    ],
+    "flexible_end": [
+     2026,
+     9,
+     30
+    ],
+    "contract_end": [
+     2027,
+     2,
+     1
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月28日 起（合同至 2027年2月1日）；长租亦可 2027年2月2日、10日、16日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
   "prices": {
    "From": 535,
+   "6月": 595,
    "12月": 535
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月2日、10日、16日"
+  "date": "今年已无房：2027年2月2日、10日、16日",
+  "name": "2 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-2-share-apt-fs",
+   "url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/single-bedroom-2-share-apt-fs/",
+   "name": "2 Share Apt",
+   "type": "Share",
+   "area": "30.3m²",
+   "bed": "King Single",
+   "note": "2人",
+   "prices": {
+    "From": 535,
+    "6月": 595,
+    "12月": 535
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      2
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      16
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月2日、10日、16日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
   "prices": {
    "From": 665,
-   "短租": 725,
-   "12月": 665
+   "6月": 725,
+   "12月": 665,
+   "短租": 725
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月10日"
+  "date": "今年已无房：2027年2月10日",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-mce",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-central/premium-studio-apartment-mce/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 665,
+    "6月": 725,
+    "12月": 665,
+    "短租": 725
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      10
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月10日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
   "prices": {
    "From": 635,
+   "6月": 695,
    "12月": 635
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月10日"
+  "date": "今年已无房：2027年2月10日",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-mce",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-central/standard-studio-apartment-mce/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "18m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 635,
+    "6月": 695,
+    "12月": 635
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      10
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月10日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
   "prices": {
    "From": 705,
+   "6月": 765,
    "12月": 705
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-mc",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/premium-studio-apartment-mc/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 705,
+    "6月": 765,
+    "12月": 705
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
   "prices": {
    "From": 665,
-   "短租": 725,
-   "12月": 665
+   "6月": 725,
+   "12月": 665,
+   "短租": 725
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、2027年7月13日"
+  "date": "今年已无房：2027年2月3日、10日、2027年7月13日",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-mc",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/standard-studio-apartment-mc/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "21m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 665,
+    "6月": 725,
+    "12月": 665,
+    "短租": 725
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      7,
+      13
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、2027年7月13日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-premium-studio-u18": {
   "prices": {
    "From": 705,
+   "6月": 705,
    "12月": 705
   },
   "avail": "available",
   "count": 5,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "U18 Premium Studio",
+  "_room": {
+   "slug": "mce-premium-studio-u18",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-premium-studio-u18/",
+   "name": "U18 Premium Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 705,
+    "6月": 705,
+    "12月": 705
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-standard-studio-u18": {
   "prices": {
    "From": 665,
+   "6月": 665,
    "12月": 665
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "U18 Standard Studio",
+  "_room": {
+   "slug": "mce-standard-studio-u18",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-standard-studio-u18/",
+   "name": "U18 Standard Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 665,
+    "6月": 665,
+    "12月": 665
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
   "prices": {
    "From": 525,
+   "6月": 585,
    "12月": 525
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日"
+  "date": "今年已无房：2027年2月3日、10日",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-mc",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bedroom-5-share-apt-mc/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 525,
+    "6月": 585,
+    "12月": 525
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
   "prices": {
    "From": 515,
+   "6月": 575,
    "12月": 515
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租"
+  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-mc",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bedroom-6-share-apt-mc/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 515,
+    "6月": 575,
+    "12月": 515
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/single-bed-6-share-apt-saex-mci": {
   "prices": {
-   "From": 495
+   "From": 495,
+   "6月": 495
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月10日"
+  "date": "今年已无房：2027年2月10日",
+  "name": "Melbourne City 6 Bed (RMIT SAEX)",
+  "_room": {
+   "slug": "single-bed-6-share-apt-saex-mci",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bed-6-share-apt-saex-mci/",
+   "name": "Melbourne City 6 Bed (RMIT SAEX)",
+   "type": "Share",
+   "area": "13.5m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 495,
+    "6月": 495
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      10
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月10日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
   "prices": {
@@ -826,7 +4165,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "U18 5 Bedroom Female",
+  "_room": {
+   "slug": "mce-5-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-5-bedroom-u18-female/",
+   "name": "U18 5 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 525
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-male": {
   "prices": {
@@ -834,94 +4199,580 @@
   },
   "avail": "soldout",
   "count": null,
-  "date": "待定"
+  "date": "待定",
+  "name": "U18 5 Bedroom Male",
+  "_room": {
+   "slug": "mce-5-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-5-bedroom-u18-male/",
+   "name": "U18 5 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 525
+   },
+   "avail_status": "soldout",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "待定",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-female": {
   "prices": {
    "From": 515,
+   "6月": 515,
    "12月": 515
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租"
+  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+  "name": "U18 6 Bedroom Female",
+  "_room": {
+   "slug": "mce-6-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-6-bedroom-u18-female/",
+   "name": "U18 6 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 515,
+    "6月": 515,
+    "12月": 515
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-male": {
   "prices": {
    "From": 515,
+   "6月": 515,
    "12月": 515
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租"
+  "date": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+  "name": "U18 6 Bedroom Male",
+  "_room": {
+   "slug": "mce-6-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-6-bedroom-u18-male/",
+   "name": "U18 6 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 515,
+    "6月": 515,
+    "12月": 515
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月28日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
   "prices": {
    "From": 715,
-   "短租": 775,
-   "12月": 715
+   "6月": 775,
+   "12月": 715,
+   "短租": 775
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-studio-apartment-sy/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "25.5m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 715,
+    "6月": 775,
+    "12月": 715,
+    "短租": 775
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     2,
+     16
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
   "prices": {
    "From": 665,
-   "短租": 725,
-   "12月": 665
+   "6月": 725,
+   "12月": 665,
+   "短租": 725
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+  "name": "Single Studio",
+  "_room": {
+   "slug": "single-studio-apartment-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-studio-apartment-sy/",
+   "name": "Single Studio",
+   "type": "Studio",
+   "area": "17m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 665,
+    "6月": 725,
+    "12月": 665,
+    "短租": 725
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     2,
+     16
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
   "prices": {
    "From": 685,
-   "短租": 745,
-   "12月": 685
+   "6月": 745,
+   "12月": 685,
+   "短租": 745
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租"
+  "date": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/standard-studio-apartment-sy/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "19m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 685,
+    "6月": 745,
+    "12月": 685,
+    "短租": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": [
+     2027,
+     2,
+     9
+    ],
+    "shortstay_dates": [
+     [
+      2026,
+      9,
+      26
+     ]
+    ]
+   },
+   "date_str": "今年可订：短租 9月26日 起；长租 2027年2月3日、10日、17日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
   "prices": {
    "From": 565,
-   "短租": 625,
-   "12月": 565
+   "6月": 625,
+   "12月": 565,
+   "短租": 625
   },
   "avail": "available",
   "count": 5,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-bedroom-5-share-apt-sy/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "14.5m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 565,
+    "6月": 625,
+    "12月": 565,
+    "短租": 625
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
   "prices": {
    "From": 555,
-   "短租": 615,
-   "12月": 555
+   "6月": 615,
+   "12月": 555,
+   "短租": 615
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-bedroom-6-share-apt-sy/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "14.5m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 555,
+    "6月": 615,
+    "12月": 555,
+    "短租": 615
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
   "prices": {
    "From": 585,
-   "短租": 645,
-   "12月": 585
+   "6月": 645,
+   "12月": 585,
+   "短租": 645
   },
   "avail": "available",
   "count": 5,
-  "date": "今年已无房：2027年2月10日、17日"
+  "date": "今年已无房：2027年2月10日、17日",
+  "name": "Premium 5 Share",
+  "_room": {
+   "slug": "premium-single-bedroom-5-share-apt-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy/",
+   "name": "Premium 5 Share",
+   "type": "Share",
+   "area": "14.5m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 585,
+    "6月": 645,
+    "12月": 585,
+    "短租": 645
+   },
+   "avail_status": "available",
+   "avail_count": 5,
+   "avail_text": "5 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
    "From": 575,
+   "6月": 635,
    "12月": 575
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "date": "今年已无房：2027年2月3日、10日、17日",
+  "name": "Premium 6 Share",
+  "_room": {
+   "slug": "premium-single-bedroom-6-share-apt-sy",
+   "url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy/",
+   "name": "Premium 6 Share",
+   "type": "Share",
+   "area": "14.5m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 575,
+    "6月": 635,
+    "12月": 575
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      3
+     ],
+     [
+      2027,
+      2,
+      10
+     ],
+     [
+      2027,
+      2,
+      17
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月3日、10日、17日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
   "prices": {
@@ -929,44 +4780,223 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "Premium Studio",
+  "_room": {
+   "slug": "premium-studio-apartment-bc",
+   "url": "https://iglu.com.au/rooms/brisbane/brisbane-city/premium-studio-apartment-bc/",
+   "name": "Premium Studio",
+   "type": "Studio",
+   "area": "18.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 759
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/brisbane-city/standard-studio-apartment-bc": {
   "prices": {
    "From": 739,
+   "6月": 789,
    "12月": 739
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年已无房：2027年2月8日",
+  "name": "Standard Studio",
+  "_room": {
+   "slug": "standard-studio-apartment-bc",
+   "url": "https://iglu.com.au/rooms/brisbane/brisbane-city/standard-studio-apartment-bc/",
+   "name": "Standard Studio",
+   "type": "Studio",
+   "area": "18.3m²",
+   "bed": "Double",
+   "note": "",
+   "prices": {
+    "From": 739,
+    "6月": 789,
+    "12月": 739
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月8日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
   "prices": {
    "From": 559,
+   "6月": 609,
    "12月": 559
   },
   "avail": "limited",
   "count": 2,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年已无房：2027年2月8日",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-bc",
+   "url": "https://iglu.com.au/rooms/brisbane/brisbane-city/single-bedroom-5-share-apt-bc/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "12.8m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 559,
+    "6月": 609,
+    "12月": 559
+   },
+   "avail_status": "limited",
+   "avail_count": 2,
+   "avail_text": "2 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月8日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
   "prices": {
    "From": 539,
+   "6月": 589,
    "12月": 539
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月8日"
+  "date": "今年已无房：2027年2月8日",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-bc",
+   "url": "https://iglu.com.au/rooms/brisbane/brisbane-city/single-bedroom-6-share-apt-bc/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "12.8m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 539,
+    "6月": 589,
+    "12月": 539
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月8日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
   "prices": {
    "From": 429,
-   "短租": 479,
-   "12月": 429
+   "6月": 479,
+   "12月": 429,
+   "短租": 479
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：长租灵活 2026年9月28日~10月11日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日起租"
+  "date": "今年可订：长租灵活 2026年9月28日~10月11日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日起租",
+  "name": "Single Share Bath",
+  "_room": {
+   "slug": "student-room-shared-bathroom-bc",
+   "url": "https://iglu.com.au/rooms/brisbane/brisbane-city/student-room-shared-bathroom-bc/",
+   "name": "Single Share Bath",
+   "type": "Share",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "Share Bath",
+   "prices": {
+    "From": 429,
+    "6月": 479,
+    "12月": 429,
+    "短租": 479
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      8
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": [
+     2026,
+     9,
+     28
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     11
+    ],
+    "contract_end": [
+     2027,
+     2,
+     4
+    ],
+    "shortstay_dates": []
+   },
+   "date_str": "今年可订：长租灵活 2026年9月28日~10月11日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日起租",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
   "prices": {
@@ -974,7 +5004,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "1 Bedroom Apt",
+  "_room": {
+   "slug": "1-bedroom-apartment-kg",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/1-bedroom-apartment-kg/",
+   "name": "1 Bedroom Apt",
+   "type": "Apt",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "",
+   "prices": {
+    "From": 699
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
   "prices": {
@@ -982,7 +5038,33 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "2 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-2-share-apt-kg",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-2-share-apt-kg/",
+   "name": "2 Share Apt",
+   "type": "Share",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "2人",
+   "prices": {
+    "From": 479
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
   "prices": {
@@ -990,42 +5072,208 @@
   },
   "avail": "waitlist",
   "count": null,
-  "date": "今年无房（等位）"
+  "date": "今年无房（等位）",
+  "name": "3 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-3-share-apt-kg",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-3-share-apt-kg/",
+   "name": "3 Share Apt",
+   "type": "Share",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "3人",
+   "prices": {
+    "From": 449
+   },
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": false,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
   "prices": {
    "From": 399,
+   "6月": 449,
    "12月": 399
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月11日"
+  "date": "今年已无房：2027年2月11日",
+  "name": "5 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-5-share-apt-kg",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-5-share-apt-kg/",
+   "name": "5 Share Apt",
+   "type": "Share",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "5人",
+   "prices": {
+    "From": 399,
+    "6月": 449,
+    "12月": 399
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      11
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月11日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
   "prices": {
    "From": 399,
+   "6月": 449,
    "12月": 399
   },
   "avail": "available",
   "count": null,
-  "date": "今年已无房：2027年2月11日"
+  "date": "今年已无房：2027年2月11日",
+  "name": "6 Share Apt",
+  "_room": {
+   "slug": "single-bedroom-6-share-apt-kg",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-6-share-apt-kg/",
+   "name": "6 Share Apt",
+   "type": "Share",
+   "area": "10.5m²",
+   "bed": "King Single",
+   "note": "6人",
+   "prices": {
+    "From": 399,
+    "6月": 449,
+    "12月": 399
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      11
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月11日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
   "prices": {
    "From": 479,
+   "6月": 479,
    "12月": 479
   },
   "avail": "available",
   "count": 3,
-  "date": "今年已无房：2027年2月15日"
+  "date": "今年已无房：2027年2月15日",
+  "name": "U18 5 Bedroom Female",
+  "_room": {
+   "slug": "bkg-5-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/bkg-5-bedroom-u18-female/",
+   "name": "U18 5 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 479,
+    "6月": 479,
+    "12月": 479
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      15
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月15日",
+   "scraped_at": "09-25 20:25"
+  }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-male": {
   "prices": {
    "From": 479,
+   "6月": 479,
    "12月": 479
   },
   "avail": "available",
   "count": 3,
-  "date": "今年已无房：2027年2月15日"
+  "date": "今年已无房：2027年2月15日",
+  "name": "U18 5 Bedroom Male",
+  "_room": {
+   "slug": "bkg-5-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/bkg-5-bedroom-u18-male/",
+   "name": "U18 5 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 479,
+    "6月": 479,
+    "12月": 479
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [
+     [
+      2027,
+      2,
+      15
+     ]
+    ],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "今年已无房：2027年2月15日",
+   "scraped_at": "09-25 20:25"
+  }
  }
 }
