@@ -757,12 +757,6 @@
   "count": null,
   "date": "今年已无房：2027年2月10日"
  },
- "melbourne/melbourne-city/mce-premium-studio-u18": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定"
- },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
   "prices": {
    "From": 705,
@@ -781,6 +775,15 @@
   "avail": "available",
   "count": null,
   "date": "今年已无房：2027年2月3日、10日、2027年7月13日"
+ },
+ "melbourne/melbourne-city/mce-premium-studio-u18": {
+  "prices": {
+   "From": 705,
+   "12月": 705
+  },
+  "avail": "available",
+  "count": 5,
+  "date": "今年已无房：2027年2月3日、10日、17日"
  },
  "melbourne/melbourne-city/mce-standard-studio-u18": {
   "prices": {
