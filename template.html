@@ -361,6 +361,70 @@
 </div>
 
 <script>
+/* 智能搜索匹配（2026-09-25，与学生公寓/社会公寓搜索同一思路）：
+   多个关键词用空格隔开、每个都要命中；忽略大小写、空格和标点（"centralpark" 也能搜到 Central Park）；
+   中英文别名互通（墨尔本↔melbourne、开间↔studio、独卫↔ensuite…）；英文 5 个字母以上允许拼错 1 个字母。
+   any=true 时任一关键词命中即可（用于人名这类一行一个的列表，"张三 李四" 同时列出两人）。 */
+var UH_SM_ALIASES = [
+  ['悉尼', 'sydney'], ['墨尔本', 'melbourne', 'melb'], ['布里斯班', 'brisbane', 'bris'], ['堪培拉', 'canberra'],
+  ['阿德莱德', 'adelaide'], ['珀斯', 'perth'], ['奥克兰', 'auckland'], ['黄金海岸', 'gold coast'], ['霍巴特', 'hobart'],
+  ['开间', '单间', 'studio'], ['独卫', 'ensuite', 'en-suite'], ['非独卫', '共享卫浴', 'non-ensuite', 'shared bathroom'],
+  ['双人', '双人间', 'twin', 'double'], ['一房', '1房', '1b', '1 bed', 'one bed', '1 bedroom'], ['两房', '二房', '2房', '2b', '2 bed', 'two bed', '2 bedroom'],
+  ['三房', '3房', '3b', '3 bed', 'three bed'], ['公寓', 'apartment', 'apt'], ['房间', 'room'], ['套间', 'suite'],
+  ['中央公园', 'central park'], ['唐人街', 'chinatown'], ['悉尼大学', 'usyd'], ['新南', '新南威尔士', 'unsw'], ['悉尼科技', 'uts'],
+  ['售罄', 'sold out', '满房'], ['可订', 'available', '有房'], ['短租', 'short stay', 'short term'], ['全年', '51周', '52周', 'full year']
+];
+function uhSmNorm(s) { return String(s == null ? '' : s).toLowerCase().replace(/[\s\-_·•,，。.;；:：/\\|()（）\[\]【】"'“”‘’]+/g, ''); }
+function uhSmTokens(q) {
+  var out = [];
+  String(q || '').toLowerCase().split(/[\s,，;；、/|]+/).forEach(function (chunk) {
+    if (!chunk) return;
+    // 中英文连写自动断开：墨尔本studio → 墨尔本 / studio
+    var parts = chunk.match(/[㐀-鿿]+|[^㐀-鿿]+/g) || [];
+    parts.forEach(function (p) { p = uhSmNorm(p); if (p) out.push(p); });
+  });
+  return out;
+}
+function uhSmAlts(t) {
+  var alts = [t];
+  UH_SM_ALIASES.forEach(function (g) {
+    var gn = g.map(uhSmNorm);
+    if (gn.indexOf(t) !== -1) gn.forEach(function (w) { if (alts.indexOf(w) === -1) alts.push(w); });
+  });
+  return alts;
+}
+function uhSmEdit1(a, b) { // a、b 编辑距离 ≤1
+  if (Math.abs(a.length - b.length) > 1) return false;
+  var i = 0, j = 0, diff = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++diff > 1) return false;
+    if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; }
+  }
+  return diff + (a.length - i) + (b.length - j) <= 1;
+}
+function uhSmTokenHit(t, hayN, hayWords) {
+  var alts = uhSmAlts(t);
+  for (var k = 0; k < alts.length; k++) if (alts[k] && hayN.indexOf(alts[k]) !== -1) return true;
+  if (/^[a-z]{5,}$/.test(t)) { // 英文拼错一个字母
+    for (var w = 0; w < hayWords.length; w++) {
+      var hw = hayWords[w];
+      if (hw.length >= t.length - 1 && uhSmEdit1(t, hw.slice(0, t.length)) ) return true;
+      if (uhSmEdit1(t, hw)) return true;
+    }
+  }
+  return false;
+}
+function uhSmartMatch(hay, q, any) {
+  var tokens = uhSmTokens(q);
+  if (!tokens.length) return true;
+  var raw = String(hay == null ? '' : hay).toLowerCase();
+  var hayN = uhSmNorm(raw);
+  var hayWords = raw.split(/[^a-z]+/).filter(function (x) { return x.length >= 4; });
+  var hit = function (t) { return uhSmTokenHit(t, hayN, hayWords); };
+  return any ? tokens.some(hit) : tokens.every(hit);
+}
+
 /* 各楼官网直达（楼页；noreferrer 防止 iglu 按外部来源重定向） */
 var PROP_SITES = {
   /* Sydney */
@@ -678,7 +742,7 @@ var IGLU_COMPARE = {{COMPARE_DATA}};
       els.sort.textContent = ui.sort === 'desc' ? '价格：高 → 低 ⇅' : '价格：低 → 高 ⇅';
 
       var q = els.search.value.trim().toLowerCase();
-      var items = pool.filter(function(r){ return r.cat === ui.cat && (!q || (r.prop + ' ' + r.name).toLowerCase().indexOf(q) !== -1); })
+      var items = pool.filter(function(r){ return r.cat === ui.cat && (!q || uhSmartMatch(r.prop + ' ' + r.name + ' ' + (r.city || ''), q)); })
         .map(function(r){ return {room: r, price: priceOf(r)}; });
       var dir = ui.sort === 'desc' ? -1 : 1;
       var byPrice = function(a, b){ return dir * (a.price.value - b.price.value) || a.room.prop.localeCompare(b.room.prop); };
