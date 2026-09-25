@@ -911,8 +911,8 @@
    "12月": 585
   },
   "avail": "available",
-  "count": null,
-  "date": "今年已无房：2027年2月3日、10日、17日"
+  "count": 5,
+  "date": "今年已无房：2027年2月10日、17日"
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
   "prices": {
@@ -960,9 +960,9 @@
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
   "prices": {
-   "From": 449,
-   "短租": 499,
-   "12月": 449
+   "From": 429,
+   "短租": 479,
+   "12月": 429
   },
   "avail": "available",
   "count": null,
