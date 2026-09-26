@@ -46,7 +46,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/standard-studio-apartment-br": {
@@ -59,7 +59,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "今年可订：短租 12月10日 起；固定起租 10月5日、8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+  "date": "今年可订：短租 12月10日 起；固定起租 10月8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-br",
@@ -81,11 +81,6 @@
    "avail_text": "",
    "date_data": {
     "dates": [
-     [
-      2026,
-      10,
-      5
-     ],
      [
       2026,
       10,
@@ -121,8 +116,8 @@
      ]
     ]
    },
-   "date_str": "今年可订：短租 12月10日 起；固定起租 10月5日、8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
-   "scraped_at": "09-26 15:35"
+   "date_str": "今年可订：短租 12月10日 起；固定起租 10月8日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
@@ -156,7 +151,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/superior-studio-apartment-br": {
@@ -190,7 +185,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
@@ -254,7 +249,7 @@
     ]
    },
    "date_str": "今年可订：短租 12月14日 起；固定起租 10月7日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
@@ -312,7 +307,7 @@
     ]
    },
    "date_str": "今年可订：短租 12月14日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
@@ -381,7 +376,7 @@
     ]
    },
    "date_str": "今年可订：短租 12月14日 起；固定起租 9月28日 起；长租灵活 2027年1月4日~2月9日 起（合同至 2027年7月14日）；长租亦可 2027年2月9日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/standard-studio-apartment-ce": {
@@ -431,7 +426,7 @@
     ]
    },
    "date_str": "今年可订：短租 11月30日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-female": {
@@ -465,7 +460,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-male": {
@@ -499,7 +494,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-standard-studio-u18": {
@@ -533,7 +528,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -567,7 +562,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/single-bedroom-6-share-apt-ce": {
@@ -625,7 +620,7 @@
     ]
    },
    "date_str": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
@@ -683,7 +678,7 @@
     ]
    },
    "date_str": "今年可订：短租 12月6日 起；长租灵活 2027年1月1日~3月1日 起（合同至 2027年7月13日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-5-bedroom-u18-female": {
@@ -731,7 +726,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年12月1日~2027年3月31日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-5-bedroom-u18-male": {
@@ -765,7 +760,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-6-bedroom-u18-female": {
@@ -813,7 +808,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年11月25日~2027年3月31日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-6-bedroom-u18-male": {
@@ -861,7 +856,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月27日~2027年3月31日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-female": {
@@ -907,7 +902,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
@@ -955,7 +950,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年11月28日~2027年3月31日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/premium-corner-studio-apartment-cp": {
@@ -1001,7 +996,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/premium-studio-apartment": {
@@ -1051,7 +1046,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/standard-studio-apartment-cp": {
@@ -1107,7 +1102,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租 2027年2月9日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/superior-studio-apartment-cp": {
@@ -1165,7 +1160,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月8日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
@@ -1199,7 +1194,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/single-bedroom-4-share-apt-cp": {
@@ -1247,7 +1242,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/single-bedroom-6-share-apt-cp": {
@@ -1305,7 +1300,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租灵活 2027年1月1日~2月9日 起（合同至 2027年7月15日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/central-park/premium-single-room-6-share-cp": {
@@ -1349,7 +1344,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月12日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
@@ -1407,7 +1402,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月29日 起；长租 2027年2月8日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
@@ -1441,7 +1436,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
@@ -1499,7 +1494,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月29日 起；长租 2027年2月8日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
@@ -1547,7 +1542,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月8日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
@@ -1595,7 +1590,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月8日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
@@ -1647,7 +1642,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年12月9日~2027年2月15日 起（合同至 2027年7月14日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot/premium-studio-apartment-ma": {
@@ -1699,7 +1694,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot/standard-studio-apartment-ma": {
@@ -1753,7 +1748,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot/standard-studio-apartment-queen": {
@@ -1787,7 +1782,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot/single-bedroom-6-share-apt-ma": {
@@ -1845,7 +1840,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月29日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
@@ -1905,7 +1900,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月29日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月9日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot-duo/premium-studio-apartment-md": {
@@ -1955,7 +1950,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot-duo/standard-studio-apartment-md": {
@@ -2005,7 +2000,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/mascot-duo/superior-studio-apartment-md": {
@@ -2055,7 +2050,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月6日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/premium-studio-apartment-re": {
@@ -2105,7 +2100,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-studio-apartment-re": {
@@ -2139,7 +2134,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-studio-apartment-nras": {
@@ -2173,7 +2168,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/standard-studio-apartment-re": {
@@ -2223,7 +2218,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/standard-studio-apartment-nras": {
@@ -2257,7 +2252,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/sre-premium-studio-u18": {
@@ -2307,7 +2302,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/redfern/u18-standard-studio": {
@@ -2357,7 +2352,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/redfern/single-bedroom-4-share-apt-re": {
@@ -2391,7 +2386,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-bedroom-5-share-apt-re": {
@@ -2441,7 +2436,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年2月1日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-bedroom-6-share-apt-re": {
@@ -2499,7 +2494,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月15日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
@@ -2533,7 +2528,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
@@ -2573,7 +2568,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/sre-4-bedroom-u18-female": {
@@ -2607,7 +2602,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/sre-4-bedroom-u18-male": {
@@ -2657,7 +2652,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/redfern/sre-6-bedroom-u18-female": {
@@ -2707,7 +2702,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:15"
   }
  },
  "sydney/redfern/sre-6-bedroom-u18-male": {
@@ -2757,7 +2752,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：长租灵活 2027年1月1日~3月31日 起（合同至 2027年7月7日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
@@ -2815,7 +2810,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
@@ -2879,7 +2874,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月30日 起；长租灵活 2027年1月5日~2月9日 起（合同至 2027年7月15日）；长租亦可 2027年2月9日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
@@ -2925,7 +2920,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月9日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
@@ -2981,7 +2976,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月30日 起；长租 2027年2月9日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
@@ -3027,7 +3022,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月9日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
@@ -3075,7 +3070,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月9日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
@@ -3121,7 +3116,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月9日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
@@ -3165,7 +3160,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月18日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
@@ -3231,7 +3226,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月27日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、11日、18日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
@@ -3265,7 +3260,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/standard-studio-apartment-fg": {
@@ -3331,7 +3326,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租 2027年2月4日、11日、18日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
@@ -3392,7 +3387,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月27日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月4日、18日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
@@ -3448,7 +3443,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月27日~10月9日 起（合同至 2027年2月10日）；长租亦可 2027年2月18日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
@@ -3502,7 +3497,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月2日、10日、16日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
@@ -3558,7 +3553,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月28日 起；固定起租 10月15日 起",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-station/standard-studio-apartment-fs": {
@@ -3624,7 +3619,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月28日 起（合同至 2027年2月1日）；长租亦可 2027年2月2日、10日、16日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
@@ -3678,7 +3673,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月2日、10日、16日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
@@ -3724,7 +3719,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月10日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
@@ -3768,7 +3763,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月10日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
@@ -3822,7 +3817,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
@@ -3878,7 +3873,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、2027年7月13日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-premium-studio-u18": {
@@ -3932,7 +3927,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-standard-studio-u18": {
@@ -3986,7 +3981,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
@@ -4035,7 +4030,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
@@ -4101,7 +4096,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月29日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/single-bed-6-share-apt-saex-mci": {
@@ -4143,7 +4138,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月10日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
@@ -4177,7 +4172,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-male": {
@@ -4211,7 +4206,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-female": {
@@ -4277,7 +4272,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月29日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-male": {
@@ -4343,7 +4338,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月29日~2027年2月2日 起（合同至 2027年6月29日）；长租亦可 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
@@ -4409,7 +4404,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
@@ -4475,7 +4470,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
@@ -4541,7 +4536,7 @@
     ]
    },
    "date_str": "今年可订：短租 9月27日 起；长租 2027年2月3日、10日、17日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
@@ -4597,7 +4592,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
@@ -4653,7 +4648,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
@@ -4704,7 +4699,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
@@ -4758,7 +4753,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月3日、10日、17日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
@@ -4792,7 +4787,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/brisbane-city/standard-studio-apartment-bc": {
@@ -4836,7 +4831,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月8日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
@@ -4880,7 +4875,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月8日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
@@ -4924,7 +4919,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月8日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
@@ -4982,7 +4977,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年可订：长租灵活 2026年9月29日~10月12日 起（合同至 2027年2月4日）；长租亦可 2027年2月8日起租",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
@@ -5016,7 +5011,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
@@ -5050,7 +5045,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
@@ -5084,7 +5079,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
@@ -5128,7 +5123,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月11日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
@@ -5172,7 +5167,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月11日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
@@ -5216,7 +5211,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月15日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-male": {
@@ -5260,7 +5255,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年已无房：2027年2月15日",
-   "scraped_at": "09-26 15:35"
+   "scraped_at": "09-26 18:16"
   }
  }
 }
