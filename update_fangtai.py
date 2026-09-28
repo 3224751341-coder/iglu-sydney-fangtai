@@ -1065,6 +1065,24 @@ def apply_semester_truth(room: dict, semesters: list) -> None:
         room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
 
 
+def merge_semester_prices(room: dict) -> None:
+    """把最早开放学期的接口租期价补进 prices（就地修改）。
+
+    2026-09-28 Murphy 反馈「比价全是起价」后查明：官网改版后静态房型页早已不带租期价，
+    只剩 mnth6/mnth12/mnth20 三个无价存根，真实租期价只在学期接口 get_room_movein_dates
+    的 terms 片段里（data-label/data-price）。此前 extract_prices 只能抓到 From 起价，
+    导致户型比价 103 行全部没有租期价、租期页签形同虚设。
+    只补缺失的租期档，静态页已有的价格和 From 起价保持不动。"""
+    sems = room.get("semesters") or []
+    open_sems = [s for s in sems if not s.get("waitlist")]
+    if not open_sems:
+        return
+    prices = room.setdefault("prices", {})
+    for k, v in (open_sems[0].get("terms") or {}).items():
+        if v is not None and not prices.get(k):
+            prices[k] = v
+
+
 def auto_room_meta(room_slug: str, html: str) -> tuple:
     """官网新出现、还没写进 room_meta 的房型：名字取房型页 <h1> 第一行（如「U18 6 Bedroom Female」），
     类型按 slug 推断。格式同 room_meta：(名称, 类型, 面积, 床型, 备注)"""
@@ -1136,6 +1154,7 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
             semesters.append(sd)
     room["semesters"] = semesters
     apply_semester_truth(room, semesters)
+    merge_semester_prices(room)   # 静态页无租期价 → 用学期接口价补全（户型比价要用）
     # 手动覆盖表优先级最高（人工核对过的日期不被学期逻辑改掉）
     if meta[0] in DATE_OVERRIDES:
         room["date_str"] = DATE_OVERRIDES[meta[0]]
@@ -1382,19 +1401,45 @@ def room_sort_key(room: dict):
     return (avail_rank, date_rank, room['name'])
 
 
+def _is_u18(room: dict) -> bool:
+    """U18（仅限未成年）房型：slug 带 u18 或备注就是 U18。与 build_compare_data 的判定一致。"""
+    return "u18" in (room.get("slug") or "").lower() or (room.get("note") or "").strip().upper() == "U18"
+
+
 def build_prop_panel(prop: dict, is_first: bool) -> str:
-    """Build a single property panel：所有房型一次性展示（不分类），按有房先后排序。"""
-    rooms = sorted(prop['rooms'], key=room_sort_key)
+    """Build a single property panel：常规房型直接展示；U18 房型单独折叠成一个板块
+    （2026-09-28 Murphy：房型太多、U18 平时用不上，默认收起、需要时点开）。
+    两张表共用同一套租期列，保证列对齐。"""
+    all_rooms = sorted(prop['rooms'], key=room_sort_key)
+    rooms = [r for r in all_rooms if not _is_u18(r)]
+    u18_rooms = [r for r in all_rooms if _is_u18(r)]
     # 租期列 = 这栋楼本轮官网实际有报价的租期（官网上/下架租期，列自动跟着变）
-    term_cols = sorted({k for r in rooms for k in (r.get('prices') or {}) if k != 'From'}, key=term_sort_key)
+    # 注意：按全部房型算（含 U18），否则折叠表与主表列数不一致
+    term_cols = sorted({k for r in all_rooms for k in (r.get('prices') or {}) if k != 'From'}, key=term_sort_key)
     if not term_cols:
         term_cols = ["12月", "短租"]
     thead = ('<th>房型</th><th>面积</th><th>床型</th>'
              + "".join(f'<th>{k}</th>' for k in term_cols)
              + '<th>库存</th><th>起租日期</th>')
 
+    u18_html = ""
+    if u18_rooms:
+        n = len(u18_rooms)
+        ok_n = sum(1 for r in u18_rooms if r.get('avail_status') in ('available', 'limited'))
+        u18_html = (
+            f'<details class="u18-block">'
+            f'<summary><span class="u18-title">🧒 U18 房型（仅限未成年）</span>'
+            f'<span class="u18-meta">{n} 个房型 · {ok_n} 个可订</span>'
+            f'<span class="u18-arrow">▸</span></summary>'
+            f'<div class="table-wrap"><table>'
+            f'<thead><tr>{thead}</tr></thead>'
+            f'<tbody>{"".join(build_room_row(r, term_cols) for r in u18_rooms)}</tbody>'
+            f'</table></div>'
+            f'</details>'
+        )
+
     coming_soon_html = ""
-    if not rooms:
+    if not all_rooms:
         opening = COMING_SOON.get(prop["slug"])
         now_ym = _bjt_now().strftime("%Y-%m")
         if opening and opening >= now_ym:
@@ -1413,11 +1458,17 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
         else:
             coming_soon_html = '<div class="coming-soon"><p class="cs-text">暂无房型数据</p></div>'
 
+    main_table = ""
+    if rooms:
+        main_table = (
+            '<div class="table-wrap"><table>'
+            f'<thead><tr>{thead}</tr></thead>'
+            f'<tbody>{"".join(build_room_row(r, term_cols) for r in rooms)}</tbody>'
+            '</table></div>'
+        )
+
     return f'''<div class="prop-panel{" active" if is_first else ""}" id="prop-{prop['slug']}">
-<div class="table-wrap"><table>
-<thead><tr>{thead}</tr></thead>
-<tbody>{"".join(build_room_row(r, term_cols) for r in rooms)}</tbody>
-</table></div>{coming_soon_html}
+{main_table}{u18_html}{coming_soon_html}
 </div>'''
 
 
@@ -2153,6 +2204,22 @@ def main():
 
     changes = diff_snapshot(old_snap, new_snap) if old_snap else []
     term_events = property_term_events(old_snap, new_snap) if old_snap else {}
+
+    # 2026-09-28 租期价回填：官网静态房型页早已不带租期价（只剩 mnth6/mnth12/mnth20 无价存根），
+    # 此前快照所有房型只有 From 起价，户型比价 103 行全部没有租期价。本轮起把学期接口抓到的
+    # 真实租期价补进 prices，diff 会把它们判成「新开租期 / 价格变化」——但那是口径回填，
+    # 不是真实涨跌。旧快照完全没有租期价时，本轮过滤掉价格类变化、不推企微（下轮自动恢复正常）。
+    price_backfill = bool(old_snap) and all(
+        not any(k != "From" and v for k, v in ((e.get("prices") or {}).items()))
+        for e in list(old_snap.values())[:20]
+    )
+    if price_backfill:
+        n_price = sum(1 for c in changes if c[1] == "prices")
+        n_term = sum(len(v["added"]) + len(v["removed"]) for v in term_events.values())
+        print(f"  🔇 检测到租期价口径回填：本轮 {n_price} 项价格变化 / {n_term} 项租期上下架不推企微")
+        term_events = {}
+        changes = [c for c in changes if c[1] != "prices"]
+
     changed_count = len(set(c[0] for c in changes))
 
     # 2026-09-28 上线分学期真实房态：旧快照房型没有 semesters 字段 → 本轮 avail/count/date

@@ -146,6 +146,24 @@
   .sub-panel { display: none; }
   .sub-panel.active { display: block; }
 
+  /* U18 房型折叠板块（2026-09-28 Murphy：房型太多，U18 平时用不上 → 默认收起，需要时点开） */
+  .u18-block { margin-top: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card-bg); overflow: hidden; }
+  .u18-block > summary { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; min-height: 46px; padding: 12px 14px; cursor: pointer; list-style: none; user-select: none; font-size: 0.92rem; }
+  .u18-block > summary::-webkit-details-marker { display: none; }
+  .u18-block > summary:hover { background: rgba(255,90,95,.06); }
+  .u18-title { font-weight: 700; color: var(--brand); }
+  .u18-meta { color: var(--text-muted); font-size: 0.82rem; }
+  .u18-arrow { margin-left: auto; color: var(--text-muted); font-size: 0.9rem; transition: transform 200ms cubic-bezier(0.32,0.72,0,1); }
+  .u18-block[open] > summary { border-bottom: 1px solid var(--border); }
+  .u18-block[open] > summary .u18-arrow { transform: rotate(90deg); }
+  .u18-block .table-wrap { border: none; border-radius: 0; }
+  @media (max-width: 640px) {
+    /* 手机端：字号 ≥16px 防 iOS 聚焦缩放，点击区加大，meta 换行不挤压（铁律9） */
+    .u18-block > summary { padding: 14px 12px; font-size: 16px; min-height: 50px; }
+    .u18-meta { font-size: 13px; flex-basis: 100%; }
+    .u18-arrow { margin-left: auto; }
+  }
+
   /* Official site link (各楼官网) */
   .prop-toolbar { position: absolute; top: 6px; right: 0; z-index: 3; display: flex; gap: 8px; }
   .site-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); background: var(--card-bg); font-family: var(--font); text-decoration: none; transition: all 200ms cubic-bezier(0.32,0.72,0,1); white-space: nowrap; }
