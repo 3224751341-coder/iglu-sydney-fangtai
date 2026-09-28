@@ -906,6 +906,165 @@ def format_start_label(avail_status: str, date_data: dict) -> str:
     return '待定'
 
 
+# ── 分学期真实房态（2026-09-28）──────────────────────────────────────────
+# 背景：房型页静态 HTML 的「X left at this price」/「灵活自选」是营销文案，
+# 不区分学期。真实的按学期房态（含 Join the Waitlist）只在选择学期后由
+# admin-ajax.php?action=get_room_movein_dates 返回（Redfern 5B / Mascot 两栋楼
+# 2026 全等位但静态页全报有房，据此修正）。
+
+
+def extract_semester_radios(html: str) -> list:
+    """房型页顶部学期单选（sem_s2 / sem_s1）→ [(suffix, label, prop_id, room_id)]。
+    页面顺序即时间先后（Semester 2 2026 → Semester 1 2027）。"""
+    out = []
+    for m in re.finditer(r'<input\b[^>]*id="sem_\w+"[^>]*>', html):
+        tag = m.group(0)
+
+        def _attr(name):
+            a = re.search(rf'{name}="([^"]*)"', tag)
+            return a.group(1) if a else None
+
+        sid = _attr("id") or ""            # e.g. sem_s2
+        prop_id, room_id = _attr("data-prop"), _attr("data-room")
+        suffix = _attr("data-suffix") or ""  # sem_s1 的 data-suffix 是空串
+        if not (prop_id and room_id):
+            continue
+        lm = re.search(rf'id="span_{re.escape(sid[4:])}"[^>]*>([^<]+)<', html)
+        label = (lm.group(1).strip() if lm else "") or (suffix or "s1")
+        out.append((suffix, label, prop_id, room_id))
+    return out
+
+
+def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
+    """查某个学期的真实可订状态。返回：
+    {"waitlist": bool, "terms": {"44周": 755, ...}, "flex_start": (y,m,d)|None, "dates": [(y,m,d)]}
+    接口异常返回 None（调用方沿用静态页结果，不冒险改判）。"""
+    import time as _time
+    try:
+        r = cffi_req.post(
+            "https://iglu.com.au/wp-admin/admin-ajax.php",
+            data={"action": "get_room_movein_dates",
+                  "room_id": room_id, "suffix": suffix, "prop_id": prop_id},
+            headers={"Referer": "https://iglu.com.au/",
+                     "X-Requested-With": "XMLHttpRequest"},
+            impersonate="chrome131", timeout=REQUEST_TIMEOUT,
+        )
+        d = json.loads(r.text)
+    except Exception as e:
+        print(f"     ⚠️ 学期接口失败({suffix or 's1'}): {e}")
+        return None
+    if not d.get("success"):
+        return None
+    if not d.get("continue"):
+        # continue=False → 该学期无房（months 里是 Join the Waitlist）
+        return {"waitlist": True, "terms": {}, "flexible": False,
+                "flex_start": None, "flex_end": None, "contract_end": None, "dates": []}
+
+    # months + dates 片段拼起来复用 extract_dates（availNowBtn 灵活起租判定、
+    # 日历起点/终点、具体起租日期、buffer days 逻辑与静态页完全一致）
+    months_html = d.get("months") or ""
+    terms_html = d.get("terms") or ""
+    dates_html = d.get("dates") or ""
+    combined = months_html + dates_html
+    dd = extract_dates(combined)
+
+    # 租期与价格（在 terms 片段）：<input name="lterm" value="22" data-price="815" data-label="22 Weeks">
+    terms = {}
+    for m in re.finditer(r'<input[^>]*name="lterm"[^>]*>', terms_html + months_html):
+        tag = m.group(0)
+
+        def _a(n, _t=tag):
+            a = re.search(rf'{n}="([^"]*)"', _t)
+            return a.group(1) if a else None
+
+        val, label, price = _a("value"), _a("data-label"), _a("data-price")
+        if not label:
+            continue
+        try:
+            terms[_term_key(val or "", label)] = int(price.replace(",", "")) if price else None
+        except ValueError:
+            terms[_term_key(val or "", label)] = None
+
+    return {"waitlist": False, "terms": terms,
+            "flexible": bool(dd.get("flexible")),
+            "flex_start": dd.get("flexible_start"),
+            "flex_end": dd.get("flexible_end"),
+            "contract_end": dd.get("contract_end"),
+            "dates": dd.get("dates", [])}
+
+
+def _sem_short(label: str) -> str:
+    """'Semester 2 2026' → 'S2 2026'"""
+    m = re.search(r'Semester\s*(\d)\s*(\d{4})', label, re.I)
+    return f"S{m.group(1)} {m.group(2)}" if m else label
+
+
+def _sem_terms_note(sem: dict) -> str:
+    """开放学期的最低价租期：'44周$755起'；无价格信息返回空串"""
+    priced = {k: v for k, v in sem.get("terms", {}).items() if v}
+    if not priced:
+        return ""
+    k = min(priced, key=lambda x: (TERM_ORDER.index(x) if x in TERM_ORDER else 99, priced[x]))
+    return f"{k}${priced[k]}起"
+
+
+def semester_date_str(semesters: list, fallback: str) -> str:
+    """按学期真实状态生成起租列文案（快照 date 字段 / 企微推送用）"""
+    open_sems = [s for s in semesters if not s["waitlist"]]
+    wl_sems = [s for s in semesters if s["waitlist"]]
+    if not open_sems:
+        labels = " / ".join(_sem_short(s["label"]) for s in semesters)
+        return f"全部学期等位（{labels}）" if labels else "全部学期等位"
+    if not wl_sems:
+        return fallback  # 所有学期都有房 → 维持原有文案
+    # 今年等位 + 明年（后续学期）可订
+    first_open = open_sems[0]
+    wl_txt = "、".join(_sem_short(s["label"]) for s in wl_sems)
+    op_txt = _sem_short(first_open["label"])
+    note = _sem_terms_note(first_open)
+    start = first_open.get("flex_start") or (first_open["dates"][0] if first_open["dates"] else None)
+    start_txt = f" · {start[0]}年{start[1]}月起" if start else ""
+    return f"{wl_txt}等位 · {op_txt}可订{('（' + note + '）') if note else ''}{start_txt}"
+
+
+def apply_semester_truth(room: dict, semesters: list) -> None:
+    """用接口的学期真实状态覆盖静态页推断的 avail_status / avail_count / date_data / date_str。
+    就地修改 room。semesters 为空（接口全失败）时不动作，沿用静态页结果。"""
+    if not semesters:
+        return
+    open_sems = [s for s in semesters if not s["waitlist"]]
+    wl_sems = [s for s in semesters if s["waitlist"]]
+
+    if not open_sems:
+        # 所有学期都等位 → 无房（静态页的「有房」「X left」全是营销标记）
+        room["avail_status"] = "waitlist"
+        room["avail_count"] = None
+        room["avail_text"] = ""
+        room["date_data"] = {"dates": [], "shortstay_dates": [], "flexible": False,
+                             "flexible_start": None, "flexible_end": None, "contract_end": None}
+        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
+        return
+
+    first_open = open_sems[0]
+    sem_dates = {"dates": first_open.get("dates", []), "shortstay_dates": [],
+                 "flexible": bool(first_open.get("flexible")),
+                 "flexible_start": first_open.get("flex_start"),
+                 "flexible_end": first_open.get("flex_end"),
+                 "contract_end": first_open.get("contract_end")}
+
+    if wl_sems and semesters[0]["waitlist"]:
+        # 最早学期（今年）等位、后续学期（明年）才有房：
+        # 余量/价格保留（X-left 对应的正是开放学期的价格），但日期指向明年，
+        # 页面起租列显示「今年无房 + 明年X月起」，不再显示误导性的「灵活自选」
+        room["date_data"] = sem_dates
+        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
+    else:
+        # 最早学期就有房 → 用接口真实起租日修正静态页日期（静态页日期区常为空）
+        if first_open["dates"] or first_open["flex_start"]:
+            room["date_data"] = sem_dates
+        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
+
+
 def auto_room_meta(room_slug: str, html: str) -> tuple:
     """官网新出现、还没写进 room_meta 的房型：名字取房型页 <h1> 第一行（如「U18 6 Bedroom Female」），
     类型按 slug 推断。格式同 room_meta：(名称, 类型, 面积, 床型, 备注)"""
@@ -948,7 +1107,7 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
     area = features.get('area') or meta[2]
     bed = features.get('bed') or meta[3]
 
-    return {
+    room = {
         "slug": room_slug,
         "url": url,
         "name": meta[0],
@@ -961,9 +1120,26 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
         "avail_count": avail_count,
         "avail_text": avail_text,
         "date_data": date_data,
-        "date_str": DATE_OVERRIDES.get(meta[0], format_start_label(avail_status, date_data)),
+        "date_str": format_start_label(avail_status, date_data),
         "scraped_at": _bjt_now().strftime("%m-%d %H:%M"),
     }
+
+    # 分学期真实房态：逐学期调 get_room_movein_dates，修正静态页的营销标记
+    import time
+    semesters = []
+    for suffix, label, prop_id, room_id in extract_semester_radios(html):
+        time.sleep(0.2)
+        sd = fetch_semester_movein(prop_id, room_id, suffix)
+        if sd:
+            sd["label"] = label
+            sd["suffix"] = suffix
+            semesters.append(sd)
+    room["semesters"] = semesters
+    apply_semester_truth(room, semesters)
+    # 手动覆盖表优先级最高（人工核对过的日期不被学期逻辑改掉）
+    if meta[0] in DATE_OVERRIDES:
+        room["date_str"] = DATE_OVERRIDES[meta[0]]
+    return room
 
 
 def discover_room_slugs(city: str, property_slug: str):
@@ -1054,6 +1230,22 @@ def avail_info(status: str, count) -> tuple:
 
 
 def build_date_cell(room: dict) -> str:
+    """起租日期单元格（外层）：基础徽标 + 学期状态说明。
+    2026-09-28 起官网房态按学期区分（S2 2026 等位 / S1 2027 可订），
+    学期说明让顾问一眼看清是哪个学年有房。"""
+    cell = _build_date_cell_base(room)
+    sems = room.get("semesters")
+    if sems:
+        parts = []
+        for s in sems:
+            tag = "等位" if s["waitlist"] else "可订"
+            note = _sem_terms_note(s) if not s["waitlist"] else ""
+            parts.append(f"{_sem_short(s['label'])}{tag}" + (f"（{note}）" if note else ""))
+        cell += f' <span class="date-detail" style="display:block;margin-top:2px;">{"；".join(parts)}</span>'
+    return cell
+
+
+def _build_date_cell_base(room: dict) -> str:
     """起租日期单元格：醒目徽标（今年可订 / 今年已无房 / 等位无房 / 灵活自选）+ 日期细节。
     今年可订 = 有今年日期（长租/短租/灵活起租最早可入住）。"""
     from datetime import datetime
@@ -1963,6 +2155,15 @@ def main():
     term_events = property_term_events(old_snap, new_snap) if old_snap else {}
     changed_count = len(set(c[0] for c in changes))
 
+    # 2026-09-28 上线分学期真实房态：旧快照房型没有 semesters 字段 → 本轮 avail/count/date
+    # 的大面积变化（静态页营销标记「有房」→ 学期真实「等位 / 明年可订」）是新口径的基线切换，
+    # 不是真实房态变化。首轮静默吸收，不推企微，避免几十条『有房→等位』把群刷屏。
+    sem_baseline_switch = bool(old_snap) and all(
+        "semesters" not in ((v.get("_room") or {})) for v in list(old_snap.values())[:10]
+    )
+    if sem_baseline_switch:
+        print("  🔇 检测到学期口径基线切换：本轮房态变化不推企微通知，下轮起恢复正常推送")
+
     page_age = deployed_page_age_ms()
     heartbeat_due = page_age is None or page_age > HEARTBEAT_MS or not old_snap
 
@@ -1981,25 +2182,28 @@ def main():
         else:
             save_snapshot(new_snap)   # 先存快照，随仓库提交保持同步
             deploy()
-            # 按城市分组推送到企微：每个城市只推给关注这个城市的机器人（RECIPIENTS 配置表），
-            # 没配置机器人的城市照常抓取部署，只是没人推送通知（比如墨尔本/布里斯班还没建群）
-            changes_by_city = _group_changes_by_city(changes)
-            configured_cities = {r["city"] for r in RECIPIENTS if r["webhook"]}
-            for city in configured_cities:
-                city_changes = changes_by_city.get(city, [])
-                reportable_changes = _filter_reportable_changes(city_changes)
-                if reportable_changes:
-                    msg = format_changes(reportable_changes, all_cities, term_events)
-                    if not msg:
-                        print(f"  ℹ️  {city}: 变化格式化后为空，跳过企微推送")
-                        continue
-                    full_msg = (
-                        f"**📢 Iglu 房态变化**\n{msg}\n\n"
-                        f"[查看实时房态]({RATE_HUB_LINK})"
-                    )
-                    notify_city(city, full_msg, mention_all=True)
-                elif city_changes:
-                    print(f"  ℹ️  {city}: {len(city_changes)} 项变化均为起租日期正常滚动，跳过企微推送")
+            if sem_baseline_switch:
+                print("  ⏭️  基线切换轮次：跳过企微推送")
+            else:
+                # 按城市分组推送到企微：每个城市只推给关注这个城市的机器人（RECIPIENTS 配置表），
+                # 没配置机器人的城市照常抓取部署，只是没人推送通知（比如墨尔本/布里斯班还没建群）
+                changes_by_city = _group_changes_by_city(changes)
+                configured_cities = {r["city"] for r in RECIPIENTS if r["webhook"]}
+                for city in configured_cities:
+                    city_changes = changes_by_city.get(city, [])
+                    reportable_changes = _filter_reportable_changes(city_changes)
+                    if reportable_changes:
+                        msg = format_changes(reportable_changes, all_cities, term_events)
+                        if not msg:
+                            print(f"  ℹ️  {city}: 变化格式化后为空，跳过企微推送")
+                            continue
+                        full_msg = (
+                            f"**📢 Iglu 房态变化**\n{msg}\n\n"
+                            f"[查看实时房态]({RATE_HUB_LINK})"
+                        )
+                        notify_city(city, full_msg, mention_all=True)
+                    elif city_changes:
+                        print(f"  ℹ️  {city}: {len(city_changes)} 项变化均为起租日期正常滚动，跳过企微推送")
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
