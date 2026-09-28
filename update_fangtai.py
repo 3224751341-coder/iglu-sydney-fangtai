@@ -1714,6 +1714,7 @@ def format_changes(changes: list, all_cities: dict, term_events: dict = None) ->
 # 企微 markdown 内容上限 4096 字节（按 UTF-8 字节数，不是字符数——中文一个字就占 3
 # 字节，之前按字符截断导致真实字节数仍能超限，被企微拒收却没人发现，见 2026-09-12 事故）
 WECOM_CONTENT_MAX_BYTES = 3900
+QUEUE_MAX_AGE_HOURS = 14   # 静默期积压消息的最长有效期（静默期本身 12 小时）
 
 
 def _truncate_utf8_bytes(text: str, max_bytes: int) -> str:
@@ -1804,6 +1805,16 @@ def _flush_queue(recipient: dict):
     # 变化又覆盖回去的旧记录（比如夜里先掉库存又恢复）不用再补发，避免早上一次性
     # 发好几条互相矛盾、其实已经不作数的旧消息。
     latest = queue[-1]
+    # 2026-09-28 保险：静默期最长 12 小时，超过 14 小时还没发出去的积压消息说明队列没被正常清空
+    # （例如部署失败导致清空后的队列没提交），内容早已过时，直接丢弃，避免一遍遍重复推送
+    try:
+        queued_at = datetime.strptime(latest.get("at", ""), "%Y-%m-%d %H:%M").replace(tzinfo=_bjt_now().tzinfo)
+        if _bjt_now() - queued_at > timedelta(hours=QUEUE_MAX_AGE_HOURS):
+            print(f"  🗑️ [{recipient['id']}] 积压消息来自 {latest['at']}，已超过 {QUEUE_MAX_AGE_HOURS} 小时，视为过期不再推送")
+            _save_queue(recipient, [])
+            return
+    except ValueError:
+        pass
     _send_now(recipient, latest["text"], latest.get("mention_all", False))
     _save_queue(recipient, [])
 

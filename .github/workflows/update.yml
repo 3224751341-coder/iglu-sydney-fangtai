@@ -21,6 +21,11 @@ on:
 permissions:
   contents: write
 
+# 同一时间只跑一个：定时 + 手动/看门狗补跑撞在一起时，两个 run 会各自读到同一份待发队列、各发一遍
+concurrency:
+  group: update-iglu
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -52,5 +57,21 @@ jobs:
             echo "快照无变化，跳过提交"
           else
             git commit -m "chore: update data snapshot [skip ci]"
+            git push
+          fi
+
+      # 2026-09-28：脚本一开头就把静默期攒的消息发出去并清空队列，但部署失败时上一步不执行，
+      # 清空后的队列没提交回仓库 → 下一轮又发同一条（09-27 一整天重复推送就是这么来的）。
+      # 所以失败时也要单独把队列文件提交回去；快照/页面不提交，等部署成功那轮再正常对比推送。
+      - name: Commit WeCom queue even on failure
+        if: failure() || cancelled()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wecom_queue*.json
+          if git diff --cached --quiet; then
+            echo "队列无变化，跳过提交"
+          else
+            git commit -m "chore: save wecom queue after failed run [skip ci]"
             git push
           fi
