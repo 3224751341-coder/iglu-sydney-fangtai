@@ -59,7 +59,7 @@ jobs:
             git commit -m "chore: update data snapshot [skip ci]"
             # 并行 run 撞车时远端已先提交（2026-09-28 实测 push 触发 + 定时同时跑），
             # rebase 后重推；仍失败则放弃本次提交（下轮会重新生成）
-            git pull --rebase --autostash && git push || echo "::warning::快照提交撞车，留给下一轮
+            git pull --rebase --autostash && git push || echo "::warning::快照提交撞车，留给下一轮"
           fi
 
       # 2026-09-28：脚本一开头就把静默期攒的消息发出去并清空队列，但部署失败时上一步不执行，
@@ -75,5 +75,5 @@ jobs:
             echo "队列无变化，跳过提交"
           else
             git commit -m "chore: save wecom queue after failed run [skip ci]"
-            git pull --rebase --autostash && git push || echo "::warning::队列提交撞车，留给下一轮
+            git pull --rebase --autostash && git push || echo "::warning::队列提交撞车，留给下一轮"
           fi
