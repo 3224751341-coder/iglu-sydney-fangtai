@@ -5,7 +5,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$1035起） · 2027年1月起",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-br",
@@ -23,14 +23,65 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$1035起） · 2027年1月起",
+   "scraped_at": "09-28 18:48",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 1095,
+      "44周": 1035
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      4
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/broadway/standard-studio-apartment-br": {
@@ -39,7 +90,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-br",
@@ -57,14 +108,67 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起",
+   "scraped_at": "09-28 18:48",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 885,
+      "22周": 945,
+      "44周": 885,
+      "短租": 750
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      4
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
@@ -98,7 +202,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:48",
+   "semesters": []
   }
  },
  "sydney/broadway/superior-studio-apartment-br": {
@@ -132,7 +237,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:48",
+   "semesters": []
   }
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
@@ -141,7 +247,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$805起） · 2027年1月起",
   "name": "4 Share Apt",
   "_room": {
    "slug": "single-bedroom-4-share-apt-br",
@@ -159,14 +265,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$805起） · 2027年1月起",
+   "scraped_at": "09-28 18:48",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 865,
+      "44周": 805,
+      "短租": 690
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      4
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
@@ -175,7 +333,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$805起） · 2027年1月起",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-br",
@@ -193,14 +351,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$805起） · 2027年1月起",
+   "scraped_at": "09-28 18:48",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 865,
+      "44周": 805,
+      "短租": 680
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      4
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
@@ -209,7 +419,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-br",
@@ -227,14 +437,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起",
+   "scraped_at": "09-28 18:48",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 855,
+      "44周": 795,
+      "短租": 670
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      4
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/standard-studio-apartment-ce": {
@@ -243,7 +505,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$865起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-ce",
@@ -261,14 +523,50 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     7,
+     13
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$865起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 925,
+      "44周": 865,
+      "短租": 800
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      7,
+      13
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-female": {
@@ -302,7 +600,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-male": {
@@ -336,7 +635,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central/sce-standard-studio-u18": {
@@ -370,7 +670,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -379,7 +680,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-ce",
@@ -397,14 +698,65 @@
    "avail_text": "5 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     1
+    ],
+    "contract_end": [
+     2027,
+     7,
+     13
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 875,
+      "44周": 815
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      1
+     ],
+     "contract_end": [
+      2027,
+      7,
+      13
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/single-bedroom-6-share-apt-ce": {
@@ -413,7 +765,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年1月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-ce",
@@ -431,14 +783,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     1
+    ],
+    "contract_end": [
+     2027,
+     7,
+     13
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 835,
+      "44周": 775,
+      "短租": 650
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      1
+     ],
+     "contract_end": [
+      2027,
+      7,
+      13
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
@@ -447,7 +851,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$735起） · 2027年1月起",
   "name": "Single Share Bath",
   "_room": {
    "slug": "single-bedroom-share-bathroom-ce",
@@ -465,14 +869,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     1
+    ],
+    "contract_end": [
+     2027,
+     7,
+     13
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$735起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 795,
+      "44周": 735,
+      "短租": 600
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      1
+     ],
+     "contract_end": [
+      2027,
+      7,
+      13
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-5-bedroom-u18-female": {
@@ -481,7 +937,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$829起） · 2026年12月起",
   "name": "U18 5 Bedroom Female",
   "_room": {
    "slug": "sce-5-bedroom-u18-female",
@@ -499,14 +955,58 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     12,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$829起） · 2026年12月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 829,
+      "12月": 829,
+      "短租": 829
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      12,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-5-bedroom-u18-male": {
@@ -540,7 +1040,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central/sce-6-bedroom-u18-female": {
@@ -549,7 +1050,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年11月起",
   "name": "U18 6 Bedroom Female",
   "_room": {
    "slug": "sce-6-bedroom-u18-female",
@@ -567,14 +1068,58 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     11,
+     25
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年11月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 819,
+      "12月": 819,
+      "短租": 819
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      11,
+      25
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-6-bedroom-u18-male": {
@@ -583,7 +1128,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年9月起",
   "name": "U18 6 Bedroom Male",
   "_room": {
    "slug": "sce-6-bedroom-u18-male",
@@ -601,14 +1146,58 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     9,
+     29
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年9月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 819,
+      "12月": 819,
+      "短租": 819
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      9,
+      29
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-female": {
@@ -617,7 +1206,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
   "name": "U18 6 Bedroom Share Bathroom Female",
   "_room": {
    "slug": "sce-6-bedroom-share-bathroom-u18-female",
@@ -635,14 +1224,57 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     11,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 779,
+      "12月": 779
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      11,
+      28
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
@@ -651,7 +1283,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
   "name": "U18 6 Bedroom Share Bathroom Male",
   "_room": {
    "slug": "sce-6-bedroom-share-bathroom-u18-male",
@@ -669,14 +1301,58 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     11,
+     28
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 779,
+      "12月": 779,
+      "短租": 819
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      11,
+      28
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/premium-corner-studio-apartment-cp": {
@@ -710,7 +1386,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central-park/premium-studio-apartment": {
@@ -719,7 +1396,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$1015起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment",
@@ -737,14 +1414,50 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     7,
+     8
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$1015起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 1075,
+      "44周": 1015,
+      "短租": 1075
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      7,
+      8
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/standard-studio-apartment-cp": {
@@ -753,7 +1466,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$915起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-cp",
@@ -771,14 +1484,50 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     7,
+     8
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$915起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 975,
+      "44周": 915,
+      "短租": 975
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      7,
+      8
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/superior-studio-apartment-cp": {
@@ -787,7 +1536,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$995起） · 2027年1月起",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-cp",
@@ -805,14 +1554,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     8
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$995起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 1055,
+      "44周": 995,
+      "短租": 1055
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      8
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
@@ -846,7 +1647,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/central-park/single-bedroom-4-share-apt-cp": {
@@ -855,7 +1657,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（22周$905起）",
   "name": "4 Share Apt",
   "_room": {
    "slug": "single-bedroom-4-share-apt-cp",
@@ -873,14 +1675,49 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2026,
+     12,
+     1
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（22周$905起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 905,
+      "短租": 925
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2026,
+      12,
+      1
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/single-bedroom-6-share-apt-cp": {
@@ -889,7 +1726,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$785起） · 2027年1月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-cp",
@@ -907,14 +1744,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     15
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$785起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 845,
+      "44周": 785,
+      "短租": 845
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      15
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/central-park/premium-single-room-6-share-cp": {
@@ -923,7 +1812,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$815起）",
   "name": "Premium 6 Share",
   "_room": {
    "slug": "premium-single-room-6-share-cp",
@@ -941,14 +1830,41 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$815起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 875,
+      "44周": 815
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
@@ -957,7 +1873,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$815起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-ch",
@@ -975,14 +1891,51 @@
    "avail_text": "5 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$815起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 815,
+      "22周": 875,
+      "44周": 815,
+      "短租": 875
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
@@ -1016,7 +1969,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
@@ -1025,7 +1979,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$785起）",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-ch",
@@ -1043,14 +1997,51 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$785起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 785,
+      "22周": 845,
+      "44周": 785,
+      "短租": 845
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
@@ -1059,7 +2050,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$625起）",
   "name": "4 Share Apt",
   "_room": {
    "slug": "single-bedroom-4-share-apt-ch",
@@ -1077,14 +2068,43 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$625起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 625,
+      "22周": 685,
+      "44周": 625,
+      "短租": 685
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
@@ -1093,7 +2113,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$605起）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-ch",
@@ -1111,14 +2131,43 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$605起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 605,
+      "22周": 665,
+      "44周": 605,
+      "短租": 665
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
@@ -1152,7 +2201,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/mascot/premium-studio-apartment-ma": {
@@ -1161,7 +2211,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$825起） · 2027年1月起",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-ma",
@@ -1179,14 +2229,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$825起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 825,
+      "22周": 885,
+      "44周": 825
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      9
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot/standard-studio-apartment-ma": {
@@ -1195,7 +2297,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$805起） · 2027年1月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-ma",
@@ -1213,14 +2315,67 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$805起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 805,
+      "22周": 865,
+      "44周": 805,
+      "短租": 865
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      9
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot/standard-studio-apartment-queen": {
@@ -1254,7 +2409,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/mascot/single-bedroom-6-share-apt-ma": {
@@ -1263,7 +2419,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$685起） · 2027年1月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-ma",
@@ -1281,14 +2437,66 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$685起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 745,
+      "44周": 685,
+      "短租": 745
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      9
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
@@ -1297,7 +2505,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$705起） · 2027年1月起",
   "name": "Premium 6 Share",
   "_room": {
    "slug": "premium-single-bedroom-6-share-ma",
@@ -1315,14 +2523,67 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     9
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$705起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 705,
+      "22周": 765,
+      "44周": 705,
+      "短租": 765
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      9
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot-duo/premium-studio-apartment-md": {
@@ -1331,7 +2592,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$835起） · 2027年1月起",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-md",
@@ -1349,14 +2610,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$835起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 895,
+      "44周": 835
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      6
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot-duo/standard-studio-apartment-md": {
@@ -1365,7 +2677,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-md",
@@ -1383,14 +2695,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 855,
+      "44周": 795
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      6
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/mascot-duo/superior-studio-apartment-md": {
@@ -1399,7 +2762,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-md",
@@ -1417,14 +2780,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     5
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     6
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 875,
+      "44周": 815
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      6
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/premium-studio-apartment-re": {
@@ -1433,7 +2847,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$945起） · 2027年2月起",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-re",
@@ -1451,14 +2865,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$945起） · 2027年2月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 1005,
+      "44周": 945
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      2,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      28
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/single-studio-apartment-re": {
@@ -1467,7 +2932,7 @@
   },
   "avail": "limited",
   "count": 2,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$845起） · 2027年2月起",
   "name": "Single Studio",
   "_room": {
    "slug": "single-studio-apartment-re",
@@ -1485,14 +2950,65 @@
    "avail_text": "2 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$845起） · 2027年2月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 905,
+      "44周": 845
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      2,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      28
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/single-studio-apartment-nras": {
@@ -1526,7 +3042,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "sydney/redfern/standard-studio-apartment-re": {
@@ -1535,7 +3052,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$865起） · 2027年2月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-re",
@@ -1553,14 +3070,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$865起） · 2027年2月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 925,
+      "44周": 865
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      2,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      28
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/standard-studio-apartment-nras": {
@@ -1594,7 +3162,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "sydney/redfern/sre-premium-studio-u18": {
@@ -1603,7 +3172,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$965起） · 2027年1月起",
   "name": "U18 Premium Studio",
   "_room": {
    "slug": "sre-premium-studio-u18",
@@ -1621,14 +3190,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$965起） · 2027年1月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 965,
+      "12月": 965
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/u18-standard-studio": {
@@ -1637,7 +3257,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起",
   "name": "U18 Standard Studio",
   "_room": {
    "slug": "u18-standard-studio",
@@ -1655,14 +3275,65 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 885,
+      "12月": 885
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/single-bedroom-4-share-apt-re": {
@@ -1696,7 +3367,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:49",
+   "semesters": []
   }
  },
  "sydney/redfern/single-bedroom-5-share-apt-re": {
@@ -1705,7 +3377,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$755起） · 2027年2月起",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-re",
@@ -1723,14 +3395,65 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$755起） · 2027年2月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 815,
+      "44周": 755
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      2,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      28
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/single-bedroom-6-share-apt-re": {
@@ -1739,7 +3462,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$725起） · 2027年2月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-re",
@@ -1757,14 +3480,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     2,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     28
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$725起） · 2027年2月起",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 785,
+      "44周": 725,
+      "短租": 785
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      2,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      28
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
@@ -1798,7 +3573,8 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
@@ -1807,7 +3583,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（22周$675起）",
   "name": "6 Share SAEX",
   "_room": {
    "slug": "single-bed-6-share-apt-saex-sre",
@@ -1825,14 +3601,48 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2026,
+     12,
+     8
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（22周$675起）",
+   "scraped_at": "09-28 18:49",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 675
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2026,
+      12,
+      8
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/sre-4-bedroom-u18-female": {
@@ -1866,7 +3676,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "sydney/redfern/sre-4-bedroom-u18-male": {
@@ -1875,7 +3686,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$795起） · 2027年1月起",
   "name": "U18 4 Bedroom Male",
   "_room": {
    "slug": "sre-4-bedroom-u18-male",
@@ -1893,14 +3704,65 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$795起） · 2027年1月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 795,
+      "12月": 795
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/sre-6-bedroom-u18-female": {
@@ -1909,7 +3771,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
   "name": "U18 6 Bedroom Female",
   "_room": {
    "slug": "sre-6-bedroom-u18-female",
@@ -1927,14 +3789,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 745,
+      "12月": 745
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/redfern/sre-6-bedroom-u18-male": {
@@ -1943,7 +3856,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
   "name": "U18 6 Bedroom Male",
   "_room": {
    "slug": "sre-6-bedroom-u18-male",
@@ -1961,14 +3874,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     3,
+     31
+    ],
+    "contract_end": [
+     2027,
+     7,
+     7
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 745,
+      "12月": 745
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      1
+     ],
+     "flex_end": [
+      2027,
+      3,
+      31
+     ],
+     "contract_end": [
+      2027,
+      7,
+      7
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
@@ -2002,7 +3966,48 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "短租": 815
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 815,
+      "44周": 755
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      15
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
@@ -2036,7 +4041,48 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "短租": 795
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 795,
+      "44周": 735
+     },
+     "flexible": true,
+     "flex_start": [
+      2027,
+      1,
+      5
+     ],
+     "flex_end": [
+      2027,
+      2,
+      9
+     ],
+     "contract_end": [
+      2027,
+      7,
+      15
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
@@ -2045,7 +4091,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$865起）",
   "name": "Premium Corner Studio",
   "_room": {
    "slug": "premium-corner-studio-apartment-wa",
@@ -2063,14 +4109,42 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$865起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 865,
+      "22周": 965,
+      "44周": 905
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
@@ -2079,7 +4153,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$865起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-wa",
@@ -2097,14 +4171,50 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2026,
+     12,
+     8
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（44周$865起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "22周": 925,
+      "44周": 865,
+      "短租": 925
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2026,
+      12,
+      8
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
@@ -2113,7 +4223,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$825起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-wa",
@@ -2131,14 +4241,42 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$825起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 825,
+      "22周": 885,
+      "44周": 825
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
@@ -2147,7 +4285,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$845起）",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-wa",
@@ -2165,14 +4303,43 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$845起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 845,
+      "22周": 905,
+      "44周": 845,
+      "短租": 905
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
@@ -2181,7 +4348,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$685起）",
   "name": "2 Share Apt",
   "_room": {
    "slug": "single-bedroom-2-share-apt-wa",
@@ -2199,14 +4366,42 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$685起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "12月": 685,
+      "22周": 745,
+      "44周": 685
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
@@ -2215,7 +4410,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$705起）",
   "name": "Premium Corner Studio",
   "_room": {
    "slug": "premium-corner-studio-apartment-fg",
@@ -2233,14 +4428,41 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 765,
+      "12月": 705
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
@@ -2267,14 +4489,68 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     9,
+     29
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     9
+    ],
+    "contract_end": [
+     2027,
+     2,
+     10
+    ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      9,
+      29
+     ],
+     "flex_end": [
+      2026,
+      10,
+      9
+     ],
+     "contract_end": [
+      2027,
+      2,
+      10
+     ],
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
@@ -2283,7 +4559,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$635起）",
   "name": "Single Studio",
   "_room": {
    "slug": "single-studio-apartment",
@@ -2301,14 +4577,41 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$635起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 695,
+      "12月": 635
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/standard-studio-apartment-fg": {
@@ -2342,7 +4645,36 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "短租": 695
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 695,
+      "12月": 635
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
@@ -2369,14 +4701,68 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     9,
+     29
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     23
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 575,
+      "12月": 515
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      9,
+      29
+     ],
+     "flex_end": [
+      2026,
+      10,
+      23
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 575,
+      "12月": 515
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
@@ -2403,14 +4789,68 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     9,
+     29
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     16
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 675,
+      "12月": 615
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      9,
+      29
+     ],
+     "flex_end": [
+      2026,
+      10,
+      16
+     ],
+     "contract_end": [
+      2027,
+      7,
+      14
+     ],
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 675,
+      "12月": 615
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
@@ -2419,7 +4859,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$695起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-fs",
@@ -2437,14 +4877,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$695起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 755,
+      "12月": 695
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
@@ -2453,7 +4920,7 @@
   },
   "avail": "limited",
   "count": 1,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$745起）",
   "name": "Premium Studio Corner",
   "_room": {
    "slug": "premium-studio-apartment-cnr-fs",
@@ -2471,14 +4938,50 @@
    "avail_text": "1 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     2,
+     1
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$745起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 805,
+      "12月": 745,
+      "短租": 805
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      2,
+      1
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-station/standard-studio-apartment-fs": {
@@ -2487,7 +4990,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$665起） · 2026年9月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-fs",
@@ -2505,14 +5008,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     9,
+     29
+    ],
+    "flexible_end": [
+     2026,
+     9,
+     30
+    ],
+    "contract_end": [
+     2027,
+     2,
+     1
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$665起） · 2026年9月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      9,
+      29
+     ],
+     "flex_end": [
+      2026,
+      9,
+      30
+     ],
+     "contract_end": [
+      2027,
+      2,
+      1
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
@@ -2521,7 +5075,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$535起）",
   "name": "2 Share Apt",
   "_room": {
    "slug": "single-bedroom-2-share-apt-fs",
@@ -2539,14 +5093,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$535起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 595,
+      "12月": 535
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
@@ -2580,7 +5161,37 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": false,
+     "terms": {
+      "短租": 715
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665,
+      "短租": 725
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
@@ -2589,7 +5200,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$635起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-mce",
@@ -2607,14 +5218,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:08"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$635起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 695,
+      "12月": 635
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
@@ -2623,7 +5261,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$705起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-mc",
@@ -2641,14 +5279,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 765,
+      "12月": 705
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
@@ -2657,7 +5322,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$665起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-mc",
@@ -2675,14 +5340,42 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665,
+      "短租": 725
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/mce-premium-studio-u18": {
@@ -2691,7 +5384,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$705起）",
   "name": "U18 Premium Studio",
   "_room": {
    "slug": "mce-premium-studio-u18",
@@ -2709,14 +5402,41 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 705,
+      "12月": 705
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/mce-standard-studio-u18": {
@@ -2725,7 +5445,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$665起）",
   "name": "U18 Standard Studio",
   "_room": {
    "slug": "mce-standard-studio-u18",
@@ -2743,14 +5463,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 665,
+      "12月": 665
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
@@ -2759,7 +5506,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$525起）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-mc",
@@ -2777,14 +5524,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$525起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 585,
+      "12月": 525
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
@@ -2793,7 +5567,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-mc",
@@ -2811,14 +5585,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     10,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 575,
+      "12月": 515
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      10,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      2
+     ],
+     "contract_end": [
+      2027,
+      6,
+      29
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/single-bed-6-share-apt-saex-mci": {
@@ -2827,7 +5652,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（6月$495起）",
   "name": "Melbourne City 6 Bed (RMIT SAEX)",
   "_room": {
    "slug": "single-bed-6-share-apt-saex-mci",
@@ -2845,14 +5670,40 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（6月$495起）",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 495
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
@@ -2886,7 +5737,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-male": {
@@ -2920,7 +5772,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:50",
+   "semesters": []
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-female": {
@@ -2929,7 +5782,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
   "name": "U18 6 Bedroom Female",
   "_room": {
    "slug": "mce-6-bedroom-u18-female",
@@ -2947,14 +5800,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     10,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 515,
+      "12月": 515
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      10,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      2
+     ],
+     "contract_end": [
+      2027,
+      6,
+      29
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-male": {
@@ -2963,7 +5867,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
   "name": "U18 6 Bedroom Male",
   "_room": {
    "slug": "mce-6-bedroom-u18-male",
@@ -2981,14 +5885,65 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     10,
+     1
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     2
+    ],
+    "contract_end": [
+     2027,
+     6,
+     29
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
+   "scraped_at": "09-28 18:50",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 515,
+      "12月": 515
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      10,
+      1
+     ],
+     "flex_end": [
+      2027,
+      2,
+      2
+     ],
+     "contract_end": [
+      2027,
+      6,
+      29
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
@@ -2997,7 +5952,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$715起）",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-sy",
@@ -3015,14 +5970,50 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     2,
+     16
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$715起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 775,
+      "12月": 715,
+      "短租": 775
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      2,
+      16
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
@@ -3031,7 +6022,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$665起）",
   "name": "Single Studio",
   "_room": {
    "slug": "single-studio-apartment-sy",
@@ -3049,14 +6040,50 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     2,
+     16
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 725,
+      "12月": 665,
+      "短租": 725
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      2,
+      16
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
@@ -3065,7 +6092,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$685起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-sy",
@@ -3083,14 +6110,50 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": [
+     2027,
+     2,
+     9
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$685起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 745,
+      "12月": 685,
+      "短租": 745
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": [
+      2027,
+      2,
+      9
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
@@ -3099,7 +6162,7 @@
   },
   "avail": "available",
   "count": 4,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$565起）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-sy",
@@ -3117,14 +6180,42 @@
    "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$565起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 625,
+      "12月": 565,
+      "短租": 625
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
@@ -3133,7 +6224,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$555起）",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-sy",
@@ -3151,14 +6242,42 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$555起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 615,
+      "12月": 555,
+      "短租": 615
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
@@ -3167,7 +6286,7 @@
   },
   "avail": "available",
   "count": 5,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$585起）",
   "name": "Premium 5 Share",
   "_room": {
    "slug": "premium-single-bedroom-5-share-apt-sy",
@@ -3185,14 +6304,42 @@
    "avail_text": "5 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$585起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 645,
+      "12月": 585,
+      "短租": 645
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
@@ -3201,7 +6348,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$575起）",
   "name": "Premium 6 Share",
   "_room": {
    "slug": "premium-single-bedroom-6-share-apt-sy",
@@ -3219,14 +6366,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$575起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 635,
+      "12月": 575
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
@@ -3260,7 +6434,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:51",
+   "semesters": []
   }
  },
  "brisbane/brisbane-city/standard-studio-apartment-bc": {
@@ -3269,7 +6444,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$739起）",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-bc",
@@ -3287,14 +6462,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$739起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 789,
+      "12月": 739
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
@@ -3303,7 +6505,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$559起）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-bc",
@@ -3321,14 +6523,41 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$559起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 609,
+      "12月": 559
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
@@ -3337,7 +6566,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$539起）",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-bc",
@@ -3355,14 +6584,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$539起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 589,
+      "12月": 539
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
@@ -3371,7 +6627,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$429起） · 2026年10月起",
   "name": "Single Share Bath",
   "_room": {
    "slug": "student-room-shared-bathroom-bc",
@@ -3389,14 +6645,66 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2026,
+     10,
+     1
+    ],
+    "flexible_end": [
+     2026,
+     10,
+     14
+    ],
+    "contract_end": [
+     2027,
+     2,
+     4
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$429起） · 2026年10月起",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 479,
+      "12月": 429,
+      "短租": 479
+     },
+     "flexible": true,
+     "flex_start": [
+      2026,
+      10,
+      1
+     ],
+     "flex_end": [
+      2026,
+      10,
+      14
+     ],
+     "contract_end": [
+      2027,
+      2,
+      4
+     ],
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
@@ -3430,7 +6738,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:51",
+   "semesters": []
   }
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
@@ -3464,7 +6773,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:51",
+   "semesters": []
   }
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
@@ -3498,7 +6808,8 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 18:09"
+   "scraped_at": "09-28 18:51",
+   "semesters": []
   }
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
@@ -3507,7 +6818,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$399起）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-kg",
@@ -3525,14 +6836,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 449,
+      "12月": 399
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
@@ -3541,7 +6879,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$399起）",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-kg",
@@ -3559,14 +6897,41 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 449,
+      "12月": 399
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
@@ -3575,7 +6940,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$479起）",
   "name": "U18 5 Bedroom Female",
   "_room": {
    "slug": "bkg-5-bedroom-u18-female",
@@ -3593,14 +6958,41 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$479起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 479,
+      "12月": 479
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-male": {
@@ -3609,7 +7001,7 @@
   },
   "avail": "available",
   "count": 3,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（12月$479起）",
   "name": "U18 5 Bedroom Male",
   "_room": {
    "slug": "bkg-5-bedroom-u18-male",
@@ -3627,14 +7019,41 @@
    "avail_text": "3 left  at this price",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "shortstay_dates": [],
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "contract_end": null
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 18:09"
+   "date_str": "S2 2026等位 · S1 2027可订（12月$479起）",
+   "scraped_at": "09-28 18:51",
+   "semesters": [
+    {
+     "waitlist": true,
+     "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": false,
+     "terms": {
+      "6月": 479,
+      "12月": 479
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
+     "dates": [],
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ]
   }
  }
 }
