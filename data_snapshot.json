@@ -30,7 +30,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/standard-studio-apartment-br": {
@@ -64,11 +64,13 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/standard-studio-apartment-nras-br": {
-  "prices": {},
+  "prices": {
+   "From": 565
+  },
   "avail": "waitlist",
   "count": null,
   "date": "今年无房（等位）",
@@ -81,7 +83,9 @@
    "area": "17m²",
    "bed": "King Single",
    "note": "NRAS补贴",
-   "prices": {},
+   "prices": {
+    "From": 565
+   },
    "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
@@ -94,7 +98,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/superior-studio-apartment-br": {
@@ -128,7 +132,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/single-bedroom-4-share-apt-br": {
@@ -162,7 +166,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/single-bedroom-5-share-apt-br": {
@@ -196,7 +200,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/broadway/single-bedroom-6-share-apt-br": {
@@ -230,11 +234,13 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/standard-studio-apartment-ce": {
-  "prices": {},
+  "prices": {
+   "From": 800
+  },
   "avail": "limited",
   "count": 1,
   "date": "灵活自选",
@@ -247,7 +253,9 @@
    "area": "16.5m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
+   "prices": {
+    "From": 800
+   },
    "avail_status": "limited",
    "avail_count": 1,
    "avail_text": "1 left  at this price",
@@ -260,11 +268,13 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-female": {
-  "prices": {},
+  "prices": {
+   "From": 859
+  },
   "avail": "waitlist",
   "count": null,
   "date": "今年无房（等位）",
@@ -277,7 +287,9 @@
    "area": "?",
    "bed": "King Single",
    "note": "U18",
-   "prices": {},
+   "prices": {
+    "From": 859
+   },
    "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
@@ -290,7 +302,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-2-bedroom-studio-u18-male": {
@@ -324,7 +336,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-standard-studio-u18": {
@@ -358,7 +370,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/single-bedroom-5-share-apt-ce": {
@@ -392,7 +404,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/single-bedroom-6-share-apt-ce": {
@@ -426,7 +438,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/single-bedroom-share-bathroom-ce": {
@@ -460,7 +472,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-5-bedroom-u18-female": {
@@ -494,7 +506,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-5-bedroom-u18-male": {
@@ -528,7 +540,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-6-bedroom-u18-female": {
@@ -562,7 +574,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-6-bedroom-u18-male": {
@@ -596,7 +608,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-female": {
@@ -630,7 +642,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
@@ -664,7 +676,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:07"
+   "scraped_at": "09-28 15:07"
   }
  },
  "sydney/central-park/premium-corner-studio-apartment-cp": {
@@ -698,11 +710,13 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/central-park/premium-studio-apartment": {
-  "prices": {},
+  "prices": {
+   "From": 1075
+  },
   "avail": "limited",
   "count": 1,
   "date": "灵活自选",
@@ -715,7 +729,9 @@
    "area": "21m²",
    "bed": "Queen",
    "note": "",
-   "prices": {},
+   "prices": {
+    "From": 1075
+   },
    "avail_status": "limited",
    "avail_count": 1,
    "avail_text": "1 left  at this price",
@@ -728,7 +744,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/central-park/standard-studio-apartment-cp": {
@@ -762,7 +778,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/central-park/superior-studio-apartment-cp": {
@@ -796,7 +812,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
@@ -830,11 +846,13 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/central-park/single-bedroom-4-share-apt-cp": {
-  "prices": {},
+  "prices": {
+   "From": 925
+  },
   "avail": "limited",
   "count": 1,
   "date": "灵活自选",
@@ -847,7 +865,9 @@
    "area": "13m²",
    "bed": "King Single",
    "note": "4人",
-   "prices": {},
+   "prices": {
+    "From": 925
+   },
    "avail_status": "limited",
    "avail_count": 1,
    "avail_text": "1 left  at this price",
@@ -860,7 +880,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/central-park/single-bedroom-6-share-apt-cp": {
@@ -894,7 +914,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/central-park/premium-single-room-6-share-cp": {
@@ -928,7 +948,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:08"
   }
  },
  "sydney/chatswood/premium-studio-apartment-ch": {
@@ -962,7 +982,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/chatswood/standard-studio-apartment-ch": {
@@ -996,7 +1016,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
@@ -1030,7 +1050,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/chatswood/single-bedroom-4-share-apt-ch": {
@@ -1064,7 +1084,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
@@ -1098,16 +1118,16 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/chatswood/single-bedroom-6-share-apt-ch": {
   "prices": {
    "From": 585
   },
-  "avail": "limited",
-  "count": 1,
-  "date": "灵活自选",
+  "avail": "waitlist",
+  "count": null,
+  "date": "今年无房（等位）",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-ch",
@@ -1120,19 +1140,19 @@
    "prices": {
     "From": 585
    },
-   "avail_status": "limited",
-   "avail_count": 1,
-   "avail_text": "1 left  at this price",
+   "avail_status": "waitlist",
+   "avail_count": null,
+   "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": true,
+    "flexible": false,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot/premium-studio-apartment-ma": {
@@ -1166,7 +1186,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot/standard-studio-apartment-ma": {
@@ -1200,7 +1220,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot/standard-studio-apartment-queen": {
@@ -1234,7 +1254,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot/single-bedroom-6-share-apt-ma": {
@@ -1268,7 +1288,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot/premium-single-bedroom-6-share-ma": {
@@ -1302,14 +1322,16 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:08"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot-duo/premium-studio-apartment-md": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 835
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-md",
@@ -1319,27 +1341,31 @@
    "area": "18.5m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 835
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot-duo/standard-studio-apartment-md": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 795
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-md",
@@ -1349,27 +1375,31 @@
    "area": "17.7m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 795
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/mascot-duo/superior-studio-apartment-md": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 815
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-md",
@@ -1379,128 +1409,78 @@
    "area": "17.7m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 815
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
-  }
- },
- "sydney/redfern/u18-standard-studio": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
-  "_room": {
-   "slug": "u18-standard-studio",
-   "url": "https://iglu.com.au/rooms/sydney/redfern/u18-standard-studio/",
-   "name": "Gateway time-out",
-   "type": "Studio",
-   "area": "?",
-   "bed": "?",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
-   },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
-  }
- },
- "sydney/redfern/sre-premium-studio-u18": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
-  "_room": {
-   "slug": "sre-premium-studio-u18",
-   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-premium-studio-u18/",
-   "name": "Gateway time-out",
-   "type": "Studio",
-   "area": "?",
-   "bed": "?",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
-   },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/premium-studio-apartment-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 945
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-re",
    "url": "https://iglu.com.au/rooms/sydney/redfern/premium-studio-apartment-re/",
    "name": "Premium Studio",
    "type": "Studio",
-   "area": "31m²",
-   "bed": "Queen+客厅",
+   "area": "20m²",
+   "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 945
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-studio-apartment-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 835
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "Single Studio",
   "_room": {
    "slug": "single-studio-apartment-re",
    "url": "https://iglu.com.au/rooms/sydney/redfern/single-studio-apartment-re/",
    "name": "Single Studio",
    "type": "Studio",
-   "area": "15m²",
-   "bed": "Double",
+   "area": "17.5m²",
+   "bed": "King Single",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 835
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1511,26 +1491,30 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-studio-apartment-nras": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 619
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "Single Studio NRAS",
   "_room": {
    "slug": "single-studio-apartment-nras",
    "url": "https://iglu.com.au/rooms/sydney/redfern/single-studio-apartment-nras/",
    "name": "Single Studio NRAS",
    "type": "Studio",
-   "area": "15m²",
-   "bed": "Double",
+   "area": "17.5m²",
+   "bed": "King Single",
    "note": "NRAS",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 619
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1541,56 +1525,64 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/standard-studio-apartment-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 865
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-re",
    "url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-re/",
    "name": "Standard Studio",
    "type": "Studio",
-   "area": "17m²",
-   "bed": "Queen",
+   "area": "19.5m²",
+   "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 865
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/standard-studio-apartment-nras": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 672
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "Standard Studio NRAS",
   "_room": {
    "slug": "standard-studio-apartment-nras",
    "url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-nras/",
    "name": "Standard Studio NRAS",
    "type": "Studio",
-   "area": "17m²",
-   "bed": "Queen",
+   "area": "19.5m²",
+   "bed": "Double",
    "note": "NRAS",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 672
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1601,15 +1593,85 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
+  }
+ },
+ "sydney/redfern/sre-premium-studio-u18": {
+  "prices": {
+   "From": 965
+  },
+  "avail": "available",
+  "count": null,
+  "date": "灵活自选",
+  "name": "U18 Premium Studio",
+  "_room": {
+   "slug": "sre-premium-studio-u18",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-premium-studio-u18/",
+   "name": "U18 Premium Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 965
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
+  }
+ },
+ "sydney/redfern/u18-standard-studio": {
+  "prices": {
+   "From": 885
+  },
+  "avail": "available",
+  "count": 3,
+  "date": "灵活自选",
+  "name": "U18 Standard Studio",
+  "_room": {
+   "slug": "u18-standard-studio",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/u18-standard-studio/",
+   "name": "U18 Standard Studio",
+   "type": "Studio",
+   "area": "?",
+   "bed": "Double",
+   "note": "U18",
+   "prices": {
+    "From": 885
+   },
+   "avail_status": "available",
+   "avail_count": 3,
+   "avail_text": "3 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-bedroom-4-share-apt-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 775
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "4 Share Apt",
   "_room": {
    "slug": "single-bedroom-4-share-apt-re",
@@ -1619,8 +1681,10 @@
    "area": "~13m²",
    "bed": "King Single",
    "note": "4人",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 775
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1631,26 +1695,30 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-bedroom-5-share-apt-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 755
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-re",
    "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-5-share-apt-re/",
    "name": "5 Share Apt",
    "type": "Share",
-   "area": "~13m²",
+   "area": "13.5m²",
    "bed": "King Single",
    "note": "5人",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 755
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1661,45 +1729,51 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-bedroom-6-share-apt-re": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 725
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "6 Share Apt",
   "_room": {
    "slug": "single-bedroom-6-share-apt-re",
    "url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-6-share-apt-re/",
    "name": "6 Share Apt",
    "type": "Share",
-   "area": "~13m²",
+   "area": "13.5m²",
    "bed": "King Single",
    "note": "6人",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 725
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-bedroom-6-share-nras": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 725
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
+  "date": "今年无房（等位）",
   "name": "6 Share NRAS",
   "_room": {
    "slug": "single-bedroom-6-share-nras",
@@ -1709,8 +1783,10 @@
    "area": "~13m²",
    "bed": "King Single",
    "note": "6人 NRAS",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 725
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1721,146 +1797,64 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/single-bed-6-share-apt-saex-sre": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 675
+  },
+  "avail": "available",
   "count": null,
-  "date": "待定",
+  "date": "灵活自选",
   "name": "6 Share SAEX",
   "_room": {
    "slug": "single-bed-6-share-apt-saex-sre",
    "url": "https://iglu.com.au/rooms/sydney/redfern/single-bed-6-share-apt-saex-sre/",
    "name": "6 Share SAEX",
    "type": "Share",
-   "area": "~13m²",
+   "area": "13.5m²",
    "bed": "King Single",
    "note": "6人 USYD",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 675
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
     "dates": [],
-    "flexible": false,
+    "flexible": true,
     "flexible_start": null,
     "flexible_end": null,
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
-  }
- },
- "sydney/redfern/sre-6-bedroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
-  "_room": {
-   "slug": "sre-6-bedroom-u18-female",
-   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-female/",
-   "name": "Gateway time-out",
-   "type": "Share",
-   "area": "?",
-   "bed": "?",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
-   },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
-  }
- },
- "sydney/redfern/sre-6-bedroom-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
-  "_room": {
-   "slug": "sre-6-bedroom-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-male/",
-   "name": "Gateway time-out",
-   "type": "Share",
-   "area": "?",
-   "bed": "?",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
-   },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
-  }
- },
- "sydney/redfern/sre-4-bedroom-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
-  "_room": {
-   "slug": "sre-4-bedroom-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-male/",
-   "name": "Gateway time-out",
-   "type": "Share",
-   "area": "?",
-   "bed": "?",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
-   },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/redfern/sre-4-bedroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "From": 795
+  },
+  "avail": "waitlist",
   "count": null,
-  "date": "待定",
-  "name": "Gateway time-out",
+  "date": "今年无房（等位）",
+  "name": "U18 4 Bedroom Female",
   "_room": {
    "slug": "sre-4-bedroom-u18-female",
    "url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-female/",
-   "name": "Gateway time-out",
+   "name": "U18 4 Bedroom Female",
    "type": "Share",
    "area": "?",
-   "bed": "?",
+   "bed": "King Single",
    "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "From": 795
+   },
+   "avail_status": "waitlist",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -1871,8 +1865,110 @@
     "contract_end": null,
     "shortstay_dates": []
    },
-   "date_str": "待定",
-   "scraped_at": "09-28 12:09"
+   "date_str": "今年无房（等位）",
+   "scraped_at": "09-28 15:09"
+  }
+ },
+ "sydney/redfern/sre-4-bedroom-u18-male": {
+  "prices": {
+   "From": 795
+  },
+  "avail": "limited",
+  "count": 1,
+  "date": "灵活自选",
+  "name": "U18 4 Bedroom Male",
+  "_room": {
+   "slug": "sre-4-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-male/",
+   "name": "U18 4 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 795
+   },
+   "avail_status": "limited",
+   "avail_count": 1,
+   "avail_text": "1 left  at this price",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
+  }
+ },
+ "sydney/redfern/sre-6-bedroom-u18-female": {
+  "prices": {
+   "From": 745
+  },
+  "avail": "available",
+  "count": null,
+  "date": "灵活自选",
+  "name": "U18 6 Bedroom Female",
+  "_room": {
+   "slug": "sre-6-bedroom-u18-female",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-female/",
+   "name": "U18 6 Bedroom Female",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
+  }
+ },
+ "sydney/redfern/sre-6-bedroom-u18-male": {
+  "prices": {
+   "From": 745
+  },
+  "avail": "available",
+  "count": null,
+  "date": "灵活自选",
+  "name": "U18 6 Bedroom Male",
+  "_room": {
+   "slug": "sre-6-bedroom-u18-male",
+   "url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-male/",
+   "name": "U18 6 Bedroom Male",
+   "type": "Share",
+   "area": "?",
+   "bed": "King Single",
+   "note": "U18",
+   "prices": {
+    "From": 745
+   },
+   "avail_status": "available",
+   "avail_count": null,
+   "avail_text": "",
+   "date_data": {
+    "dates": [],
+    "flexible": true,
+    "flexible_start": null,
+    "flexible_end": null,
+    "contract_end": null,
+    "shortstay_dates": []
+   },
+   "date_str": "灵活自选",
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/summer-hill/premium-studio-apartment-sh": {
@@ -1906,7 +2002,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/summer-hill/standard-studio-apartment-sh": {
@@ -1940,7 +2036,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
@@ -1974,7 +2070,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/waterloo/premium-studio-apartment-wa": {
@@ -2008,7 +2104,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/waterloo/standard-studio-apartment-wa": {
@@ -2042,7 +2138,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/waterloo/superior-studio-apartment-wa": {
@@ -2076,7 +2172,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "sydney/waterloo/single-bedroom-2-share-apt-wa": {
@@ -2110,7 +2206,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg": {
@@ -2144,7 +2240,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/premium-studio-apartment-fg": {
@@ -2178,7 +2274,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/single-studio-apartment": {
@@ -2212,7 +2308,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/standard-studio-apartment-fg": {
@@ -2246,7 +2342,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg": {
@@ -2280,7 +2376,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg": {
@@ -2314,7 +2410,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:12"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-fs": {
@@ -2348,11 +2444,13 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-station/premium-studio-apartment-cnr-fs": {
-  "prices": {},
+  "prices": {
+   "From": 805
+  },
   "avail": "limited",
   "count": 1,
   "date": "灵活自选",
@@ -2365,7 +2463,9 @@
    "area": "23.8m²",
    "bed": "Queen",
    "note": "",
-   "prices": {},
+   "prices": {
+    "From": 805
+   },
    "avail_status": "limited",
    "avail_count": 1,
    "avail_text": "1 left  at this price",
@@ -2378,7 +2478,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-station/standard-studio-apartment-fs": {
@@ -2412,7 +2512,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/flagstaff-station/single-bedroom-2-share-apt-fs": {
@@ -2446,7 +2546,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
@@ -2480,7 +2580,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-central/standard-studio-apartment-mce": {
@@ -2514,7 +2614,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/premium-studio-apartment-mc": {
@@ -2548,7 +2648,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/standard-studio-apartment-mc": {
@@ -2582,7 +2682,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/mce-premium-studio-u18": {
@@ -2616,7 +2716,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/melbourne-city/mce-standard-studio-u18": {
@@ -2650,7 +2750,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/melbourne-city/single-bedroom-5-share-apt-mc": {
@@ -2684,7 +2784,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/single-bedroom-6-share-apt-mc": {
@@ -2718,7 +2818,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/single-bed-6-share-apt-saex-mci": {
@@ -2752,7 +2852,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-female": {
@@ -2786,7 +2886,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/melbourne-city/mce-5-bedroom-u18-male": {
@@ -2820,7 +2920,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-female": {
@@ -2854,7 +2954,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:09"
   }
  },
  "melbourne/melbourne-city/mce-6-bedroom-u18-male": {
@@ -2888,7 +2988,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:13"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/premium-studio-apartment-sy": {
@@ -2922,7 +3022,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/single-studio-apartment-sy": {
@@ -2956,7 +3056,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
@@ -2990,7 +3090,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/single-bedroom-5-share-apt-sy": {
@@ -2998,7 +3098,7 @@
    "From": 565
   },
   "avail": "available",
-  "count": 5,
+  "count": 4,
   "date": "灵活自选",
   "name": "5 Share Apt",
   "_room": {
@@ -3013,8 +3113,8 @@
     "From": 565
    },
    "avail_status": "available",
-   "avail_count": 5,
-   "avail_text": "5 left  at this price",
+   "avail_count": 4,
+   "avail_text": "4 left  at this price",
    "date_data": {
     "dates": [],
     "flexible": true,
@@ -3024,7 +3124,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/single-bedroom-6-share-apt-sy": {
@@ -3058,7 +3158,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy": {
@@ -3092,7 +3192,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy": {
@@ -3126,7 +3226,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/brisbane-city/premium-studio-apartment-bc": {
@@ -3160,7 +3260,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/brisbane-city/standard-studio-apartment-bc": {
@@ -3194,7 +3294,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/brisbane-city/single-bedroom-5-share-apt-bc": {
@@ -3228,7 +3328,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/brisbane-city/single-bedroom-6-share-apt-bc": {
@@ -3262,7 +3362,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/brisbane-city/student-room-shared-bathroom-bc": {
@@ -3296,7 +3396,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/1-bedroom-apartment-kg": {
@@ -3330,7 +3430,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-2-share-apt-kg": {
@@ -3364,7 +3464,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-3-share-apt-kg": {
@@ -3398,7 +3498,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-5-share-apt-kg": {
@@ -3432,7 +3532,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/single-bedroom-6-share-apt-kg": {
@@ -3466,7 +3566,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-female": {
@@ -3500,7 +3600,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  },
  "brisbane/kelvin-grove/bkg-5-bedroom-u18-male": {
@@ -3534,7 +3634,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "09-28 12:14"
+   "scraped_at": "09-28 15:10"
   }
  }
 }
