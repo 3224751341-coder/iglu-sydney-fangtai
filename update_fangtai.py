@@ -2141,7 +2141,10 @@ def main():
     print(f"🔄 Iglu 澳洲房态更新 — {_bjt_now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
-    flush_all_recipients()  # 出了静默时段就把各机器人攒的老消息发出去，不用等新变化触发
+    # 2026-09-30 修复：flush 不再放在 main() 开头。
+    # 原因：gh run rerun --failed 会从原 run 触发时的 commit 重新 checkout，
+    # 队列文件回到「还满」的状态 → 每次 rerun 都重发一遍静默期积压消息。
+    # 现在 flush 只在「确定不会 sys.exit(1)」的安全路径上调用（见下方两处）。
 
     _PREV_SNAPSHOT.update(load_snapshot())  # 单房型抓取失败时沿用上次数据
 
@@ -2199,6 +2202,7 @@ def main():
             f"房型数从 {prev_total} 骤降到 {total_rooms}，疑似 Agent Portal 登录失效或网络不通，"
             f"线上数据未被覆盖，仍是上次的正常数据。\n{PUBLIC_SITE}"
         )
+        flush_all_recipients()  # 安全路径：抓取异常但不会 sys.exit，积压消息照常消化
         print(f"\n✅ Done! {_bjt_now().strftime('%H:%M:%S')}")
         return
 
@@ -2274,6 +2278,11 @@ def main():
     else:
         print("\n✅ 无变化且页面新鲜，跳过部署")
         save_snapshot(new_snap)
+
+    # 2026-09-30 修复：flush 挪到此处——只有部署成功（deploy() 未 sys.exit）或
+    # 无变化跳过部署时才消化静默期积压消息。部署失败 → sys.exit(1) 在这行之前，
+    # 队列保留原样，rerun 不会重发。
+    flush_all_recipients()
 
     print(f"\n✅ Done! {_bjt_now().strftime('%H:%M:%S')}")
 
