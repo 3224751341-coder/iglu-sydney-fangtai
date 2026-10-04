@@ -46,7 +46,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$1035起） · 2027年1月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -91,11 +91,13 @@
  "sydney/broadway/standard-studio-apartment-br": {
   "prices": {
    "From": 885,
+   "22周": 945,
+   "44周": 885,
    "短租": 750
   },
   "avail": "available",
   "count": null,
-  "date": "灵活自选",
+  "date": "S2 2026等位 · S1 2027可订（44周$885起） · 2027年1月起",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-br",
@@ -107,6 +109,8 @@
    "note": "",
    "prices": {
     "From": 885,
+    "22周": 945,
+    "44周": 885,
     "短租": 750
    },
    "avail_status": "available",
@@ -114,20 +118,30 @@
    "avail_text": "",
    "date_data": {
     "dates": [],
+    "shortstay_dates": [],
     "flexible": true,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null,
-    "shortstay_dates": []
+    "flexible_start": [
+     2027,
+     1,
+     4
+    ],
+    "flexible_end": [
+     2027,
+     2,
+     9
+    ],
+    "contract_end": [
+     2027,
+     7,
+     14
+    ]
    },
-   "date_str": "灵活自选",
-   "scraped_at": "10-04 12:58",
+   "date_str": "S2 2026等位 · S1 2027可订（44周$885起） · 2027年1月起",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
-     "waitlist": false,
-     "terms": {
-      "短租": 750
-     },
+     "waitlist": true,
+     "terms": {},
      "flexible": false,
      "flex_start": null,
      "flex_end": null,
@@ -197,7 +211,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -232,7 +246,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -277,7 +291,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$805起）",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -361,7 +375,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$805起） · 2027年1月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -437,7 +451,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": false,
@@ -523,7 +537,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$865起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -589,7 +603,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -624,7 +638,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -659,7 +673,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -710,7 +724,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -801,7 +815,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -893,7 +907,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$735起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -981,7 +995,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$829起） · 2026年12月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -1051,7 +1065,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": []
   }
  },
@@ -1100,7 +1114,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年11月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -1184,7 +1198,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年10月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -1266,7 +1280,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -1349,7 +1363,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起",
-   "scraped_at": "10-04 12:58",
+   "scraped_at": "10-04 14:48",
    "semesters": [
     {
      "waitlist": true,
@@ -1419,7 +1433,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": []
   }
  },
@@ -1456,7 +1470,7 @@
     "shortstay_dates": []
    },
    "date_str": "S1 2027等位 · S2 2026可订（短租$1075起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -1534,7 +1548,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$915起） · 2026年12月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -1618,7 +1632,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$995起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -1700,7 +1714,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$885起） · 2026年12月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -1775,7 +1789,7 @@
     "shortstay_dates": []
    },
    "date_str": "S1 2027等位 · S2 2026可订（短租$925起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -1837,7 +1851,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -1914,7 +1928,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（22周$715起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -1978,7 +1992,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$815起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2041,7 +2055,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2135,7 +2149,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年2月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2211,7 +2225,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2305,7 +2319,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$625起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2381,7 +2395,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2459,7 +2473,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2536,7 +2550,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（22周$555起）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2614,7 +2628,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$825起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2690,7 +2704,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2783,7 +2797,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$905起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -2858,7 +2872,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": false,
@@ -2934,7 +2948,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": []
   }
  },
@@ -2989,7 +3003,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$705起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:49",
    "semesters": [
     {
      "waitlist": true,
@@ -3080,7 +3094,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$835起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3169,7 +3183,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3258,7 +3272,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起",
-   "scraped_at": "10-04 12:59",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3347,7 +3361,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$945起） · 2027年2月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3436,7 +3450,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$845起） · 2027年2月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3509,7 +3523,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -3560,7 +3574,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$865起） · 2027年2月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3633,7 +3647,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -3684,7 +3698,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$965起） · 2027年1月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3773,7 +3787,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3846,7 +3860,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -3897,7 +3911,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$755起） · 2027年2月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -3988,7 +4002,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（44周$725起） · 2027年2月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4062,7 +4076,7 @@
     "shortstay_dates": []
    },
    "date_str": "待定",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -4099,7 +4113,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（22周$675起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4159,7 +4173,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -4210,7 +4224,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$795起） · 2027年1月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4299,7 +4313,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4388,7 +4402,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4463,7 +4477,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4540,7 +4554,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4617,7 +4631,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4682,7 +4696,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4747,7 +4761,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4812,7 +4826,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": false,
@@ -4877,7 +4891,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（22周$805起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -4937,7 +4951,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": []
   }
  },
@@ -4978,7 +4992,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$685起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:50",
    "semesters": [
     {
      "waitlist": true,
@@ -5044,7 +5058,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -5121,7 +5135,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$665起） · 2026年10月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -5198,7 +5212,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$635起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -5275,7 +5289,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$635起） · 2026年10月起",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -5364,7 +5378,7 @@
     ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5456,7 +5470,7 @@
     ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5548,7 +5562,7 @@
     ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5626,7 +5640,7 @@
     "shortstay_dates": []
    },
    "date_str": "S1 2027等位 · S2 2026可订（短租$805起）",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5702,7 +5716,7 @@
     ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5794,7 +5808,7 @@
     ]
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:00",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5870,7 +5884,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": []
   }
  },
@@ -5907,7 +5921,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -5975,7 +5989,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$635起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6040,7 +6054,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6107,7 +6121,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6173,7 +6187,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6238,7 +6252,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6303,7 +6317,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$525起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6368,7 +6382,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$515起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6431,7 +6445,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（6月$495起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6493,7 +6507,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（6月$495起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6553,7 +6567,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": []
   }
  },
@@ -6588,7 +6602,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": []
   }
  },
@@ -6639,7 +6653,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6728,7 +6742,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6805,7 +6819,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$715起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6872,7 +6886,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -6936,7 +6950,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -7002,7 +7016,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -7084,7 +7098,7 @@
     ]
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$555起） · 2026年10月起",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -7160,7 +7174,7 @@
     "shortstay_dates": []
    },
    "date_str": "灵活自选",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": false,
@@ -7228,7 +7242,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$575起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -7291,7 +7305,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（6月$535起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:51",
    "semesters": [
     {
      "waitlist": true,
@@ -7355,7 +7369,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$779起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7420,7 +7434,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$719起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7485,7 +7499,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$529起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7550,7 +7564,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$519起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7613,7 +7627,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（6月$429起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7679,7 +7693,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$429起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7745,7 +7759,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$729起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7810,7 +7824,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$479起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7871,7 +7885,7 @@
     "shortstay_dates": []
    },
    "date_str": "今年无房（等位）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": []
   }
  },
@@ -7910,7 +7924,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -7975,7 +7989,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -8040,7 +8054,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
@@ -8105,7 +8119,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）",
-   "scraped_at": "10-04 13:01",
+   "scraped_at": "10-04 14:52",
    "semesters": [
     {
      "waitlist": true,
