@@ -34,7 +34,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $850/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -77,35 +77,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 1035,
-     "22周": 1095,
-     "44周": 1035,
-     "短租": 850
+     "From": 1035
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      4
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$1035起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -144,7 +129,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $750/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $945/周、44周 $885/周、短租 $750/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [
     {
      "waitlist": false,
@@ -189,8 +174,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 885,
-     "短租": 750
+     "From": 885
     },
     "avail_status": "available",
     "avail_count": null,
@@ -234,7 +218,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -290,7 +274,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $800/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [
     {
      "waitlist": true,
@@ -333,35 +317,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 1035,
-     "22周": 1095,
-     "44周": 1035,
-     "短租": 800
+     "From": 1035
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      4
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$1035起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -400,7 +369,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $690/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $690/周 · 学期日期：接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [
     {
      "waitlist": false,
@@ -439,10 +408,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 690,
-     "22周": 865,
-     "44周": 805,
-     "短租": 690
+     "From": 690
     },
     "avail_status": "available",
     "avail_count": 4,
@@ -494,7 +460,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $680/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $680/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [
     {
      "waitlist": false,
@@ -539,8 +505,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 805,
-     "短租": 680
+     "From": 805
     },
     "avail_status": "available",
     "avail_count": null,
@@ -592,7 +557,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $670/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $855/周、44周 $795/周、短租 $670/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:12",
+   "scraped_at": "10-07 17:59",
    "semesters": [
     {
      "waitlist": false,
@@ -637,8 +602,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 795,
-     "短租": 670
+     "From": 795
     },
     "avail_status": "available",
     "avail_count": null,
@@ -690,7 +654,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $925/周、44周 $865/周、短租 $800/周 · 学期日期：接口合同结束日 2027-07-13 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -725,27 +689,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 800,
-     "22周": 925,
-     "44周": 865,
-     "短租": 800
+     "From": 800
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": [
-      2027,
-      7,
-      13
-     ]
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$865起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -776,7 +733,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -824,7 +781,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -872,7 +829,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -926,7 +883,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-01 · 接口合同结束日 2027-07-13 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -968,34 +925,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 815,
-     "22周": 875,
-     "44周": 815
+     "From": 815
     },
     "avail_status": "available",
-    "avail_count": 4,
-    "avail_text": "4 left  at this price",
+    "avail_count": 5,
+    "avail_text": "5 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      1
-     ],
-     "contract_end": [
-      2027,
-      7,
-      13
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1034,7 +977,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $835/周、44周 $775/周、短租 $650/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-01 · 接口合同结束日 2027-07-13 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1077,35 +1020,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 775,
-     "22周": 835,
-     "44周": 775,
-     "短租": 650
+     "From": 775
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      1
-     ],
-     "contract_end": [
-      2027,
-      7,
-      13
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1144,7 +1072,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $795/周、44周 $735/周、短租 $600/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-01 · 接口合同结束日 2027-07-13 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1187,35 +1115,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 735,
-     "22周": 795,
-     "44周": 735,
-     "短租": 600
+     "From": 735
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      1
-     ],
-     "contract_end": [
-      2027,
-      7,
-      13
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$735起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1254,7 +1167,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $829/周、12月 $829/周、短租 $829/周 · 学期日期：灵活起租 2026-12-01 至 2027-03-31 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1293,31 +1206,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 829,
-     "6月": 829,
-     "12月": 829,
-     "短租": 829
+     "From": 829
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      12,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": null
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$829起） · 2026年12月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1348,7 +1250,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -1404,7 +1306,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $819/周、12月 $819/周、短租 $819/周 · 学期日期：灵活起租 2026-11-25 至 2027-03-31 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1443,31 +1345,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 819,
-     "6月": 819,
-     "12月": 819,
-     "短租": 819
+     "From": 819
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      11,
-      25
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": null
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年11月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1506,7 +1397,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $819/周、12月 $819/周、短租 $819/周 · 学期日期：灵活起租 2026-10-08 至 2027-03-31 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1545,31 +1436,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 819,
-     "6月": 819,
-     "12月": 819,
-     "短租": 819
+     "From": 819
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": null
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$819起） · 2026年10月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1606,7 +1486,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $779/周、12月 $779/周 · 学期日期：灵活起租 2026-11-28 至 2027-03-31 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1644,30 +1524,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 779,
-     "6月": 779,
-     "12月": 779
+     "From": 779
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      11,
-      28
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": null
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1706,7 +1576,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $779/周、12月 $779/周、短租 $819/周 · 学期日期：灵活起租 2026-11-28 至 2027-03-31 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -1745,31 +1615,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 779,
-     "6月": 779,
-     "12月": 779,
-     "短租": 819
+     "From": 779
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      11,
-      28
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": null
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$779起） · 2026年11月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1804,7 +1663,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $1115/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 等位 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -1833,8 +1692,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 1055,
-     "短租": 1115
+     "From": 1055
     },
     "avail_status": "limited",
     "avail_count": 1,
@@ -1847,7 +1705,7 @@
      "contract_end": null,
      "shortstay_dates": []
     },
-    "date_str": "S1 2027等位 · S2 2026可订（短租$1115起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -1886,7 +1744,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $1075/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1075/周、44周 $1015/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -1918,8 +1776,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 1015,
-     "短租": 1075
+     "From": 1015
     },
     "avail_status": "limited",
     "avail_count": 2,
@@ -1971,7 +1828,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $975/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $975/周、44周 $915/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-15 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2015,8 +1872,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 915,
-     "短租": 975
+     "From": 915
     },
     "avail_status": "available",
     "avail_count": null,
@@ -2068,7 +1924,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $1055/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1055/周、44周 $995/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-15 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2112,8 +1968,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 995,
-     "短租": 1055
+     "From": 995
     },
     "avail_status": "available",
     "avail_count": null,
@@ -2163,7 +2018,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $945/周、44周 $885/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-08 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -2205,34 +2060,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 885,
-     "22周": 945,
-     "44周": 885
+     "From": 885
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      12,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      8
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$885起） · 2026年12月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -2271,7 +2112,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $925/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $925/周、44周 $865/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2026-12-09 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2315,8 +2156,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 865,
-     "短租": 925
+     "From": 865
     },
     "avail_status": "limited",
     "avail_count": 2,
@@ -2368,7 +2208,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $845/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $845/周、44周 $785/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-15 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2412,8 +2252,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 785,
-     "短租": 845
+     "From": 785
     },
     "avail_status": "available",
     "avail_count": null,
@@ -2457,7 +2296,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -2511,7 +2350,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -2541,22 +2380,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 815,
-     "22周": 875,
-     "44周": 815
+     "From": 815
     },
-    "avail_status": "limited",
-    "avail_count": 2,
-    "avail_text": "2 left  at this price",
+    "avail_status": "available",
+    "avail_count": 3,
+    "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$815起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -2595,7 +2432,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $875/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2639,8 +2476,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 815,
-     "短租": 875
+     "From": 815
     },
     "avail_status": "available",
     "avail_count": null,
@@ -2692,7 +2528,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $835/周、44周 $775/周、短租 $835/周 · 学期日期：灵活起租 2027-02-17 至 2027-03-02 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -2735,35 +2571,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 775,
-     "22周": 835,
-     "44周": 775,
-     "短租": 835
+     "From": 775
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      2,
-      17
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      2
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$775起） · 2027年2月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -2802,7 +2623,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $845/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $845/周、44周 $785/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -2846,8 +2667,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 785,
-     "短租": 845
+     "From": 785
     },
     "avail_status": "available",
     "avail_count": null,
@@ -2899,7 +2719,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $685/周、44周 $625/周、短租 $685/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": true,
@@ -2942,35 +2762,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 625,
-     "22周": 685,
-     "44周": 625,
-     "短租": 685
+     "From": 625
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      26
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$625起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -3009,7 +2814,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $665/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $665/周、44周 $605/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -3053,8 +2858,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 605,
-     "短租": 665
+     "From": 605
     },
     "avail_status": "available",
     "avail_count": null,
@@ -3106,7 +2910,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $645/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $645/周、44周 $585/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [
     {
      "waitlist": false,
@@ -3150,8 +2954,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 585,
-     "短租": 645
+     "From": 585
     },
     "avail_status": "available",
     "avail_count": null,
@@ -3195,7 +2998,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:00",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -3251,7 +3054,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 12月 $825/周、22周 $885/周、44周 $825/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -3294,35 +3097,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 825,
-     "12月": 825,
-     "22周": 885,
-     "44周": 825
+     "From": 825
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      5
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      9
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$825起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -3361,7 +3149,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $865/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 12月 价格未知、22周 $865/周、44周 $805/周、短租 价格未知 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -3407,8 +3195,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 805,
-     "短租": 865
+     "From": 805
     },
     "avail_status": "available",
     "avail_count": null,
@@ -3458,7 +3245,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -3500,34 +3287,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 905,
-     "22周": 965,
-     "44周": 905
+     "From": 905
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      5
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      9
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$905起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -3562,7 +3335,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $745/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 等位 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -3591,8 +3364,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 685,
-     "短租": 745
+     "From": 685
     },
     "avail_status": "available",
     "avail_count": 3,
@@ -3605,7 +3377,7 @@
      "contract_end": null,
      "shortstay_dates": []
     },
-    "date_str": "S1 2027等位 · S2 2026可订（短租$745起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -3636,7 +3408,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -3692,7 +3464,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $765/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $765/周、44周 $705/周、短租 价格未知 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
-   "scraped_at": "10-07 17:13",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -3737,8 +3509,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 705,
-     "短租": 765
+     "From": 705
     },
     "avail_status": "available",
     "avail_count": null,
@@ -3788,7 +3559,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $895/周、44周 $835/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -3830,34 +3601,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 835,
-     "22周": 895,
-     "44周": 835
+     "From": 835
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      5
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      6
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$835起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -3894,7 +3651,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $855/周、44周 $795/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -3936,34 +3693,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 795,
-     "22周": 855,
-     "44周": 795
+     "From": 795
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      5
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      6
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$795起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4000,7 +3743,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4042,34 +3785,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 815,
-     "22周": 875,
-     "44周": 815
+     "From": 815
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      5
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      6
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$815起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4106,7 +3835,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1005/周、44周 $945/周 · 学期日期：灵活起租 2027-02-01 至 2027-02-28 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4148,34 +3877,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 945,
-     "22周": 1005,
-     "44周": 945
+     "From": 945
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      2,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      28
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$945起） · 2027年2月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4206,7 +3921,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4254,7 +3969,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4308,7 +4023,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $925/周、44周 $865/周 · 学期日期：灵活起租 2027-02-01 至 2027-02-28 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4350,34 +4065,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 865,
-     "22周": 925,
-     "44周": 865
+     "From": 865
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      2,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      28
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$865起） · 2027年2月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4408,7 +4109,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4462,7 +4163,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $965/周、12月 $965/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-31 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4504,34 +4205,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 965,
-     "6月": 965,
-     "12月": 965
+     "From": 965
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$965起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4568,7 +4255,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $885/周、12月 $885/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-31 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4610,34 +4297,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 885,
-     "6月": 885,
-     "12月": 885
+     "From": 885
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$885起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4668,7 +4341,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4722,7 +4395,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $815/周、44周 $755/周 · 学期日期：灵活起租 2027-02-01 至 2027-02-28 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4764,34 +4437,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 755,
-     "22周": 815,
-     "44周": 755
+     "From": 755
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      2,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      28
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$755起） · 2027年2月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4830,7 +4489,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $785/周、44周 $725/周、短租 $785/周 · 学期日期：灵活起租 2027-02-01 至 2027-02-28 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -4873,35 +4532,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 725,
-     "22周": 785,
-     "44周": 725,
-     "短租": 785
+     "From": 725
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      2,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      28
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$725起） · 2027年2月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -4932,7 +4576,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4980,7 +4624,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -5028,7 +4672,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -5082,7 +4726,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $795/周、12月 $795/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-31 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -5124,34 +4768,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 795,
-     "6月": 795,
-     "12月": 795
+     "From": 795
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$795起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -5188,7 +4818,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $745/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-31 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -5230,34 +4860,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 745,
-     "6月": 745,
-     "12月": 745
+     "From": 745
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -5294,7 +4910,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $745/周 · 学期日期：灵活起租 2027-01-01 至 2027-03-31 · 接口合同结束日 2027-07-07 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -5336,34 +4952,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 745,
-     "6月": 745,
-     "12月": 745
+     "From": 745
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2027,
-      1,
-      1
-     ],
-     "flexible_end": [
-      2027,
-      3,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      7
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$745起） · 2027年1月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -5402,7 +5004,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $815/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $815/周、44周 $755/周、短租 价格未知 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-15 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -5447,8 +5049,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 755,
-     "短租": 815
+     "From": 755
     },
     "avail_status": "available",
     "avail_count": null,
@@ -5500,7 +5101,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $795/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $795/周、44周 $735/周、短租 价格未知 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-15 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -5545,8 +5146,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 735,
-     "短租": 795
+     "From": 735
     },
     "avail_status": "available",
     "avail_count": null,
@@ -5598,7 +5198,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $965/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周、短租 价格未知 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -5631,8 +5231,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 905,
-     "短租": 965
+     "From": 905
     },
     "avail_status": "available",
     "avail_count": null,
@@ -5684,7 +5283,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $925/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $925/周、44周 $865/周、短租 价格未知 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -5717,8 +5316,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 865,
-     "短租": 925
+     "From": 865
     },
     "avail_status": "available",
     "avail_count": null,
@@ -5770,7 +5368,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $885/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $885/周、44周 $825/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -5802,8 +5400,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 825,
-     "短租": 885
+     "From": 825
     },
     "avail_status": "available",
     "avail_count": null,
@@ -5853,7 +5450,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $905/周、44周 $845/周、短租 价格未知 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -5884,22 +5481,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 845,
-     "22周": 905,
-     "44周": 845
+     "From": 845
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（44周$845起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -5930,7 +5525,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -5978,7 +5573,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -6034,7 +5629,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 12月 $685/周、22周 $745/周、44周 $685/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -6065,23 +5660,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 685,
-     "12月": 685,
-     "22周": 745,
-     "44周": 685
+     "From": 685
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$685起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -6118,7 +5710,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $765/周、12月 $705/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -6148,22 +5740,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 705,
-     "6月": 765,
-     "12月": 705
+     "From": 705
     },
     "avail_status": "available",
     "avail_count": 4,
     "avail_text": "4 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -6200,7 +5790,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $725/周、12月 $665/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -6230,22 +5820,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 665,
-     "6月": 725,
-     "12月": 665
+     "From": 665
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -6284,7 +5872,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $695/周、12月 $635/周、短租 $695/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": true,
@@ -6315,23 +5903,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 695,
-     "6月": 695,
-     "12月": 635,
-     "短租": 695
+     "From": 695
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$635起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -6368,7 +5953,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $695/周、12月 $635/周 · 学期日期：灵活起租 2026-10-08 至 2026-11-28 · 接口合同结束日 2027-06-30 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $695/周、12月 $635/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -6413,32 +5998,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 635,
-     "6月": 695,
-     "12月": 635
+     "From": 635
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      11,
-      28
-     ],
-     "contract_end": [
-      2027,
-      6,
-      30
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -6477,7 +6048,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $575/周、12月 $515/周 · 学期日期：灵活起租 2026-10-08 至 2026-10-31 · 接口合同结束日 2027-07-14 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $575/周、12月 $515/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -6522,32 +6093,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 515,
-     "6月": 575,
-     "12月": 515
+     "From": 515
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      10,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -6586,7 +6143,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $675/周、12月 $615/周 · 学期日期：灵活起租 2026-10-08 至 2026-10-31 · 接口合同结束日 2027-07-14 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $675/周、12月 $615/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:14",
+   "scraped_at": "10-07 18:01",
    "semesters": [
     {
      "waitlist": false,
@@ -6631,32 +6188,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 615,
-     "6月": 675,
-     "12月": 615
+     "From": 615
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      10,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -6695,7 +6238,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $765/周、12月 $705/周 · 学期日期：灵活起租 2026-10-08 至 2026-10-27 · 接口合同结束日 2027-07-08 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $765/周、12月 $705/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -6740,32 +6283,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 705,
-     "6月": 765,
-     "12月": 705
+     "From": 705
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      10,
-      27
-     ],
-     "contract_end": [
-      2027,
-      7,
-      8
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -6802,7 +6331,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $805/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 等位 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -6831,8 +6360,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 745,
-     "短租": 805
+     "From": 745
     },
     "avail_status": "limited",
     "avail_count": 1,
@@ -6845,7 +6373,7 @@
      "contract_end": null,
      "shortstay_dates": []
     },
-    "date_str": "S1 2027等位 · S2 2026可订（短租$805起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -6882,7 +6410,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $735/周、12月 $675/周 · 学期日期：灵活起租 2026-10-08 至 2026-10-27 · 接口合同结束日 2027-07-08 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $735/周、12月 $675/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -6927,32 +6455,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 675,
-     "6月": 735,
-     "12月": 675
+     "From": 675
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      10,
-      27
-     ],
-     "contract_end": [
-      2027,
-      7,
-      8
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -6991,7 +6505,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $595/周、12月 $535/周 · 学期日期：灵活起租 2026-10-08 至 2026-10-27 · 接口合同结束日 2027-07-08 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $595/周、12月 $535/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -7036,32 +6550,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 535,
-     "6月": 595,
-     "12月": 535
+     "From": 535
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      10,
-      27
-     ],
-     "contract_end": [
-      2027,
-      7,
-      8
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -7098,7 +6598,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $635/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7127,21 +6627,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 635,
-     "6月": 635
+     "From": 635
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（6月$635起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7180,7 +6679,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $715/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $725/周、12月 $665/周 · 学期日期：接口合同结束日 2027-02-16 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -7216,8 +6715,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 665,
-     "短租": 715
+     "From": 665
     },
     "avail_status": "available",
     "avail_count": null,
@@ -7267,7 +6765,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $695/周、12月 $635/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7297,22 +6795,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 635,
-     "6月": 695,
-     "12月": 635
+     "From": 635
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$635起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7349,7 +6845,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $765/周、12月 $705/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7379,22 +6875,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 705,
-     "6月": 765,
-     "12月": 705
+     "From": 705
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7431,7 +6925,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $725/周、12月 $665/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7461,22 +6955,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 665,
-     "6月": 725,
-     "12月": 665
+     "From": 665
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7513,7 +7005,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $705/周、12月 $705/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7543,22 +7035,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 705,
-     "6月": 705,
-     "12月": 705
+     "From": 705
     },
     "avail_status": "available",
     "avail_count": 4,
     "avail_text": "4 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$705起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7595,7 +7085,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $665/周、12月 $665/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7625,22 +7115,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 665,
-     "6月": 665,
-     "12月": 665
+     "From": 665
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7677,7 +7165,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $585/周、12月 $525/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7707,22 +7195,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 525,
-     "6月": 585,
-     "12月": 525
+     "From": 525
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$525起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7759,7 +7245,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $575/周、12月 $515/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7789,22 +7275,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 515,
-     "6月": 575,
-     "12月": 515
+     "From": 515
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$515起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7835,7 +7319,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -7887,7 +7371,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $495/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -7916,21 +7400,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 495,
-     "6月": 495
+     "From": 495
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（6月$495起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -7961,7 +7444,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8009,7 +7492,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8063,7 +7546,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $515/周、12月 $515/周 · 学期日期：灵活起租 2026-10-10 至 2027-02-02 · 接口合同结束日 2027-06-29 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -8105,34 +7588,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 515,
-     "6月": 515,
-     "12月": 515
+     "From": 515
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      10
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      2
-     ],
-     "contract_end": [
-      2027,
-      6,
-      29
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -8169,7 +7638,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $515/周、12月 $515/周 · 学期日期：灵活起租 2026-10-10 至 2027-02-02 · 接口合同结束日 2027-06-29 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -8211,34 +7680,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 515,
-     "6月": 515,
-     "12月": 515
+     "From": 515
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      10
-     ],
-     "flexible_end": [
-      2027,
-      2,
-      2
-     ],
-     "contract_end": [
-      2027,
-      6,
-      29
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$515起） · 2026年10月起"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -8275,7 +7730,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $775/周、12月 $715/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -8305,22 +7760,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 715,
-     "6月": 775,
-     "12月": 715
+     "From": 715
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$715起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -8359,7 +7812,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $725/周、12月 $665/周、短租 $725/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -8390,23 +7843,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 665,
-     "6月": 725,
-     "12月": 665,
-     "短租": 725
+     "From": 665
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$665起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -8445,7 +7895,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $745/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $685/周、短租 价格未知 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -8478,8 +7928,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 685,
-     "短租": 745
+     "From": 685
     },
     "avail_status": "available",
     "avail_count": null,
@@ -8531,7 +7980,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $625/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $625/周、12月 $565/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -8563,8 +8012,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 565,
-     "短租": 625
+     "From": 565
     },
     "avail_status": "available",
     "avail_count": null,
@@ -8614,7 +8062,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 6月 $615/周、12月 $555/周 · 学期日期：灵活起租 2026-10-08 至 2026-12-31 · 接口合同结束日 2027-07-13 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $615/周、12月 $555/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -8659,32 +8107,18 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 555,
-     "6月": 615,
-     "12月": 555
+     "From": 555
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
      "flexible": true,
-     "flexible_start": [
-      2026,
-      10,
-      8
-     ],
-     "flexible_end": [
-      2026,
-      12,
-      31
-     ],
-     "contract_end": [
-      2027,
-      7,
-      13
-     ]
+     "flexible_start": null,
+     "flexible_end": null,
+     "contract_end": null,
+     "shortstay_dates": []
     },
     "date_str": "灵活自选"
    }
@@ -8725,7 +8159,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $645/周 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $645/周、12月 $585/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": false,
@@ -8757,8 +8191,7 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 585,
-     "短租": 645
+     "From": 585
     },
     "avail_status": "available",
     "avail_count": null,
@@ -8808,7 +8241,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $635/周、12月 $575/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [
     {
      "waitlist": true,
@@ -8838,22 +8271,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 575,
-     "6月": 635,
-     "12月": 575
+     "From": 575
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$575起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -8884,7 +8315,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:02",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8938,7 +8369,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $829/周、12月 $779/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -8968,22 +8399,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 779,
-     "6月": 829,
-     "12月": 779
+     "From": 779
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$779起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9020,7 +8449,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $769/周、12月 $719/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9050,22 +8479,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 719,
-     "6月": 769,
-     "12月": 719
+     "From": 719
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$719起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9102,7 +8529,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $579/周、12月 $529/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9132,22 +8559,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 529,
-     "6月": 579,
-     "12月": 529
+     "From": 529
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$529起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9184,7 +8609,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $569/周、12月 $519/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9214,22 +8639,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 519,
-     "6月": 569,
-     "12月": 519
+     "From": 519
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$519起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9260,7 +8683,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -9316,7 +8739,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $479/周、12月 $429/周、短租 $479/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9347,23 +8770,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 429,
-     "6月": 479,
-     "12月": 429,
-     "短租": 479
+     "From": 429
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$429起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9400,7 +8820,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $779/周、12月 $729/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9430,22 +8850,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 729,
-     "6月": 779,
-     "12月": 729
+     "From": 729
     },
     "avail_status": "limited",
     "avail_count": 1,
     "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$729起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9482,7 +8900,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $529/周、12月 $479/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9512,22 +8930,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 479,
-     "6月": 529,
-     "12月": 479
+     "From": 479
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$479起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9558,7 +8974,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -9612,7 +9028,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $449/周、12月 $399/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9642,22 +9058,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 399,
-     "6月": 449,
-     "12月": 399
+     "From": 399
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9694,7 +9108,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $449/周、12月 $399/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9724,22 +9138,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 399,
-     "6月": 449,
-     "12月": 399
+     "From": 399
     },
     "avail_status": "available",
     "avail_count": null,
     "avail_text": "",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9776,7 +9188,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $399/周、12月 $399/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:15",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9806,22 +9218,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 399,
-     "6月": 399,
-     "12月": 399
+     "From": 399
     },
     "avail_status": "limited",
     "avail_count": 2,
     "avail_text": "2 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）"
+    "date_str": "灵活自选"
    }
   }
  },
@@ -9858,7 +9268,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $399/周、12月 $399/周 · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-07 17:16",
+   "scraped_at": "10-07 18:03",
    "semesters": [
     {
      "waitlist": true,
@@ -9888,22 +9298,20 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 399,
-     "6月": 399,
-     "12月": 399
+     "From": 399
     },
     "avail_status": "available",
     "avail_count": 3,
     "avail_text": "3 left  at this price",
     "date_data": {
      "dates": [],
-     "shortstay_dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
-     "contract_end": null
+     "contract_end": null,
+     "shortstay_dates": []
     },
-    "date_str": "S2 2026等位 · S1 2027可订（12月$399起）"
+    "date_str": "灵活自选"
    }
   }
  }
