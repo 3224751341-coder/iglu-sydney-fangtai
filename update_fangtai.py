@@ -6,6 +6,7 @@ Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里
 """
 
 import json, re, sys, os, shutil, subprocess, urllib.request
+from html import escape
 from datetime import datetime, timezone, timedelta, date
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from curl_cffi import requests as cffi_req
@@ -79,7 +80,13 @@ RECIPIENTS = [
 BARK_URL = "https://api.day.app/PCNR5LcwXWyHKFJ7VWpx5j"
 
 
+def notifications_disabled() -> bool:
+    return os.environ.get('IGLU_DISABLE_NOTIFICATIONS', '').strip().lower() in ('1', 'true', 'yes')
+
+
 def send_bark(title: str, text: str):
+    if notifications_disabled():
+        return
     try:
         payload = json.dumps({"title": title, "body": text, "group": "房态运维告警"}).encode("utf-8")
         req = urllib.request.Request(
@@ -942,7 +949,7 @@ def extract_semester_radios(html: str) -> list:
 def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
     """查某个学期的真实可订状态。返回：
     {"waitlist": bool, "terms": {"44周": 755, ...}, "flex_start": (y,m,d)|None, "dates": [(y,m,d)]}
-    接口异常返回 None（调用方沿用静态页结果，不冒险改判）。"""
+    接口异常返回 None；调用方保留该学期，状态标记未知。"""
     import time as _time
     try:
         r = cffi_req.post(
@@ -957,12 +964,10 @@ def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
     except Exception as e:
         print(f"     ⚠️ 学期接口失败({suffix or 's1'}): {e}")
         return None
-    if not d.get("success"):
+    if not isinstance(d, dict) or d.get("success") is not True:
         return None
-    if not d.get("continue"):
-        # continue=False → 该学期无房（months 里是 Join the Waitlist）
-        return {"waitlist": True, "terms": {}, "flexible": False,
-                "flex_start": None, "flex_end": None, "contract_end": None, "dates": []}
+    if d.get("continue") is not True and d.get("continue") is not False:
+        return None
 
     # months + dates 片段拼起来复用 extract_dates（availNowBtn 灵活起租判定、
     # 日历起点/终点、具体起租日期、buffer days 逻辑与静态页完全一致）
@@ -989,7 +994,7 @@ def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
         except ValueError:
             terms[_term_key(val or "", label)] = None
 
-    return {"waitlist": False, "terms": terms,
+    return {"waitlist": d['continue'] is False, "terms": terms,
             "flexible": bool(dd.get("flexible")),
             "flex_start": dd.get("flexible_start"),
             "flex_end": dd.get("flexible_end"),
@@ -1013,78 +1018,78 @@ def _sem_terms_note(sem: dict) -> str:
 
 
 def semester_date_str(semesters: list, fallback: str) -> str:
-    """按学期真实状态生成起租列文案（快照 date 字段 / 企微推送用）"""
-    open_sems = [s for s in semesters if not s["waitlist"]]
-    wl_sems = [s for s in semesters if s["waitlist"]]
-    if not open_sems:
-        labels = " / ".join(_sem_short(s["label"]) for s in semesters)
-        return f"全部学期等位（{labels}）" if labels else "全部学期等位"
-    if not wl_sems:
-        return fallback  # 所有学期都有房 → 维持原有文案
-    # 今年等位 + 明年（后续学期）可订
-    first_open = open_sems[0]
-    wl_txt = "、".join(_sem_short(s["label"]) for s in wl_sems)
-    op_txt = _sem_short(first_open["label"])
-    note = _sem_terms_note(first_open)
-    start = first_open.get("flex_start") or (first_open["dates"][0] if first_open["dates"] else None)
-    start_txt = f" · {start[0]}年{start[1]}月起" if start else ""
-    return f"{wl_txt}等位 · {op_txt}可订{('（' + note + '）') if note else ''}{start_txt}"
+    """Keep every semester, including unknown; never reuse unscoped dates."""
+    return '；'.join(semester_description(s) for s in semesters) or '学期状态未知'
+
+
+def semester_status(sem: dict) -> str:
+    if sem.get('waitlist') is True:
+        return 'waitlist'
+    if sem.get('waitlist') is False:
+        return 'available'
+    return 'unknown'
+
+
+def semester_dates(sem: dict) -> dict:
+    return {'dates': sem.get('dates') or [], 'shortstay_dates': [],
+            'flexible': bool(sem.get('flexible')), 'flexible_start': sem.get('flex_start'),
+            'flexible_end': sem.get('flex_end'), 'contract_end': sem.get('contract_end')}
+
+
+def semester_description(sem: dict) -> str:
+    status = {'available':'学期可订', 'waitlist':'等位', 'unknown':'未知（接口未确认）'}[semester_status(sem)]
+    terms = '、'.join(f'{k} ${v}/周' if v is not None else f'{k} 价格未知'
+                     for k, v in (sem.get('terms') or {}).items())
+    def fmt(d):
+        return f'{d[0]}-{d[1]:02d}-{d[2]:02d}'
+    dates = [fmt(d) for d in sem.get('dates') or []]
+    if sem.get('flex_start'):
+        dates.append('灵活起租 ' + fmt(sem['flex_start']) +
+                     (' 至 ' + fmt(sem['flex_end']) if sem.get('flex_end') else ''))
+    elif sem.get('flexible'):
+        dates.append('灵活起租（范围未知）')
+    if sem.get('contract_end'):
+        dates.append('接口合同结束日 ' + fmt(sem['contract_end']))
+    detail = ' · '.join(dates) or '未知'
+    return (f"{_sem_short(sem.get('label', '学期未知'))} · {status}"
+            + (f' · {terms}' if terms else '')
+            + f' · 学期日期：{detail} · 租期日期未核验')
+
+
+def semester_views(room: dict) -> list:
+    """Presentation units never combine evidence from different semesters."""
+    sems = room.get('semesters') or [{'label':'学期未知', 'waitlist':None, 'terms':{}}]
+    views = []
+    for sem in sems:
+        view = dict(room)
+        view.update(semester=sem.get('label', '学期未知'),
+                    prices=dict(sem.get('terms') or {}),
+                    avail_status=semester_status(sem), avail_count=None, avail_text='',
+                    date_data=semester_dates(sem), date_str=semester_description(sem),
+                    _semester_view=True)
+        views.append(view)
+    return views
 
 
 def apply_semester_truth(room: dict, semesters: list) -> None:
-    """用接口的学期真实状态覆盖静态页推断的 avail_status / avail_count / date_data / date_str。
-    就地修改 room。semesters 为空（接口全失败）时不动作，沿用静态页结果。"""
-    if not semesters:
-        return
-    open_sems = [s for s in semesters if not s["waitlist"]]
-    wl_sems = [s for s in semesters if s["waitlist"]]
-
-    if not open_sems:
-        # 所有学期都等位 → 无房（静态页的「有房」「X left」全是营销标记）
-        room["avail_status"] = "waitlist"
-        room["avail_count"] = None
-        room["avail_text"] = ""
-        room["date_data"] = {"dates": [], "shortstay_dates": [], "flexible": False,
-                             "flexible_start": None, "flexible_end": None, "contract_end": None}
-        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
-        return
-
-    first_open = open_sems[0]
-    sem_dates = {"dates": first_open.get("dates", []), "shortstay_dates": [],
-                 "flexible": bool(first_open.get("flexible")),
-                 "flexible_start": first_open.get("flex_start"),
-                 "flexible_end": first_open.get("flex_end"),
-                 "contract_end": first_open.get("contract_end")}
-
-    if wl_sems and semesters[0]["waitlist"]:
-        # 最早学期（今年）等位、后续学期（明年）才有房：
-        # 余量/价格保留（X-left 对应的正是开放学期的价格），但日期指向明年，
-        # 页面起租列显示「今年无房 + 明年X月起」，不再显示误导性的「灵活自选」
-        room["date_data"] = sem_dates
-        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
-    else:
-        # 最早学期就有房 → 用接口真实起租日修正静态页日期（静态页日期区常为空）
-        if first_open["dates"] or first_open["flex_start"]:
-            room["date_data"] = sem_dates
-        room["date_str"] = semester_date_str(semesters, room.get("date_str", ""))
-
-
-def merge_semester_prices(room: dict) -> None:
-    """把最早开放学期的接口租期价补进 prices（就地修改）。
-
-    2026-09-28 Murphy 反馈「比价全是起价」后查明：官网改版后静态房型页早已不带租期价，
-    只剩 mnth6/mnth12/mnth20 三个无价存根，真实租期价只在学期接口 get_room_movein_dates
-    的 terms 片段里（data-label/data-price）。此前 extract_prices 只能抓到 From 起价，
-    导致户型比价 103 行全部没有租期价、租期页签形同虚设。
-    只补缺失的租期档，静态页已有的价格和 From 起价保持不动。"""
-    sems = room.get("semesters") or []
-    open_sems = [s for s in sems if not s.get("waitlist")]
-    if not open_sems:
-        return
-    prices = room.setdefault("prices", {})
-    for k, v in (open_sems[0].get("terms") or {}).items():
-        if v is not None and not prices.get(k):
-            prices[k] = v
+    """Remove static marketing inferences; retain raw evidence for audit."""
+    room.setdefault('static_evidence', {k: room.get(k) for k in
+                    ('prices', 'avail_status', 'avail_count', 'avail_text', 'date_data', 'date_str')})
+    room['semesters'] = semesters
+    views = semester_views(room)
+    opened = [v for v in views if v['avail_status'] == 'available']
+    unknown = any(v['avail_status'] == 'unknown' for v in views)
+    room['avail_status'] = 'available' if opened else ('unknown' if unknown else 'waitlist')
+    room['avail_count'] = None
+    room['avail_text'] = ''
+    # Compatibility summary only: price consumers use semester_views, never this union.
+    room['prices'] = {}
+    for view in opened:
+        for term, price in view['prices'].items():
+            if price is not None:
+                room['prices'][term] = min(price, room['prices'].get(term, price))
+    room['date_data'] = semester_dates({})
+    room['date_str'] = semester_date_str(semesters, '')
 
 
 def auto_room_meta(room_slug: str, html: str) -> tuple:
@@ -1151,17 +1156,19 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
     semesters = []
     for suffix, label, prop_id, room_id in extract_semester_radios(html):
         time.sleep(0.2)
-        sd = fetch_semester_movein(prop_id, room_id, suffix)
-        if sd:
-            sd["label"] = label
-            sd["suffix"] = suffix
-            semesters.append(sd)
+        try:
+            sd = fetch_semester_movein(prop_id, room_id, suffix)
+        except Exception:
+            # Parsing failures must not carry forward a previously available room.
+            sd = None
+        if sd is None:
+            sd = {'waitlist': None, 'terms': {}, 'dates': [], 'fetch_status': 'failed'}
+        sd["label"] = label
+        sd["suffix"] = suffix
+        semesters.append(sd)
     room["semesters"] = semesters
     apply_semester_truth(room, semesters)
-    merge_semester_prices(room)   # 静态页无租期价 → 用学期接口价补全（户型比价要用）
-    # 手动覆盖表优先级最高（人工核对过的日期不被学期逻辑改掉）
-    if meta[0] in DATE_OVERRIDES:
-        room["date_str"] = DATE_OVERRIDES[meta[0]]
+    # Unscoped manual/static dates cannot replace missing semester evidence.
     return room
 
 
@@ -1256,6 +1263,8 @@ def build_date_cell(room: dict) -> str:
     """起租日期单元格（外层）：基础徽标 + 学期状态说明。
     2026-09-28 起官网房态按学期区分（S2 2026 等位 / S1 2027 可订），
     学期说明让顾问一眼看清是哪个学年有房。"""
+    if 'semesters' in room:
+        return '<span class="date-detail">' + escape(room['date_str']) + '</span>'
     cell = _build_date_cell_base(room)
     sems = room.get("semesters")
     if sems:
@@ -1365,21 +1374,28 @@ def _build_date_cell_base(room: dict) -> str:
 
 def build_room_row(room: dict, term_cols: list) -> str:
     """Build a single table row (统一渲染 Studio / Share，不再分表)。租期列按楼盘动态生成。"""
+    if not room.get('_semester_view'):
+        return ''.join(build_room_row(v, term_cols) for v in semester_views(room))
     p = room['prices']
     row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     note = room.get("note", "")
     note_html = f'<span class="room-note">{note}</span>' if note else ''
     if room.get("stale"):
         note_html += f'<span class="room-note" title="本轮抓取失败，显示的是上次成功抓取的数据">⚠ 未更新（{room.get("scraped_at") or "上次"}）</span>'
-    price_cells = "".join(f'<td><span class="price">{format_price(p, k)}</span></td>' for k in term_cols)
+    note_html += f'<span class="room-note semester-label">{escape(_sem_short(room["semester"]))}</span>'
+    if room['avail_status'] == 'available':
+        status_html = '<span class="tag tag-ok">学期可订</span><span class="room-note">租期库存未单独核验</span>'
+    price_cells = ''.join(f'<td data-label="{escape(k)}"><span class="price">'
+                          + (f'${p[k]}/周' if p.get(k) is not None else ('价格未知' if k in p else '未提供'))
+                          + '</span></td>' for k in term_cols)
     return (
         f'<tr class="{row_cls}">'
         f'<td><span class="room-name">{room["name"]}</span>{note_html}</td>'
-        f'<td>{room["area"]}</td>'
-        f'<td>{room["bed"]}</td>'
+        f'<td data-label="面积">{room["area"]}</td>'
+        f'<td data-label="床型">{room["bed"]}</td>'
         f'{price_cells}'
-        f'<td>{status_html}</td>'
-        f'<td>{build_date_cell(room)}</td>'
+        f'<td data-label="学期状态">{status_html}</td>'
+        f'<td data-label="日期证据">{build_date_cell(room)}</td>'
         f'</tr>'
     )
 
@@ -1419,9 +1435,7 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
     u18_rooms = [r for r in all_rooms if _is_u18(r)]
     # 租期列 = 这栋楼本轮官网实际有报价的租期（官网上/下架租期，列自动跟着变）
     # 注意：按全部房型算（含 U18），否则折叠表与主表列数不一致
-    term_cols = sorted({k for r in all_rooms for k in (r.get('prices') or {}) if k != 'From'}, key=term_sort_key)
-    if not term_cols:
-        term_cols = ["12月", "短租"]
+    term_cols = sorted({k for r in all_rooms for v in semester_views(r) for k in v['prices'] if k != 'From'}, key=term_sort_key)
     thead = ('<th>房型</th><th>面积</th><th>床型</th>'
              + "".join(f'<th>{k}</th>' for k in term_cols)
              + '<th>库存</th><th>起租日期</th>')
@@ -1527,7 +1541,7 @@ def build_compare_data(all_cities: dict) -> list:
     for city_slug, city_data in all_cities.items():
         prop_names = {slug: name for name, slug in city_data["properties"].items()}
         for prop_slug, rooms in city_data.get("room_results", {}).items():
-            for r in rooms:
+            for r in [v for room in rooms for v in semester_views(room)]:
                 if "nras" in (r.get("slug") or "").lower():
                     continue
                 rows.append({
@@ -1543,12 +1557,13 @@ def build_compare_data(all_cities: dict) -> list:
                     "avail": r.get("avail_status", ""),
                     "count": r.get("avail_count"),
                     "date": r.get("date_str", ""),
+                    "semester": r.get("semester", "学期未知"),
                     "u18": "u18" in (r.get("slug") or "").lower(),
                 })
     return rows
 
 
-def build_html(all_cities: dict) -> str:
+def build_html(all_cities: dict, snapshot_label: str = '') -> str:
     """Build the complete HTML page from template and data."""
     with open(TEMPLATE_PATH, 'r') as f:
         template = f.read()
@@ -1558,6 +1573,9 @@ def build_html(all_cities: dict) -> str:
     now = datetime.now(beijing_tz)
     update_time = now.strftime("%Y年%m月%d日 %H:%M")
     update_badge = now.strftime("%m/%d %H:%M 更新")
+    if snapshot_label:
+        update_time = escape(snapshot_label)
+        update_badge = escape(snapshot_label)
 
     # City summary: 悉尼 9 所 · 墨尔本 5 所 · 布里斯班 2 所
     summary_parts = []
@@ -1578,7 +1596,7 @@ def build_html(all_cities: dict) -> str:
     compare_json = json.dumps(build_compare_data(all_cities), ensure_ascii=False).replace("</", "<\\/")
     html = html.replace("{{COMPARE_DATA}}", compare_json)
     all_terms = sorted({k for c in all_cities.values() for rs in c["room_results"].values()
-                        for r in rs for k in (r.get("prices") or {}) if k != "From"}, key=term_sort_key)
+                        for r in rs for v in semester_views(r) for k in v['prices'] if k != "From"}, key=term_sort_key)
     html = html.replace("{{TERM_KEYS}}", json.dumps(all_terms, ensure_ascii=False))
 
     return html
@@ -2005,6 +2023,8 @@ def _load_queue(recipient: dict) -> list:
 
 
 def _save_queue(recipient: dict, queue: list):
+    if notifications_disabled():
+        return
     with open(_queue_path(recipient), "w", encoding="utf-8") as f:
         json.dump(queue, f, ensure_ascii=False, indent=1)
 
@@ -2013,6 +2033,8 @@ def _send_now(recipient: dict, text: str, mention_all: bool = False):
     """实际发送一条消息到某个机器人；推送到企业微信群机器人 webhook，
     mention_all=True 时额外补发一条 @全体成员（markdown 消息类型本身不支持 @，
     官方 API 只有 text 类型支持 mentioned_list）。webhook 留空就跳过，不报错。"""
+    if notifications_disabled():
+        return
     webhook = recipient["webhook"]
     tag = f"[{recipient['id']}] "
     if not webhook:
@@ -2058,6 +2080,8 @@ def _send_now(recipient: dict, text: str, mention_all: bool = False):
 
 
 def _flush_queue(recipient: dict):
+    if notifications_disabled():
+        return
     queue = _load_queue(recipient)
     if not queue:
         return
@@ -2080,6 +2104,8 @@ def _flush_queue(recipient: dict):
 
 
 def notify_recipient(recipient: dict, text: str, mention_all: bool = False):
+    if notifications_disabled():
+        return
     tag = f"[{recipient['id']}] "
     if _in_quiet_hours(recipient):
         queue = _load_queue(recipient)
@@ -2095,6 +2121,8 @@ def notify_recipient(recipient: dict, text: str, mention_all: bool = False):
 def flush_all_recipients():
     """出静默时段就把各机器人攒的老消息发出去，不用等新变化触发（每个机器人独立判断，
     互不影响——一个机器人推送失败/webhook 未配置，不影响其它机器人照常发）"""
+    if notifications_disabled():
+        return
     for r in RECIPIENTS:
         if not _in_quiet_hours(r):
             _flush_queue(r)
@@ -2102,6 +2130,8 @@ def flush_all_recipients():
 
 def notify_city(city: str, text: str, mention_all: bool = False):
     """把一条消息发给所有关注这个城市的机器人（可能有 0 个、1 个或多个）"""
+    if notifications_disabled():
+        return
     for r in RECIPIENTS:
         if r["city"] == city:
             notify_recipient(r, text, mention_all)

@@ -29,6 +29,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      # Repair pushes rebuild/deploy silently. Scheduled and manual runs retain normal notifications.
+      IGLU_DISABLE_NOTIFICATIONS: ${{ github.event_name == 'push' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
 
