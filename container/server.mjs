@@ -64,7 +64,7 @@ function syncChip(dataTime) {
   const dotColor = fresh ? "#22c55e" : "#f59e0b";
   const brandColor = "#E04047";
   return `
-    <div style="position:fixed;left:16px;bottom:16px;z-index:99999;background:rgba(255,255,255,.96);border:1px solid #f0ebea;border-radius:14px;padding:10px 14px;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.08);backdrop-filter:blur(8px);min-width:180px;">
+    <div id="iglu-sync-chip" style="position:relative;margin:16px 16px 80px;background:rgba(255,255,255,.96);border:1px solid #f0ebea;border-radius:14px;padding:10px 14px;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.08);backdrop-filter:blur(8px);max-width:100%;overflow-wrap:anywhere;">
       <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;">
         <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${dotColor};box-shadow:0 0 0 3px ${dotColor}22;"></span>
         <span style="font-size:11px;font-weight:600;color:${brandColor};letter-spacing:.04em;">最新更新</span>

@@ -23,6 +23,32 @@ def cities(r):
 
 
 class SemesterTruthTests(unittest.TestCase):
+    def test_current_visible_overview_is_separate_and_only_once(self):
+        html = ('<div>From $1,035/wk</div><strong>2 LEFT AT THIS PRICE</strong>'
+                '<script>99 LEFT AT THIS PRICE</script><!-- 88 LEFT AT THIS PRICE -->'
+                '<div hidden>77 LEFT AT THIS PRICE</div><div style="display:none">66 LEFT AT THIS PRICE</div>')
+        sems = [semester('Semester 2 2026',True),semester('Semester 1 2027',terms={'44周':1035})]
+        with patch.object(app,'fetch_page',return_value=html), patch.object(app,'extract_semester_radios',return_value=[('s2','Semester 2 2026','1','2'),('','Semester 1 2027','1','2')]), patch.object(app,'fetch_semester_movein',side_effect=sems):
+            r=app.scrape_room('sydney','broadway','premium-studio',{})
+        output=app.build_room_row(r,['44周'])
+        self.assertEqual(output.count('2 LEFT AT THIS PRICE'),1)
+        self.assertIn('未归属具体学期/租期',output)
+        self.assertIn('采集于',output)
+        self.assertIn('https://iglu.com.au/rooms/sydney/broadway/premium-studio/',output)
+        for count in ['99','88','77','66']:
+            self.assertNotIn(count+' LEFT AT THIS PRICE',output)
+        self.assertTrue(all(x['count'] is None for x in app.build_compare_data(cities(r))))
+        r['stale']=True
+        self.assertNotIn('2 LEFT AT THIS PRICE',app.build_room_row(r,['44周']))
+        r.pop('stale')
+        r['_snapshot_replay']=True
+        self.assertNotIn('2 LEFT AT THIS PRICE',app.build_room_row(r,['44周']))
+
+    def test_old_unproven_marketing_is_not_relabelled_as_current_overview(self):
+        r=room([semester('Semester 1 2027',terms={'44周':1035})])
+        app.apply_semester_truth(r,r['semesters'])
+        self.assertNotIn('room-overview',app.build_room_row(r,['44周']))
+
     def test_waitlist_response_preserves_supplied_terms_and_dates(self):
         response = {'success': True, 'continue': False,
                     'terms':'<input name="lterm" value="44" data-label="44 Weeks" data-price="1035">'}

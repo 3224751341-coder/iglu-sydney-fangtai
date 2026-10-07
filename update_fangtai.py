@@ -7,6 +7,7 @@ Iglu 澳洲全城房态抓取 + 网页更新脚本（悉尼 / 墨尔本 / 布里
 
 import json, re, sys, os, shutil, subprocess, urllib.request
 from html import escape
+from html.parser import HTMLParser
 from datetime import datetime, timezone, timedelta, date
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from curl_cffi import requests as cffi_req
@@ -1092,6 +1093,59 @@ def apply_semester_truth(room: dict, semesters: list) -> None:
     room['date_str'] = semester_date_str(semesters, '')
 
 
+def capture_visible_overview(html: str, url: str) -> dict:
+    """Capture literal room-page marketing text; never assign it to a semester."""
+    class VisibleText(HTMLParser):
+        void = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.stack, self.parts = [], []
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            hidden = (any(x[1] for x in self.stack) or tag in {'script','style','template','noscript'}
+                      or 'hidden' in attrs or attrs.get('aria-hidden') == 'true'
+                      or bool(re.search(r'(?:display\s*:\s*none|visibility\s*:\s*hidden)', attrs.get('style',''), re.I))
+                      or bool(set(attrs.get('class','').split()) & {'hidden','d-none','sr-only','visually-hidden'}))
+            if tag not in self.void:
+                self.stack.append((tag, hidden))
+        def handle_endtag(self, tag):
+            for i in range(len(self.stack)-1,-1,-1):
+                if self.stack[i][0] == tag:
+                    del self.stack[i:]
+                    break
+        def handle_data(self, data):
+            if not any(x[1] for x in self.stack):
+                self.parts.append(data)
+    parser = VisibleText()
+    parser.feed(html)
+    text = re.sub(r'\s+', ' ', ' '.join(parser.parts)).strip()
+    patterns = [r'From\s+\$[\d,]+\s*/?\s*(?:wk|week)',
+                r'\d+\s+LEFT\s+AT\s+THIS\s+PRICE',
+                r'(?:\d+\s+(?:Weeks?|Months?)|Short\s+Stay)\s*\(\s*\$[\d,]+\s*/\s*(?:wk|week)\s*\)',
+                r'\bSold\s+Out\b', r'\bJoin\s+(?:the\s+)?Wait\s*list\b']
+    snippets = list(dict.fromkeys(m.group(0) for pattern in patterns for m in re.finditer(pattern,text,re.I)))
+    return {'source_url':url, 'observed_at':_bjt_now().isoformat(timespec='seconds'),
+            'capture_kind':'live_room_page_visible_text', 'snippets':snippets}
+
+
+def build_overview_row(room: dict, columns: int) -> str:
+    evidence = (room.get('static_evidence') or {}).get('visible_overview') or {}
+    if (room.get('stale') or room.get('_snapshot_replay')
+            or evidence.get('capture_kind') != 'live_room_page_visible_text'
+            or not evidence.get('observed_at') or not evidence.get('snippets')
+            or evidence.get('source_url') != room.get('url')
+            or not str(evidence.get('source_url','')).startswith('https://iglu.com.au/rooms/')):
+        return ''
+    source = escape(evidence['source_url'], quote=True)
+    text = '；'.join(escape(x) for x in evidence['snippets'])
+    return (f'<tr class="room-overview"><td colspan="{columns}"><details>'
+            f'<summary>{escape(room["name"])} · 官网房型概览，未归属具体学期/租期</summary>'
+            f'<p>官网原文：{text}</p><p>该概览不代表任何具体学期或租期的库存，不参与排行。</p>'
+            f'<small>采集于 {escape(evidence["observed_at"])} · '
+            f'<a href="{source}" target="_blank" rel="noopener noreferrer">查看官网来源</a></small>'
+            '</details></td></tr>')
+
+
 def auto_room_meta(room_slug: str, html: str) -> tuple:
     """官网新出现、还没写进 room_meta 的房型：名字取房型页 <h1> 第一行（如「U18 6 Bedroom Female」），
     类型按 slug 推断。格式同 room_meta：(名称, 类型, 面积, 床型, 备注)"""
@@ -1168,6 +1222,7 @@ def scrape_room(city: str, property_slug: str, room_slug: str, room_meta: dict) 
         semesters.append(sd)
     room["semesters"] = semesters
     apply_semester_truth(room, semesters)
+    room['static_evidence']['visible_overview'] = capture_visible_overview(html, url)
     # Unscoped manual/static dates cannot replace missing semester evidence.
     return room
 
@@ -1375,7 +1430,8 @@ def _build_date_cell_base(room: dict) -> str:
 def build_room_row(room: dict, term_cols: list) -> str:
     """Build a single table row (统一渲染 Studio / Share，不再分表)。租期列按楼盘动态生成。"""
     if not room.get('_semester_view'):
-        return ''.join(build_room_row(v, term_cols) for v in semester_views(room))
+        return (''.join(build_room_row(v, term_cols) for v in semester_views(room))
+                + build_overview_row(room, len(term_cols) + 5))
     p = room['prices']
     row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
     note = room.get("note", "")
