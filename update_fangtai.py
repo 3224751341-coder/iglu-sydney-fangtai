@@ -67,6 +67,10 @@ RECIPIENTS = [
     {  # 墨尔本专属机器人（Murphy 2026-09-12 新增）
         "id": "melbourne", "city": "melbourne",
         "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=070ab7c7-3525-42e9-85fd-e75191fef3aa",
+        # 2026-10-07 Murphy：墨尔本群改成"每天两次"推送节奏——只在 10:00-10:59 和 15:00-16:59 两个窗口发送，
+        # 其余时段变化全部入队，等下一次窗口打开时 flush 合并推送。抓取节奏（GH Actions cron :13/:43）不变。
+        # 跟 rate-desk-check/accolade/yugo 同一套窗口配置。send_windows 存在时优先于 quiet_start/quiet_end。
+        "send_windows": [[10, 11], [15, 17]],
         "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue_melbourne.json",
     },
 ]
@@ -1957,7 +1961,7 @@ def format_changes(changes: list, all_cities: dict, term_events: dict = None) ->
 # 企微 markdown 内容上限 4096 字节（按 UTF-8 字节数，不是字符数——中文一个字就占 3
 # 字节，之前按字符截断导致真实字节数仍能超限，被企微拒收却没人发现，见 2026-09-12 事故）
 WECOM_CONTENT_MAX_BYTES = 3900
-QUEUE_MAX_AGE_HOURS = 14   # 静默期积压消息的最长有效期（静默期本身 12 小时）
+QUEUE_MAX_AGE_HOURS = 20   # 积压消息最长有效期；2026-10-07 墨尔本改 send_windows 后，最长窗口间隔=17:00→次日10:00=17h，取 20h 留 3h 余量
 
 
 def _truncate_utf8_bytes(text: str, max_bytes: int) -> str:
@@ -1969,7 +1973,20 @@ def _truncate_utf8_bytes(text: str, max_bytes: int) -> str:
 
 def _in_quiet_hours(recipient: dict) -> bool:
     h = _bjt_now().hour
+    # 2026-10-07 Murphy：如果配了 send_windows，就用"不在任何窗口内 = 静默"的判断，
+    # 忽略 quiet_start/quiet_end（后者只是兜底给没配窗口的老 recipient 用）。
+    windows = recipient.get("send_windows")
+    if windows:
+        return not any(s <= h < e for s, e in windows)
     return h >= recipient["quiet_start"] or h < recipient["quiet_end"]
+
+
+def _quiet_hours_label(recipient: dict) -> str:
+    windows = recipient.get("send_windows")
+    if windows:
+        spans = " / ".join(f"{s:02d}:00-{e:02d}:00" for s, e in windows)
+        return f"仅推送窗口 {spans}"
+    return f"静默时段（{recipient['quiet_start']}:00-{recipient['quiet_end']}:00）"
 
 
 def _queue_path(recipient: dict) -> str:
@@ -2068,8 +2085,8 @@ def notify_recipient(recipient: dict, text: str, mention_all: bool = False):
         queue = _load_queue(recipient)
         queue.append({"text": text, "mention_all": mention_all, "at": _bjt_now().strftime("%Y-%m-%d %H:%M")})
         _save_queue(recipient, queue)
-        print(f"  🌙 {tag}静默时段（{recipient['quiet_start']}:00-{recipient['quiet_end']}:00），"
-              f"消息已加入队列，明早集中推送")
+        print(f"  🌙 {tag}{_quiet_hours_label(recipient)}，"
+              f"消息已加入队列，下次窗口打开时集中推送")
         return
     _flush_queue(recipient)  # 先把攒的老消息发出去，再发这条新的
     _send_now(recipient, text, mention_all)
