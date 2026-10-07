@@ -2285,10 +2285,21 @@ def main():
                         if not msg:
                             print(f"  ℹ️  {city}: 变化格式化后为空，跳过企微推送")
                             continue
-                        full_msg = (
-                            f"**📢 Iglu 房态变化**\n{msg}\n\n"
-                            f"[查看实时房态]({RATE_HUB_LINK})"
+                        # 2026-10-07 Murphy：原来整串拼完再交给 _send_now 的 _truncate_utf8_bytes 截尾，
+                        # msg 一长就把末尾的"[查看实时房态]"链接切掉。改成先给 header/link/分隔符/截断提示
+                        # 预留字节，只对中间 msg 截断，保证链接永远在。_send_now 里那道截断保留当兜底。
+                        _header = "**📢 Iglu 房态变化**"
+                        _link = f"[查看实时房态]({RATE_HUB_LINK})"
+                        _trunc_suffix = "\n> ……内容过长已截断"
+                        _overhead = (
+                            len(_header.encode("utf-8"))
+                            + len(_link.encode("utf-8"))
+                            + len(_trunc_suffix.encode("utf-8"))
+                            + 4  # header↔msg、msg↔link 两个 "\n\n"
                         )
+                        _body_budget = max(200, WECOM_CONTENT_MAX_BYTES - _overhead)
+                        _msg_trunc = _truncate_utf8_bytes(msg, _body_budget)
+                        full_msg = f"{_header}\n{_msg_trunc}\n\n{_link}"
                         notify_city(city, full_msg, mention_all=True)
                     elif city_changes:
                         print(f"  ℹ️  {city}: {len(city_changes)} 项变化均为起租日期正常滚动，跳过企微推送")
