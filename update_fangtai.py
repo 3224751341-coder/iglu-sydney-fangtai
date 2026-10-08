@@ -686,8 +686,10 @@ def extract_dates(html: str) -> dict:
     if md_ul:
         has_ss_option = re.search(r'class="[^"]*\bltermSS\b', md_ul.group(1)) is not None
     else:
-        # 无 move-in-dates 区块的页面退回旧判据
-        has_ss_option = re.search(r'id=["\']mnthSS["\']', html) is not None
+        # 学期接口（get_room_movein_dates）只回 months/dates 片段，没有 move-in-dates 区块：
+        # 短租选项表现为 <li class="available-now"><button id="availNowBtn" class="… ltermSS …">（Choose your date）
+        # 或月份按钮 class 里的 ltermSS。仍以 ltermSS 类为准（mnthSS input 常驻 HTML，判据不可靠）。
+        has_ss_option = re.search(r'class=["\'][^"\']*\bltermSS\b', html) is not None
     if has_ss_option:
         ss_start_m = re.search(
             r"available-shortstay-picker-start-date[^>]*?value\s*=\s*['\"](\d{4}),(\d{1,2}),(\d{1,2})",
@@ -697,17 +699,45 @@ def extract_dates(html: str) -> dict:
             # 短租：最早可订 = 日历起点（ss picker-start-date），跳过 buffer 禁用日/周末
             _ss = (int(ss_start_m.group(1)), int(ss_start_m.group(2)), int(ss_start_m.group(3)))
             shortstay_dates.append(_earliest_available(_ss))
-        else:
-            # 起点缺失时官网 JS 同样用 "+1D"（明天）作 minDate
-            from datetime import date as _d1, timedelta as _t1
-            _tm = _d1.today() + _t1(days=1)
-            shortstay_dates.append(_earliest_available((_tm.year, _tm.month, _tm.day)))
+        # 起点缺失时不再用「+1D（明天）」兜底：接口没有窗口就是没有，
+        # 宁可留空让单元格写原因，也不要给顾问一个凭空猜的起租日（data-ss 仍是可靠来源）。
+
+    # 固定月份起租（与「灵活起租」并行的另一条官网路径）：官网把可起租的月份做成一排按钮
+    # （#move-in-months li.movin-dates a.btn-rev，按钮文字就是月份名，如 "February"），
+    # 该租期的具体起租日写在 data-<租期>（iglu.js：click → attr('data-'+当前选中租期)，
+    # 逗号分隔可给多个可选日）。一个房型只会挂其中一条路径：有 availNowBtn 的是灵活起租、
+    # 有月份按钮的是固定起租。此前只解析灵活起租 → 固定起租的房型明明可订却「无起租日」。
+    fixed_starts = {}
+    _months_ul = re.search(r'<ul[^>]*id=["\']move-in-months["\'][^>]*>(.*?)</ul>', html, re.S)
+    if _months_ul:
+        for _seg in re.split(r'<li\b', _months_ul.group(1))[1:]:
+            _head = _seg.split('>', 1)[0]
+            _cls_m = re.search(r'class=["\']([^"\']*)["\']', _head)
+            if _cls_m and 'btn-waitlist' in _cls_m.group(1):
+                continue                      # 等位按钮不带起租日，跳过
+            for _am in re.finditer(r'<a\b[^>]*\bbtn-rev\b[^>]*>', _seg):
+                _tag = _am.group(0)
+                # 属性名就是官网租期代号：data-6/12/24/22/44/ss（注意 ss 是小写，与
+                # TERM_KEY_BY_VALUE 里的 'SS' 不同名，不能直接复用键）
+                for _code, _key in (('6','6月'), ('12','12月'), ('24','24月'),
+                                    ('22','22周'), ('44','44周'), ('ss','短租')):
+                    _dm = re.search(rf'data-{_code}="([^"]*)"', _tag)
+                    if not _dm or not _dm.group(1).strip():
+                        continue
+                    for _part in _dm.group(1).split(','):
+                        _parsed = _parse_ddmmyy(_part)
+                        if _parsed:
+                            fixed_starts.setdefault(_key, set()).add(_parsed)
 
     # 过滤已过期日期（页面可能残留过去年份的旧数据，如墨尔本某楼短租 2025,2,17）
     from datetime import datetime as _dt
     _today = (_dt.now().year, _dt.now().month, _dt.now().day)
     unique = [d for d in unique if d >= _today]
     shortstay_dates = [d for d in shortstay_dates if d >= _today]
+    fixed_starts = {k: sorted(d for d in v if d >= _today) for k, v in fixed_starts.items()}
+    fixed_starts = {k: v for k, v in fixed_starts.items() if v}
+    # 短租固定起租日（data-ss）并入短租起租
+    shortstay_dates = sorted(set(shortstay_dates) | set(fixed_starts.get('短租', [])))
     if contract_end and contract_end < _today:
         contract_end = None
     if flexible_start and flexible_start < _today:
@@ -729,6 +759,8 @@ def extract_dates(html: str) -> dict:
         'flexible_end': flexible_end,
         'contract_end': contract_end,
         'shortstay_dates': shortstay_dates,
+        # 固定月份起租：{租期键: [起租日…]}，如 {'44周': [(2027,2,12)], '6月': [(2027,2,4), …]}
+        'fixed_starts': fixed_starts,
     }
 
 
@@ -1003,7 +1035,9 @@ def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
             "dates": dd.get("dates", []),
             # 短租灵活起租窗口：官网只把 Flexible Start 挂在短租租期上的房型（Central Park 4B、
             # Broadway 4B/5B 等）长租窗口为空，此前这里丢掉导致单元格只能写「日期未知」。
-            "shortstay_dates": dd.get("shortstay_dates", [])}
+            "shortstay_dates": dd.get("shortstay_dates", []),
+            # 固定月份起租（月份按钮 data-<租期>）：{租期键: [起租日…]}
+            "fixed_starts": dd.get("fixed_starts", {})}
 
 
 def _sem_short(label: str) -> str:
@@ -1086,7 +1120,9 @@ def _sem_best_price(view) -> tuple:
 def _sem_date_parts(view) -> tuple:
     """返回 (标签, 文本, 是否有真实起租日期)。
     标签为空 = 只有原因、没有日期（前端渲染成浅灰说明）。
-    优先级：长租灵活窗口 → 固定起租日 → 短租灵活窗口（仅当该学期确实报出「短租」租期）。
+    优先级：长租灵活窗口 → 具体可选日（静态页）→ 短租起租 → 固定月份起租。
+    官网给起租日有两条并行路径：「灵活起租」（availNowBtn + 日历窗口）与
+    「固定月份起租」（月份按钮 data-<租期>，如 2/4、2/11），一个房型只挂其中一条。
     拿不到日期时给出原因，不再一律写「日期未知」——一眼能分辨「官网没给」还是「等位」。"""
     dd = view.get('date_data') or {}
     fs, fe = dd.get('flexible_start'), dd.get('flexible_end')
@@ -1099,11 +1135,26 @@ def _sem_date_parts(view) -> tuple:
     if dates:
         return '起租', '、'.join(f'{d[1]:02d}/{d[2]:02d}' for d in dates[:3]), True
     # 短租灵活窗口：官网把「Flexible Start」按钮只挂在短租租期上时（Central Park 4B、
-    # Broadway 4B/5B 等），长租窗口为空但短租日历有起点；仅在该学期确实报出「短租」租期时才采用。
-    if '短租' in (view.get('prices') or {}):
+    # Broadway 4B/5B 等），长租窗口为空但短租日历/data-ss 有起点；仅在该学期确实报出「短租」租期时才采用。
+    best = _sem_best_price(view)
+    if (best and best[0] == '短租') and '短租' in (view.get('prices') or {}):
         ss = sorted(tuple(d) for d in (dd.get('shortstay_dates') or []))
         if ss:
             return '短租起租', f'{ss[0][1]:02d}/{ss[0][2]:02d}', True
+    # 固定月份起租：优先用单元格显示的那个租期（最低价）；该租期没有就用最早能入住的
+    fixed = dd.get('fixed_starts') or {}
+    if fixed:
+        if best and best[0] in fixed:
+            key = best[0]
+        else:
+            key = min((k for k in fixed if fixed[k]),
+                      key=lambda k: (min(tuple(x) for x in fixed[k]), term_sort_key(k)))
+        ds = sorted(tuple(x) for x in fixed.get(key) or [])
+        if ds:
+            text = f'{ds[0][1]:02d}/{ds[0][2]:02d}'
+            if len(ds) > 1:
+                text += f'（{len(ds)}天可选）'
+            return '固定起租', text, True
     if dd.get('flexible'):
         return '', '灵活起租（官网未给范围）', False
     st = view.get('avail_status')
@@ -1192,6 +1243,7 @@ def semester_status(sem: dict) -> str:
 
 def semester_dates(sem: dict) -> dict:
     return {'dates': sem.get('dates') or [], 'shortstay_dates': sem.get('shortstay_dates') or [],
+            'fixed_starts': sem.get('fixed_starts') or {},
             'flexible': bool(sem.get('flexible')), 'flexible_start': sem.get('flex_start'),
             'flexible_end': sem.get('flex_end'), 'contract_end': sem.get('contract_end')}
 
@@ -1210,6 +1262,12 @@ def semester_description(sem: dict) -> str:
         dates.append('灵活起租（范围未知）')
     if '短租' in (sem.get('terms') or {}) and (sem.get('shortstay_dates') or []):
         dates.append('短租最早可入住 ' + fmt(min(tuple(x) for x in sem['shortstay_dates'])))
+    fixed = sem.get('fixed_starts') or {}
+    for k in sorted(fixed, key=term_sort_key):
+        ds = sorted(tuple(x) for x in (fixed[k] or []))
+        if ds:
+            shown = '、'.join(fmt(d) for d in ds[:4]) + ('…' if len(ds) > 4 else '')
+            dates.append(f'{k}固定起租 {shown}')
     if sem.get('contract_end'):
         dates.append('接口合同结束日 ' + fmt(sem['contract_end']))
     detail = ' · '.join(dates) or '未知'

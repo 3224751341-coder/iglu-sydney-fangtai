@@ -177,6 +177,72 @@ class SemesterTruthTests(unittest.TestCase):
             self.assertIsNone(r['semesters'][0]['waitlist'])
             self.assertEqual(r['avail_status'],'unknown')
 
+    # —— 固定月份起租（官网第二条起租日路径）——
+    # 月份按钮原文取自 2026-10-08 线上接口实测（Central Park / Waterloo / Flagstaff / Broadway）
+    MONTHS = ('<ul id="move-in-months" class="dates_block" style="display:none;">'
+              '<li class="movin-dates" ><a href="javascript:void(0)" class="btn white-orange lterm22 lterm44 btn-rev"'
+              ' data-id="" data-6="" data-12="" data-24="" data-22="12/02/2027" data-44="12/02/2027" data-ss=""'
+              ' data-22-gender="all" data-44-gender="all" data-22-prebook="pb-false" data-44-prebook="pb-false">February</a></li>'
+              '<li class="movin-dates" ><a href="javascript:void(0)" class="btn white-orange lterm22 lterm44 btn-rev"'
+              ' data-id="" data-6="" data-12="" data-24="" data-22="11/03/2027" data-44="11/03/2027" data-ss="">March</a></li>'
+              '<li class="btn-waitlist"><a href="javascript:void(0)" class="btn white-orange btn-rev"'
+              ' data-44="01/12/2026">Waitlist</a></li>'
+              '</ul>')
+
+    def test_month_buttons_yield_fixed_start_dates(self):
+        dd = app.extract_dates(self.MONTHS)
+        self.assertEqual(dd['fixed_starts'],
+                         {'22周': [(2027,2,12),(2027,3,11)], '44周': [(2027,2,12),(2027,3,11)]})
+        self.assertNotIn((2026,12,1), dd['fixed_starts'].get('44周', []))  # 等位按钮的日期不算
+
+    def test_fixed_start_renders_as_date_when_no_flexible_window(self):
+        sems = [semester('Semester 1 2027', terms={'44周':1015, '22周':1075},
+                         fixed_starts={'44周':[[2027,2,12]], '22周':[[2027,2,12]]})]
+        r = room(sems)
+        app.apply_semester_truth(r, sems)
+        view = [v for v in app.semester_views(r) if v['avail_status'] == 'available'][0]
+        self.assertEqual(app._sem_date_parts(view), ('固定起租', '02/12', True))
+        html = app.build_room_row(r, ['44周','22周'])
+        self.assertIn('固定起租', html)
+        self.assertIn('固定起租 02/12', app._sem_date_short(view))
+        self.assertNotIn('官网未给可选起租日', html)
+
+    def test_multiple_fixed_start_options_are_counted(self):
+        sems = [semester('Semester 1 2027', terms={'6月':695},
+                         fixed_starts={'6月':[[2027,2,4],[2027,2,11],[2027,2,18]]})]
+        r = room(sems)
+        app.apply_semester_truth(r, sems)
+        view = app.semester_views(r)[0]
+        self.assertEqual(app._sem_date_parts(view), ('固定起租', '02/04（3天可选）', True))
+        self.assertIn('6月固定起租 2027-02-04、2027-02-11、2027-02-18', view['date_str'])
+
+    def test_shortstay_only_button_uses_shortstay_picker_window(self):
+        # 学期接口只回 months/dates 片段：短租只有一个 availNowBtn（class ltermSS），
+        # 窗口在 available-shortstay-picker-start-date（Central Park 4B / Broadway 4B 实测结构）
+        html = ('<ul id="move-in-months"><li class="available-now">'
+                '<button type="button" id="availNowBtn" data-22w="" data-44w="" '
+                'class="ui-datepicker-trigger ltermSS btn-rev">Choose your date</button></li></ul>'
+                '<input id="available-shortstay-picker-start-date" value="2027,1,4">'
+                '<input id="available-shortstay-picker-date" value="2027,2,9">')
+        dd = app.extract_dates(html)
+        self.assertEqual(dd['shortstay_dates'][:1], [(2027,1,4)])
+        sems = [semester('Semester 2 2026', terms={'短租':925}, shortstay_dates=[[2027,1,4]])]
+        r = room(sems)
+        app.apply_semester_truth(r, sems)
+        self.assertEqual(app._sem_date_parts(app.semester_views(r)[0]), ('短租起租', '01/04', True))
+
+    def test_shortstay_data_ss_becomes_shortstay_move_in(self):
+        months = ('<ul id="move-in-months"><li class="movin-dates">'
+                  '<a class="btn white-orange ltermSS btn-rev" data-ss="10/11/2027">November</a></li></ul>')
+        dd = app.extract_dates(months)
+        self.assertEqual(dd['fixed_starts'].get('短租'), [(2027,11,10)])
+        self.assertEqual(dd['shortstay_dates'], [(2027,11,10)])
+        sems = [semester('Semester 2 2026', terms={'短租':680}, shortstay_dates=[[2027,11,10]])]
+        r = room(sems)
+        app.apply_semester_truth(r, sems)
+        view = app.semester_views(r)[0]
+        self.assertEqual(app._sem_date_parts(view), ('短租起租', '11/10', True))
+
 
 if __name__ == '__main__':
     unittest.main()
