@@ -62,6 +62,14 @@ const {spawn} = require('node:child_process');
       assert.equal(await sems.nth(1).getAttribute('data-sem'),'S1 2027');
       assert.match(await sems.nth(0).innerText(),/等位/);
       assert.match(await sems.nth(1).innerText(),/可订/);
+      /* 起租日期（2026-10-08 加亮）：有真实窗口 → 带「起租」标签的小条 + data-has-date=1；
+         官网没给 → 写明原因（等位中/官网未给可选起租日），不再是一句裸「日期未知」 */
+      assert.equal(await sems.nth(1).getAttribute('data-has-date'),'1');
+      assert.equal(await sems.nth(1).locator('.sd-k').innerText(),'起租');
+      assert.match(await sems.nth(1).innerText(),/\d{2}\/\d{2}/);
+      assert.equal(await sems.nth(0).getAttribute('data-has-date'),'0');
+      assert.doesNotMatch(await sems.nth(0).innerText(),/日期未知/);
+      assert.match(await sems.nth(0).innerText(),/(等位中，官网无起租日|官网未给可选起租日)/);
       const rowText = await premium.innerText();
       assert.doesNotMatch(rowText,/仅剩2间|今年无房/);
       const detail = premium.first().locator('xpath=following-sibling::tr[1]');

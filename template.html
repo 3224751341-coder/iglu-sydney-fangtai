@@ -342,7 +342,13 @@
   .sem-price em { font-style: normal; font-size: .68rem; font-weight: 700; color: var(--brand);
     background: var(--cmp-soft); padding: 1px 6px; border-radius: 999px; }
   .sem-price.is-na { font-weight: 500; color: var(--text-muted); font-size: .78rem; }
-  .sem-date { display: block; margin-top: 3px; font-size: .72rem; color: var(--text-muted); }
+  /* 起租日期：有真实日期时用带标签的深色小条（不再当脚注）；拿不到日期时退成浅灰说明 */
+  .sem-date { display: inline-flex; align-items: baseline; gap: 4px; margin-top: 6px; padding: 1px 7px;
+    border-radius: 999px; font-size: .72rem; font-weight: 600; color: var(--text);
+    background: var(--bg); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  .sem-date .sd-k { font-size: .66rem; font-weight: 800; color: var(--brand); letter-spacing: 0; }
+  .sem-date.is-na { display: block; padding: 0; border: 0; background: none;
+    font-size: .7rem; font-weight: 500; color: var(--text-muted); }
   .room-table td.c-sem.s-ok { background: rgba(5,150,105,.05); }
   .room-table td.c-sem.s-bad { background: rgba(220,38,38,.035); }
   .room-table td.c-sem.rm-hide, .room-table th.c-sem.rm-hide { display: none; }

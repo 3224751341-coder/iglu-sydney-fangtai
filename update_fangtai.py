@@ -1000,7 +1000,10 @@ def fetch_semester_movein(prop_id: str, room_id: str, suffix: str) -> dict:
             "flex_start": dd.get("flexible_start"),
             "flex_end": dd.get("flexible_end"),
             "contract_end": dd.get("contract_end"),
-            "dates": dd.get("dates", [])}
+            "dates": dd.get("dates", []),
+            # 短租灵活起租窗口：官网只把 Flexible Start 挂在短租租期上的房型（Central Park 4B、
+            # Broadway 4B/5B 等）长租窗口为空，此前这里丢掉导致单元格只能写「日期未知」。
+            "shortstay_dates": dd.get("shortstay_dates", [])}
 
 
 def _sem_short(label: str) -> str:
@@ -1080,22 +1083,42 @@ def _sem_best_price(view) -> tuple:
     return key, priced[key]
 
 
-def _sem_date_short(view) -> str:
-    """单元格里的一行起租摘要：'灵活起租 12/01–02/09' / '起租 02/01' / '日期未知'"""
+def _sem_date_parts(view) -> tuple:
+    """返回 (标签, 文本, 是否有真实起租日期)。
+    标签为空 = 只有原因、没有日期（前端渲染成浅灰说明）。
+    优先级：长租灵活窗口 → 固定起租日 → 短租灵活窗口（仅当该学期确实报出「短租」租期）。
+    拿不到日期时给出原因，不再一律写「日期未知」——一眼能分辨「官网没给」还是「等位」。"""
     dd = view.get('date_data') or {}
     fs, fe = dd.get('flexible_start'), dd.get('flexible_end')
     if fs:
-        text = f'灵活起租 {fs[1]:02d}/{fs[2]:02d}'
+        text = f'{fs[1]:02d}/{fs[2]:02d}'
         if fe and tuple(fe) > tuple(fs):
             text += f'–{fe[1]:02d}/{fe[2]:02d}'
-        return text
-    if dd.get('flexible'):
-        return '灵活起租'
-    dates = dd.get('dates') or []
+        return '起租', text, True
+    dates = sorted(tuple(d) for d in (dd.get('dates') or []))
     if dates:
-        days = sorted(tuple(d) for d in dates)[:3]
-        return '起租 ' + '、'.join(f'{d[1]:02d}/{d[2]:02d}' for d in days)
-    return '日期未知'
+        return '起租', '、'.join(f'{d[1]:02d}/{d[2]:02d}' for d in dates[:3]), True
+    # 短租灵活窗口：官网把「Flexible Start」按钮只挂在短租租期上时（Central Park 4B、
+    # Broadway 4B/5B 等），长租窗口为空但短租日历有起点；仅在该学期确实报出「短租」租期时才采用。
+    if '短租' in (view.get('prices') or {}):
+        ss = sorted(tuple(d) for d in (dd.get('shortstay_dates') or []))
+        if ss:
+            return '短租起租', f'{ss[0][1]:02d}/{ss[0][2]:02d}', True
+    if dd.get('flexible'):
+        return '', '灵活起租（官网未给范围）', False
+    st = view.get('avail_status')
+    if st == 'waitlist':
+        return '', '等位中，官网无起租日', False
+    if st == 'available':
+        return '', '官网未给可选起租日', False
+    return '', '起租日未知', False
+
+
+def _sem_date_short(view) -> str:
+    """单元格起租摘要的纯文本版（供 title / 测试复用）：
+    '起租 12/01–02/09' / '短租起租 10/09' / '等位中，官网无起租日' …"""
+    lab, text, has = _sem_date_parts(view)
+    return f'{lab} {text}' if (lab and has) else text
 
 
 def build_sem_cell(view, key: str, label: str, no_data: bool = False) -> str:
@@ -1111,9 +1134,13 @@ def build_sem_cell(view, key: str, label: str, no_data: bool = False) -> str:
     best = _sem_best_price(view)
     price = (f'<span class="sem-price">${best[1]:,}<small>/周</small>'
              f'<em>{escape(best[0])}</em></span>') if best else '<span class="sem-price is-na">无报价</span>'
-    return (f'<td class="c-sem {cls}" {attr} data-status="{escape(view.get("avail_status") or "", quote=True)}">'
+    date_label, date_text, has_date = _sem_date_parts(view)
+    date_cls = 'sem-date' if has_date else 'sem-date is-na'
+    date_html = (f'<span class="sd-k">{escape(date_label)}</span>' if date_label else '') + escape(date_text)
+    return (f'<td class="c-sem {cls}" {attr} data-status="{escape(view.get("avail_status") or "", quote=True)}"'
+            f' data-has-date="{"1" if has_date else "0"}">'
             f'<span class="tag {tag_cls} tag-mini">{tag_text}</span>{price}'
-            f'<span class="sem-date">{escape(_sem_date_short(view))}</span></td>')
+            f'<span class="{date_cls}" title="{escape(_sem_date_short(view), quote=True)}">{date_html}</span></td>')
 
 
 def build_room_detail_row(views: list, term_cols: list, sem_keys: list, colspan: int) -> str:
@@ -1164,7 +1191,7 @@ def semester_status(sem: dict) -> str:
 
 
 def semester_dates(sem: dict) -> dict:
-    return {'dates': sem.get('dates') or [], 'shortstay_dates': [],
+    return {'dates': sem.get('dates') or [], 'shortstay_dates': sem.get('shortstay_dates') or [],
             'flexible': bool(sem.get('flexible')), 'flexible_start': sem.get('flex_start'),
             'flexible_end': sem.get('flex_end'), 'contract_end': sem.get('contract_end')}
 
@@ -1181,6 +1208,8 @@ def semester_description(sem: dict) -> str:
                      (' 至 ' + fmt(sem['flex_end']) if sem.get('flex_end') else ''))
     elif sem.get('flexible'):
         dates.append('灵活起租（范围未知）')
+    if '短租' in (sem.get('terms') or {}) and (sem.get('shortstay_dates') or []):
+        dates.append('短租最早可入住 ' + fmt(min(tuple(x) for x in sem['shortstay_dates'])))
     if sem.get('contract_end'):
         dates.append('接口合同结束日 ' + fmt(sem['contract_end']))
     detail = ' · '.join(dates) or '未知'
