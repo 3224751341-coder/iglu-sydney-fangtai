@@ -52,10 +52,38 @@ const {spawn} = require('node:child_process');
         await page.locator('.city-block.active .prop-panel.active').screenshot({path:path.join(output,`${width}-${target.city}-${target.slug}.png`)});
       }
       await page.evaluate(() => {switchCity('sydney');switchProp('sydney','broadway');});
-      const premium = page.locator('#prop-broadway tr:not(.room-overview)').filter({hasText:'Premium Studio'});
-      assert.equal(await premium.count(),2);
-      assert.match(await premium.allTextContents().then(x=>x.join(' ')),/S2 2026.*等位/);
-      assert.doesNotMatch(await premium.allTextContents().then(x=>x.join(' ')),/仅剩2间|今年无房/);
+      /* 一个房型一行、26/27 各一列（2026-10-08 矩阵视图）：
+         行数从"按学期拆行"变成 1，两个学年并排，明细行里保有每个学期自己的报价与日期证据。 */
+      const premium = page.locator('#prop-broadway tr.room-row').filter({hasText:'Premium Studio'});
+      assert.equal(await premium.count(),1);
+      const sems = premium.locator('td.c-sem');
+      assert.equal(await sems.count(),2);
+      assert.equal(await sems.nth(0).getAttribute('data-sem'),'S2 2026');
+      assert.equal(await sems.nth(1).getAttribute('data-sem'),'S1 2027');
+      assert.match(await sems.nth(0).innerText(),/等位/);
+      assert.match(await sems.nth(1).innerText(),/可订/);
+      const rowText = await premium.innerText();
+      assert.doesNotMatch(rowText,/仅剩2间|今年无房/);
+      const detail = premium.first().locator('xpath=following-sibling::tr[1]');
+      assert.ok(await detail.isHidden(),'租期明细默认收起');
+      assert.match(await detail.innerText(),/S2 2026 · 等位/);
+      assert.match(await detail.innerText(),/\$1,035\/周/);
+      assert.match(await detail.innerText(),/租期日期未核验/);
+      await premium.first().locator('.rt-more').click();
+      assert.ok(await detail.isVisible(),'点「租期明细」后展开');
+      await premium.first().locator('.rt-more').click();
+      assert.ok(await detail.isHidden());
+      /* 标签筛选：聚焦 2027 学年 → 只留 S1 2027 一列；勾「两年都可订」→ 两个学期都可订的房型 */
+      await page.locator('#prop-broadway .rt-chip[data-sem="S1 2027"]').click();
+      assert.equal(await premium.locator('td.c-sem.rm-hide').count(),1,'聚焦 2027 时 2026 列隐藏');
+      assert.equal(await premium.locator('td.c-sem:not(.rm-hide)').count(),1);
+      assert.equal(await premium.locator('td.c-sem:not(.rm-hide)').getAttribute('data-sem'),'S1 2027');
+      await page.locator('#prop-broadway .rt-chip[data-sem=""]').click();
+      await page.locator('#prop-broadway .rt-chip[data-both]').click();
+      const bothRows = await page.locator('#prop-broadway tr.room-row:not([hidden])').count();
+      const allRows = await page.locator('#prop-broadway tr.room-row').count();
+      assert.ok(bothRows > 0 && bothRows <= allRows, JSON.stringify({bothRows,allRows}));
+      await page.locator('#prop-broadway .rt-chip[data-both]').click();
       const overview = page.locator('#prop-broadway .room-overview').filter({hasText:'Premium Studio'});
       if (await overview.count()) await overview.screenshot({path:path.join(output,`${width}-overview.png`)});
       await premium.last().evaluate(el => window.scrollTo(0, el.getBoundingClientRect().top + scrollY - 100));

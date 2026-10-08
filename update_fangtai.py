@@ -1018,6 +1018,138 @@ def _sem_terms_note(sem: dict) -> str:
     return f"{k}${priced[k]}起"
 
 
+# ── 房型 × 学年 矩阵（2026-10-08 Murphy：一个房型一行，2026 与 2027 并排看）──
+# 旧版把每个房型按学期拆成多行（S2 2026 一行、S1 2027 一行），顾问要跨两行拼才能判断
+# "这个房型 26 年有没有、27 年有没有、各多少钱"，房型一多就非常难扫。改成矩阵：
+#   行 = 房型，列 = 学期（S2 2026 / S1 2027 …），单元格 = 状态标签 + 最低周租 + 起租日期摘要。
+# 完整租期报价、学期日期证据、官网原文概览折叠在「明细」行里，信息一条不丢。
+_SEM_LABEL_RE = re.compile(r'Semester\s*(\d)\s*(\d{4})', re.I)
+_SEM_KEY_RE = re.compile(r'S(\d)\s+(\d{4})')
+
+# 学期单元格的视觉分组：ok 可订 / warn 紧张 / bad 等位 / off 售罄·未知·未开放
+SEM_STATUS_STYLE = {
+    'available': ('s-ok', 'tag-ok', '可订'),
+    'limited': ('s-warn', 'tag-warn', '紧张'),
+    'waitlist': ('s-bad', 'tag-bad', '等位'),
+    'soldout': ('s-off', 'tag-off', '售罄'),
+    'unknown': ('s-off', 'tag-off', '未知'),
+}
+SEM_NONE_STYLE = ('s-none', 'tag-off', '未开放')
+
+
+def sem_meta(label: str) -> dict:
+    """'Semester 2 2026' → {'key':'S2 2026','year':2026,'no':2,'sort':(2026,2)}"""
+    m = _SEM_LABEL_RE.search(label or '')
+    if not m:
+        return {'key': (label or '学期未知'), 'year': 9999, 'no': 9, 'sort': (9999, 9)}
+    no, year = int(m.group(1)), int(m.group(2))
+    return {'key': f'S{no} {year}', 'year': year, 'no': no, 'sort': (year, no)}
+
+
+def sem_key_sort(key: str):
+    m = _SEM_KEY_RE.match(key or '')
+    return (int(m.group(2)), int(m.group(1))) if m else (9999, 9)
+
+
+def is_real_sem_key(key: str) -> bool:
+    """能把 'Semester 2 2026' 解析成 'S2 2026' 才是真实学期列；解析不出的（接口缺数据）
+    不占一列，只在明细里保留证据，否则表里会多出一个「学期未知」列。"""
+    return bool(_SEM_KEY_RE.match(key or ''))
+
+
+def sem_key_header(key: str) -> str:
+    """表头：'S2 2026' → '2026 年' + 'S2 学期'（顾问口径就是 26 年 / 27 年）"""
+    m = _SEM_KEY_RE.match(key or '')
+    if not m:
+        return f'<b>{escape(key or "学期未知")}</b>'
+    return f'<b>{m.group(2)} 年</b><span>S{m.group(1)} 学期</span>'
+
+
+def sem_status_style(view) -> tuple:
+    if view is None:
+        return SEM_NONE_STYLE
+    return SEM_STATUS_STYLE.get(view.get('avail_status') or '', SEM_STATUS_STYLE['unknown'])
+
+
+def _sem_best_price(view) -> tuple:
+    """该学期最低周租 + 对应租期；无有效报价返回 None"""
+    priced = {k: v for k, v in (view.get('prices') or {}).items() if v is not None}
+    if not priced:
+        return None
+    key = min(priced, key=lambda x: (TERM_ORDER.index(x) if x in TERM_ORDER else 99, priced[x]))
+    return key, priced[key]
+
+
+def _sem_date_short(view) -> str:
+    """单元格里的一行起租摘要：'灵活起租 12/01–02/09' / '起租 02/01' / '日期未知'"""
+    dd = view.get('date_data') or {}
+    fs, fe = dd.get('flexible_start'), dd.get('flexible_end')
+    if fs:
+        text = f'灵活起租 {fs[1]:02d}/{fs[2]:02d}'
+        if fe and tuple(fe) > tuple(fs):
+            text += f'–{fe[1]:02d}/{fe[2]:02d}'
+        return text
+    if dd.get('flexible'):
+        return '灵活起租'
+    dates = dd.get('dates') or []
+    if dates:
+        days = sorted(tuple(d) for d in dates)[:3]
+        return '起租 ' + '、'.join(f'{d[1]:02d}/{d[2]:02d}' for d in days)
+    return '日期未知'
+
+
+def build_sem_cell(view, key: str, label: str, no_data: bool = False) -> str:
+    """单个学年单元格：状态标签 + 最低周租（含租期）+ 起租摘要。
+    数据属性供前端标签筛选：data-status（该学期状态）、data-sem（学期键）。"""
+    cls, tag_cls, tag_text = sem_status_style(view)
+    attr = f'data-sem="{escape(key, quote=True)}" data-sem-label="{escape(label, quote=True)}"'
+    if view is None:
+        reason = '官网未提供学期数据' if no_data else '官网该学期未开放'
+        return (f'<td class="c-sem {cls}" {attr}>'
+                f'<span class="tag {tag_cls} tag-mini">{tag_text}</span>'
+                f'<span class="sem-price is-na">{reason}</span></td>')
+    best = _sem_best_price(view)
+    price = (f'<span class="sem-price">${best[1]:,}<small>/周</small>'
+             f'<em>{escape(best[0])}</em></span>') if best else '<span class="sem-price is-na">无报价</span>'
+    return (f'<td class="c-sem {cls}" {attr} data-status="{escape(view.get("avail_status") or "", quote=True)}">'
+            f'<span class="tag {tag_cls} tag-mini">{tag_text}</span>{price}'
+            f'<span class="sem-date">{escape(_sem_date_short(view))}</span></td>')
+
+
+def build_room_detail_row(views: list, term_cols: list, sem_keys: list, colspan: int) -> str:
+    """折叠明细：每个学期各自的租期报价 + 完整学期日期证据（信息不丢）。
+    解析不出学期的证据（「学期未知」）也在这里保留，不占表格的列。"""
+    blocks = []
+    by_key = {}
+    for v in views:
+        by_key.setdefault(v['_sem']['key'], v)
+    order = list(sem_keys) + [k for k in by_key if k not in sem_keys]
+    for key in order:
+        view = by_key.get(key)
+        if view is None:
+            continue
+        cls, tag_cls, tag_text = sem_status_style(view)
+        terms = ''.join(
+            f'<span class="rd-term"><em>{escape(k)}</em>'
+            + (f'<b>${view["prices"][k]:,}</b>/周' if view['prices'].get(k) is not None
+               else '<span class="rd-na">价格未知</span>' if k in view['prices']
+               else '<span class="rd-na">未提供</span>')
+            + '</span>'
+            for k in term_cols)
+        blocks.append(
+            f'<div class="rd-sem"><div class="rd-sem-head">'
+            f'<span class="rd-sem-name">{escape(_sem_short(view["semester"]))}</span>'
+            f'<span class="tag {tag_cls} tag-mini">{tag_text}</span></div>'
+            f'<div class="rd-terms">{terms}</div>'
+            f'<p class="rd-evidence">{escape(view["date_str"])}</p></div>')
+    if not blocks:
+        return ''
+    return (f'<tr class="room-detail" hidden><td colspan="{colspan}">'
+            f'<div class="rd-wrap">{"".join(blocks)}'
+            f'<p class="rd-foot">明细为官网学期接口原始报价与日期，租期日期未核验；'
+            f'报价单位均为每周。</p></div></td></tr>')
+
+
 def semester_date_str(semesters: list, fallback: str) -> str:
     """Keep every semester, including unknown; never reuse unscoped dates."""
     return '；'.join(semester_description(s) for s in semesters) or '学期状态未知'
@@ -1067,7 +1199,7 @@ def semester_views(room: dict) -> list:
                     prices=dict(sem.get('terms') or {}),
                     avail_status=semester_status(sem), avail_count=None, avail_text='',
                     date_data=semester_dates(sem), date_str=semester_description(sem),
-                    _semester_view=True)
+                    _semester_view=True, _sem=sem_meta(sem.get('label', '学期未知')))
         views.append(view)
     return views
 
@@ -1296,6 +1428,8 @@ def scrape_property(city: str, name: str, slug: str, room_meta: dict, property_r
     return {"name": name, "slug": slug, "rooms": rooms}
 
 
+# 以下 avail_info / build_date_cell / _build_date_cell_base 为 2026-10-08 矩阵改版前的
+# 旧「一行一学期 + 今年可订徽标」渲染，现已无调用方；保留一份以便对照旧口径与回滚。
 def avail_info(status: str, count) -> tuple:
     """Return (row_class, status_html) for availability display."""
     if status == 'available':
@@ -1427,33 +1561,72 @@ def _build_date_cell_base(room: dict) -> str:
     return '<span class="tag tag-off tag-mini">待定</span>'
 
 
-def build_room_row(room: dict, term_cols: list) -> str:
-    """Build a single table row (统一渲染 Studio / Share，不再分表)。租期列按楼盘动态生成。"""
-    if not room.get('_semester_view'):
-        return (''.join(build_room_row(v, term_cols) for v in semester_views(room))
-                + build_overview_row(room, len(term_cols) + 5))
-    p = room['prices']
-    row_cls, status_html = avail_info(room["avail_status"], room["avail_count"])
-    note = room.get("note", "")
-    note_html = f'<span class="room-note">{note}</span>' if note else ''
-    if room.get("stale"):
-        note_html += f'<span class="room-note" title="本轮抓取失败，显示的是上次成功抓取的数据">⚠ 未更新（{room.get("scraped_at") or "上次"}）</span>'
-    note_html += f'<span class="room-note semester-label">{escape(_sem_short(room["semester"]))}</span>'
-    if room['avail_status'] == 'available':
-        status_html = '<span class="tag tag-ok">学期可订</span><span class="room-note">租期库存未单独核验</span>'
-    price_cells = ''.join(f'<td data-label="{escape(k)}"><span class="price">'
-                          + (f'${p[k]}/周' if p.get(k) is not None else ('价格未知' if k in p else '未提供'))
-                          + '</span></td>' for k in term_cols)
-    return (
-        f'<tr class="{row_cls}">'
-        f'<td><span class="room-name">{room["name"]}</span>{note_html}</td>'
-        f'<td data-label="面积">{room["area"]}</td>'
-        f'<td data-label="床型">{room["bed"]}</td>'
-        f'{price_cells}'
-        f'<td data-label="学期状态">{status_html}</td>'
-        f'<td data-label="日期证据">{build_date_cell(room)}</td>'
+def _row_stripe(status: str) -> str:
+    if status in ('available', 'limited'):
+        return 'row-ok' if status == 'available' else 'row-warn'
+    return 'row-bad' if status == 'waitlist' else 'row-off'
+
+
+def build_room_row(room: dict, term_cols: list, sem_keys: list = None) -> str:
+    """一个房型一行：房型 | 面积·床型 | 各学期单元格（默认 S2 2026 / S1 2027）| 明细。
+    sem_keys 由楼盘统一传入，保证同一张表里列对齐；不传则按该房型自己的学期来。"""
+    views = semester_views(room)
+    by_key = {}
+    for v in views:
+        by_key.setdefault(v['_sem']['key'], v)
+    if sem_keys:
+        keys = list(sem_keys)
+    else:
+        keys = sorted({k for k in by_key if is_real_sem_key(k)}, key=sem_key_sort)
+        if not keys:
+            keys = list(by_key)  # 连学期都解析不出：至少给一列，别渲染成空表
+    # 该房型名下能解析出的学期（用于判断"官网压根没给学期数据"）
+    no_data = not any(is_real_sem_key(k) for k in by_key)
+
+    raw = room
+    stripe = 'row-off'
+    for st in ('available', 'limited', 'waitlist'):
+        if any((v.get('avail_status') == st) for v in views):
+            stripe = _row_stripe(st)
+            break
+
+    note = (raw.get('note') or '').strip()
+    note_html = f'<span class="room-note">{escape(note)}</span>' if note else ''
+    if no_data:
+        note_html += ('<span class="room-note" title="官网学期接口没有返回这间房的学期数据，'
+                      '无法判断具体学年房态">⚠ 未提供学期数据</span>')
+    if raw.get('stale'):
+        note_html += (f'<span class="room-note" title="本轮抓取失败，显示的是上次成功抓取的数据">'
+                      f'⚠ 未更新（{raw.get("scraped_at") or "上次"}）</span>')
+
+    cells = ''
+    status_map = {}
+    for key in keys:
+        view = by_key.get(key)
+        status_map[key] = (view.get('avail_status') or 'unknown') if view else 'none'
+        meta = sem_meta(view['semester']) if view else sem_meta(key)
+        label = f'{meta["year"]} 年 · {meta["key"]}' if meta['year'] != 9999 else meta['key']
+        cells += build_sem_cell(view, key, label, no_data=no_data)
+
+    ok_count = sum(1 for s in status_map.values() if s in ('available', 'limited'))
+    cat = 'u18' if _is_u18(raw) else compare_category(raw)
+    attrs = (f'data-name="{escape((raw.get("name") or "").lower(), quote=True)}" '
+             f'data-cat="{escape(cat, quote=True)}" '
+             f'data-ok="{ok_count}" '
+             f'data-sems="{escape(json.dumps(status_map, ensure_ascii=False), quote=True)}"')
+
+    row = (
+        f'<tr class="room-row {stripe}" {attrs}>'
+        f'<td class="c-room"><span class="room-name">{escape(raw["name"])}</span>{note_html}</td>'
+        f'<td class="c-meta" data-label="面积 / 床型">{escape(raw["area"])} · {escape(raw["bed"])}</td>'
+        f'{cells}'
+        f'<td class="c-more">'
+        f'<button type="button" class="rt-more" aria-expanded="false">租期明细</button></td>'
         f'</tr>'
     )
+    colspan = len(keys) + 3
+    return (row + build_room_detail_row(views, term_cols, keys, colspan)
+            + build_overview_row(raw, colspan))
 
 
 def room_sort_key(room: dict):
@@ -1492,9 +1665,19 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
     # 租期列 = 这栋楼本轮官网实际有报价的租期（官网上/下架租期，列自动跟着变）
     # 注意：按全部房型算（含 U18），否则折叠表与主表列数不一致
     term_cols = sorted({k for r in all_rooms for v in semester_views(r) for k in v['prices'] if k != 'From'}, key=term_sort_key)
-    thead = ('<th>房型</th><th>面积</th><th>床型</th>'
-             + "".join(f'<th>{k}</th>' for k in term_cols)
-             + '<th>库存</th><th>起租日期</th>')
+    # 学年列 = 这栋楼所有房型覆盖到的学期（当前通常是 S2 2026 / S1 2027），按年份+学期排序
+    sem_keys = sorted({v['_sem']['key'] for r in all_rooms for v in semester_views(r)
+                       if is_real_sem_key(v['_sem']['key'])}, key=sem_key_sort)
+    sem_thead = ''.join(
+        f'<th class="c-sem" data-sem="{escape(k, quote=True)}">{sem_key_header(k)}</th>'
+        for k in sem_keys)
+    thead = ('<th class="c-room">房型</th><th class="c-meta">面积 · 床型</th>'
+             + sem_thead + '<th class="c-more">明细</th>')
+
+    def table_open(extra_class: str = '') -> str:
+        return (f'<div class="table-wrap"><table class="room-table{extra_class}" '
+                f'data-sems="{escape(json.dumps(sem_keys, ensure_ascii=False), quote=True)}">'
+                f'<thead><tr>{thead}</tr></thead>')
 
     u18_html = ""
     if u18_rooms:
@@ -1505,9 +1688,8 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
             f'<summary><span class="u18-title">🧒 U18 房型（仅限未成年）</span>'
             f'<span class="u18-meta">{n} 个房型 · {ok_n} 个可订</span>'
             f'<span class="u18-arrow">▸</span></summary>'
-            f'<div class="table-wrap"><table>'
-            f'<thead><tr>{thead}</tr></thead>'
-            f'<tbody>{"".join(build_room_row(r, term_cols) for r in u18_rooms)}</tbody>'
+            f'{table_open(" u18-table")}'
+            f'<tbody>{"".join(build_room_row(r, term_cols, sem_keys) for r in u18_rooms)}</tbody>'
             f'</table></div>'
             f'</details>'
         )
@@ -1535,9 +1717,8 @@ def build_prop_panel(prop: dict, is_first: bool) -> str:
     main_table = ""
     if rooms:
         main_table = (
-            '<div class="table-wrap"><table>'
-            f'<thead><tr>{thead}</tr></thead>'
-            f'<tbody>{"".join(build_room_row(r, term_cols) for r in rooms)}</tbody>'
+            f'{table_open()}'
+            f'<tbody>{"".join(build_room_row(r, term_cols, sem_keys) for r in rooms)}</tbody>'
             '</table></div>'
         )
 
