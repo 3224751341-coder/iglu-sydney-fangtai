@@ -45,6 +45,9 @@ HEARTBEAT_MS = 4 * 3600 * 1000
 # 快照：存仓库目录并随部署保持同步，下次运行读取对比
 SNAPSHOT_PATH = os.path.join(PROJECT_DIR, "data_snapshot.json")
 WECOM_WEBHOOK = os.environ.get("WECOM_WEBHOOK", "")
+# 2026-10-13 Murphy：此机器人仅保留 Scape，停用 Iglu。
+if "fdf79354-bef9-4993-81a7-5d26bb89b046" in WECOM_WEBHOOK:
+    WECOM_WEBHOOK = ""
 # 悉尼专属机器人（Murphy 2026-09-11 直接给的 key，非密文，跟其它文件里硬编码
 # DEFAULT_WECOM_WEBHOOK 的做法一致），只推悉尼房态变化，静默窗口比原机器人早一小时
 WECOM2_WEBHOOK = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=af4669ef-7ba5-4de8-ba1b-da5be7c184e0"
