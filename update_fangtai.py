@@ -68,7 +68,7 @@ RECIPIENTS = [
     },
     {  # 墨尔本专属机器人（Murphy 2026-09-12 新增）
         "id": "melbourne", "city": "melbourne",
-        "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=070ab7c7-3525-42e9-85fd-e75191fef3aa",
+        "webhook": "",
         # 2026-10-07 Murphy：墨尔本群改成"每天两次"推送节奏——只在 10:00-10:59 和 15:00-16:59 两个窗口发送，
         # 其余时段变化全部入队，等下一次窗口打开时 flush 合并推送。抓取节奏（GH Actions cron :13/:43）不变。
         # 跟 rate-desk-check/accolade/yugo 同一套窗口配置。send_windows 存在时优先于 quiet_start/quiet_end。
