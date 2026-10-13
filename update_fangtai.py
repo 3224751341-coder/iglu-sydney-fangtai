@@ -62,11 +62,11 @@ WECOM2_WEBHOOK = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=af4669ef-
 # - queue_file：这个机器人自己的待发队列文件名，务必每条不同，否则会互相覆盖
 RECIPIENTS = [
     {  # 老的共用机器人（container-shared），行为不变——只看悉尼，21-09 windows 之前就是这样
-        "id": "shared", "city": "sydney", "webhook": WECOM_WEBHOOK,
+        "id": "shared", "city": "sydney", "webhook": "",
         "quiet_start": 22, "quiet_end": 9, "queue_file": "wecom_queue.json",
     },
     {  # 悉尼专属机器人（2026-09-11 新增），静默窗口比共用机器人早一小时
-        "id": "sydney2", "city": "sydney", "webhook": WECOM2_WEBHOOK,
+        "id": "sydney2", "city": "sydney", "webhook": "",
         "quiet_start": 21, "quiet_end": 9, "queue_file": "wecom_queue2.json",
     },
     {  # 墨尔本专属机器人（Murphy 2026-09-12 新增）
