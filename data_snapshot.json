@@ -7,7 +7,7 @@
   },
   "avail": "available",
   "count": null,
-  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $850/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-10 · 接口合同结束日 2027-07-14 · 租期日期未核验",
+  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $850/周 · 学期日期：短租最早可入住 2026-12-10 · 接口合同结束日 2027-07-14 · 租期日期未核验",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-br",
@@ -34,8 +34,8 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $850/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-10 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $850/周 · 学期日期：短租最早可入住 2026-12-10 · 接口合同结束日 2027-07-14 · 租期日期未核验",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": true,
@@ -57,17 +57,9 @@
       "44周": 1035,
       "短租": 850
      },
-     "flexible": true,
-     "flex_start": [
-      2027,
-      1,
-      4
-     ],
-     "flex_end": [
-      2027,
-      2,
-      9
-     ],
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
      "contract_end": [
       2027,
       7,
@@ -88,11 +80,11 @@
    ],
    "static_evidence": {
     "prices": {
-     "From": 1035
+     "From": 850
     },
     "avail_status": "limited",
-    "avail_count": 2,
-    "avail_text": "2 left  at this price",
+    "avail_count": 1,
+    "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
      "flexible": true,
@@ -105,11 +97,11 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/premium-studio-apartment-br/",
-     "observed_at": "2026-10-15T15:21:52+08:00",
+     "observed_at": "2026-10-15T18:35:36+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
-      "From $1035/wk",
-      "2 left at this price"
+      "From $850/wk",
+      "1 left at this price"
      ]
     }
    }
@@ -151,7 +143,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $750/周 · 学期日期：短租最早可入住 2026-10-26 · 短租固定起租 2026-10-26 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $945/周、44周 $885/周、短租 $750/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-10 · 44周固定起租 2027-02-26、2027-03-13 · 22周固定起租 2027-02-26、2027-03-13 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": false,
@@ -262,7 +254,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/standard-studio-apartment-br/",
-     "observed_at": "2026-10-15T15:21:50+08:00",
+     "observed_at": "2026-10-15T18:35:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $885/wk"
@@ -299,7 +291,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -320,7 +312,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/standard-studio-apartment-nras-br/",
-     "observed_at": "2026-10-15T15:21:43+08:00",
+     "observed_at": "2026-10-15T18:35:28+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $565/wk",
@@ -366,7 +358,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $1095/周、44周 $1035/周、短租 $800/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-16 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": true,
@@ -436,7 +428,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/superior-studio-apartment-br/",
-     "observed_at": "2026-10-15T15:21:50+08:00",
+     "observed_at": "2026-10-15T18:35:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $1035/wk",
@@ -482,7 +474,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $690/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $690/周 · 学期日期：短租最早可入住 2026-12-14 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": false,
@@ -554,7 +546,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-4-share-apt-br/",
-     "observed_at": "2026-10-15T15:21:50+08:00",
+     "observed_at": "2026-10-15T18:35:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $690/wk",
@@ -600,7 +592,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $680/周 · 学期日期：短租最早可入住 2026-11-10 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $865/周、44周 $805/周、短租 $680/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-14 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": false,
@@ -678,7 +670,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-5-share-apt-br/",
-     "observed_at": "2026-10-15T15:21:50+08:00",
+     "observed_at": "2026-10-15T18:35:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $805/wk"
@@ -723,7 +715,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 学期可订 · 短租 $670/周 · 学期日期：短租最早可入住 2026-10-22 · 短租固定起租 2026-10-22 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $855/周、44周 $795/周、短租 $670/周 · 学期日期：灵活起租 2027-01-04 至 2027-02-09 · 短租最早可入住 2026-12-14 · 12月固定起租 2027-02-09 · 44周固定起租 2027-02-09 · 22周固定起租 2027-02-09 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:21",
+   "scraped_at": "10-15 18:35",
    "semesters": [
     {
      "waitlist": false,
@@ -836,7 +828,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/broadway/single-bedroom-6-share-apt-br/",
-     "observed_at": "2026-10-15T15:21:49+08:00",
+     "observed_at": "2026-10-15T18:35:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $795/wk"
@@ -873,7 +865,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -911,188 +903,11 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central/standard-studio-apartment-ce/",
-     "observed_at": "2026-10-15T15:22:25+08:00",
+     "observed_at": "2026-10-15T18:36:08+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $800/wk",
       "1 left at this price"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-2-bedroom-studio-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "U18 2 Bedroom Studio Female",
-  "_room": {
-   "slug": "sce-2-bedroom-studio-u18-female",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-female/",
-   "name": "U18 2 Bedroom Studio Female",
-   "type": "Studio",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 859
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-female/",
-     "observed_at": "2026-10-15T15:22:13+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $859/wk",
-      "Join the wait list"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-2-bedroom-studio-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "U18 2 Bedroom Studio Male",
-  "_room": {
-   "slug": "sce-2-bedroom-studio-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-male/",
-   "name": "U18 2 Bedroom Studio Male",
-   "type": "Studio",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 859
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-2-bedroom-studio-u18-male/",
-     "observed_at": "2026-10-15T15:22:20+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $859/wk",
-      "Join the wait list"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-standard-studio-u18": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "U18 Standard Studio",
-  "_room": {
-   "slug": "sce-standard-studio-u18",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-standard-studio-u18/",
-   "name": "U18 Standard Studio",
-   "type": "Studio",
-   "area": "?",
-   "bed": "Double",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 939
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-standard-studio-u18/",
-     "observed_at": "2026-10-15T15:22:23+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $939/wk",
-      "Join the wait list"
      ]
     }
    }
@@ -1126,7 +941,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -1164,7 +979,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-5-share-apt-ce/",
-     "observed_at": "2026-10-15T15:22:15+08:00",
+     "observed_at": "2026-10-15T18:36:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $815/wk",
@@ -1202,7 +1017,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 14:24",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -1240,7 +1055,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-6-share-apt-ce/",
-     "observed_at": "2026-10-15T14:24:39+08:00",
+     "observed_at": "2026-10-15T18:36:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $775/wk"
@@ -1277,7 +1092,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 14:24",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -1315,432 +1130,10 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central/single-bedroom-share-bathroom-ce/",
-     "observed_at": "2026-10-15T14:24:43+08:00",
+     "observed_at": "2026-10-15T18:36:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $735/wk"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-5-bedroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-  "name": "U18 5 Bedroom Female",
-  "_room": {
-   "slug": "sce-5-bedroom-u18-female",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-female/",
-   "name": "U18 5 Bedroom Female",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
-   "semesters": [
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 2 2026",
-     "suffix": "s2"
-    },
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 1 2027",
-     "suffix": ""
-    }
-   ],
-   "static_evidence": {
-    "prices": {
-     "From": 829
-    },
-    "avail_status": "available",
-    "avail_count": 3,
-    "avail_text": "3 left  at this price",
-    "date_data": {
-     "dates": [],
-     "flexible": true,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "灵活自选",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-female/",
-     "observed_at": "2026-10-15T15:22:09+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $829/wk",
-      "3 left at this price"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-5-bedroom-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "U18 5 Bedroom Male",
-  "_room": {
-   "slug": "sce-5-bedroom-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-male/",
-   "name": "U18 5 Bedroom Male",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 829
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-5-bedroom-u18-male/",
-     "observed_at": "2026-10-15T15:22:08+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $829/wk",
-      "Join the wait list"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-6-bedroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "U18 6 Bedroom Female",
-  "_room": {
-   "slug": "sce-6-bedroom-u18-female",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-female/",
-   "name": "U18 6 Bedroom Female",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 819
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-female/",
-     "observed_at": "2026-10-15T15:22:08+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $819/wk",
-      "Join the wait list"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-6-bedroom-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-  "name": "U18 6 Bedroom Male",
-  "_room": {
-   "slug": "sce-6-bedroom-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-male/",
-   "name": "U18 6 Bedroom Male",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
-   "semesters": [
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 2 2026",
-     "suffix": "s2"
-    },
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 1 2027",
-     "suffix": ""
-    }
-   ],
-   "static_evidence": {
-    "prices": {
-     "From": 819
-    },
-    "avail_status": "limited",
-    "avail_count": 1,
-    "avail_text": "1 left  at this price",
-    "date_data": {
-     "dates": [],
-     "flexible": true,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "灵活自选",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-u18-male/",
-     "observed_at": "2026-10-15T15:22:09+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $819/wk",
-      "1 left at this price"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-6-bedroom-share-bathroom-u18-female": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-  "name": "U18 6 Bedroom Share Bathroom Female",
-  "_room": {
-   "slug": "sce-6-bedroom-share-bathroom-u18-female",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-female/",
-   "name": "U18 6 Bedroom Share Bathroom Female",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
-   "semesters": [
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 2 2026",
-     "suffix": "s2"
-    },
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 1 2027",
-     "suffix": ""
-    }
-   ],
-   "static_evidence": {
-    "prices": {
-     "From": 779
-    },
-    "avail_status": "available",
-    "avail_count": 3,
-    "avail_text": "3 left  at this price",
-    "date_data": {
-     "dates": [],
-     "flexible": true,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "灵活自选",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-female/",
-     "observed_at": "2026-10-15T15:22:09+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $779/wk",
-      "3 left at this price"
-     ]
-    }
-   }
-  }
- },
- "sydney/central/sce-6-bedroom-share-bathroom-u18-male": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-  "name": "U18 6 Bedroom Share Bathroom Male",
-  "_room": {
-   "slug": "sce-6-bedroom-share-bathroom-u18-male",
-   "url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-male/",
-   "name": "U18 6 Bedroom Share Bathroom Male",
-   "type": "Share",
-   "area": "?",
-   "bed": "King Single",
-   "note": "U18",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
-   "semesters": [
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 2 2026",
-     "suffix": "s2"
-    },
-    {
-     "waitlist": null,
-     "terms": {},
-     "dates": [],
-     "fetch_status": "failed",
-     "label": "Semester 1 2027",
-     "suffix": ""
-    }
-   ],
-   "static_evidence": {
-    "prices": {
-     "From": 779
-    },
-    "avail_status": "available",
-    "avail_count": 3,
-    "avail_text": "3 left  at this price",
-    "date_data": {
-     "dates": [],
-     "flexible": true,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "灵活自选",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/central/sce-6-bedroom-share-bathroom-u18-male/",
-     "observed_at": "2026-10-15T15:22:09+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $779/wk",
-      "3 left at this price"
      ]
     }
    }
@@ -1774,7 +1167,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -1795,7 +1188,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/premium-corner-studio-apartment-cp/",
-     "observed_at": "2026-10-15T15:22:42+08:00",
+     "observed_at": "2026-10-15T18:36:21+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $1055/wk",
@@ -1833,7 +1226,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -1871,7 +1264,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/premium-studio-apartment/",
-     "observed_at": "2026-10-15T15:22:40+08:00",
+     "observed_at": "2026-10-15T18:36:21+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $1015/wk",
@@ -1885,7 +1278,7 @@
   "prices": {},
   "avail": "unknown",
   "count": null,
-  "date": "学期状态未知",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-cp",
@@ -1908,33 +1301,50 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:22",
-   "semesters": [],
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:36",
+   "semesters": [
+    {
+     "waitlist": null,
+     "terms": {},
+     "dates": [],
+     "fetch_status": "failed",
+     "label": "Semester 2 2026",
+     "suffix": "s2"
+    },
+    {
+     "waitlist": null,
+     "terms": {},
+     "dates": [],
+     "fetch_status": "failed",
+     "label": "Semester 1 2027",
+     "suffix": ""
+    }
+   ],
    "static_evidence": {
     "prices": {
      "From": 915
     },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
+    "avail_status": "limited",
+    "avail_count": 1,
+    "avail_text": "1 left  at this price",
     "date_data": {
      "dates": [],
-     "flexible": false,
+     "flexible": true,
      "flexible_start": null,
      "flexible_end": null,
      "contract_end": null,
      "shortstay_dates": [],
      "fixed_starts": {}
     },
-    "date_str": "今年无房（等位）",
+    "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/standard-studio-apartment-cp/",
-     "observed_at": "2026-10-15T15:22:33+08:00",
+     "observed_at": "2026-10-15T18:36:21+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $915/wk",
-      "Join the wait list"
+      "1 left at this price"
      ]
     }
    }
@@ -1968,7 +1378,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2006,7 +1416,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/superior-studio-apartment-cp/",
-     "observed_at": "2026-10-15T15:22:49+08:00",
+     "observed_at": "2026-10-15T18:36:21+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $995/wk"
@@ -2016,13 +1426,10 @@
   }
  },
  "sydney/central-park/single-bedroom-3-share-apt-cp": {
-  "prices": {
-   "22周": 945,
-   "44周": 885
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $945/周、44周 $885/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-08 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "3 Share Apt",
   "_room": {
    "slug": "single-bedroom-3-share-apt-cp",
@@ -2032,11 +1439,8 @@
    "area": "13m²",
    "bed": "King Single",
    "note": "3人",
-   "prices": {
-    "22周": 945,
-    "44周": 885
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -2048,8 +1452,8 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $945/周、44周 $885/周 · 学期日期：灵活起租 2026-12-01 至 2027-02-09 · 接口合同结束日 2027-07-08 · 租期日期未核验",
-   "scraped_at": "10-15 14:25",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2060,30 +1464,10 @@
      "suffix": "s2"
     },
     {
-     "waitlist": false,
-     "terms": {
-      "22周": 945,
-      "44周": 885
-     },
-     "flexible": true,
-     "flex_start": [
-      2026,
-      12,
-      1
-     ],
-     "flex_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      8
-     ],
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -2107,7 +1491,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-3-share-apt-cp/",
-     "observed_at": "2026-10-15T14:25:19+08:00",
+     "observed_at": "2026-10-15T18:36:36+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $885/wk",
@@ -2118,12 +1502,10 @@
   }
  },
  "sydney/central-park/single-bedroom-4-share-apt-cp": {
-  "prices": {
-   "短租": 925
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 学期可订 · 短租 $925/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "4 Share Apt",
   "_room": {
    "slug": "single-bedroom-4-share-apt-cp",
@@ -2133,10 +1515,8 @@
    "area": "13m²",
    "bed": "King Single",
    "note": "4人",
-   "prices": {
-    "短租": 925
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -2148,27 +1528,14 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 学期可订 · 短租 $925/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
-     "waitlist": false,
-     "terms": {
-      "短租": 925
-     },
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [
-      [
-       2026,
-       10,
-       16
-      ]
-     ],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -2200,7 +1567,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-4-share-apt-cp/",
-     "observed_at": "2026-10-15T15:22:46+08:00",
+     "observed_at": "2026-10-15T18:36:36+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $865/wk",
@@ -2238,7 +1605,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2276,7 +1643,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/single-bedroom-6-share-apt-cp/",
-     "observed_at": "2026-10-15T15:22:31+08:00",
+     "observed_at": "2026-10-15T18:36:22+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $785/wk"
@@ -2313,7 +1680,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 14:24",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2351,7 +1718,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/central-park/single-bed-6-share-apt-usyd-saex/",
-     "observed_at": "2026-10-15T14:24:57+08:00",
+     "observed_at": "2026-10-15T18:36:21+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $715/wk"
@@ -2464,7 +1831,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2502,7 +1869,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/premium-studio-apartment-ch/",
-     "observed_at": "2026-10-15T15:22:58+08:00",
+     "observed_at": "2026-10-15T18:36:50+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $815/wk"
@@ -2539,7 +1906,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2577,7 +1944,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/standard-studio-apartment-ch/",
-     "observed_at": "2026-10-15T15:22:59+08:00",
+     "observed_at": "2026-10-15T18:36:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $775/wk",
@@ -2588,13 +1955,10 @@
   }
  },
  "sydney/chatswood/superior-studio-apartment-ch": {
-  "prices": {
-   "22周": 845,
-   "44周": 785
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $845/周、44周 $785/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-ch",
@@ -2604,11 +1968,8 @@
    "area": "20m²",
    "bed": "Double",
    "note": "",
-   "prices": {
-    "22周": 845,
-    "44周": 785
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -2620,8 +1981,8 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $845/周、44周 $785/周 · 学期日期：灵活起租 2027-01-01 至 2027-02-26 · 接口合同结束日 2027-07-14 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2632,30 +1993,10 @@
      "suffix": "s2"
     },
     {
-     "waitlist": false,
-     "terms": {
-      "22周": 845,
-      "44周": 785
-     },
-     "flexible": true,
-     "flex_start": [
-      2027,
-      1,
-      1
-     ],
-     "flex_end": [
-      2027,
-      2,
-      26
-     ],
-     "contract_end": [
-      2027,
-      7,
-      14
-     ],
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -2679,7 +2020,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/superior-studio-apartment-ch/",
-     "observed_at": "2026-10-15T15:23:09+08:00",
+     "observed_at": "2026-10-15T18:36:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $785/wk"
@@ -2716,7 +2057,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2754,7 +2095,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-4-share-apt-ch/",
-     "observed_at": "2026-10-15T15:22:55+08:00",
+     "observed_at": "2026-10-15T18:36:48+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $625/wk"
@@ -2764,12 +2105,10 @@
   }
  },
  "sydney/chatswood/single-bedroom-5-share-apt-ch": {
-  "prices": {
-   "短租": 665
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 学期可订 · 短租 $665/周 · 学期日期：短租最早可入住 2026-10-18 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "5 Share Apt",
   "_room": {
    "slug": "single-bedroom-5-share-apt-ch",
@@ -2779,10 +2118,8 @@
    "area": "13.4m²",
    "bed": "King Single",
    "note": "5人",
-   "prices": {
-    "短租": 665
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -2794,27 +2131,14 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 学期可订 · 短租 $665/周 · 学期日期：短租最早可入住 2026-10-18 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 14:25",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
-     "waitlist": false,
-     "terms": {
-      "短租": 665
-     },
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [
-      [
-       2026,
-       10,
-       18
-      ]
-     ],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -2846,7 +2170,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-5-share-apt-ch/",
-     "observed_at": "2026-10-15T14:25:37+08:00",
+     "observed_at": "2026-10-15T18:36:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $605/wk"
@@ -2883,7 +2207,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:22",
+   "scraped_at": "10-15 18:36",
    "semesters": [
     {
      "waitlist": null,
@@ -2921,7 +2245,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/single-bedroom-6-share-apt-ch/",
-     "observed_at": "2026-10-15T15:22:58+08:00",
+     "observed_at": "2026-10-15T18:36:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $585/wk"
@@ -2958,7 +2282,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 14:25",
+   "scraped_at": "10-15 18:36",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -2979,7 +2303,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/chatswood/single-bed-6-share-apt-mqu-saex/",
-     "observed_at": "2026-10-15T14:25:33+08:00",
+     "observed_at": "2026-10-15T18:36:47+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $555/wk",
@@ -3017,7 +2341,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -3055,7 +2379,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot/premium-studio-apartment-ma/",
-     "observed_at": "2026-10-15T15:23:29+08:00",
+     "observed_at": "2026-10-15T18:37:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $825/wk"
@@ -3092,7 +2416,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -3130,7 +2454,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot/standard-studio-apartment-ma/",
-     "observed_at": "2026-10-15T15:23:17+08:00",
+     "observed_at": "2026-10-15T18:37:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $805/wk"
@@ -3140,13 +2464,10 @@
   }
  },
  "sydney/mascot/standard-studio-apartment-queen": {
-  "prices": {
-   "22周": 965,
-   "44周": 905
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Standard Studio Queen",
   "_room": {
    "slug": "standard-studio-apartment-queen",
@@ -3156,11 +2477,8 @@
    "area": "21m²",
    "bed": "Queen",
    "note": "",
-   "prices": {
-    "22周": 965,
-    "44周": 905
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -3172,47 +2490,22 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-09 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
-     "waitlist": true,
+     "waitlist": null,
      "terms": {},
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
     {
-     "waitlist": false,
-     "terms": {
-      "22周": 965,
-      "44周": 905
-     },
-     "flexible": true,
-     "flex_start": [
-      2027,
-      1,
-      5
-     ],
-     "flex_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      9
-     ],
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -3236,7 +2529,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot/standard-studio-apartment-queen/",
-     "observed_at": "2026-10-15T15:23:25+08:00",
+     "observed_at": "2026-10-15T18:37:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $905/wk",
@@ -3274,7 +2567,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -3312,70 +2605,11 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot/single-bedroom-6-share-apt-ma/",
-     "observed_at": "2026-10-15T15:23:22+08:00",
+     "observed_at": "2026-10-15T18:37:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $685/wk",
       "3 left at this price"
-     ]
-    }
-   }
-  }
- },
- "sydney/mascot/single-bed-6-share-apt-unsw-saex": {
-  "prices": {},
-  "avail": "unknown",
-  "count": null,
-  "date": "学期状态未知",
-  "name": "Mascot 6 Bedroom (UNSW SAEX)",
-  "_room": {
-   "slug": "single-bed-6-share-apt-unsw-saex",
-   "url": "https://iglu.com.au/rooms/sydney/mascot/single-bed-6-share-apt-unsw-saex/",
-   "name": "Mascot 6 Bedroom (UNSW SAEX)",
-   "type": "Share",
-   "area": "14m²",
-   "bed": "Double",
-   "note": "",
-   "prices": {},
-   "avail_status": "unknown",
-   "avail_count": null,
-   "avail_text": "",
-   "date_data": {
-    "dates": [],
-    "shortstay_dates": [],
-    "fixed_starts": {},
-    "flexible": false,
-    "flexible_start": null,
-    "flexible_end": null,
-    "contract_end": null
-   },
-   "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:23",
-   "semesters": [],
-   "static_evidence": {
-    "prices": {
-     "From": 645
-    },
-    "avail_status": "waitlist",
-    "avail_count": null,
-    "avail_text": "",
-    "date_data": {
-     "dates": [],
-     "flexible": false,
-     "flexible_start": null,
-     "flexible_end": null,
-     "contract_end": null,
-     "shortstay_dates": [],
-     "fixed_starts": {}
-    },
-    "date_str": "今年无房（等位）",
-    "visible_overview": {
-     "source_url": "https://iglu.com.au/rooms/sydney/mascot/single-bed-6-share-apt-unsw-saex/",
-     "observed_at": "2026-10-15T15:23:29+08:00",
-     "capture_kind": "live_room_page_visible_text",
-     "snippets": [
-      "From $645/wk",
-      "Join the wait list"
      ]
     }
    }
@@ -3409,7 +2643,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 14:26",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -3447,7 +2681,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot/premium-single-bedroom-6-share-ma/",
-     "observed_at": "2026-10-15T14:26:02+08:00",
+     "observed_at": "2026-10-15T18:37:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $705/wk"
@@ -3484,7 +2718,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -3522,7 +2756,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot-duo/premium-studio-apartment-md/",
-     "observed_at": "2026-10-15T15:23:38+08:00",
+     "observed_at": "2026-10-15T18:37:22+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $845/wk"
@@ -3532,13 +2766,10 @@
   }
  },
  "sydney/mascot-duo/standard-studio-apartment-md": {
-  "prices": {
-   "22周": 875,
-   "44周": 815
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-md",
@@ -3548,11 +2779,8 @@
    "area": "17.7m²",
    "bed": "Double",
    "note": "",
-   "prices": {
-    "22周": 875,
-    "44周": 815
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -3564,47 +2792,22 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $875/周、44周 $815/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
-     "waitlist": true,
+     "waitlist": null,
      "terms": {},
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
     {
-     "waitlist": false,
-     "terms": {
-      "22周": 875,
-      "44周": 815
-     },
-     "flexible": true,
-     "flex_start": [
-      2027,
-      1,
-      5
-     ],
-     "flex_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      6
-     ],
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -3628,7 +2831,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot-duo/standard-studio-apartment-md/",
-     "observed_at": "2026-10-15T15:23:52+08:00",
+     "observed_at": "2026-10-15T18:37:23+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $815/wk",
@@ -3639,13 +2842,10 @@
   }
  },
  "sydney/mascot-duo/superior-studio-apartment-md": {
-  "prices": {
-   "22周": 885,
-   "44周": 825
-  },
-  "avail": "available",
+  "prices": {},
+  "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $885/周、44周 $825/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Superior Studio",
   "_room": {
    "slug": "superior-studio-apartment-md",
@@ -3655,11 +2855,8 @@
    "area": "17.7m²",
    "bed": "Double",
    "note": "",
-   "prices": {
-    "22周": 885,
-    "44周": 825
-   },
-   "avail_status": "available",
+   "prices": {},
+   "avail_status": "unknown",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -3671,47 +2868,22 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $885/周、44周 $825/周 · 学期日期：灵活起租 2027-01-05 至 2027-02-09 · 接口合同结束日 2027-07-06 · 租期日期未核验",
-   "scraped_at": "10-15 15:23",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
-     "waitlist": true,
+     "waitlist": null,
      "terms": {},
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
     {
-     "waitlist": false,
-     "terms": {
-      "22周": 885,
-      "44周": 825
-     },
-     "flexible": true,
-     "flex_start": [
-      2027,
-      1,
-      5
-     ],
-     "flex_end": [
-      2027,
-      2,
-      9
-     ],
-     "contract_end": [
-      2027,
-      7,
-      6
-     ],
+     "waitlist": null,
+     "terms": {},
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -3735,7 +2907,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/mascot-duo/superior-studio-apartment-md/",
-     "observed_at": "2026-10-15T15:23:52+08:00",
+     "observed_at": "2026-10-15T18:37:23+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $825/wk"
@@ -3847,7 +3019,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -3868,7 +3040,7 @@
     "date_str": "待定",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/single-studio-apartment-re/",
-     "observed_at": "2026-10-15T15:24:05+08:00",
+     "observed_at": "2026-10-15T18:37:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $845/wk",
@@ -3966,7 +3138,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -4004,7 +3176,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-re/",
-     "observed_at": "2026-10-15T15:24:08+08:00",
+     "observed_at": "2026-10-15T18:37:34+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $865/wk"
@@ -4041,7 +3213,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4062,7 +3234,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/standard-studio-apartment-nras/",
-     "observed_at": "2026-10-15T15:24:27+08:00",
+     "observed_at": "2026-10-15T18:37:48+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $672/wk",
@@ -4100,7 +3272,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -4138,7 +3310,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/sre-premium-studio-u18/",
-     "observed_at": "2026-10-15T15:24:41+08:00",
+     "observed_at": "2026-10-15T18:38:03+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $965/wk"
@@ -4175,7 +3347,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -4213,7 +3385,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/u18-standard-studio/",
-     "observed_at": "2026-10-15T15:24:41+08:00",
+     "observed_at": "2026-10-15T18:38:02+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $885/wk"
@@ -4250,7 +3422,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4271,7 +3443,7 @@
     "date_str": "待定",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-4-share-apt-re/",
-     "observed_at": "2026-10-15T15:24:06+08:00",
+     "observed_at": "2026-10-15T18:37:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $775/wk",
@@ -4310,7 +3482,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4331,7 +3503,7 @@
     "date_str": "待定",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-5-share-apt-re/",
-     "observed_at": "2026-10-15T15:24:05+08:00",
+     "observed_at": "2026-10-15T18:37:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $755/wk",
@@ -4370,7 +3542,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -4408,7 +3580,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/single-bedroom-6-share-apt-re/",
-     "observed_at": "2026-10-15T15:24:07+08:00",
+     "observed_at": "2026-10-15T18:37:33+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $725/wk"
@@ -4510,7 +3682,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -4548,7 +3720,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/single-bed-6-share-apt-saex-sre/",
-     "observed_at": "2026-10-15T15:24:07+08:00",
+     "observed_at": "2026-10-15T18:37:34+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $675/wk"
@@ -4585,7 +3757,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 14:26",
+   "scraped_at": "10-15 18:38",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4606,7 +3778,7 @@
     "date_str": "待定",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-female/",
-     "observed_at": "2026-10-15T14:26:54+08:00",
+     "observed_at": "2026-10-15T18:38:00+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $795/wk",
@@ -4645,7 +3817,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 14:26",
+   "scraped_at": "10-15 18:37",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -4666,7 +3838,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/sre-4-bedroom-u18-male/",
-     "observed_at": "2026-10-15T14:26:41+08:00",
+     "observed_at": "2026-10-15T18:37:59+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $795/wk",
@@ -4704,7 +3876,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -4728,8 +3900,8 @@
      "From": 745
     },
     "avail_status": "available",
-    "avail_count": 5,
-    "avail_text": "5 left  at this price",
+    "avail_count": null,
+    "avail_text": "",
     "date_data": {
      "dates": [],
      "flexible": true,
@@ -4742,11 +3914,10 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-female/",
-     "observed_at": "2026-10-15T15:24:28+08:00",
+     "observed_at": "2026-10-15T18:37:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
-      "From $745/wk",
-      "5 left at this price"
+      "From $745/wk"
      ]
     }
    }
@@ -4780,7 +3951,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:37",
    "semesters": [
     {
      "waitlist": null,
@@ -4818,7 +3989,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/redfern/sre-6-bedroom-u18-male/",
-     "observed_at": "2026-10-15T15:24:28+08:00",
+     "observed_at": "2026-10-15T18:37:49+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $745/wk"
@@ -4855,7 +4026,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -4893,7 +4064,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/summer-hill/premium-studio-apartment-sh/",
-     "observed_at": "2026-10-15T15:24:50+08:00",
+     "observed_at": "2026-10-15T18:38:12+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $755/wk"
@@ -4930,7 +4101,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:24",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -4968,7 +4139,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/summer-hill/standard-studio-apartment-sh/",
-     "observed_at": "2026-10-15T15:24:50+08:00",
+     "observed_at": "2026-10-15T18:38:12+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $735/wk"
@@ -4978,10 +4149,14 @@
   }
  },
  "sydney/waterloo/premium-corner-studio-apartment-wa": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "短租": 965,
+   "22周": 965,
+   "44周": 905
+  },
+  "avail": "available",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 学期可订 · 短租 $965/周 · 学期日期：短租最早可入住 2026-10-19 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周、短租 价格未知 · 学期日期：44周固定起租 2027-02-09 · 22周固定起租 2027-02-09 · 租期日期未核验",
   "name": "Premium Corner Studio",
   "_room": {
    "slug": "premium-corner-studio-apartment-wa",
@@ -4991,8 +4166,12 @@
    "area": "17.3m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "短租": 965,
+    "22周": 965,
+    "44周": 905
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -5004,22 +4183,59 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "date_str": "S2 2026 · 学期可订 · 短租 $965/周 · 学期日期：短租最早可入住 2026-10-19 · 租期日期未核验；S1 2027 · 学期可订 · 22周 $965/周、44周 $905/周、短租 价格未知 · 学期日期：44周固定起租 2027-02-09 · 22周固定起租 2027-02-09 · 租期日期未核验",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
-     "waitlist": null,
-     "terms": {},
+     "waitlist": false,
+     "terms": {
+      "短租": 965
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
      "dates": [],
-     "fetch_status": "failed",
+     "shortstay_dates": [
+      [
+       2026,
+       10,
+       19
+      ]
+     ],
+     "fixed_starts": {},
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
     {
-     "waitlist": null,
-     "terms": {},
+     "waitlist": false,
+     "terms": {
+      "22周": 965,
+      "44周": 905,
+      "短租": null
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
      "dates": [],
-     "fetch_status": "failed",
+     "shortstay_dates": [],
+     "fixed_starts": {
+      "22周": [
+       [
+        2027,
+        2,
+        9
+       ]
+      ],
+      "44周": [
+       [
+        2027,
+        2,
+        9
+       ]
+      ]
+     },
      "label": "Semester 1 2027",
      "suffix": ""
     }
@@ -5043,7 +4259,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/premium-corner-studio-apartment-wa/",
-     "observed_at": "2026-10-15T15:25:07+08:00",
+     "observed_at": "2026-10-15T18:38:46+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $905/wk"
@@ -5080,7 +4296,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5118,7 +4334,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/premium-studio-apartment-wa/",
-     "observed_at": "2026-10-15T15:25:05+08:00",
+     "observed_at": "2026-10-15T18:38:23+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $865/wk"
@@ -5155,7 +4371,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5193,7 +4409,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/standard-studio-apartment-wa/",
-     "observed_at": "2026-10-15T15:25:05+08:00",
+     "observed_at": "2026-10-15T18:38:23+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $825/wk"
@@ -5230,7 +4446,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5268,7 +4484,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/superior-studio-apartment-wa/",
-     "observed_at": "2026-10-15T15:25:05+08:00",
+     "observed_at": "2026-10-15T18:38:22+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $845/wk"
@@ -5305,7 +4521,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -5326,7 +4542,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/standard-studio-apartment-mqu-saex/",
-     "observed_at": "2026-10-15T15:25:04+08:00",
+     "observed_at": "2026-10-15T18:38:22+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $805/wk",
@@ -5364,7 +4580,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -5385,7 +4601,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/standard-studio-unsw-saex/",
-     "observed_at": "2026-10-15T15:25:04+08:00",
+     "observed_at": "2026-10-15T18:38:22+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $805/wk",
@@ -5423,7 +4639,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5461,7 +4677,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/sydney/waterloo/single-bedroom-2-share-apt-wa/",
-     "observed_at": "2026-10-15T15:25:06+08:00",
+     "observed_at": "2026-10-15T18:38:23+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $685/wk"
@@ -5498,7 +4714,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5536,7 +4752,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-corner-studio-apartment-fg/",
-     "observed_at": "2026-10-15T15:25:26+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $705/wk",
@@ -5574,7 +4790,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5612,7 +4828,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-studio-apartment-fg/",
-     "observed_at": "2026-10-15T15:25:26+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $665/wk"
@@ -5625,7 +4841,7 @@
   "prices": {},
   "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Single Studio",
   "_room": {
    "slug": "single-studio-apartment",
@@ -5648,19 +4864,14 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
-     "waitlist": true,
+     "waitlist": null,
      "terms": {},
-     "flexible": false,
-     "flex_start": null,
-     "flex_end": null,
-     "contract_end": null,
      "dates": [],
-     "shortstay_dates": [],
-     "fixed_starts": {},
+     "fetch_status": "failed",
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -5692,7 +4903,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/single-studio-apartment/",
-     "observed_at": "2026-10-15T15:25:27+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $695/wk",
@@ -5730,7 +4941,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5768,7 +4979,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/standard-studio-apartment-fg/",
-     "observed_at": "2026-10-15T15:25:26+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $635/wk"
@@ -5805,7 +5016,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5843,7 +5054,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/single-bedroom-2-share-apt-fg/",
-     "observed_at": "2026-10-15T15:25:26+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $515/wk"
@@ -5880,7 +5091,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:38",
    "semesters": [
     {
      "waitlist": null,
@@ -5918,7 +5129,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-gardens/premium-single-bedroom-2-share-fg/",
-     "observed_at": "2026-10-15T15:25:26+08:00",
+     "observed_at": "2026-10-15T18:38:51+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $615/wk"
@@ -5955,7 +5166,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -5993,7 +5204,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/premium-studio-apartment-fs/",
-     "observed_at": "2026-10-15T15:25:48+08:00",
+     "observed_at": "2026-10-15T18:39:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $705/wk"
@@ -6030,7 +5241,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6068,7 +5279,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/premium-studio-apartment-cnr-fs/",
-     "observed_at": "2026-10-15T15:25:48+08:00",
+     "observed_at": "2026-10-15T18:39:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $745/wk",
@@ -6106,7 +5317,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6144,7 +5355,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/standard-studio-apartment-fs/",
-     "observed_at": "2026-10-15T15:25:48+08:00",
+     "observed_at": "2026-10-15T18:39:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $675/wk"
@@ -6181,7 +5392,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:25",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6219,7 +5430,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/flagstaff-station/single-bedroom-2-share-apt-fs/",
-     "observed_at": "2026-10-15T15:25:48+08:00",
+     "observed_at": "2026-10-15T18:39:07+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $535/wk"
@@ -6232,7 +5443,7 @@
   "prices": {},
   "avail": "unknown",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Melbourne Central Premium Studio (RMIT SAEX)",
   "_room": {
    "slug": "premium-studio-apartment-rmit-saex",
@@ -6255,14 +5466,19 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "date_str": "S2 2026 · 等位 · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
-     "waitlist": null,
+     "waitlist": true,
      "terms": {},
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
      "dates": [],
-     "fetch_status": "failed",
+     "shortstay_dates": [],
+     "fixed_starts": {},
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -6294,7 +5510,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-central/premium-studio-apartment-rmit-saex/",
-     "observed_at": "2026-10-15T15:26:00+08:00",
+     "observed_at": "2026-10-15T18:39:25+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $635/wk"
@@ -6304,10 +5520,12 @@
   }
  },
  "melbourne/melbourne-central/premium-studio-apartment-mce": {
-  "prices": {},
-  "avail": "unknown",
+  "prices": {
+   "短租": 715
+  },
+  "avail": "available",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+  "date": "S2 2026 · 学期可订 · 短租 $715/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
   "name": "Premium Studio",
   "_room": {
    "slug": "premium-studio-apartment-mce",
@@ -6317,8 +5535,10 @@
    "area": "18m²",
    "bed": "Double",
    "note": "",
-   "prices": {},
-   "avail_status": "unknown",
+   "prices": {
+    "短租": 715
+   },
+   "avail_status": "available",
    "avail_count": null,
    "avail_text": "",
    "date_data": {
@@ -6330,14 +5550,27 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "date_str": "S2 2026 · 学期可订 · 短租 $715/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
-     "waitlist": null,
-     "terms": {},
+     "waitlist": false,
+     "terms": {
+      "短租": 715
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
      "dates": [],
-     "fetch_status": "failed",
+     "shortstay_dates": [
+      [
+       2026,
+       10,
+       16
+      ]
+     ],
+     "fixed_starts": {},
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -6369,7 +5602,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-central/premium-studio-apartment-mce/",
-     "observed_at": "2026-10-15T15:26:01+08:00",
+     "observed_at": "2026-10-15T18:39:25+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $665/wk"
@@ -6406,7 +5639,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6444,7 +5677,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-central/standard-studio-apartment-mce/",
-     "observed_at": "2026-10-15T15:26:01+08:00",
+     "observed_at": "2026-10-15T18:39:24+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $635/wk"
@@ -6481,7 +5714,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6519,7 +5752,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/premium-studio-apartment-mc/",
-     "observed_at": "2026-10-15T15:26:16+08:00",
+     "observed_at": "2026-10-15T18:39:40+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $705/wk"
@@ -6556,7 +5789,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6594,7 +5827,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/standard-studio-apartment-mc/",
-     "observed_at": "2026-10-15T15:26:16+08:00",
+     "observed_at": "2026-10-15T18:39:40+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $665/wk"
@@ -6631,7 +5864,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6669,7 +5902,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-premium-studio-u18/",
-     "observed_at": "2026-10-15T15:26:30+08:00",
+     "observed_at": "2026-10-15T18:39:56+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $705/wk",
@@ -6707,7 +5940,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6745,7 +5978,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-standard-studio-u18/",
-     "observed_at": "2026-10-15T15:26:29+08:00",
+     "observed_at": "2026-10-15T18:39:57+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $665/wk"
@@ -6782,7 +6015,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -6803,7 +6036,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bedroom-5-share-apt-mc/",
-     "observed_at": "2026-10-15T15:26:16+08:00",
+     "observed_at": "2026-10-15T18:39:39+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $525/wk",
@@ -6841,7 +6074,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -6879,7 +6112,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bedroom-6-share-apt-mc/",
-     "observed_at": "2026-10-15T15:26:16+08:00",
+     "observed_at": "2026-10-15T18:39:41+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $515/wk"
@@ -6916,7 +6149,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -6937,7 +6170,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bed-6-share-apt-monash-saex/",
-     "observed_at": "2026-10-15T15:26:15+08:00",
+     "observed_at": "2026-10-15T18:39:40+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $495/wk",
@@ -6975,7 +6208,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -7013,7 +6246,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/single-bed-6-share-apt-rmit-saex/",
-     "observed_at": "2026-10-15T15:26:16+08:00",
+     "observed_at": "2026-10-15T18:39:40+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $495/wk"
@@ -7050,7 +6283,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -7071,7 +6304,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-5-bedroom-u18-female/",
-     "observed_at": "2026-10-15T15:26:28+08:00",
+     "observed_at": "2026-10-15T18:39:56+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $525/wk",
@@ -7109,7 +6342,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -7130,7 +6363,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-5-bedroom-u18-male/",
-     "observed_at": "2026-10-15T15:26:28+08:00",
+     "observed_at": "2026-10-15T18:39:55+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $525/wk",
@@ -7168,7 +6401,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -7206,7 +6439,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-6-bedroom-u18-female/",
-     "observed_at": "2026-10-15T15:26:30+08:00",
+     "observed_at": "2026-10-15T18:39:55+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $515/wk"
@@ -7243,7 +6476,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:39",
    "semesters": [
     {
      "waitlist": null,
@@ -7281,7 +6514,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/melbourne-city/mce-6-bedroom-u18-male/",
-     "observed_at": "2026-10-15T15:26:28+08:00",
+     "observed_at": "2026-10-15T18:39:55+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $515/wk"
@@ -7318,7 +6551,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7356,7 +6589,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-studio-apartment-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $715/wk"
@@ -7393,7 +6626,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7431,7 +6664,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-studio-apartment-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $665/wk"
@@ -7442,12 +6675,13 @@
  },
  "melbourne/south-yarra/standard-studio-apartment-sy": {
   "prices": {
+   "短租": 745,
    "6月": 745,
    "12月": 685
   },
   "avail": "available",
   "count": null,
-  "date": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $685/周 · 学期日期：灵活起租 2026-10-16 至 2026-12-31 · 12月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 6月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 接口合同结束日 2027-06-29 · 租期日期未核验",
+  "date": "S2 2026 · 学期可订 · 短租 $745/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $685/周 · 学期日期：灵活起租 2026-10-16 至 2026-12-31 · 12月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 6月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 接口合同结束日 2027-06-29 · 租期日期未核验",
   "name": "Standard Studio",
   "_room": {
    "slug": "standard-studio-apartment-sy",
@@ -7458,6 +6692,7 @@
    "bed": "Double",
    "note": "",
    "prices": {
+    "短租": 745,
     "6月": 745,
     "12月": 685
    },
@@ -7473,14 +6708,27 @@
     "flexible_end": null,
     "contract_end": null
    },
-   "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $685/周 · 学期日期：灵活起租 2026-10-16 至 2026-12-31 · 12月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 6月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 接口合同结束日 2027-06-29 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "date_str": "S2 2026 · 学期可订 · 短租 $745/周 · 学期日期：短租最早可入住 2026-10-16 · 租期日期未核验；S1 2027 · 学期可订 · 6月 $745/周、12月 $685/周 · 学期日期：灵活起租 2026-10-16 至 2026-12-31 · 12月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 6月固定起租 2026-12-30、2027-02-03、2027-02-10、2027-02-17 · 接口合同结束日 2027-06-29 · 租期日期未核验",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
-     "waitlist": null,
-     "terms": {},
+     "waitlist": false,
+     "terms": {
+      "短租": 745
+     },
+     "flexible": false,
+     "flex_start": null,
+     "flex_end": null,
+     "contract_end": null,
      "dates": [],
-     "fetch_status": "failed",
+     "shortstay_dates": [
+      [
+       2026,
+       10,
+       16
+      ]
+     ],
+     "fixed_starts": {},
      "label": "Semester 2 2026",
      "suffix": "s2"
     },
@@ -7577,7 +6825,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/standard-studio-apartment-sy/",
-     "observed_at": "2026-10-15T15:27:02+08:00",
+     "observed_at": "2026-10-15T18:40:32+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $685/wk"
@@ -7614,7 +6862,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7652,7 +6900,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-bedroom-5-share-apt-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $565/wk"
@@ -7689,7 +6937,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7727,7 +6975,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/single-bedroom-6-share-apt-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $555/wk"
@@ -7764,7 +7012,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7802,7 +7050,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-single-bedroom-5-share-apt-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $585/wk"
@@ -7839,7 +7087,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:26",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7877,7 +7125,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/melbourne/south-yarra/premium-single-bedroom-6-share-apt-sy/",
-     "observed_at": "2026-10-15T15:26:49+08:00",
+     "observed_at": "2026-10-15T18:40:14+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $575/wk"
@@ -7914,7 +7162,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -7952,7 +7200,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/premium-studio-apartment-bc/",
-     "observed_at": "2026-10-15T15:27:14+08:00",
+     "observed_at": "2026-10-15T18:40:40+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $779/wk",
@@ -7990,7 +7238,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8028,7 +7276,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/standard-studio-apartment-bc/",
-     "observed_at": "2026-10-15T15:27:15+08:00",
+     "observed_at": "2026-10-15T18:40:39+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $719/wk"
@@ -8065,7 +7313,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8103,7 +7351,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/single-bedroom-5-share-apt-bc/",
-     "observed_at": "2026-10-15T15:27:14+08:00",
+     "observed_at": "2026-10-15T18:40:39+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $529/wk",
@@ -8141,7 +7389,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8179,7 +7427,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/single-bedroom-6-share-apt-bc/",
-     "observed_at": "2026-10-15T15:27:14+08:00",
+     "observed_at": "2026-10-15T18:40:39+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $519/wk"
@@ -8216,7 +7464,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8237,7 +7485,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/single-bed-6-share-apt-uq-saex/",
-     "observed_at": "2026-10-15T15:27:13+08:00",
+     "observed_at": "2026-10-15T18:40:38+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $429/wk",
@@ -8275,7 +7523,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8313,7 +7561,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/brisbane-city/student-room-shared-bathroom-bc/",
-     "observed_at": "2026-10-15T15:27:14+08:00",
+     "observed_at": "2026-10-15T18:40:39+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $429/wk"
@@ -8350,7 +7598,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8371,7 +7619,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/1-bedroom-apartment-kg/",
-     "observed_at": "2026-10-15T15:27:30+08:00",
+     "observed_at": "2026-10-15T18:40:56+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $729/wk",
@@ -8409,7 +7657,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8447,7 +7695,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-2-share-apt-kg/",
-     "observed_at": "2026-10-15T15:27:31+08:00",
+     "observed_at": "2026-10-15T18:40:57+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $479/wk"
@@ -8484,7 +7732,7 @@
     "contract_end": null
    },
    "date_str": "学期状态未知",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [],
    "static_evidence": {
     "prices": {
@@ -8505,7 +7753,7 @@
     "date_str": "今年无房（等位）",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-3-share-apt-kg/",
-     "observed_at": "2026-10-15T15:27:30+08:00",
+     "observed_at": "2026-10-15T18:40:56+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $449/wk",
@@ -8543,7 +7791,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8581,7 +7829,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-5-share-apt-kg/",
-     "observed_at": "2026-10-15T15:27:31+08:00",
+     "observed_at": "2026-10-15T18:40:57+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $399/wk"
@@ -8618,7 +7866,7 @@
     "contract_end": null
    },
    "date_str": "S2 2026 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验；S1 2027 · 未知（接口未确认） · 学期日期：未知 · 租期日期未核验",
-   "scraped_at": "10-15 15:27",
+   "scraped_at": "10-15 18:40",
    "semesters": [
     {
      "waitlist": null,
@@ -8656,7 +7904,7 @@
     "date_str": "灵活自选",
     "visible_overview": {
      "source_url": "https://iglu.com.au/rooms/brisbane/kelvin-grove/single-bedroom-6-share-apt-kg/",
-     "observed_at": "2026-10-15T15:27:31+08:00",
+     "observed_at": "2026-10-15T18:40:57+08:00",
      "capture_kind": "live_room_page_visible_text",
      "snippets": [
       "From $399/wk"
