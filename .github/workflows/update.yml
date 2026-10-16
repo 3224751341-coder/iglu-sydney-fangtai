@@ -55,7 +55,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # wecom_queue*.json 用通配符：以后在 RECIPIENTS 里加新城市机器人，新的队列文件
           # （wecom_queue_xxx.json）会自动被提交，不用再改这个 workflow 文件
-          git add data_snapshot.json container/public/index.html wecom_queue*.json
+          # .platform-source.json + .platform-base/ 是协作应用的发布基准（2026-10-16）：
+          # 发布成功后发布工具会写回新的 revision/基准，不提交的话仓库里的基准会停在旧
+          # revision，下一轮发布会被网关当成「基于旧代码改的」而拒。
+          git add data_snapshot.json container/public/index.html wecom_queue*.json \
+                  container/.platform-source.json container/.platform-base
           if git diff --cached --quiet; then
             echo "快照无变化，跳过提交"
           else

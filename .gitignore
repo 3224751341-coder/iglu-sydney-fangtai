@@ -1,3 +1,6 @@
 __pycache__/
 .agent_cookies.txt
 qa-output/
+
+# 发布工具缓存（运行时从平台拉取，见 deploy_uhouzz.py）
+.publish-tool/
