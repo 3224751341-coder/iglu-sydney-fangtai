@@ -1,6 +1,6 @@
 {
   "name": "iglu-rate-desk",
-  "revision": "331596761ad6af40609321acc4d3fa2fcb28c6d2",
+  "revision": "378a534302c067743e6aeba477d6c8a7c1527fab",
   "ports": "80",
   "complete": true,
   "conflicts": {},
@@ -11,7 +11,7 @@
     "scraper.mjs": "bf392ecc1fe1643fbbb4e47ae6ecc0348354f79366e1d4e6a36008463ccb43d8",
     "server.mjs": "9dddf583a458b379cf0b0d94be1840302e9521b803b5d91bbd6ef5bc02593468",
     "data/cache.html": "6b54d5629c262b780e858d96699e4cecb9d7f0ba365c5158edf0f010956a8e26",
-    "public/index.html": "467e66438fea5e0db99301c5fc0d3afed1221028f0d5cc3453f125aea5e59aae"
+    "public/index.html": "124e1338c559b6ad8bf753ed06a19f74976a01c399fe3697c35ed746fef7e9b1"
   },
   "gateway": "https://app.uhomes.com/gateway"
 }
